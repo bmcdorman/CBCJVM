@@ -1,0 +1,8 @@
+package cbccore.tests;
+
+public class Motors {
+	public static void main(String[] args) {
+		Motor left = new Motor(0);
+		TwoWheelDriver driver = new TwoWheelDriver();
+	}
+}

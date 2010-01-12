@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1240690337 source:/home/beta/Development/kissc2cbcjava/main.cpp
+	<iostream>
+	<string>
+	<fstream>
+	<stdint.h>
+	"replacements.h"
+	<sys/types.h>
+	<fcntl.h>
+	<unistd.h>
+
+1240690105 /home/beta/Development/kissc2cbcjava/replacements.h
+

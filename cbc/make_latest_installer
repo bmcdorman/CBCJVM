@@ -1,0 +1,13 @@
+#!/bin/sh
+rm -Rf installer/install_data
+mkdir installer/install_data
+mkdir installer/install_data/lib
+cp -R lib/* installer/install_data/lib
+mkdir installer/install_data/java
+cp -R java/* installer/install_data/java
+mkdir installer/install_data/java/cbc
+cp -R wrapper/CBCWrapper/bin/* installer/install_data/java/cbc
+cp -R wrapper/jni installer/install_data/java/cbc
+cp -R cjm installer/install_data/java
+mkdir installer/install_data/code
+cp -R HelloWorld installer/install_data/code/HelloWorld/

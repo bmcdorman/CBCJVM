@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="eclipse/CBC/src"/>
+	<classpathentry excluding="Test/src/|bin/" kind="src" path="kissc2cbcjava"/>
+	<classpathentry kind="src" path="kissc2cbcjava/bin"/>
+	<classpathentry kind="src" path="kissc2cbcjava/Test/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="eclipse/CBC/bin"/>
+</classpath>

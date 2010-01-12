@@ -1,10 +1,10 @@
 package cbccore.sensors.digital;
 
-import cbccore.DeviceSingleton;
+import cbccore.Device;
 import cbccore.InvalidPortException;
 
 public class Touch {
-	private cbccore.low.Sensor lowSensor = DeviceSingleton.getInstance().getLowSensorController();
+	private cbccore.low.Sensor lowSensor = Device.getLowSensorController();
 	private int port = 0;
 	public Touch(int port) throws InvalidPortException {
 		// TODO: Check port validity

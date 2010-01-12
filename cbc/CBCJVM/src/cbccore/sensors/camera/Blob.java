@@ -1,5 +1,7 @@
 package cbccore.sensors.camera;
 
+import cbccore.Device;
+
 public class Blob {
 	private int x = 0;
 	private int y = 0;
@@ -14,7 +16,8 @@ public class Blob {
 	private int majorAxis = 0;
 	private int confidence = 0;
 	private int size = 0;
-	public Blob(cbccore.low.Camera lowCamera, Channel c, int i) {
+	private cbccore.low.Camera lowCamera = Device.getLowCameraController();
+	public Blob(Channel c, int i) {
 		int ch = c.getChannelID();
 		x = lowCamera.track_x(ch, i);
 		y = lowCamera.track_y(ch, i);

@@ -1,0 +1,34 @@
+package cbccore;
+
+import cbccore.low.*;
+
+public class DeviceSingleton {
+	private static Motor lowMotors = new Motor();
+	private static Servo lowServos = new Servo();
+	private static Camera lowCamera = new Camera();
+	private static Device lowDevice = new Device();
+	private static Input lowInput = new Input();
+	private static Sound lowSound = new Sound();
+	private static Sensor lowSensor = new Sensor();
+	public Motor getLowMotorController() {
+		return lowMotors;
+	}
+	public Servo getLowServoController() {
+		return lowServos;
+	}
+	public Camera getLowCameraController() {
+		return lowCamera;
+	}
+	public Device getLowDeviceController() {
+		return lowDevice;
+	}
+	public Input getLowInputController() {
+		return lowInput;
+	}
+	public Sound getLowSoundController() {
+		return lowSound;
+	}
+	public Sensor getLowSensorController() {
+		return lowSensor;
+	}
+}

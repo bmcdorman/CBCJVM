@@ -11,7 +11,7 @@ public class Channel {
 		return lowCamera.track_count(ch);
 	}
 	public Blob getBlob(int i) {
-		return new Blob(lowCamera, this, i);
+		return new Blob(this, i);
 	}
 	public int getChannelID() {
 		return ch;

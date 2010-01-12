@@ -1,11 +1,11 @@
 package cbccore.motors;
 
-import cbccore.DeviceSingleton;
+import cbccore.Device;
 import cbccore.InvalidPortException;
 
 public class Motor {
 	private int port = 0;
-	private cbccore.low.Motor lowMotor = DeviceSingleton.getInstance().getLowMotorController();
+	private cbccore.low.Motor lowMotor = Device.getLowMotorController();
 	
 	public Motor(int port) throws InvalidPortException {
 		if(port < 0 || port > 4) throw new InvalidPortException();

@@ -1,9 +1,9 @@
 package cbccore.sensors.camera;
 
-import cbccore.DeviceSingleton;
+import cbccore.Device;
 
 public class Camera {
-	private cbccore.low.Camera lowCamera = DeviceSingleton.getInstance().getLowCameraController();
+	private cbccore.low.Camera lowCamera = Device.getLowCameraController();
 	public Camera() {
 		lowCamera.track_init();
 	}      

@@ -1,0 +1,10 @@
+package cbccore.motors;
+
+public abstract class Movement {
+	public Movement() {
+		
+	}
+	public int getDistance();
+	public int getSpeed();
+	public Direction getDirection();
+}

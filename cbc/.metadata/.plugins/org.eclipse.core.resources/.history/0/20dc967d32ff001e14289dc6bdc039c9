@@ -1,0 +1,23 @@
+package cbccore.motors;
+
+public class Motor {
+	public native void motor (int percent);
+	public native int clear_motor_position_counter();
+	public native int move_at_velocity(int velocity);
+	public native int mav(int velocity);
+	public native int moveToPosition(int speed, int goal_pos);
+	public native int mtp(int speed, int goal_pos);
+	public native int moveRelativePosition(int speed, int delta_pos);
+	public native int mrp(int speed, int delta_pos);
+	public native void setPidGains(int p, int i, int d, int pd, int id, int dd);
+	public native int freeze();
+	public native int get_motor_done();
+	public native int get_motor_position_counter();
+	public native void block_motor_done();
+	public native void bmd();
+	public native int setpwm(int pwm);
+	public native int getpwm();
+	public native void fd();
+	public native void bk();
+	public native void off();
+}

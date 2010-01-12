@@ -1,0 +1,11 @@
+package cbccore.motors;
+
+public class TwoWheelDriver implements IDriver {
+
+	@Override
+	public void drive(Drive drive) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

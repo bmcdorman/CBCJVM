@@ -1,0 +1,29 @@
+package cbccore.sensors;
+
+import cbccore.DeviceSingleton;
+
+public class Camera {
+	private cbccore.low.Camera lowCamera = DeviceSingleton.getInstance().getLowCameraController();
+	public Camera() {
+		lowCamera.track_init();
+	}      
+	public native int track_is_new_data_available(); 
+	public native void track_update(); 
+	public native int track_get_frame(); 
+	public native int track_count(int ch); 
+	public native int track_size(int ch, int i);           
+	public native int track_x(int ch, int i);                                  
+	public native int track_y(int ch, int i);                                                               
+	public native int track_confidence(int ch, int i);                                                                                   
+	public native int track_bbox_left(int ch, int i);                             
+	public native int track_bbox_right(int ch, int i);                             
+	public native int track_bbox_top(int ch, int i);                             
+	public native int track_bbox_bottom(int ch, int i);                             
+	public native int track_bbox_width(int ch, int i);                                                                                                                                                                                                   
+	public native int track_bbox_height(int ch, int i);                                                                                  
+	public native float track_angle(int ch, int i);
+	public native int track_major_axis(int ch, int i);
+	public native int track_minor_axis(int ch, int i);
+	public native int track_capture_time();
+	public native int track_previous_capture_time();
+}

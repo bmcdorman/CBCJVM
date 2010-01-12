@@ -1,0 +1,24 @@
+package cbccore.sensors.analog;
+
+import cbccore.CBC;
+import cbccore.sensors.IAnalogSensor;
+
+public class Sonar implements IAnalogSensor {
+	public Sonar(int port) {
+		this.port = port;
+	}
+	@Override
+	public int getValue() {
+		return CBC.sensor.analog(port);
+	}
+	@Override
+	public int getValuHigh() {
+		return CBC.sensor.analog10(port);
+	}
+	int port;
+	
+	public int getValueHigh() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+}

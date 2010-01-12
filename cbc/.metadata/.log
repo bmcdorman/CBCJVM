@@ -1,0 +1,27 @@
+!SESSION 2010-01-11 21:55:46.263 -----------------------------------------------
+eclipse.buildId=M20090917-0800
+java.version=1.6.0_0
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -data /home/beta/CBCJVM/cbc -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2010-01-11 21:55:59.360
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2010-01-11 21:55:59.360
+!MESSAGE A conflict occurred for ALT+SHIFT+X P:
+Binding(ALT+SHIFT+X P,
+	ParameterizedCommand(Command(org.eclipse.pde.ui.junitWorkbenchShortcut.run,Run JUnit Plug-in Test,
+		Run JUnit Plug-in Test,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X P,
+	ParameterizedCommand(Command(org.keplerproject.ldt.luaprofiler.launcher.ui.luaShortcut.run,Profile Lua,
+		Profile Lua Script,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)

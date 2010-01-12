@@ -1,0 +1,19 @@
+package cbccore.motors;
+
+import java.util.Queue;
+
+public class NonBlockingDriver extends Thread {
+	private IDriver driver = null;
+	Queue<Drive> drives = new Queue<Drive>();
+	public NonBlockingDriver(IDriver driver) {
+		this.driver = driver;
+	}
+	public void addDrive(Drive d) {
+		
+	}
+	public void run() {
+		if(!drives.isEmpty()) {
+			driver.drive(drives.pop());
+		}
+	}
+}

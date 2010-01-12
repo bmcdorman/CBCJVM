@@ -1,0 +1,5 @@
+package cbccore;
+
+public class DeviceSingleton {
+
+}

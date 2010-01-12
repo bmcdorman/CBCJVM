@@ -1,0 +1,7 @@
+package cbccore.sensors;
+
+import cbccore.DeviceSingleton;
+
+public class Camera {
+	private cbccore.low.Camera lowCamera = DeviceSingleton.getInstance().getLowCameraController();
+}

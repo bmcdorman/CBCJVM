@@ -1,0 +1,14 @@
+package cbccore;
+
+public class DeviceSingleton {
+	private static DeviceSingleton instance = null;
+	public static DeviceSingleton getInstance() {
+		if(instance == null) {
+			instance = new DeviceSingleton();
+		}
+		return instance;
+	}
+	private DeviceSingleton() {
+		
+	}
+}

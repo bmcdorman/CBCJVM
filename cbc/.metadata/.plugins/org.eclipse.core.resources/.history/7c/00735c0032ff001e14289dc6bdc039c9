@@ -1,0 +1,7 @@
+package cbccore.motors;
+
+import cbccore.InvalidPercentageException;
+
+public interface IDriver {
+	public drive(Drive drive);
+}

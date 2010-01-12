@@ -1,0 +1,7 @@
+package cbccore.motors;
+
+import java.util.Stack;
+
+public class Drive extends LinkedList<Movement> {
+	private static final long serialVersionUID = -2331443972311326121L;
+}

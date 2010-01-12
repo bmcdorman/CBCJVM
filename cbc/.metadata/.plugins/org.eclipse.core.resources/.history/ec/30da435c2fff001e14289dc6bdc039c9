@@ -1,0 +1,17 @@
+package cbccore;
+
+import low.*;
+
+public class DeviceSingleton {
+	private static DeviceSingleton instance = null;
+	private 
+	public static DeviceSingleton getInstance() {
+		if(instance == null) {
+			instance = new DeviceSingleton();
+		}
+		return instance;
+	}
+	private DeviceSingleton() {
+		
+	}
+}

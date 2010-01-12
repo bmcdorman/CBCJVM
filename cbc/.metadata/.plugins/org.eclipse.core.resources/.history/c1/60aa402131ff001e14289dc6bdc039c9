@@ -1,0 +1,6 @@
+package cbccore.motors;
+
+public interface IMovement {
+	protected void setup();
+	public Direction getDirection();
+}

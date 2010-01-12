@@ -1,0 +1,29 @@
+package cbccore.sensors.camera;
+
+public class Blob {
+	private int x = 0;
+	private int y = 0;
+	private int width = 0;
+	private int height = 0;
+	private int bottom = 0;
+	private int top = 0;
+	private int left = 0;
+	private int right = 0;
+	private int angle = 0;
+	private int minorAxis = 0;
+	private int majorAxis = 0;
+	private int confidence = 0;
+	private int size = 0;
+	public Blob(cbccore.low.Camera lowCamera, Channel c, int i) {
+		int ch = c.getChannelID();
+		x = lowCamera.track_x(ch, i);
+		y = lowCamera.track_y(ch, i);
+		width = lowCamera.track_bbox_width(ch, i);
+		height = lowCamera.track_bbox_height(ch, i);
+		bottom = lowCamera.track_bbox_bottom(ch, i);
+		top = lowCamera.track_bbox_top(ch, i);
+		left = lowCamera.track_bbox_left(ch, i);
+		right = lowCamera.track_bbox_right(ch, i);
+		angle = lowCamera.track_bbox_top(ch, i);
+	}
+}

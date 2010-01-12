@@ -1,0 +1,6 @@
+package cbccore.motors;
+
+import java.util.Stack;
+
+public class Drive extends Stack<Movement> {
+}

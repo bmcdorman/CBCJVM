@@ -1,0 +1,22 @@
+package cbccore.motors;
+
+public class LeftTurnMovement extends Movement {
+	public LeftTurnMovement() {
+		
+	}
+	@Override
+	public Direction getDirection() {
+		return null;
+	}
+
+	@Override
+	public int getDistance() {
+		return 0;
+	}
+
+	@Override
+	public int getSpeed() {
+		return 0;
+	}
+
+}

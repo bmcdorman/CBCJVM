@@ -1,0 +1,5 @@
+package cbccore.motors;
+
+public class Motor {
+
+}

@@ -1,0 +1,13 @@
+package cbccore.motors;
+
+public class TwoWheelDriver implements IDriver {
+	private Motor left = null;
+	private Motor left = null;
+
+	public TwoWheelDriver(Motor motor) {
+		
+	}
+	@Override
+	public void drive(Drive drive) {
+	}
+}

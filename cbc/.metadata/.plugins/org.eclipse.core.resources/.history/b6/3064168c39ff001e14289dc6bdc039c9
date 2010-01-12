@@ -1,0 +1,25 @@
+package cbccore.sensors.camera;
+
+import cbccore.DeviceSingleton;
+
+public class Camera {
+	private cbccore.low.Camera lowCamera = DeviceSingleton.getInstance().getLowCameraController();
+	public Camera() {
+		lowCamera.track_init();
+	}      
+	public void update() {
+		lowCamera.track_update();
+	}
+	public boolean dataAvailable() {
+		return lowCamera.track_is_new_data_available() == 1 ? true : false;
+	}
+	public int getFrameNumber() {
+		return lowCamera.track_get_frame();
+	}
+	public int capture_time() {
+		
+	}
+	public int previous_capture_time() {
+		
+	}
+}

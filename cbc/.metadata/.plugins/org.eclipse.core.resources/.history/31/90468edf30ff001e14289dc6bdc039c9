@@ -1,0 +1,4 @@
+package cbccore.motors;
+
+public interface IMovement {
+}

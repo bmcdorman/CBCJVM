@@ -1,0 +1,10 @@
+package cbccore.sensors.camera;
+
+public class Channel {
+	private cbccore.low.Camera lowCamera;
+	private int ch = 0;
+	public Channel(cbccore.low.Camera lowCamera, int ch) {
+		this.lowCamera = lowCamera;
+		this.ch = ch;
+	}
+}

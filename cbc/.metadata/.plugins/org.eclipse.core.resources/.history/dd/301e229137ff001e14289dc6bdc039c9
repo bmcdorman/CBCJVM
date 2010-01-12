@@ -1,0 +1,5 @@
+package cbccore.sensors.camera;
+
+public class Blob {
+
+}

@@ -1,0 +1,16 @@
+package cbccore.sensors.analog;
+
+import cbccore.CBC;
+
+public class Sonar implements IAnalogSensor {
+	public Sonar(int port) {
+		this.port = port;
+	}
+	public int getValue() {
+		return CBC.sensor.analog(port);
+	}
+	public int getValue10() {
+		return CBC.sensor.analog10(port);
+	}
+	int port;
+}

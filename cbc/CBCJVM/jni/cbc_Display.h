@@ -12,7 +12,7 @@ extern "C" {
  * Method:    display_clear
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Display_display_1clear
+JNIEXPORT void JNICALL Java_cbc_Display_display_1clear
   (JNIEnv *, jobject);
 
 /*
@@ -20,7 +20,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Display_display_1clear
  * Method:    cbc_display_clear
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Display_cbc_1display_1clear
+JNIEXPORT void JNICALL Java_cbc_Display_cbc_1display_1clear
   (JNIEnv *, jobject);
 
 #ifdef __cplusplus

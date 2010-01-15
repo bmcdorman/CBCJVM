@@ -12,7 +12,7 @@ extern "C" {
  * Method:    up_button
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Input_up_1button
+JNIEXPORT jint JNICALL Java_cbc_Input_up_1button
   (JNIEnv *, jobject);
 
 /*
@@ -20,7 +20,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Input_up_1button
  * Method:    down_button
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Input_down_1button
+JNIEXPORT jint JNICALL Java_cbc_Input_down_1button
   (JNIEnv *, jobject);
 
 /*
@@ -28,7 +28,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Input_down_1button
  * Method:    left_button
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Input_left_1button
+JNIEXPORT jint JNICALL Java_cbc_Input_left_1button
   (JNIEnv *, jobject);
 
 /*
@@ -36,7 +36,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Input_left_1button
  * Method:    right_button
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Input_right_1button
+JNIEXPORT jint JNICALL Java_cbc_Input_right_1button
   (JNIEnv *, jobject);
 
 /*
@@ -44,7 +44,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Input_right_1button
  * Method:    a_button
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Input_a_1button
+JNIEXPORT jint JNICALL Java_cbc_Input_a_1button
   (JNIEnv *, jobject);
 
 /*
@@ -52,7 +52,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Input_a_1button
  * Method:    b_button
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Input_b_1button
+JNIEXPORT jint JNICALL Java_cbc_Input_b_1button
   (JNIEnv *, jobject);
 
 /*
@@ -60,7 +60,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Input_b_1button
  * Method:    black_button
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Input_black_1button
+JNIEXPORT jint JNICALL Java_cbc_Input_black_1button
   (JNIEnv *, jobject);
 
 #ifdef __cplusplus

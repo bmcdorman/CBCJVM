@@ -12,7 +12,7 @@ extern "C" {
  * Method:    tone
  * Signature: (II)V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Sound_tone
+JNIEXPORT void JNICALL Java_cbc_Sound_tone
   (JNIEnv *, jobject, jint, jint);
 
 /*
@@ -20,7 +20,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Sound_tone
  * Method:    beep
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Sound_beep
+JNIEXPORT void JNICALL Java_cbc_Sound_beep
   (JNIEnv *, jobject);
 
 #ifdef __cplusplus

@@ -12,7 +12,7 @@ extern "C" {
  * Method:    track_init
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Camera_track_1init
+JNIEXPORT void JNICALL Java_cbc_Camera_track_1init
   (JNIEnv *, jobject);
 
 /*
@@ -20,7 +20,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Camera_track_1init
  * Method:    track_is_new_data_available
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1is_1new_1data_1available
+JNIEXPORT jint JNICALL Java_cbc_Camera_track_1is_1new_1data_1available
   (JNIEnv *, jobject);
 
 /*
@@ -28,7 +28,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1is_1new_1data_1available
  * Method:    track_update
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Camera_track_1update
+JNIEXPORT void JNICALL Java_cbc_Camera_track_1update
   (JNIEnv *, jobject);
 
 /*
@@ -36,7 +36,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Camera_track_1update
  * Method:    track_get_frame
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1get_1frame
+JNIEXPORT jint JNICALL Java_cbc_Camera_track_1get_1frame
   (JNIEnv *, jobject);
 
 /*
@@ -44,7 +44,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1get_1frame
  * Method:    track_count
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1count
+JNIEXPORT jint JNICALL Java_cbc_Camera_track_1count
   (JNIEnv *, jobject, jint);
 
 /*
@@ -52,7 +52,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1count
  * Method:    track_size
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1size
+JNIEXPORT jint JNICALL Java_cbc_Camera_track_1size
   (JNIEnv *, jobject, jint, jint);
 
 /*
@@ -60,7 +60,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1size
  * Method:    track_x
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1x
+JNIEXPORT jint JNICALL Java_cbc_Camera_track_1x
   (JNIEnv *, jobject, jint, jint);
 
 /*
@@ -68,7 +68,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1x
  * Method:    track_y
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1y
+JNIEXPORT jint JNICALL Java_cbc_Camera_track_1y
   (JNIEnv *, jobject, jint, jint);
 
 /*
@@ -76,7 +76,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1y
  * Method:    track_confidence
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1confidence
+JNIEXPORT jint JNICALL Java_cbc_Camera_track_1confidence
   (JNIEnv *, jobject, jint, jint);
 
 /*
@@ -84,7 +84,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1confidence
  * Method:    track_bbox_left
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1bbox_1left
+JNIEXPORT jint JNICALL Java_cbc_Camera_track_1bbox_1left
   (JNIEnv *, jobject, jint, jint);
 
 /*
@@ -92,7 +92,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1bbox_1left
  * Method:    track_bbox_right
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1bbox_1right
+JNIEXPORT jint JNICALL Java_cbc_Camera_track_1bbox_1right
   (JNIEnv *, jobject, jint, jint);
 
 /*
@@ -100,7 +100,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1bbox_1right
  * Method:    track_bbox_top
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1bbox_1top
+JNIEXPORT jint JNICALL Java_cbc_Camera_track_1bbox_1top
   (JNIEnv *, jobject, jint, jint);
 
 /*
@@ -108,7 +108,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1bbox_1top
  * Method:    track_bbox_bottom
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1bbox_1bottom
+JNIEXPORT jint JNICALL Java_cbc_Camera_track_1bbox_1bottom
   (JNIEnv *, jobject, jint, jint);
 
 /*
@@ -116,7 +116,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1bbox_1bottom
  * Method:    track_bbox_width
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1bbox_1width
+JNIEXPORT jint JNICALL Java_cbc_Camera_track_1bbox_1width
   (JNIEnv *, jobject, jint, jint);
 
 /*
@@ -124,7 +124,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1bbox_1width
  * Method:    track_bbox_height
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1bbox_1height
+JNIEXPORT jint JNICALL Java_cbc_Camera_track_1bbox_1height
   (JNIEnv *, jobject, jint, jint);
 
 /*
@@ -132,7 +132,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1bbox_1height
  * Method:    track_angle
  * Signature: (II)F
  */
-JNIEXPORT jfloat JNICALL Java_cbccore_low_Camera_track_1angle
+JNIEXPORT jfloat JNICALL Java_cbc_Camera_track_1angle
   (JNIEnv *, jobject, jint, jint);
 
 /*
@@ -140,7 +140,7 @@ JNIEXPORT jfloat JNICALL Java_cbccore_low_Camera_track_1angle
  * Method:    track_major_axis
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1major_1axis
+JNIEXPORT jint JNICALL Java_cbc_Camera_track_1major_1axis
   (JNIEnv *, jobject, jint, jint);
 
 /*
@@ -148,7 +148,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1major_1axis
  * Method:    track_minor_axis
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1minor_1axis
+JNIEXPORT jint JNICALL Java_cbc_Camera_track_1minor_1axis
   (JNIEnv *, jobject, jint, jint);
 
 /*
@@ -156,7 +156,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1minor_1axis
  * Method:    track_capture_time
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1capture_1time
+JNIEXPORT jint JNICALL Java_cbc_Camera_track_1capture_1time
   (JNIEnv *, jobject);
 
 /*
@@ -164,7 +164,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1capture_1time
  * Method:    track_previous_capture_time
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Camera_track_1previous_1capture_1time
+JNIEXPORT jint JNICALL Java_cbc_Camera_track_1previous_1capture_1time
   (JNIEnv *, jobject);
 
 #ifdef __cplusplus

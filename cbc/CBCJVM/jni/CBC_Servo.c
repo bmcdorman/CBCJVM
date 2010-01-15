@@ -13,12 +13,12 @@
  * Method:    enable_servos
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Servo_enable_1servos(JNIEnv* env, jobject obj)
+JNIEXPORT void JNICALL Java_cbc_Servo_enable_1servos(JNIEnv* env, jobject obj)
 {
 #ifdef CBC
 	enable_servos();
 #else
-	printf("Java_cbccore_low_Servo_enable_1servos stub\n");
+	printf("Java_cbc_Servo_enable_1servos stub\n");
 #endif
 }
 
@@ -27,12 +27,12 @@ JNIEXPORT void JNICALL Java_cbccore_low_Servo_enable_1servos(JNIEnv* env, jobjec
  * Method:    disable_servos
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Servo_disable_1servos(JNIEnv* env, jobject obj)
+JNIEXPORT void JNICALL Java_cbc_Servo_disable_1servos(JNIEnv* env, jobject obj)
 {
 #ifdef CBC
 	disable_servos();
 #else
-	printf("Java_cbccore_low_Servo_disable_1servos stub\n");
+	printf("Java_cbc_Servo_disable_1servos stub\n");
 #endif
 }
 
@@ -41,12 +41,12 @@ JNIEXPORT void JNICALL Java_cbccore_low_Servo_disable_1servos(JNIEnv* env, jobje
  * Method:    set_servo_position
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Servo_set_1servo_1position(JNIEnv* env, jobject obj, jint port, jint pos)
+JNIEXPORT jint JNICALL Java_cbc_Servo_set_1servo_1position(JNIEnv* env, jobject obj, jint port, jint pos)
 {
 #ifdef CBC
 	return set_servo_position(port, pos);
 #else
-	printf("Java_cbccore_low_Servo_set_1servo_1position stub\n");
+	printf("Java_cbc_Servo_set_1servo_1position stub\n");
 	return -1;
 #endif
 }
@@ -56,12 +56,12 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Servo_set_1servo_1position(JNIEnv* env, 
  * Method:    get_servo_position
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Servo_get_1servo_1position(JNIEnv* env, jobject obj, jint port)
+JNIEXPORT jint JNICALL Java_cbc_Servo_get_1servo_1position(JNIEnv* env, jobject obj, jint port)
 {
 #ifdef CBC
 	return get_servo_position(port);
 #else
-	printf("Java_cbccore_low_Servo_get_1servo_1positio stub\n");
+	printf("Java_cbc_Servo_get_1servo_1positio stub\n");
 	return -1;
 #endif
 }

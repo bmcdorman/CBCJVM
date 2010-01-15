@@ -12,7 +12,7 @@ extern "C" {
  * Method:    enable_servos
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Servo_enable_1servos
+JNIEXPORT void JNICALL Java_cbc_Servo_enable_1servos
   (JNIEnv *, jobject);
 
 /*
@@ -20,7 +20,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Servo_enable_1servos
  * Method:    disable_servos
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Servo_disable_1servos
+JNIEXPORT void JNICALL Java_cbc_Servo_disable_1servos
   (JNIEnv *, jobject);
 
 /*
@@ -28,7 +28,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Servo_disable_1servos
  * Method:    set_servo_position
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Servo_set_1servo_1position
+JNIEXPORT jint JNICALL Java_cbc_Servo_set_1servo_1position
   (JNIEnv *, jobject, jint, jint);
 
 /*
@@ -36,7 +36,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Servo_set_1servo_1position
  * Method:    get_servo_position
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Servo_get_1servo_1position
+JNIEXPORT jint JNICALL Java_cbc_Servo_get_1servo_1position
   (JNIEnv *, jobject, jint);
 
 #ifdef __cplusplus

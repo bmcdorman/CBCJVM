@@ -7,12 +7,12 @@
  * Method:    display_clear
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Display_display_1clear(JNIEnv* env, jobject obj)
+JNIEXPORT void JNICALL Java_cbc_Display_display_1clear(JNIEnv* env, jobject obj)
 {
 #ifdef CBC
 	display_clear();
 #else
-	printf("Java_cbccore_low_Display_display_1clear stub\n");
+	printf("Java_cbc_Display_display_1clear stub\n");
 #endif
 }
 
@@ -21,11 +21,11 @@ JNIEXPORT void JNICALL Java_cbccore_low_Display_display_1clear(JNIEnv* env, jobj
  * Method:    cbc_display_clear
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Display_cbc_1display_1clear(JNIEnv* env, jobject obj)
+JNIEXPORT void JNICALL Java_cbc_Display_cbc_1display_1clear(JNIEnv* env, jobject obj)
 {
 #ifdef CBC
 	cbc_display_clear();
 #else
-	printf("Java_cbccore_low_Display_cbc_1display_1clear stub\n");
+	printf("Java_cbc_Display_cbc_1display_1clear stub\n");
 #endif
 }

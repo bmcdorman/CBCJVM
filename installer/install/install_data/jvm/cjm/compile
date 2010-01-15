@@ -1,9 +1,0 @@
-#!/bin/sh
-COMPILER=/mnt/kiss/bin/gcc
-LINKER=./linker
-
-DL_PREP=./dltool/dlprep
-
-echo "Building dlprep..."
-$COMPILER ${DL_PREP}.c -o dlprep
-echo "CJM Built!"

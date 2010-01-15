@@ -1,1 +1,0 @@
-int main(){chdir("/mnt/user/code/HelloWorld/bin");system("/mnt/user/java/java Main");}

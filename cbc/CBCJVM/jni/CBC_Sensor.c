@@ -13,12 +13,12 @@
  * Method:    digital
  * Signature: (I)I
  */
-JNIEXPORT jint Java_cbccore_low_Sensor_digital(JNIEnv* env, jobject obj, jint port)
+JNIEXPORT jint Java_cbc_Sensor_digital(JNIEnv* env, jobject obj, jint port)
 {
 #ifdef CBC
 	return digital(port);
 #else
-	printf("Java_cbccore_low_Sensor_digital stub\n");
+	printf("Java_cbc_Sensor_digital stub\n");
 	return -1;
 #endif
 }
@@ -28,12 +28,12 @@ JNIEXPORT jint Java_cbccore_low_Sensor_digital(JNIEnv* env, jobject obj, jint po
  * Method:    set_digital_output_value
  * Signature: (II)I
  */
-JNIEXPORT jint Java_cbccore_low_Sensor_set_1digital_1output_1value(JNIEnv* env, jobject obj, jint port, jint value)
+JNIEXPORT jint Java_cbc_Sensor_set_1digital_1output_1value(JNIEnv* env, jobject obj, jint port, jint value)
 {
 #ifdef CBC
 	set_digital_output_value(port, value);
 #else
-	printf("Java_cbccore_low_Sensor_set_1digital_1output_1value stub\n");
+	printf("Java_cbc_Sensor_set_1digital_1output_1value stub\n");
 	return 0;
 #endif
 }
@@ -43,12 +43,12 @@ JNIEXPORT jint Java_cbccore_low_Sensor_set_1digital_1output_1value(JNIEnv* env, 
  * Method:    analog10
  * Signature: (I)I
  */
-JNIEXPORT jint Java_cbccore_low_Sensor_analog10(JNIEnv* env, jobject obj, jint port)
+JNIEXPORT jint Java_cbc_Sensor_analog10(JNIEnv* env, jobject obj, jint port)
 {
 #ifdef CBC
 	return analog10(port);
 #else
-	printf("Java_cbccore_low_Sensor_analog10 stub\n");
+	printf("Java_cbc_Sensor_analog10 stub\n");
 	return 0;
 #endif
 }
@@ -58,12 +58,12 @@ JNIEXPORT jint Java_cbccore_low_Sensor_analog10(JNIEnv* env, jobject obj, jint p
  * Method:    analog
  * Signature: (I)I
  */
-JNIEXPORT jint Java_cbccore_low_Sensor_analog(JNIEnv* env, jobject obj, jint port)
+JNIEXPORT jint Java_cbc_Sensor_analog(JNIEnv* env, jobject obj, jint port)
 {
 #ifdef CBC
 	return analog(port);
 #else
-	printf("Java_cbccore_low_Sensor_analog stub\n");
+	printf("Java_cbc_Sensor_analog stub\n");
 	return 0;
 #endif
 }
@@ -73,12 +73,12 @@ JNIEXPORT jint Java_cbccore_low_Sensor_analog(JNIEnv* env, jobject obj, jint por
  * Method:    accel_x
  * Signature: ()I
  */
-JNIEXPORT jint Java_cbccore_low_Sensor_accel_1x(JNIEnv* env, jobject obj)
+JNIEXPORT jint Java_cbc_Sensor_accel_1x(JNIEnv* env, jobject obj)
 {
 #ifdef CBC
 	return accel_x();
 #else
-	printf("Java_cbccore_low_Sensor_accel_1x stub\n");
+	printf("Java_cbc_Sensor_accel_1x stub\n");
 	return 0;
 #endif
 }
@@ -88,12 +88,12 @@ JNIEXPORT jint Java_cbccore_low_Sensor_accel_1x(JNIEnv* env, jobject obj)
  * Method:    accel_y
  * Signature: ()I
  */
-JNIEXPORT jint Java_cbccore_low_Sensor_accel_1y(JNIEnv* env, jobject obj)
+JNIEXPORT jint Java_cbc_Sensor_accel_1y(JNIEnv* env, jobject obj)
 {
 #ifdef CBC
 	return accel_y();
 #else
-	printf("Java_cbccore_low_Sensor_accel_1y stub\n");
+	printf("Java_cbc_Sensor_accel_1y stub\n");
 	return 0;
 #endif
 }
@@ -103,12 +103,12 @@ JNIEXPORT jint Java_cbccore_low_Sensor_accel_1y(JNIEnv* env, jobject obj)
  * Method:    accel_z
  * Signature: ()I
  */
-JNIEXPORT jint Java_cbccore_low_Sensor_accel_1z(JNIEnv* env, jobject obj)
+JNIEXPORT jint Java_cbc_Sensor_accel_1z(JNIEnv* env, jobject obj)
 {
 #ifdef CBC
 	return accel_z();
 #else
-	printf("Java_cbccore_low_Sensor_accel_1z stub\n");
+	printf("Java_cbc_Sensor_accel_1z stub\n");
 	return 0;
 #endif
 }
@@ -118,12 +118,12 @@ JNIEXPORT jint Java_cbccore_low_Sensor_accel_1z(JNIEnv* env, jobject obj)
  * Method:    sonar
  * Signature: (I)I
  */
-JNIEXPORT jint Java_cbccore_low_Sensor_sonar(JNIEnv* env, jobject obj, jint port)
+JNIEXPORT jint Java_cbc_Sensor_sonar(JNIEnv* env, jobject obj, jint port)
 {
 #ifdef CBC
 	return sonar(port);
 #else
-	printf("Java_cbccore_low_Sensor_sonar stub\n");
+	printf("Java_cbc_Sensor_sonar stub\n");
 	return 0;
 #endif
 }
@@ -133,12 +133,12 @@ JNIEXPORT jint Java_cbccore_low_Sensor_sonar(JNIEnv* env, jobject obj, jint port
  * Method:    sonar_inches
  * Signature: (I)I
  */
-JNIEXPORT jint Java_cbccore_low_Sensor_sonar_1inches(JNIEnv* env, jobject obj, jint port)
+JNIEXPORT jint Java_cbc_Sensor_sonar_1inches(JNIEnv* env, jobject obj, jint port)
 {
 #ifdef CBC
 	return sonar_inches(port);
 #else
-	printf("Java_cbccore_low_Sensor_sonar_1inches stub\n");
+	printf("Java_cbc_Sensor_sonar_1inches stub\n");
 	return 0;
 #endif
 }

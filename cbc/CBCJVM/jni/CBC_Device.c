@@ -13,12 +13,12 @@
  * Method:    power_level
  * Signature: ()F
  */
-JNIEXPORT jfloat JNICALL Java_cbccore_low_Device_power_1level(JNIEnv* env, jobject obj)
+JNIEXPORT jfloat JNICALL Java_cbc_Device_power_1level(JNIEnv* env, jobject obj)
 {
 #ifdef CBC
 	return power_level();
 #else
-	printf("Java_cbccore_low_Device_power_1level stub\n");
+	printf("Java_cbc_Device_power_1level stub\n");
 	return -1.0f;
 #endif
 }

@@ -12,7 +12,7 @@ extern "C" {
  * Method:    create_connect
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1connect
+JNIEXPORT jint JNICALL Java_cbc_Create_create_1connect
   (JNIEnv *, jobject);
 
 /*
@@ -20,7 +20,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1connect
  * Method:    create_disconnect
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1disconnect
+JNIEXPORT void JNICALL Java_cbc_Create_create_1disconnect
   (JNIEnv *, jobject);
 
 /*
@@ -28,7 +28,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1disconnect
  * Method:    create_start
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1start
+JNIEXPORT void JNICALL Java_cbc_Create_create_1start
   (JNIEnv *, jobject);
 
 /*
@@ -36,7 +36,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1start
  * Method:    create_passive
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1passive
+JNIEXPORT void JNICALL Java_cbc_Create_create_1passive
   (JNIEnv *, jobject);
 
 /*
@@ -44,7 +44,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1passive
  * Method:    create_safe
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1safe
+JNIEXPORT void JNICALL Java_cbc_Create_create_1safe
   (JNIEnv *, jobject);
 
 /*
@@ -52,7 +52,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1safe
  * Method:    create_full
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1full
+JNIEXPORT void JNICALL Java_cbc_Create_create_1full
   (JNIEnv *, jobject);
 
 /*
@@ -60,7 +60,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1full
  * Method:    create_spot
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1spot
+JNIEXPORT void JNICALL Java_cbc_Create_create_1spot
   (JNIEnv *, jobject);
 
 /*
@@ -68,7 +68,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1spot
  * Method:    create_cover
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1cover
+JNIEXPORT void JNICALL Java_cbc_Create_create_1cover
   (JNIEnv *, jobject);
 
 /*
@@ -76,7 +76,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1cover
  * Method:    create_demo
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1demo
+JNIEXPORT void JNICALL Java_cbc_Create_create_1demo
   (JNIEnv *, jobject, jint);
 
 /*
@@ -84,7 +84,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1demo
  * Method:    create_cover_dock
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1cover_1dock
+JNIEXPORT void JNICALL Java_cbc_Create_create_1cover_1dock
   (JNIEnv *, jobject);
 
 /*
@@ -92,7 +92,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1cover_1dock
  * Method:    create_mode
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1mode
+JNIEXPORT jint JNICALL Java_cbc_Create_create_1mode
   (JNIEnv *, jobject);
 
 /*
@@ -100,7 +100,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1mode
  * Method:    create_sensor_update
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1sensor_1update
+JNIEXPORT jint JNICALL Java_cbc_Create_create_1sensor_1update
   (JNIEnv *, jobject);
 
 /*
@@ -108,7 +108,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1sensor_1update
  * Method:    create_wall
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1wall
+JNIEXPORT jint JNICALL Java_cbc_Create_create_1wall
   (JNIEnv *, jobject);
 
 /*
@@ -116,7 +116,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1wall
  * Method:    create_buttons
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1buttons
+JNIEXPORT jint JNICALL Java_cbc_Create_create_1buttons
   (JNIEnv *, jobject);
 
 /*
@@ -124,7 +124,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1buttons
  * Method:    create_bumpdrop
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1bumpdrop
+JNIEXPORT jint JNICALL Java_cbc_Create_create_1bumpdrop
   (JNIEnv *, jobject);
 
 /*
@@ -132,7 +132,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1bumpdrop
  * Method:    create_cliffs
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1cliffs
+JNIEXPORT jint JNICALL Java_cbc_Create_create_1cliffs
   (JNIEnv *, jobject);
 
 /*
@@ -140,7 +140,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1cliffs
  * Method:    create_angle
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1angle
+JNIEXPORT jint JNICALL Java_cbc_Create_create_1angle
   (JNIEnv *, jobject);
 
 /*
@@ -148,7 +148,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1angle
  * Method:    create_distance
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1distance
+JNIEXPORT jint JNICALL Java_cbc_Create_create_1distance
   (JNIEnv *, jobject);
 
 /*
@@ -156,7 +156,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1distance
  * Method:    create_velocity
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1velocity
+JNIEXPORT jint JNICALL Java_cbc_Create_create_1velocity
   (JNIEnv *, jobject);
 
 /*
@@ -164,7 +164,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1velocity
  * Method:    create_read_IR
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1read_1IR
+JNIEXPORT jint JNICALL Java_cbc_Create_create_1read_1IR
   (JNIEnv *, jobject);
 
 /*
@@ -172,7 +172,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1read_1IR
  * Method:    create_overcurrents
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1overcurrents
+JNIEXPORT jint JNICALL Java_cbc_Create_create_1overcurrents
   (JNIEnv *, jobject);
 
 /*
@@ -180,7 +180,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1overcurrents
  * Method:    create_battery_charge
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1battery_1charge
+JNIEXPORT jint JNICALL Java_cbc_Create_create_1battery_1charge
   (JNIEnv *, jobject);
 
 /*
@@ -188,7 +188,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1battery_1charge
  * Method:    create_cargo_bay_inputs
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1cargo_1bay_1inputs
+JNIEXPORT jint JNICALL Java_cbc_Create_create_1cargo_1bay_1inputs
   (JNIEnv *, jobject);
 
 /*
@@ -196,7 +196,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1cargo_1bay_1inputs
  * Method:    create_stop
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1stop
+JNIEXPORT void JNICALL Java_cbc_Create_create_1stop
   (JNIEnv *, jobject);
 
 /*
@@ -204,7 +204,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1stop
  * Method:    create_drive
  * Signature: (II)V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1drive
+JNIEXPORT void JNICALL Java_cbc_Create_create_1drive
   (JNIEnv *, jobject, jint, jint);
 
 /*
@@ -212,7 +212,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1drive
  * Method:    create_drive_straight
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1drive_1straight
+JNIEXPORT void JNICALL Java_cbc_Create_create_1drive_1straight
   (JNIEnv *, jobject, jint);
 
 /*
@@ -220,7 +220,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1drive_1straight
  * Method:    create_spin_CW
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1spin_1CW
+JNIEXPORT void JNICALL Java_cbc_Create_create_1spin_1CW
   (JNIEnv *, jobject, jint);
 
 /*
@@ -228,7 +228,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1spin_1CW
  * Method:    create_spin_CCW
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1spin_1CCW
+JNIEXPORT void JNICALL Java_cbc_Create_create_1spin_1CCW
   (JNIEnv *, jobject, jint);
 
 /*
@@ -236,7 +236,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1spin_1CCW
  * Method:    create_drive_direct
  * Signature: (II)V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1drive_1direct
+JNIEXPORT void JNICALL Java_cbc_Create_create_1drive_1direct
   (JNIEnv *, jobject, jint, jint);
 
 /*
@@ -244,7 +244,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1drive_1direct
  * Method:    create_spin_block
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1spin_1block
+JNIEXPORT jint JNICALL Java_cbc_Create_create_1spin_1block
   (JNIEnv *, jobject, jint, jint);
 
 /*
@@ -252,7 +252,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1spin_1block
  * Method:    create_advance_led
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1advance_1led
+JNIEXPORT void JNICALL Java_cbc_Create_create_1advance_1led
   (JNIEnv *, jobject, jint);
 
 /*
@@ -260,7 +260,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1advance_1led
  * Method:    create_play_led
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1play_1led
+JNIEXPORT void JNICALL Java_cbc_Create_create_1play_1led
   (JNIEnv *, jobject, jint);
 
 /*
@@ -268,7 +268,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1play_1led
  * Method:    create_power_led
  * Signature: (II)V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1power_1led
+JNIEXPORT void JNICALL Java_cbc_Create_create_1power_1led
   (JNIEnv *, jobject, jint, jint);
 
 /*
@@ -276,7 +276,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1power_1led
  * Method:    create_digital_output
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1digital_1output
+JNIEXPORT void JNICALL Java_cbc_Create_create_1digital_1output
   (JNIEnv *, jobject, jint);
 
 /*
@@ -284,7 +284,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1digital_1output
  * Method:    create_pwm_low_side_drivers
  * Signature: (III)V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1pwm_1low_1side_1drivers
+JNIEXPORT void JNICALL Java_cbc_Create_create_1pwm_1low_1side_1drivers
   (JNIEnv *, jobject, jint, jint, jint);
 
 /*
@@ -292,7 +292,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1pwm_1low_1side_1drivers
  * Method:    create_low_side_drivers
  * Signature: (III)V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1low_1side_1drivers
+JNIEXPORT void JNICALL Java_cbc_Create_create_1low_1side_1drivers
   (JNIEnv *, jobject, jint, jint, jint);
 
 /*
@@ -300,7 +300,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1low_1side_1drivers
  * Method:    create_load_song
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1load_1song
+JNIEXPORT void JNICALL Java_cbc_Create_create_1load_1song
   (JNIEnv *, jobject, jint);
 
 /*
@@ -308,7 +308,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1load_1song
  * Method:    create_play_song
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1play_1song
+JNIEXPORT void JNICALL Java_cbc_Create_create_1play_1song
   (JNIEnv *, jobject, jint);
 
 /*
@@ -316,7 +316,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1play_1song
  * Method:    create_write_byte
  * Signature: (C)V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1write_1byte
+JNIEXPORT void JNICALL Java_cbc_Create_create_1write_1byte
   (JNIEnv *, jobject, jchar);
 
 /*
@@ -324,7 +324,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1write_1byte
  * Method:    create_clear_serial_buffer
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1clear_1serial_1buffer
+JNIEXPORT void JNICALL Java_cbc_Create_create_1clear_1serial_1buffer
   (JNIEnv *, jobject);
 
 #ifdef __cplusplus

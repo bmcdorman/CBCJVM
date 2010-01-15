@@ -262,7 +262,7 @@ JNIEXPORT jint JNICALL Java_cbc_Create_create_1angle(JNIEnv *env, jobject obj)
 JNIEXPORT jint JNICALL Java_cbc_Create_create_1distance(JNIEnv *env, jobject obj)
 {
 #ifdef CBC
-    return create_distance()
+    return create_distance();
 #else
     printf("Java_cbc_Create_create_1distance stub\n");
     return -1;
@@ -405,7 +405,7 @@ JNIEXPORT void JNICALL Java_cbc_Create_create_1spin_1CW(JNIEnv *env, jobject obj
  * Method:    create_spin_CCW
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_cbc_Create_create_1spin_1CCW(JNIEnv *env, jobject obj, jint)
+JNIEXPORT void JNICALL Java_cbc_Create_create_1spin_1CCW(JNIEnv *env, jobject obj, jint speed)
 {
 #ifdef CBC
     create_spin_CCW(speed);
@@ -586,4 +586,4 @@ JNIEXPORT void JNICALL Java_cbc_Create_create_1clear_1serial_1buffer(JNIEnv *env
 #ifdef __cplusplus
 }
 #endif
-#endif
+

@@ -12,7 +12,7 @@ extern "C" {
  * Method:    digital
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Sensor_digital
+JNIEXPORT jint JNICALL Java_cbc_Sensor_digital
   (JNIEnv *, jobject, jint);
 
 /*
@@ -20,7 +20,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Sensor_digital
  * Method:    set_digital_output_value
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Sensor_set_1digital_1output_1value
+JNIEXPORT jint JNICALL Java_cbc_Sensor_set_1digital_1output_1value
   (JNIEnv *, jobject, jint, jint);
 
 /*
@@ -28,7 +28,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Sensor_set_1digital_1output_1value
  * Method:    analog10
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Sensor_analog10
+JNIEXPORT jint JNICALL Java_cbc_Sensor_analog10
   (JNIEnv *, jobject, jint);
 
 /*
@@ -36,7 +36,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Sensor_analog10
  * Method:    analog
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Sensor_analog
+JNIEXPORT jint JNICALL Java_cbc_Sensor_analog
   (JNIEnv *, jobject, jint);
 
 /*
@@ -44,7 +44,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Sensor_analog
  * Method:    accel_x
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Sensor_accel_1x
+JNIEXPORT jint JNICALL Java_cbc_Sensor_accel_1x
   (JNIEnv *, jobject);
 
 /*
@@ -52,7 +52,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Sensor_accel_1x
  * Method:    accel_y
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Sensor_accel_1y
+JNIEXPORT jint JNICALL Java_cbc_Sensor_accel_1y
   (JNIEnv *, jobject);
 
 /*
@@ -60,7 +60,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Sensor_accel_1y
  * Method:    accel_z
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Sensor_accel_1z
+JNIEXPORT jint JNICALL Java_cbc_Sensor_accel_1z
   (JNIEnv *, jobject);
 
 /*
@@ -68,7 +68,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Sensor_accel_1z
  * Method:    sonar
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Sensor_sonar
+JNIEXPORT jint JNICALL Java_cbc_Sensor_sonar
   (JNIEnv *, jobject, jint);
 
 /*
@@ -76,7 +76,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Sensor_sonar
  * Method:    sonar_inches
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Sensor_sonar_1inches
+JNIEXPORT jint JNICALL Java_cbc_Sensor_sonar_1inches
   (JNIEnv *, jobject, jint);
 
 #ifdef __cplusplus

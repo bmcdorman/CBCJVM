@@ -12,7 +12,7 @@ extern "C" {
  * Method:    power_level
  * Signature: ()F
  */
-JNIEXPORT jfloat JNICALL Java_cbccore_low_Device_power_1level
+JNIEXPORT jfloat JNICALL Java_cbc_Device_power_1level
   (JNIEnv *, jobject);
 
 #ifdef __cplusplus

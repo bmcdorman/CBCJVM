@@ -12,7 +12,7 @@ extern "C" {
  * Method:    motor
  * Signature: (II)V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Motor_motor
+JNIEXPORT void JNICALL Java_cbc_Motor_motor
   (JNIEnv *, jobject, jint, jint);
 
 /*
@@ -20,7 +20,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Motor_motor
  * Method:    clear_motor_position_counter
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Motor_clear_1motor_1position_1counter
+JNIEXPORT jint JNICALL Java_cbc_Motor_clear_1motor_1position_1counter
   (JNIEnv *, jobject, jint);
 
 /*
@@ -28,7 +28,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Motor_clear_1motor_1position_1counter
  * Method:    move_at_velocity
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Motor_move_1at_1velocity
+JNIEXPORT jint JNICALL Java_cbc_Motor_move_1at_1velocity
   (JNIEnv *, jobject, jint, jint);
 
 /*
@@ -36,7 +36,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Motor_move_1at_1velocity
  * Method:    mav
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Motor_mav
+JNIEXPORT jint JNICALL Java_cbc_Motor_mav
   (JNIEnv *, jobject, jint, jint);
 
 /*
@@ -44,7 +44,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Motor_mav
  * Method:    move_to_position
  * Signature: (III)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Motor_move_1to_1position
+JNIEXPORT jint JNICALL Java_cbc_Motor_move_1to_1position
   (JNIEnv *, jobject, jint, jint, jint);
 
 /*
@@ -52,7 +52,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Motor_move_1to_1position
  * Method:    mtp
  * Signature: (III)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Motor_mtp
+JNIEXPORT jint JNICALL Java_cbc_Motor_mtp
   (JNIEnv *, jobject, jint, jint, jint);
 
 /*
@@ -60,7 +60,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Motor_mtp
  * Method:    move_relative_position
  * Signature: (III)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Motor_move_1relative_1position
+JNIEXPORT jint JNICALL Java_cbc_Motor_move_1relative_1position
   (JNIEnv *, jobject, jint, jint, jint);
 
 /*
@@ -68,7 +68,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Motor_move_1relative_1position
  * Method:    mrp
  * Signature: (III)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Motor_mrp
+JNIEXPORT jint JNICALL Java_cbc_Motor_mrp
   (JNIEnv *, jobject, jint, jint, jint);
 
 /*
@@ -76,7 +76,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Motor_mrp
  * Method:    set_pid_gains
  * Signature: (IIIIIII)V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Motor_set_1pid_1gains
+JNIEXPORT void JNICALL Java_cbc_Motor_set_1pid_1gains
   (JNIEnv *, jobject, jint, jint, jint, jint, jint, jint, jint);
 
 /*
@@ -84,7 +84,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Motor_set_1pid_1gains
  * Method:    freeze
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Motor_freeze
+JNIEXPORT jint JNICALL Java_cbc_Motor_freeze
   (JNIEnv *, jobject, jint);
 
 /*
@@ -92,7 +92,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Motor_freeze
  * Method:    get_motor_done
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Motor_get_1motor_1done
+JNIEXPORT jint JNICALL Java_cbc_Motor_get_1motor_1done
   (JNIEnv *, jobject, jint);
 
 /*
@@ -100,7 +100,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Motor_get_1motor_1done
  * Method:    get_motor_position_counter
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Motor_get_1motor_1position_1counter
+JNIEXPORT jint JNICALL Java_cbc_Motor_get_1motor_1position_1counter
   (JNIEnv *, jobject, jint);
 
 /*
@@ -108,7 +108,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Motor_get_1motor_1position_1counter
  * Method:    block_motor_done
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Motor_block_1motor_1done
+JNIEXPORT void JNICALL Java_cbc_Motor_block_1motor_1done
   (JNIEnv *, jobject, jint);
 
 /*
@@ -116,7 +116,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Motor_block_1motor_1done
  * Method:    bmd
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Motor_bmd
+JNIEXPORT void JNICALL Java_cbc_Motor_bmd
   (JNIEnv *, jobject, jint);
 
 /*
@@ -124,7 +124,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Motor_bmd
  * Method:    setpwm
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Motor_setpwm
+JNIEXPORT jint JNICALL Java_cbc_Motor_setpwm
   (JNIEnv *, jobject, jint, jint);
 
 /*
@@ -132,7 +132,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Motor_setpwm
  * Method:    getpwm
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_cbccore_low_Motor_getpwm
+JNIEXPORT jint JNICALL Java_cbc_Motor_getpwm
   (JNIEnv *, jobject, jint);
 
 /*
@@ -140,7 +140,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Motor_getpwm
  * Method:    fd
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Motor_fd
+JNIEXPORT void JNICALL Java_cbc_Motor_fd
   (JNIEnv *, jobject, jint);
 
 /*
@@ -148,7 +148,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Motor_fd
  * Method:    bk
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Motor_bk
+JNIEXPORT void JNICALL Java_cbc_Motor_bk
   (JNIEnv *, jobject, jint);
 
 /*
@@ -156,7 +156,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Motor_bk
  * Method:    off
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Motor_off
+JNIEXPORT void JNICALL Java_cbc_Motor_off
   (JNIEnv *, jobject, jint);
 
 /*
@@ -164,7 +164,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Motor_off
  * Method:    ao
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_cbccore_low_Motor_ao
+JNIEXPORT void JNICALL Java_cbc_Motor_ao
   (JNIEnv *, jobject);
 
 #ifdef __cplusplus

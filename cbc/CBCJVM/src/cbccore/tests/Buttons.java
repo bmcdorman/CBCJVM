@@ -1,5 +1,6 @@
 package cbccore.tests;
 
+import cbccore.Device;
 import cbccore.events.Event;
 import cbccore.events.EventDispatcher;
 import cbccore.events.EventEmitter;
@@ -26,6 +27,7 @@ public class Buttons {
 		dispatch.addEventListener(ButtonEmitter.getInstance(), new ButtonEmitter.BlackButtonPressed(), new StopMotors());
 	}
 	public static void main(String[] args) {
+		Device.init();
 		new Buttons().run();
 	}
 }

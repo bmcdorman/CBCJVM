@@ -1,0 +1,4 @@
+package cbccore;
+
+public @interface NotImplemented {
+}

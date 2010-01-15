@@ -2,6 +2,7 @@ package cbccore.simulator;
 
 import cbccore.low.Motor;
 import cbccore.CBCSimulator;
+import cbccore.NotImplemented;
 
 public class SimulatedMotor extends Motor {
 	
@@ -11,58 +12,58 @@ public class SimulatedMotor extends Motor {
 		cbc = c;
 	}
 	
-	public void motor (int motor, int percent) {/* motor (0 to 3) at percent % of full (-100 to 100)*/
+	@NotImplemented public void motor (int motor, int percent) {/* motor (0 to 3) at percent % of full (-100 to 100)*/
 		cbc.m[motor] = new MotorSpeed(percent, false);
 	}
 	
-	public int clear_motor_position_counter(int motor) { /* sets motor (0 to 3) counter to 0 */
+	@NotImplemented public int clear_motor_position_counter(int motor) { /* sets motor (0 to 3) counter to 0 */
 		return 0; //stub
 	}
 	
-	public int move_at_velocity(int motor, int velocity) { /* PID control of motor (0 to 3) at velocity tick per second */
+	@NotImplemented public int move_at_velocity(int motor, int velocity) { /* PID control of motor (0 to 3) at velocity tick per second */
 		cbc.m[motor] = new MotorSpeed(velocity, true);
 		return 0;
 	}
 	
-	public int mav(int motor, int velocity) { /* PID control of motor (0 to 3) at velocity tick per second */
+	@NotImplemented public int mav(int motor, int velocity) { /* PID control of motor (0 to 3) at velocity tick per second */
 		move_at_velocity(motor, velocity);
 		return 0;
 	}
 	
-	public int move_to_position(int motor, int speed, int goal_pos) {/* move motor (0 to 3) at speed to goal_pos */
+	@NotImplemented public int move_to_position(int motor, int speed, int goal_pos) {/* move motor (0 to 3) at speed to goal_pos */
 		return 0; //stub - Threading?
 	}
 	
-	public int mtp(int motor, int speed, int goal_pos) {/* move motor (0 to 3) at speed to goal_pos */
+	@NotImplemented public int mtp(int motor, int speed, int goal_pos) {/* move motor (0 to 3) at speed to goal_pos */
 		return move_to_position(motor, speed, goal_pos);
 	}
 	
-	public int move_relative_position(int motor, int speed, int delta_pos) {/* move motor (0 to 3) at speed by delta_pos */
+	@NotImplemented public int move_relative_position(int motor, int speed, int delta_pos) {/* move motor (0 to 3) at speed by delta_pos */
 		return move_to_position(motor, speed, delta_pos+get_motor_position_counter(motor));
 	}
 	
-	public int mrp(int motor, int speed, int delta_pos) {/* move motor (0 to 3) at speed by delta_pos */
+	@NotImplemented public int mrp(int motor, int speed, int delta_pos) {/* move motor (0 to 3) at speed by delta_pos */
 		return move_relative_position(motor, speed, delta_pos);
 	}
 	
-	public void set_pid_gains(int motor, int p, int i, int d, int pd, int id, int dd) {/* set PID gains */
+	@NotImplemented public void set_pid_gains(int motor, int p, int i, int d, int pd, int id, int dd) {/* set PID gains */
 		//stub
 	}
 	
-	public int freeze(int motor) {/* keep motor (0 to 3) at current position */
+	@NotImplemented public int freeze(int motor) {/* keep motor (0 to 3) at current position */
 		cbc.m[motor] = new MotorSpeed(0, true);
 		return 0;
 	}
 	
-	public int get_motor_done(int motor) { /* returns 1 if motor (0 to 3) is moving to a goal and 0 otherwise */
+	@NotImplemented public int get_motor_done(int motor) { /* returns 1 if motor (0 to 3) is moving to a goal and 0 otherwise */
 		return 0;
 	}
 	
-	public int get_motor_position_counter(int motor) { /* returns int of motor (0 to 3) position +/-2147483647 */
+	@NotImplemented public int get_motor_position_counter(int motor) { /* returns int of motor (0 to 3) position +/-2147483647 */
 		return 0;
 	}
 	
-	public void block_motor_done(int motor) { /* returns when motor (0 to 3) has reached goal */
+	@NotImplemented public void block_motor_done(int motor) { /* returns when motor (0 to 3) has reached goal */
 		//stub- need mav first
 	}
 	
@@ -91,7 +92,7 @@ public class SimulatedMotor extends Motor {
 		cbc.m[motor] = new MotorSpeed(0, false);
 	}
 	
-	public void ao() { /* turns all motors off */
+	@NotImplemented public void ao() { /* turns all motors off */
 		
 	}
 }

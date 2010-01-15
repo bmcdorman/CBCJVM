@@ -1,7 +1,0 @@
-public class Main {
-	public static void main(String[] args) throws Exception {
-		System.setProperty("user.dir", "/");
-		System.out.println("FTP started on port 21...");
-		Server.main(new String[0]);
-	}
-}

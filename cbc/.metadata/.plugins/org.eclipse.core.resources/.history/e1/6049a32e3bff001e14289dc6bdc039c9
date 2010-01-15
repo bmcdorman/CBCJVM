@@ -1,5 +1,0 @@
-package cbccore.sensors.buttons;
-
-public interface IButton {
-	public boolean getValue();
-}

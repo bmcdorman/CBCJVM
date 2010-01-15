@@ -1,7 +1,0 @@
-package cbccore.events;
-
-public class EventEmitter {
-	public void emit(Class<?> type) {
-		EventDispatcher.emit(this, type);
-	}
-}

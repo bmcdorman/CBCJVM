@@ -1,7 +1,0 @@
-package cbccore.tests;
-
-public class Buttons {
-	public static void main(String[] args) {
-		new Thread(new ButtonEmitter()) 
-	}
-}

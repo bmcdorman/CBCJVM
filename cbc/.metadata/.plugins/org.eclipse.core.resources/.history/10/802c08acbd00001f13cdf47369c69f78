@@ -1,5 +1,0 @@
-package cbccore.sensors.buttons;
-
-public class ButtonEmitter extends EventEmitter implements Runnable {
-
-}

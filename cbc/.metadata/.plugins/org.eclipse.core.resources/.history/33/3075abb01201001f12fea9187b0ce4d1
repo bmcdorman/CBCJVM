@@ -1,5 +1,0 @@
-package cbccore.motors.listeners;
-
-public class StopMotors {
-
-}

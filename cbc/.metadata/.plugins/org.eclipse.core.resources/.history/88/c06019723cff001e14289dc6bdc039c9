@@ -1,5 +1,0 @@
-package cbccore.sensors;
-
-public interface IBooleanSensor {
-
-}

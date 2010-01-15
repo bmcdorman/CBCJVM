@@ -1,6 +1,0 @@
-package cbccore.motors;
-
-public abstract class Movement {
-	protected abstract void setup();
-	public abstract Direction getDirection();
-}

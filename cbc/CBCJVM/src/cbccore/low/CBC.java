@@ -1,7 +1,5 @@
-package cbccore;
+package cbc;
 
-import cbccore.low.*;
-import cbccore.interaction.Interaction;
 
 public class CBC {
     	
@@ -34,7 +32,7 @@ public class CBC {
 				System.load("/mnt/user/java/cbc/CBC.so");
 				sound = new Sound();
 				sensor = new Sensor();
-				device = new cbccore.low.Device();
+				device = new Device();
 				display = new Display();
 				input = new Input();
 				servo = new Servo();
@@ -52,7 +50,7 @@ public class CBC {
 		private static CBCSimulator simulator = null;
 		public static Sound sound = null;
 		public static Sensor sensor = null;
-		public static cbccore.low.Device device = null;
+		public static Device device = null;
 		public static Display display = null;
 		public static Input input = null;
 		public static Servo servo = null;

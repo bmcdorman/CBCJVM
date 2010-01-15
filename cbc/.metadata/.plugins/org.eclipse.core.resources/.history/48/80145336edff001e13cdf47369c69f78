@@ -1,0 +1,23 @@
+import java.net.URL;
+import java.net.URLClassLoader;
+import java.util.ArrayList;
+import java.util.List;
+import java.net.MalformedURLException;
+
+public class Main extends URLClassLoader {
+	public Main(URL[] urls) {
+		super(urls);
+		// TODO Auto-generated constructor stub
+	}
+	public void addFile (String path) throws MalformedURLException
+    {
+        String urlPath = "jar:file://" + path + "!/";
+        addURL (new URL (urlPath));
+    }
+    public static void main(String[] args) {
+        List<String> argList = new ArrayList<String>();
+        argList.add("Scala");
+        for (String s : args) argList.add(s);
+            scala.tools.nsc.MainGenericRunner.main(argList.toArray(new String[0]));
+    }
+}

@@ -1,0 +1,13 @@
+#!/bin/sh
+echo "[INSTALL] Compiling CBC Wrapper..."
+cd /mnt/user/java/cbc/jni/
+sh ./compile
+cp ./CBC.so /mnt/user/jvm/cbc/
+cd /mnt/user
+echo "[INSTALL] Building CJM..."
+cd /mnt/user/jvm/cjm
+sh ./compile
+echo "[INSTALL] Removing JNI source..."
+rm -Rf /mnt/user/jvm/cbc/jni
+echo "[INSTALL] Java Installed!"
+echo "Please run the HelloWorld Program to verify."

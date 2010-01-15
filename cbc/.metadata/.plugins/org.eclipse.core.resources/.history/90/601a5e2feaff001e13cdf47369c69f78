@@ -1,0 +1,8 @@
+package snippet;
+
+public class Snippet {
+	public static void main(String[] args) {
+		/home/beta/.eclipse/org.eclipse.platform_3.5.0_155965261/plugins/scala.tools.nsc_2.7.7.final.jar
+	}
+}
+

@@ -1,0 +1,32 @@
+#!/bin/sh
+COMPILER=./compiler
+LINKER=./linker
+
+CBC_DEVICE=./CBC_Device
+CBC_DISPLAY=./CBC_Display
+CBC_INPUT=./CBC_Input
+CBC_MOTOR=./CBC_Motor
+CBC_SENSOR=./CBC_Sensor
+CBC_SERVO=./CBC_Servo
+CBC_SOUND=./CBC_Sound
+CBC_CAMERA=./CBC_Camera
+
+echo "Compiling CBC_Device..."
+$COMPILER ${CBC_DEVICE}.c
+echo "Compiling CBC_Display..."
+$COMPILER ${CBC_DISPLAY}.c
+echo "Compiling CBC_Input..."
+$COMPILER ${CBC_INPUT}.c
+echo "Compiling CBC_Motor..."
+$COMPILER ${CBC_MOTOR}.c
+echo "Compiling CBC_Sensor..."
+$COMPILER ${CBC_SENSOR}.c
+echo "Compiling CBC_Servo..."
+$COMPILER ${CBC_SERVO}.c
+echo "Compiling CBC_Sound..."
+$COMPILER ${CBC_SOUND}.c
+echo "Compiling CBC_Camera..."
+$COMPILER ${CBC_CAMERA}.c
+echo "Linking wrapper..."
+$LINKER ${CBC_DEVICE}.o ${CBC_DISPLAY}.o ${CBC_INPUT}.o ${CBC_MOTOR}.o ${CBC_SENSOR}.o ${CBC_SERVO}.o ${CBC_SOUND}.o ${CBC_CAMERA}.o
+echo "Generated CBC.so!"

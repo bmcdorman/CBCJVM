@@ -1,0 +1,12 @@
+package cbccore.tests;
+
+import cbccore.events.EventDispatcher;
+
+public class Events {
+	public class DestinationReached {}
+	public static void main(String[] args) {
+		EventDispatcher dispatcher = EventDispatcher.getInstance();
+		dispatcher.
+	}
+
+}

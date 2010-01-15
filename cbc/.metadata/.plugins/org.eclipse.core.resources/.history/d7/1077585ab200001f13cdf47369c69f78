@@ -1,0 +1,13 @@
+package cbccore.events;
+
+import java.lang.reflect.Method;
+
+public class EventNode {
+	public Object owner;
+	public Method funct;
+	
+	public EventNode(owner, funct) {
+		this.owner = owner;
+		this.funct = funct;
+	}
+}

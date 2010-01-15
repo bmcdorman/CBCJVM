@@ -1,0 +1,71 @@
+import scala.swing._
+import scala.swing.event._
+import java.net.Socket
+import javax.swing.JOptionPane
+import java.io.DataOutputStream
+import java.io.DataInputStream
+
+object Manager extends SimpleGUIApplication {
+	var connection: Socket = null;
+ 	val listView = new ListView[String]
+ 	var connected = false
+ 	val deleteButton = new Button("Delete") {
+		     enabled = false
+			 reactions += {
+			   case ButtonClicked(_) => {
+			     val indices = listView.selection.indices
+			     val ostream = new DataOutputStream(connection.getOutputStream)
+			     for(a <- indices) {
+			       
+			     }
+			     listView.listData = jarList
+			   }
+			 }
+		   }
+ 	def jarList: List[String] = {
+ 	  if(connection == null) {
+ 	    return List[String]()
+ 	  }
+ 	  val ostream = new DataOutputStream(connection.getOutputStream)
+ 	  val istream = new DataInputStream(connection.getInputStream)
+ 	  ostream.writeUTF("listJars")
+ 	  Thread.sleep(100)
+ 	  val list = new ListView[String]
+ 	  var files = List[String]()
+ 	  while(istream.available > 0) {
+ 	     val file = istream.readUTF
+ 	     files = file :: files
+ 	  }
+ 	  files
+ 	}
+	def top = new MainFrame {
+	  import BorderPanel.Position._
+	  contents = new BorderPanel {
+		 add(new GridPanel(10, 1) {
+		   contents += new Button("Connect") {
+			 reactions += {
+			   case ButtonClicked(_) => {
+			     if(!connected) {
+			    	val input = JOptionPane.showInputDialog("Please input the CBC's IP")
+			     	connection = new Socket(input, 8411)
+			     	connected = true
+			     	
+			     	this.text = "Disconnect"
+			     } else {
+			    	val ostream = new DataOutputStream(connection.getOutputStream)
+			    	ostream.writeUTF("exit")
+			    	connection.close
+			     	connection = null
+			     	connected = false
+			     	this.text = "Connect"
+			     }
+			     listView.listData = jarList
+			   }
+			 }
+		   }
+		   contents += 
+		 }, East)
+		 add(new ScrollPane(listView), Center)
+	  }
+	}
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="cbccore.InvalidPercentageException"/>
+<fullyQualifiedTypeName name="java.sql.Driver"/>
+<fullyQualifiedTypeName name="java.util.Stack"/>
+<fullyQualifiedTypeName name="java.util.Queue"/>
+<fullyQualifiedTypeName name="cbccore.low.Camera"/>
+<fullyQualifiedTypeName name="cbccore.InvalidPortException"/>
+<fullyQualifiedTypeName name="cbccore.low.Sensor"/>
+<fullyQualifiedTypeName name="cbccore.low.Input"/>
+<fullyQualifiedTypeName name="cbccore.DeviceSingleton"/>
+<fullyQualifiedTypeName name="cbccore.sensors.IBooleanSensor"/>
+<fullyQualifiedTypeName name="cbccore.sensors.IAnalogSensor"/>
+<fullyQualifiedTypeName name="cbccore.motors.Motor"/>
+<fullyQualifiedTypeName name="cbccore.motors.TwoWheelDriver"/>
+<fullyQualifiedTypeName name="cbccore.motors.Drive"/>
+<fullyQualifiedTypeName name="cbccore.motors.StraightMovement"/>
+<fullyQualifiedTypeName name="cbccore.motors.NonBlockingDriver"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.util.StringTokenizer"/>
+<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+<fullyQualifiedTypeName name="java.lang.Runtime"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.net.URLClassLoader"/>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Method"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="java.util.ListIterator"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="cbccore.events.IEventListener"/>
+<fullyQualifiedTypeName name="cbccore.Device"/>
+<fullyQualifiedTypeName name="cbccore.events.EventEmitter"/>
+<fullyQualifiedTypeName name="cbccore.events.Event"/>
+<fullyQualifiedTypeName name="cbccore.sensors.buttons.ButtonEmitter"/>
+<fullyQualifiedTypeName name="cbccore.events.EventDispatcher"/>
+<fullyQualifiedTypeName name="cbccore.sensors.buttons.ButtonEmitter.AButtonPressed"/>
+<fullyQualifiedTypeName name="cbccore.events.EventListenerAdapter"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="PluginExportWizard">
+		<item value="true" key="exportUpdate"/>
+		<item value="false" key="saveAsAnt"/>
+		<item value="" key="alias"/>
+		<item value="Generate source bundles" key="exportSourceFormat"/>
+		<item value="false" key="qualifier"/>
+		<item value="/home/beta/CBCJVM/cbc/.metadata/.plugins/org.eclipse.pde.core/install/" key="installDestination0"/>
+		<item value="" key="password"/>
+		<item value="" key="keypass"/>
+		<item value="false" key="exportSource"/>
+		<item value="" key="keystore"/>
+		<item value="false" key="useWorkspaceCompiledClasses"/>
+		<item value="1" key="exportType"/>
+		<item value="false" key="signJAR"/>
+		<item value="/home/beta/.eclipse/org.eclipse.platform_3.5.0_155965261" key="destination1"/>
+		<item value="/home/beta/.eclipse/org.eclipse.platform_3.5.0_155965261" key="destination0"/>
+		<item value="201001132246" key="qualifierName"/>
+		<item value="true" key="allowBinaryCycles"/>
+	</section>
+</section>

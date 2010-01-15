@@ -1,0 +1,9 @@
+package cbccore.events;
+
+public class Event {
+	private static Event instance = null;
+	public static Event event() {
+		if(instance == null) instance = new this;
+		return instance;
+	}
+}

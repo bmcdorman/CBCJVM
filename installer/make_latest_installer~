@@ -1,0 +1,14 @@
+#!/bin/sh
+echo "Working..."
+rm -Rf install/install_data
+mkdir install/install_data
+mkdir install/install_data/lib
+cp -R lib/* install/install_data/lib
+mkdir install/install_data/jvm
+cp -R jvm/* install/install_data/jvm
+mkdir install/install_data/jvm/cbc
+cp -R ../cbc/CBCJVM/bin/* install/install_data/jvm/cbc
+cp -R ../cbc/CBCJVM/jni install/install_data/jvm/cbc
+cp -R cjm install/install_data/jvm
+mkdir install/install_data/code
+cp -R HelloWorld install/install_data/code/HelloWorld/

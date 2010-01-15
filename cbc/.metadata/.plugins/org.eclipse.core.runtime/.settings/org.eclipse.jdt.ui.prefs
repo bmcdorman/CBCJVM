@@ -1,4 +1,4 @@
-#Mon Jan 11 22:01:11 CST 2010
+#Wed Jan 13 22:47:40 CST 2010
 content_assist_proposals_foreground=50,50,50
 spelling_locale_initialized=true
 org.eclipse.jdt.ui.text.templates_migrated=true
@@ -16,4 +16,5 @@ content_assist_proposals_background=255,255,255
 content_assist_number_of_computers=13
 useQuickDiffPrefPage=true
 org.eclipse.jdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="cbccore.events.Event"><rhs name\="cbccore.sensors.buttons.ButtonEmitter$AButtonPressed"/></lhs></history>
 org.eclipse.jdt.ui.text.code_templates_migrated=true

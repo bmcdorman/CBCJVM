@@ -1,0 +1,4 @@
+#!/bin/sh
+ln -s /mnt/user/jvm/cbc/cbccore ./
+LD_LIBRARY_PATH=/mnt/user/lib /mnt/user/jvm/jamvm -mx8M -Xbootclasspath:/mnt/user/lib/classes.zip:/mnt/user/lib/glibj.zip $@ ./
+rm ./cbccore

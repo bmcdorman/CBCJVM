@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "Deleting Scala"
+rm -Rf /mnt/user/jvm/scala

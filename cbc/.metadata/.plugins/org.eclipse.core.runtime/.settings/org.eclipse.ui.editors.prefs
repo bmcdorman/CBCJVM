@@ -1,0 +1,21 @@
+#Wed Jan 13 22:47:40 CST 2010
+ch.epfl.lamp.sdt.core.package.Color.Background=-1
+ch.epfl.lamp.sdt.core.trait.Color.Foreground=-1
+ch.epfl.lamp.sdt.core.literal.Color.Foreground=255,94,94
+ch.epfl.lamp.sdt.core.keyword.Color.Foreground=76,76,76
+ch.epfl.lamp.sdt.core.string.Color.Foreground=-1
+ch.epfl.lamp.sdt.core.class.Color.Foreground=142,62,0
+ch.epfl.lamp.sdt.core.def.Color.Foreground=0,62,133
+ch.epfl.lamp.sdt.core.package.Color.Foreground=-1
+eclipse.preferences.version=1
+ch.epfl.lamp.sdt.core.comment.Color.Foreground=255,94,94
+ch.epfl.lamp.sdt.core.keyword.Color.Background=-1
+ch.epfl.lamp.sdt.core.object.Color.Foreground=-1
+overviewRuler_migration=migrated_3.1
+ch.epfl.lamp.sdt.core.string.Color.Background=-1
+ch.epfl.lamp.sdt.core.class.Color.Background=-1
+ch.epfl.lamp.sdt.core.def.Color.Background=-1
+ch.epfl.lamp.sdt.core.comment.Color.Background=-1
+ch.epfl.lamp.sdt.core.object.Color.Background=-1
+ch.epfl.lamp.sdt.core.trait.Color.Background=-1
+ch.epfl.lamp.sdt.core.literal.Color.Background=-1

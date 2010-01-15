@@ -1,4 +1,0 @@
-package cbccore.motors;
-
-public interface Movement {
-}

@@ -1,4 +1,0 @@
-package cbccore.events;
-
-public abstract class EventListenerAdapter {
-}

@@ -1,8 +1,0 @@
-package cbccore.motors;
-
-public class NonBlockingDriver extends Thread {
-	private IDriver driver = null;
-	public NonBlockingDriver(IDriver driver) {
-		this.driver = driver;
-	}
-}

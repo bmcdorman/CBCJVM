@@ -1,8 +1,0 @@
-package cbccore.motors;
-
-import cbccore.InvalidPercentageException;
-
-public interface IDriver {
-	public void driveStraight(int speed) throws InvalidPercentageException;
-	public void turn(int speed) throws InvalidPercentageException;
-}

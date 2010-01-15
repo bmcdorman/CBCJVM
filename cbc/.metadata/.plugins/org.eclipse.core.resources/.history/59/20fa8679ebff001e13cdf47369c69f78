@@ -1,9 +1,0 @@
-
-public class Main {
-    public static void main(String[] args) {
-        List<string> argList = new ArrayList<string>();
-        argList.add("YourScalaObjectWithMain");
-        for (String s : args) argList.add(s);
-            scala.tools.nsc.MainGenericRunner.main(argList.toArray(new String[0]));
-        }
-}

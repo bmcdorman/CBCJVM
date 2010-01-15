@@ -1,5 +1,0 @@
-package cbccore.events;
-
-public interface IEventListener {
-	public void eventDispatched();
-}

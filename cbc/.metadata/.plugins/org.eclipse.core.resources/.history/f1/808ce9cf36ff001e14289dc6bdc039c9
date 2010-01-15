@@ -1,7 +1,0 @@
-package cbccore.sensors.camera;
-
-public class Channel {
-	public Channel(cbccore.low.Camera lowCamera, int ch) {
-		
-	}
-}

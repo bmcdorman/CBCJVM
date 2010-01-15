@@ -1,9 +1,0 @@
-package cbccore.sensors.camera;
-
-public class Blob {
-	private int x = 0;
-	private int y = 0;
-	public Blob(int x, int y, int w, int h, int ) {
-		
-	}
-}

@@ -20,7 +20,7 @@ public class Events {
 		}
 	}
 	
-	// Beeps when it receives an event type Destination Reached
+	// Beeps
 	public class Beeper implements IEventListener {
 		@Override
 		public void eventDispatched(EventEmitter emitter, Event type) {

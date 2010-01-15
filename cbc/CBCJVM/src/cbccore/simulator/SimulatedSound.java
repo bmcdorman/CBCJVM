@@ -2,6 +2,7 @@ package cbccore.simulator;
 
 import cbccore.low.Sound;
 import cbccore.CBCSimulator;
+import cbccore.NotImplemented;
 
 public class SimulatedSound extends Sound {
 	
@@ -11,11 +12,11 @@ public class SimulatedSound extends Sound {
 		cbc = c;
 	}
 	
-	public void tone(int frequency, int duration) { /* makes a sound at frequency for duration ms */
+	@NotImplemented public void tone(int frequency, int duration) { /* makes a sound at frequency for duration ms */
 		
 	}
 	
-	public void beep() { /* make a beep */
+	@NotImplemented public void beep() { /* make a beep */
 		
 	}
 }

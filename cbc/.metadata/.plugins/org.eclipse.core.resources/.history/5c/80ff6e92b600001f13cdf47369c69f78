@@ -1,0 +1,13 @@
+package cbccore.tests;
+
+public class Events {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

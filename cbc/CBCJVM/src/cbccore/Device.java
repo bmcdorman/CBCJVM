@@ -3,6 +3,15 @@ package cbccore;
 import cbccore.low.*;
 
 public class Device {
+	static {
+		try {
+			//System.load("/mnt/user/jvm/cbc/CBC.so");
+		}
+		catch(UnsatisfiedLinkError e) {
+			e.printStackTrace();
+			System.out.println("Unable to load CBC.so!");
+		}
+	}
 	private static Motor lowMotors = new Motor();
 	private static Servo lowServos = new Servo();
 	private static Camera lowCamera = new Camera();

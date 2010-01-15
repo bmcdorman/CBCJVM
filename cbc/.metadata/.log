@@ -1,13 +1,52 @@
-!SESSION 2010-01-11 21:55:46.263 -----------------------------------------------
+!SESSION 2010-01-12 17:45:03.104 -----------------------------------------------
 eclipse.buildId=M20090917-0800
 java.version=1.6.0_0
 java.vendor=Sun Microsystems Inc.
 BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
-Command-line arguments:  -data /home/beta/CBCJVM/cbc -os linux -ws gtk -arch x86_64
+Command-line arguments:  -os linux -ws gtk -arch x86_64
 
-!ENTRY org.eclipse.jface 2 0 2010-01-11 21:55:59.360
+This is a continuation of log file /home/beta/CBCJVM/cbc/.metadata/.bak_1.log
+Created Time: 2010-01-13 22:38:19.327
+
+!ENTRY org.eclipse.jdt.ui 4 10001 2010-01-13 22:38:19.327
+!MESSAGE Internal Error
+!STACK 1
+Java Model Exception: Java Model Status [TestScala does not exist]
+	at org.eclipse.jdt.internal.core.JavaElement.newJavaModelException(JavaElement.java:502)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:246)
+	at org.eclipse.jdt.internal.core.Openable.openAncestors(Openable.java:504)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:240)
+	at org.eclipse.jdt.internal.core.Openable.openAncestors(Openable.java:504)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:240)
+	at org.eclipse.jdt.internal.core.Openable.openAncestors(Openable.java:504)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:240)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:515)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:252)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:238)
+	at org.eclipse.jdt.internal.core.BinaryType.getClassFileInfo(BinaryType.java:228)
+	at org.eclipse.jdt.internal.core.BinaryType.getChildren(BinaryType.java:191)
+	at org.eclipse.jdt.internal.core.JavaElement.getChildrenOfType(JavaElement.java:207)
+	at org.eclipse.jdt.internal.core.BinaryType.getMethods(BinaryType.java:459)
+	at org.eclipse.jdt.internal.ui.text.java.MethodProposalInfo.findMethod(MethodProposalInfo.java:94)
+	at org.eclipse.jdt.internal.ui.text.java.MethodProposalInfo.resolveMember(MethodProposalInfo.java:70)
+	at org.eclipse.jdt.internal.ui.text.java.MemberProposalInfo.getJavaElement(MemberProposalInfo.java:56)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.computeInfo(ProposalInfo.java:73)
+	at org.eclipse.jdt.internal.ui.text.java.ProposalInfo.getInfo(ProposalInfo.java:59)
+	at org.eclipse.jdt.internal.ui.text.java.AbstractJavaCompletionProposal.getAdditionalProposalInfo(AbstractJavaCompletionProposal.java:548)
+	at org.eclipse.jface.text.contentassist.AdditionalInfoController$3.run(AdditionalInfoController.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2010-01-13 22:38:19.328
+!MESSAGE TestScala does not exist
+!SESSION 2010-01-13 22:47:42.858 -----------------------------------------------
+eclipse.buildId=M20090917-0800
+java.version=1.6.0_0
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2010-01-13 22:48:15.059
 !MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
-!SUBENTRY 1 org.eclipse.jface 2 0 2010-01-11 21:55:59.360
+!SUBENTRY 1 org.eclipse.jface 2 0 2010-01-13 22:48:15.059
 !MESSAGE A conflict occurred for ALT+SHIFT+X P:
 Binding(ALT+SHIFT+X P,
 	ParameterizedCommand(Command(org.eclipse.pde.ui.junitWorkbenchShortcut.run,Run JUnit Plug-in Test,

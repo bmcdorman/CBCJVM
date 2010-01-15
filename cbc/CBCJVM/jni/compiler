@@ -1,0 +1,5 @@
+#!/bin/sh
+/mnt/kiss/bin/gcc -c -I/mnt/kiss/usercode/include -DCBC -Ijamvm -include track.h -include stdio.h -include cbc.h -include compat.h -include process.h -include create.h -include botball.h $1
+sync
+sync
+

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-Vendor: %providerName
+Bundle-Version: 3.4.100.v20090527
+Bundle-Localization: plugin
+Bundle-Name: %pluginName
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.eclipse.pde; singleton:=true
+Bundle-RequiredExecutionEnvironment: J2SE-1.4
+
+

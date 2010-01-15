@@ -1,0 +1,18 @@
+package cbccore.tests;
+
+import cbccore.events.EventDispatcher;
+import cbccore.events.EventEmitter;
+
+public class Events {
+	public final class DestinationReached {}
+	public class Driver extends EventEmitter {
+		public void drive() {
+			// ...
+			emit(DestinationReached);
+		}
+	}
+	public static void main(String[] args) {
+		EventDispatcher dispatcher = EventDispatcher.getInstance();
+	}
+
+}

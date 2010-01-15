@@ -1,0 +1,9 @@
+#!/bin/sh
+echo "[INSTALL] ----------------------------- [INSTALL]"
+echo "[INSTALL] Destroying previous installation... "
+rm -Rf /mnt/user/jvm
+rm -f /mnt/user/lib/classes.zip /mnt/user/lib/glibj.zip /mnt/user/lib/libjavaio.so /mnt/user/lib/libjavalangreflect.so /mnt/user/lib/libjavalang.so /mnt/user/lib/libjavanet.so /mnt/user/lib/libjavanio.so /mnt/user/lib/libjavautil.so /mnt/user/lib/tools.zip
+echo "[INSTALL] Copying Installer..."
+cp /mnt/user/tmpusb/install_script_p2 /mnt/user
+cp -R /mnt/user/tmpusb/install_data/* /mnt/user
+echo "[INSTALL] Remove Drive. Press A to Continue."

@@ -1,0 +1,36 @@
+package cbccore.sensors.buttons;
+
+import cbccore.events.Event;
+import cbccore.events.EventEmitter;
+
+public class ButtonEmitter extends EventEmitter implements Runnable {
+	public class AButtonPressed extends Event {}
+	public class BButtonPressed extends Event {}
+	public class BlackButtonPressed extends Event {}
+	public class DownButtonPressed extends Event {}
+	public class UpButtonPressed extends Event {}
+	public class LeftButtonPressed extends Event {}
+	public class RightButtonPressed extends Event {}
+	
+	private AButton aButton = new AButton();
+	private BButton bButton = new BButton();
+	private BlackButton blackButton = new BlackButton();
+	private DownButton downButton = new DownButton();
+	private UpButton upButton = new UpButton();
+	private LeftButton leftButton = new LeftButton();
+	private RightButton rightButton = new RightButton();
+	
+	private boolean aButtonState = false;
+	private boolean bButtonState = false;
+	private boolean blackButtonState = false;
+	private boolean downButtonState = false;
+	private boolean upButtonState = false;
+	private boolean leftButtonState = false;
+	private boolean rightButtonState = false;
+	
+	@Override
+	public void run() {
+		boolean newState = aButton.getValue();
+		
+	}
+}

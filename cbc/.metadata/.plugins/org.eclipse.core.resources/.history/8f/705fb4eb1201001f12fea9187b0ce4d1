@@ -1,0 +1,8 @@
+package cbccore.motors.listeners;
+
+public class StopDriver {
+	public StopDriver(IDriver driver) {
+		
+	}
+	
+}

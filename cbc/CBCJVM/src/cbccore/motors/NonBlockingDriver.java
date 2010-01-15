@@ -22,4 +22,8 @@ public class NonBlockingDriver extends Thread {
 		}
 		Thread.yield();
 	}
+	
+	public void halt() {
+		drives.clear();
+	}
 }

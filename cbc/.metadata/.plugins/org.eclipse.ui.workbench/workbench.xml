@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench progressCount="23" version="2.0">
+<workbenchAdvisor/>
+<window height="766" maximized="true" width="1020" x="1680" y="1">
+<fastViewData fastViewLocation="1024"/>
+<perspectiveBar>
+<itemSize x="160"/>
+</perspectiveBar>
+<coolbarLayout locked="0">
+<coolItem id="group.file" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="92" y="26"/>
+<coolItem id="additions" itemType="typeGroupMarker"/>
+<coolItem id="CBC.actionSet" itemType="typeToolBarContribution" x="108" y="26"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="108" y="26"/>
+<coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="92" y="26"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="68" y="26"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="60" y="26"/>
+<coolItem id="group.nav" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="164" y="26"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.pde.ui.manifestEditor" itemType="typeToolBarContribution" x="36" y="26"/>
+<coolItem id="org.eclipse.jdt.ui.PropertiesFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="scala.tools.eclipse.Editor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="group.help" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
+</coolbarLayout>
+<page aggregateWorkingSetId="Aggregate for window 1263268557016" focus="true" label="Workspace - Java">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
+<part id="7"/>
+<part id="8"/>
+<part id="9"/>
+<part id="10"/>
+<part id="11"/>
+<part id="12"/>
+<part id="13"/>
+<part id="14"/>
+<part id="15"/>
+<part id="16"/>
+<part id="17"/>
+<part id="18"/>
+<part id="19"/>
+<part id="20"/>
+<part id="21"/>
+<part id="22"/>
+<part id="23"/>
+<part id="24"/>
+<part id="25"/>
+<part id="26"/>
+<part id="27"/>
+<part id="28"/>
+<part id="29"/>
+<part id="30"/>
+<part id="31"/>
+<part id="32"/>
+<part id="33"/>
+<part id="34"/>
+<part id="35"/>
+<part id="36"/>
+<part id="37"/>
+<part id="38"/>
+<part id="39"/>
+<part id="40"/>
+<part id="41"/>
+<part id="42"/>
+<part id="43"/>
+<part id="44"/>
+<part id="45"/>
+<part id="46"/>
+<part id="47"/>
+<part id="48"/>
+<part id="49"/>
+<part id="50"/>
+<part id="51"/>
+<part id="52"/>
+<part id="53"/>
+<part id="54"/>
+<part id="55"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Interaction.java" partName="Interaction.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/interaction/Interaction.java" title="Interaction.java" tooltip="CBCJVM/src/cbccore/interaction/Interaction.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/interaction/Interaction.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2970" selectionTopPixel="174"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Command.java" partName="Command.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/interaction/Command.java" title="Command.java" tooltip="CBCJVM/src/cbccore/interaction/Command.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/interaction/Command.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="776" selectionTopPixel="340"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Sonar.java" partName="Sonar.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/sensors/analog/Sonar.java" title="Sonar.java" tooltip="CBCJVM/src/cbccore/sensors/analog/Sonar.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/sensors/analog/Sonar.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="440" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Sound.java" partName="Sound.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/low/Sound.java" title="Sound.java" tooltip="CBCJVM/src/cbccore/low/Sound.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/low/Sound.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Touch.java" partName="Touch.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/sensors/digital/Touch.java" title="Touch.java" tooltip="CBCJVM/src/cbccore/sensors/digital/Touch.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/sensors/digital/Touch.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="296" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Camera.java" partName="Camera.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/low/Camera.java" title="Camera.java" tooltip="CBCJVM/src/cbccore/low/Camera.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/low/Camera.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1289" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Input.java" partName="Input.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/low/Input.java" title="Input.java" tooltip="CBCJVM/src/cbccore/low/Input.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/low/Input.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Display.java" partName="Display.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/low/Display.java" title="Display.java" tooltip="CBCJVM/src/cbccore/low/Display.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/low/Display.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Device.java" partName="Device.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/low/Device.java" title="Device.java" tooltip="CBCJVM/src/cbccore/low/Device.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/low/Device.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Create.java" partName="Create.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/low/Create.java" title="Create.java" tooltip="CBCJVM/src/cbccore/low/Create.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/low/Create.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Device.java" partName="Device.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/Device.java" title="Device.java" tooltip="CBCJVM/src/cbccore/Device.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/Device.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="851" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IDriver.java" partName="IDriver.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/motors/IDriver.java" title="IDriver.java" tooltip="CBCJVM/src/cbccore/motors/IDriver.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/motors/IDriver.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="87" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Drive.java" partName="Drive.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/motors/Drive.java" title="Drive.java" tooltip="CBCJVM/src/cbccore/motors/Drive.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/motors/Drive.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="53" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Movement.java" partName="Movement.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/motors/Movement.java" title="Movement.java" tooltip="CBCJVM/src/cbccore/motors/Movement.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/motors/Movement.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="384" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Direction.java" partName="Direction.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/motors/Direction.java" title="Direction.java" tooltip="CBCJVM/src/cbccore/motors/Direction.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/motors/Direction.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="73" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LeftTurnMovement.java" partName="LeftTurnMovement.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/motors/LeftTurnMovement.java" title="LeftTurnMovement.java" tooltip="CBCJVM/src/cbccore/motors/LeftTurnMovement.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/motors/LeftTurnMovement.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="173" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RightTurnMovement.java" partName="RightTurnMovement.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/motors/RightTurnMovement.java" title="RightTurnMovement.java" tooltip="CBCJVM/src/cbccore/motors/RightTurnMovement.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/motors/RightTurnMovement.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="176" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StraightMovement.java" partName="StraightMovement.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/motors/StraightMovement.java" title="StraightMovement.java" tooltip="CBCJVM/src/cbccore/motors/StraightMovement.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/motors/StraightMovement.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="177" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TwoWheelDriver.java" partName="TwoWheelDriver.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/motors/TwoWheelDriver.java" title="TwoWheelDriver.java" tooltip="CBCJVM/src/cbccore/motors/TwoWheelDriver.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/motors/TwoWheelDriver.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1007" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Motor.java" partName="Motor.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/motors/Motor.java" title="Motor.java" tooltip="CBCJVM/src/cbccore/motors/Motor.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/motors/Motor.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="336" selectionTopPixel="498"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Motor.java" partName="Motor.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/low/Motor.java" title="Motor.java" tooltip="CBCJVM/src/cbccore/low/Motor.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/low/Motor.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="1927" selectionOffset="43" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="NonBlockingDriver.java" partName="NonBlockingDriver.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/motors/NonBlockingDriver.java" title="NonBlockingDriver.java" tooltip="CBCJVM/src/cbccore/motors/NonBlockingDriver.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/motors/NonBlockingDriver.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="321" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Camera.java" partName="Camera.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/sensors/camera/Camera.java" title="Camera.java" tooltip="CBCJVM/src/cbccore/sensors/camera/Camera.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/sensors/camera/Camera.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="170" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BoundingBox.java" partName="BoundingBox.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/sensors/camera/BoundingBox.java" title="BoundingBox.java" tooltip="CBCJVM/src/cbccore/sensors/camera/BoundingBox.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/sensors/camera/BoundingBox.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="107" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Channel.java" partName="Channel.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/sensors/camera/Channel.java" title="Channel.java" tooltip="CBCJVM/src/cbccore/sensors/camera/Channel.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/sensors/camera/Channel.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="397" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Blob.java" partName="Blob.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/sensors/camera/Blob.java" title="Blob.java" tooltip="CBCJVM/src/cbccore/sensors/camera/Blob.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/sensors/camera/Blob.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="71" selectionOffset="395" selectionTopPixel="56"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="InteractionProtocol.java" partName="InteractionProtocol.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/interaction/InteractionProtocol.java" title="InteractionProtocol.java" tooltip="CBCJVM/src/cbccore/interaction/InteractionProtocol.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/interaction/InteractionProtocol.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AButton.java" partName="AButton.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/sensors/buttons/AButton.java" title="AButton.java" tooltip="CBCJVM/src/cbccore/sensors/buttons/AButton.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/sensors/buttons/AButton.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="296" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BButton.java" partName="BButton.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/sensors/buttons/BButton.java" title="BButton.java" tooltip="CBCJVM/src/cbccore/sensors/buttons/BButton.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/sensors/buttons/BButton.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="215" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RightButton.java" partName="RightButton.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/sensors/buttons/RightButton.java" title="RightButton.java" tooltip="CBCJVM/src/cbccore/sensors/buttons/RightButton.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/sensors/buttons/RightButton.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="219" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LeftButton.java" partName="LeftButton.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/sensors/buttons/LeftButton.java" title="LeftButton.java" tooltip="CBCJVM/src/cbccore/sensors/buttons/LeftButton.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/sensors/buttons/LeftButton.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="218" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UpButton.java" partName="UpButton.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/sensors/buttons/UpButton.java" title="UpButton.java" tooltip="CBCJVM/src/cbccore/sensors/buttons/UpButton.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/sensors/buttons/UpButton.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="216" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DownButton.java" partName="DownButton.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/sensors/buttons/DownButton.java" title="DownButton.java" tooltip="CBCJVM/src/cbccore/sensors/buttons/DownButton.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/sensors/buttons/DownButton.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="218" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BlackButton.java" partName="BlackButton.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/sensors/buttons/BlackButton.java" title="BlackButton.java" tooltip="CBCJVM/src/cbccore/sensors/buttons/BlackButton.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/sensors/buttons/BlackButton.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="219" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="InvalidPercentageException.java" partName="InvalidPercentageException.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/InvalidPercentageException.java" title="InvalidPercentageException.java" tooltip="CBCJVM/src/cbccore/InvalidPercentageException.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/InvalidPercentageException.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IBooleanSensor.java" partName="IBooleanSensor.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/sensors/IBooleanSensor.java" title="IBooleanSensor.java" tooltip="CBCJVM/src/cbccore/sensors/IBooleanSensor.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/sensors/IBooleanSensor.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="87" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IAnalogSensor.java" partName="IAnalogSensor.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/sensors/IAnalogSensor.java" title="IAnalogSensor.java" tooltip="CBCJVM/src/cbccore/sensors/IAnalogSensor.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/sensors/IAnalogSensor.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="110" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Motors.java" partName="Motors.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/tests/Motors.java" title="Motors.java" tooltip="CBCJVM/src/cbccore/tests/Motors.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/tests/Motors.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1002" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Command.java" partName="Command.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbctools/jar/Command.java" title="Command.java" tooltip="CBCJVM/src/cbctools/jar/Command.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbctools/jar/Command.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="763" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="InteractionProtocol.java" partName="InteractionProtocol.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbctools/jar/InteractionProtocol.java" title="InteractionProtocol.java" tooltip="CBCJVM/src/cbctools/jar/InteractionProtocol.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbctools/jar/InteractionProtocol.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Interaction.java" partName="Interaction.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbctools/jar/Interaction.java" title="Interaction.java" tooltip="CBCJVM/src/cbctools/jar/Interaction.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbctools/jar/Interaction.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="2731" selectionOffset="1113" selectionTopPixel="1416"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EventDispatcher.java" partName="EventDispatcher.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/events/EventDispatcher.java" title="EventDispatcher.java" tooltip="CBCJVM/src/cbccore/events/EventDispatcher.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/events/EventDispatcher.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1507" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Event.java" partName="Event.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/events/Event.java" title="Event.java" tooltip="CBCJVM/src/cbccore/events/Event.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/events/Event.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="76" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IEventListener.java" partName="IEventListener.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/events/IEventListener.java" title="IEventListener.java" tooltip="CBCJVM/src/cbccore/events/IEventListener.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/events/IEventListener.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="100" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EventEmitter.java" partName="EventEmitter.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/events/EventEmitter.java" title="EventEmitter.java" tooltip="CBCJVM/src/cbccore/events/EventEmitter.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/events/EventEmitter.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="140" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Events.java" partName="Events.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/tests/Events.java" title="Events.java" tooltip="CBCJVM/src/cbccore/tests/Events.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/tests/Events.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1226" selectionTopPixel="259"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EventListenerAdapter.java" partName="EventListenerAdapter.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/events/EventListenerAdapter.java" title="EventListenerAdapter.java" tooltip="CBCJVM/src/cbccore/events/EventListenerAdapter.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/events/EventListenerAdapter.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="98" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ButtonEmitter.java" partName="ButtonEmitter.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/sensors/buttons/ButtonEmitter.java" title="ButtonEmitter.java" tooltip="CBCJVM/src/cbccore/sensors/buttons/ButtonEmitter.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/sensors/buttons/ButtonEmitter.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1103" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Buttons.java" partName="Buttons.java" path="/home/beta/CBCJVM/cbc/CBCJVM/src/cbccore/tests/Buttons.java" title="Buttons.java" tooltip="CBCJVM/src/cbccore/tests/Buttons.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBCJVM/src/cbccore/tests/Buttons.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="901" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.pde.ui.manifestEditor" name="plugin.xml" partName="CBC" path="/home/beta/CBCJVM/eclipse/CBC/plugin.xml" title="CBC" tooltip="CBC/plugin.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBC/plugin.xml"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CBCAction.java" partName="CBCAction.java" path="/home/beta/CBCJVM/eclipse/CBC/src/cbc/actions/CBCAction.java" title="CBCAction.java" tooltip="CBC/src/cbc/actions/CBCAction.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBC/src/cbc/actions/CBCAction.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="810" selectionTopPixel="55"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CBCFDAction.java" partName="CBCFDAction.java" path="/home/beta/CBCJVM/eclipse/CBC/src/cbc/actions/CBCFDAction.java" title="CBCFDAction.java" tooltip="CBC/src/cbc/actions/CBCFDAction.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBC/src/cbc/actions/CBCFDAction.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="55"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Helper.java" partName="Helper.java" path="/home/beta/CBCJVM/eclipse/CBC/src/cbc/helpers/Helper.java" title="Helper.java" tooltip="CBC/src/cbc/helpers/Helper.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBC/src/cbc/helpers/Helper.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1336" selectionTopPixel="1857"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Ssh.java" partName="Ssh.java" path="/home/beta/CBCJVM/eclipse/CBC/src/cbc/helpers/Ssh.java" title="Ssh.java" tooltip="CBC/src/cbc/helpers/Ssh.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBC/src/cbc/helpers/Ssh.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="1363"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CBCUPAction.java" partName="CBCUPAction.java" path="/home/beta/CBCJVM/eclipse/CBC/src/cbc/actions/CBCUPAction.java" title="CBCUPAction.java" tooltip="CBC/src/cbc/actions/CBCUPAction.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBC/src/cbc/actions/CBCUPAction.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="737" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CBCUSBAction.java" partName="CBCUSBAction.java" path="/home/beta/CBCJVM/eclipse/CBC/src/cbc/actions/CBCUSBAction.java" title="CBCUSBAction.java" tooltip="CBC/src/cbc/actions/CBCUSBAction.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CBC/src/cbc/actions/CBCUSBAction.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+</editors>
+<views>
+<view id="org.eclipse.jdt.ui.TypeHierarchy" partName="Hierarchy"/>
+<view id="org.eclipse.ui.views.ProblemView" partName="Problems">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Errors (1 item)"/>
+<category IMemento.internal.id="Warnings"/>
+<category IMemento.internal.id="Errors"/>
+</expanded>
+<columnWidths org.eclipse.ui.ide.locationField="73" org.eclipse.ui.ide.markerType="860" org.eclipse.ui.ide.pathField="143" org.eclipse.ui.ide.resourceField="108" org.eclipse.ui.ide.severityAndDescriptionField="1204"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+</viewState>
+</view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
+</view>
+<view id="org.eclipse.jdt.ui.PackageExplorer" partName="Package Explorer">
+<viewState group_libraries="1" layout="2" linkWithEditor="0" rootMode="1" workingSetName="Aggregate for window 1263268557016">
+<customFilters userDefinedPatternsEnabled="false">
+<xmlDefinedFilters>
+<child filterId="scala.tools.eclipse.javaelements.ScalaElementFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.LibraryFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.LocalTypesFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.StaticsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.pde.ui.ExternalPluginLibrariesFilter1" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.ClosedProjectsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonSharedProjectsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonJavaElementFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.ContainedLibraryFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.CuAndClassFileFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonJavaProjectsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.EmptyInnerPackageFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.PackageDeclarationFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.EmptyPackageFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.ImportDeclarationFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.FieldsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.HideInnerClassFilesFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonPublicFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer_patternFilterId_.*" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.EmptyLibraryContainerFilter" isEnabled="true"/>
+<child filterId="org.eclipse.pde.ui.BinaryProjectFilter1" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.SyntheticMembersFilter" isEnabled="true"/>
+</xmlDefinedFilters>
+</customFilters>
+</viewState>
+</view>
+<view id="org.eclipse.pde.runtime.LogView" partName="Error Log"/>
+<view id="org.eclipse.ui.views.TaskList" partName="Tasks"/>
+<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
+<viewState/>
+</view>
+<view id="org.eclipse.jdt.ui.SourceView" partName="Declaration"/>
+<view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
+</views>
+<perspectives activePart="org.eclipse.pde.ui.manifestEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory" id="org.eclipse.jdt.ui.JavaPerspective" label="Java"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.keplerproject.ldt.ui.luaProjectAction"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.ui.JavaActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.ui.JavaElementCreationActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.junit.JUnitActionSet"/>
+<alwaysOnActionSet id="CBC.actionSet"/>
+<show_view_action id="org.eclipse.jdt.ui.PackageExplorer"/>
+<show_view_action id="org.eclipse.jdt.ui.TypeHierarchy"/>
+<show_view_action id="org.eclipse.jdt.ui.SourceView"/>
+<show_view_action id="org.eclipse.jdt.ui.JavadocView"/>
+<show_view_action id="org.eclipse.search.ui.views.SearchView"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.views.ProblemView"/>
+<show_view_action id="org.eclipse.ui.views.ResourceNavigator"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.ui.views.ProgressView"/>
+<show_view_action id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<show_view_action id="org.eclipse.ui.texteditor.TemplatesView"/>
+<show_view_action id="org.eclipse.ant.ui.views.AntView"/>
+<show_view_action id="org.eclipse.pde.runtime.LogView"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.JavaProjectWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewPackageCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewClassCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewInterfaceCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewEnumCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewAnnotationCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewSourceFolderCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewSnippetFileCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewJavaWorkingSetWizard"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.folder"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.file"/>
+<new_wizard_action id="org.eclipse.ui.editors.wizards.UntitledTextFileWizard"/>
+<new_wizard_action id="org.eclipse.jdt.junit.wizards.NewTestCaseCreationWizard"/>
+<perspective_action id="ch.epfl.lamp.sdt.core.perspective"/>
+<perspective_action id="org.eclipse.debug.ui.DebugPerspective"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaBrowsingPerspective"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.jdt.ui.PackageExplorer"/>
+<view id="org.eclipse.jdt.ui.TypeHierarchy"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="org.eclipse.jdt.ui.JavadocView"/>
+<view id="org.eclipse.jdt.ui.SourceView"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="left">
+<folder activePageID="org.eclipse.jdt.ui.PackageExplorer" appearance="2" expanded="2">
+<page content="org.eclipse.jdt.ui.PackageExplorer" label="Package Explorer"/>
+<page content="org.eclipse.jdt.ui.TypeHierarchy" label="Hierarchy"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+<page content="org.eclipse.ui.navigator.ProjectExplorer" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.junit.ResultView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@12742ffc" ratio="0.7495049" ratioLeft="757" ratioRight="253" relationship="2" relative="left">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.22109048" ratioLeft="369" ratioRight="1300" relationship="2" relative="left"/>
+<info folder="true" part="bottom" ratio="0.6897275" ratioLeft="658" ratioRight="296" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
+<page content="org.eclipse.jdt.ui.SourceView" label="Declaration"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="right" ratio="0.7983084" ratioLeft="1227" ratioRight="310" relationship="2" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<page content="org.eclipse.ui.texteditor.TemplatesView" label="LabelNotFound"/>
+<page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="scala.tools.eclipse.PerspectiveFactory" id="ch.epfl.lamp.sdt.core.perspective" label="Scala"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.keplerproject.ldt.ui.luaProjectAction"/>
+<alwaysOnActionSet id="CBC.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.ui.JavaActionSet"/>
+<show_view_action id="org.eclipse.ui.views.ResourceNavigator"/>
+<show_view_action id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.pde.runtime.LogView"/>
+<new_wizard_action id="ch.epfl.lamp.sdt.core.wizards.newProject"/>
+<new_wizard_action id="ch.epfl.lamp.sdt.core.wizards.newNetProject"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewPackageCreationWizard"/>
+<new_wizard_action id="ch.epfl.lamp.sdt.core.wizards.newClass"/>
+<new_wizard_action id="ch.epfl.lamp.sdt.core.wizards.newTrait"/>
+<new_wizard_action id="ch.epfl.lamp.sdt.core.wizards.newObject"/>
+<new_wizard_action id="ch.epfl.lamp.sdt.core.wizards.newApplication"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.folder"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.file"/>
+<perspective_action id="org.eclipse.debug.ui.DebugPerspective"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.jdt.ui.PackageExplorer"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="org.eclipse.ui.views.TaskList"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.pde.runtime.LogView"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="explorer">
+<folder activePageID="org.eclipse.jdt.ui.PackageExplorer" appearance="2" expanded="2">
+<page content="org.eclipse.jdt.ui.PackageExplorer" label="Package Explorer"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="explorer">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.25" ratioLeft="478" ratioRight="1434" relationship="2" relative="explorer"/>
+<info folder="true" part="problems" ratio="0.7492163" ratioLeft="717" ratioRight="240" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.pde.runtime.LogView" label="Error Log"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="right" ratio="0.7496513" ratioLeft="1075" ratioRight="359" relationship="2" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<workingSets/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CBCJVM/src/cbccore/events/Event.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CBCJVM/src/cbccore/tests/Events.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CBCJVM/src/cbccore/sensors/buttons/ButtonEmitter.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CBCJVM/src/cbccore/tests/Buttons.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CBCJVM/src/cbccore/sensors/IAnalogSensor.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CBCJVM/src/cbccore/sensors/buttons/AButton.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.pde.ui.manifestEditor" path="/CBC/plugin.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CBC/src/cbc/actions/CBCAction.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CBC/src/cbc/actions/CBCFDAction.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CBC/src/cbc/helpers/Helper.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CBC/src/cbc/helpers/Ssh.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CBC/src/cbc/actions/CBCUPAction.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CBC/src/cbc/actions/CBCUSBAction.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CBCJVM/src/cbccore/Device.java"/>
+</editors>
+<item historyLabel="ButtonEmitter.java" index="2">
+<position info="not_deleted" x="2174" y="0"/>
+</item>
+<item historyLabel="ButtonEmitter.java" index="2">
+<position info="not_deleted" x="2173" y="0"/>
+</item>
+<item historyLabel="ButtonEmitter.java" index="2">
+<position info="not_deleted" x="2219" y="0"/>
+</item>
+<item historyLabel="ButtonEmitter.java" index="2">
+<position info="not_deleted" x="1004" y="0"/>
+</item>
+<item historyLabel="Events.java" index="1">
+<position info="not_deleted" x="1223" y="0"/>
+</item>
+<item historyLabel="Buttons.java" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Buttons.java" index="3">
+<position info="not_deleted" x="280" y="0"/>
+</item>
+<item historyLabel="Buttons.java" index="3">
+<position info="not_deleted" x="274" y="0"/>
+</item>
+<item historyLabel="Buttons.java" index="3">
+<position/>
+</item>
+<item historyLabel="ButtonEmitter.java" index="2">
+<position info="not_deleted" x="1004" y="0"/>
+</item>
+<item historyLabel="ButtonEmitter.java" index="2">
+<position/>
+</item>
+<item historyLabel="ButtonEmitter.java" index="2">
+<position/>
+</item>
+<item historyLabel="ButtonEmitter.java" index="2">
+<position/>
+</item>
+<item historyLabel="ButtonEmitter.java" index="2">
+<position info="not_deleted" x="1827" y="0"/>
+</item>
+<item historyLabel="ButtonEmitter.java" index="2">
+<position info="not_deleted" x="1880" y="0"/>
+</item>
+<item historyLabel="ButtonEmitter.java" index="2">
+<position info="not_deleted" x="1905" y="0"/>
+</item>
+<item historyLabel="ButtonEmitter.java" index="2">
+<position info="not_deleted" x="1936" y="0"/>
+</item>
+<item historyLabel="ButtonEmitter.java" index="2">
+<position info="not_deleted" x="1799" y="0"/>
+</item>
+<item historyLabel="ButtonEmitter.java" index="2">
+<position info="not_deleted" x="2026" y="0"/>
+</item>
+<item historyLabel="Buttons.java" index="3">
+<position/>
+</item>
+<item historyLabel="ButtonEmitter.java" index="2">
+<position info="not_deleted" x="1812" y="0"/>
+</item>
+<item historyLabel="Buttons.java" index="3">
+<position info="not_deleted" x="173" y="0"/>
+</item>
+<item historyLabel="Event.java" index="0">
+<position info="not_deleted" x="76" y="0"/>
+</item>
+<item historyLabel="Events.java" index="1">
+<position info="not_deleted" x="1226" y="0"/>
+</item>
+<item historyLabel="Event.java" index="0">
+<position info="not_deleted" x="76" y="0"/>
+</item>
+<item historyLabel="IAnalogSensor.java" index="4">
+<position info="not_deleted" x="110" y="0"/>
+</item>
+<item historyLabel="AButton.java" index="5">
+<position info="not_deleted" x="296" y="0"/>
+</item>
+<item historyLabel="ButtonEmitter.java" index="2">
+<position info="not_deleted" x="1812" y="0"/>
+</item>
+<item historyLabel="Buttons.java" index="3">
+<position info="not_deleted" x="896" y="0"/>
+</item>
+<item historyLabel="Buttons.java" index="3">
+<position info="not_deleted" x="469" y="0"/>
+</item>
+<item historyLabel="Buttons.java" index="3">
+<position info="not_deleted" x="497" y="0"/>
+</item>
+<item historyLabel="Buttons.java" index="3">
+<position info="not_deleted" x="623" y="0"/>
+</item>
+<item historyLabel="Buttons.java" index="3">
+<position info="not_deleted" x="902" y="0"/>
+</item>
+<item historyLabel="ButtonEmitter.java" index="2">
+<position info="not_deleted" x="1103" y="0"/>
+</item>
+<item historyLabel="Buttons.java" index="3">
+<position info="not_deleted" x="902" y="0"/>
+</item>
+<item historyLabel="CBC" index="6"/>
+<item historyLabel="CBCAction.java" index="7">
+<position info="not_deleted" x="810" y="0"/>
+</item>
+<item historyLabel="CBCFDAction.java" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Helper.java" index="9">
+<position info="not_deleted" x="1336" y="0"/>
+</item>
+<item historyLabel="Ssh.java" index="10">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="CBCUPAction.java" index="11">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="CBCUSBAction.java" index="12">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="CBCAction.java" index="7">
+<position info="not_deleted" x="810" y="0"/>
+</item>
+<item historyLabel="CBCFDAction.java" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="CBCUPAction.java" index="11">
+<position info="not_deleted" x="737" y="0"/>
+</item>
+<item historyLabel="CBC" index="6"/>
+<item historyLabel="Buttons.java" index="3">
+<position info="not_deleted" x="902" y="0"/>
+</item>
+<item historyLabel="Device.java" index="13">
+<position info="not_deleted" x="948" y="0"/>
+</item>
+<item historyLabel="Device.java" index="13">
+<position info="not_deleted" x="851" y="0"/>
+</item>
+<item active="true" historyLabel="CBC" index="6"/>
+</navigationHistory>
+<input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+<trimLayout>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+</trimArea>
+<trimArea IMemento.internal.id="1024">
+<trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
+<trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+</trimArea>
+</trimLayout>
+</window>
+<mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CBCUSBAction.java" tooltip="CBC/src/cbc/actions/CBCUSBAction.java">
+<persistable path="/CBC/src/cbc/actions/CBCUSBAction.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CBCUPAction.java" tooltip="CBC/src/cbc/actions/CBCUPAction.java">
+<persistable path="/CBC/src/cbc/actions/CBCUPAction.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Ssh.java" tooltip="CBC/src/cbc/helpers/Ssh.java">
+<persistable path="/CBC/src/cbc/helpers/Ssh.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Helper.java" tooltip="CBC/src/cbc/helpers/Helper.java">
+<persistable path="/CBC/src/cbc/helpers/Helper.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CBCFDAction.java" tooltip="CBC/src/cbc/actions/CBCFDAction.java">
+<persistable path="/CBC/src/cbc/actions/CBCFDAction.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CBCAction.java" tooltip="CBC/src/cbc/actions/CBCAction.java">
+<persistable path="/CBC/src/cbc/actions/CBCAction.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.pde.ui.manifestEditor" name="plugin.xml" tooltip="CBC/plugin.xml">
+<persistable path="/CBC/plugin.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Buttons.java" tooltip="CBCJVM/src/cbccore/tests/Buttons.java">
+<persistable path="/CBCJVM/src/cbccore/tests/Buttons.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ButtonEmitter.java" tooltip="CBCJVM/src/cbccore/sensors/buttons/ButtonEmitter.java">
+<persistable path="/CBCJVM/src/cbccore/sensors/buttons/ButtonEmitter.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EventListenerAdapter.java" tooltip="CBCJVM/src/cbccore/events/EventListenerAdapter.java">
+<persistable path="/CBCJVM/src/cbccore/events/EventListenerAdapter.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Events.java" tooltip="CBCJVM/src/cbccore/tests/Events.java">
+<persistable path="/CBCJVM/src/cbccore/tests/Events.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EventEmitter.java" tooltip="CBCJVM/src/cbccore/events/EventEmitter.java">
+<persistable path="/CBCJVM/src/cbccore/events/EventEmitter.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Event.java" tooltip="CBCJVM/src/cbccore/events/Event.java">
+<persistable path="/CBCJVM/src/cbccore/events/Event.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EventDispatcher.java" tooltip="CBCJVM/src/cbccore/events/EventDispatcher.java">
+<persistable path="/CBCJVM/src/cbccore/events/EventDispatcher.java"/>
+</file>
+</mruList>
+</workbench>

@@ -1,0 +1,4 @@
+package cbccore.events;
+
+public class Event {
+}

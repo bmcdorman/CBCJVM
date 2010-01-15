@@ -1,0 +1,23 @@
+package cbccore.events;
+
+public class Event {
+	private static Event instance = null;
+
+	public static Event event() {
+		if(instance == null) instance = _class().newInstance();
+		return instance;
+	}
+
+	@SuppressWarnings("unchecked")
+	private static final Class _class() {
+		Exception e = new Exception();
+		e.fillInStackTrace();
+		StackTraceElement[] st = e.getStackTrace();
+		String classname = st[0].getClassName();
+		try {
+			return Class.forName(classname);
+		} catch (ClassNotFoundException ex) {
+			throw new RuntimeException("Unexpected!", ex);
+		}
+	}
+}

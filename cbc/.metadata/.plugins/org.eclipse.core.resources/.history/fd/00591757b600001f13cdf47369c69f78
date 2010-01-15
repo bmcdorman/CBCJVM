@@ -1,0 +1,7 @@
+package cbccore.events;
+
+public abstract class EventEmitter {
+	public abstract void emit(Class<?> type) {
+		
+	}
+}

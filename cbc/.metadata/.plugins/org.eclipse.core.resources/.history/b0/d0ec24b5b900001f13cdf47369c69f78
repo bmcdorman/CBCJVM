@@ -1,0 +1,45 @@
+package cbccore.events;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+
+public class EventDispatcher {
+	private HashMap<EventEmitter, HashMap<Event, ArrayList<IEventListener>>> events = new HashMap<EventEmitter, HashMap<Event, ArrayList<IEventListener>>>();
+	private static EventDispatcher instance = null;
+	
+	public static EventDispatcher getInstance() {
+		if(instance == null) instance = new EventDispatcher();
+		return instance;
+	}
+	
+	public void addEventListener(EventEmitter emitter, Event type, IEventListener listener) {
+		HashMap<Event, ArrayList<IEventListener>> emit = events.get(emitter);
+		ArrayList<IEventListener> listeners = .get(type);
+		listeners.add(listener);
+	}
+	
+	/**
+	 * Removes an event listener from all types in an emitter
+	 */
+	public void removeEventListener(EventEmitter emitter, IEventListener listener) {
+		HashMap<Event, ArrayList<IEventListener>> types = events.get(emitter);
+		Iterator<ArrayList<IEventListener>> it = types.values().iterator();
+		while(it.hasNext()) {
+			ArrayList<IEventListener> listeners = it.next();
+			for(int i = 0; i < listeners.size(); ++i) {
+				IEventListener working = listeners.get(i);
+				if(working.equals(listener)) {
+					listeners.remove(i);
+				}
+			}
+		}
+	}
+	
+	public void emit(EventEmitter emitter, Event type) {
+		ArrayList<IEventListener> listeners = events.get(emitter).get(type);
+		for(IEventListener i : listeners) {
+			i.eventDispatched(emitter, type);
+		}
+	}
+}

@@ -1,0 +1,12 @@
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class Main extends URLClassLoader {
+    public static void main(String[] args) {
+        List<String> argList = new ArrayList<String>();
+        argList.add("Scala");
+        for (String s : args) argList.add(s);
+            scala.tools.nsc.MainGenericRunner.main(argList.toArray(new String[0]));
+    }
+}

@@ -1,0 +1,6 @@
+public class Main {
+	public static void main(String[] args) throws Exception {
+		rheise.jftpd.Server.main(args);
+	}
+	
+}

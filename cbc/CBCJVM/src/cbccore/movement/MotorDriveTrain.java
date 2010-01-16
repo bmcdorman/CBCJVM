@@ -104,7 +104,7 @@ public class MotorDriveTrain extends DriveTrain {
 		if(Math.abs(leftCm) < .5) leftCm = 0.;
 		if(Math.abs(rightCm) < .5) { if(leftCm == 0) { return; } rightCm = 0.; }
 		
-		double destCmCounter = 0.;
+		//double destCmCounter = 0.;
 		_leftWheel.moveAtCmps(leftCmps);
 		_rightWheel.moveAtCmps(rightCmps);
 		long destTime = System.currentTimeMillis()+((long)((leftCm/leftCmps)*1000.));

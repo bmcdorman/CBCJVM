@@ -33,11 +33,9 @@ public class Wheel extends Motor {
 	private double _maxCmps;
 	protected double _circumference;
 	private int _currentTps;
-	private int _port;
 	
 	public Wheel(int port, double circumference, double efficiency) {
 		super(port);
-		_port = port;
 		_circumference = circumference;
 		_efficiency = efficiency;
 		_maxRps = 1000./MotorDriveTrain.ticksPerRotation*_efficiency;

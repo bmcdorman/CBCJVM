@@ -1,0 +1,53 @@
+<project name="installer" default="dist" basedir=".">
+	<description>
+		Generate the install directory, used to install CBCJava
+	</description>
+	
+	<!-- set global properties for this build -->
+	<property name="install" location="install"/>
+	<property name="installData" location="${install.dir}/install_data"/>
+	<property name="targetLibraries" location="{installData.dir}/lib"/>
+	<property name="sourceLibraries" location="lib"/>
+	<property name="targetJVM" location="${installData.dir}/jvm"/>
+	<property name="sourceJVM" location="jvm"/>
+	<property name="sourceCBCLibraries" location="">
+	<property name="targetCode" location="${installData.dir}/code"/>
+	<property name="sourceCode" location="../cbc/CBCJVM/bin/cbctools"/>
+	
+	<target name="init" depends="clean" description="initialize folder structure">
+		<mkdir dir="${installData.dir}"/>
+		<mkdir dir="${targetLibraries.dir}"/>
+		<mkdir dir="${targetJVM.dir}"/>
+		<mkdir dir="${targetCode.dir}"/>
+	</target>
+	
+	<target name="dist" depends="init" description="generate the distribution" >
+		<copy todir="${targetLibraries.dir}">
+			<fileset dir="${sourceLibraries.dir}"/>
+		</copy>
+		<copy todir="${targetJVM.dir}">
+			<fileset dir="${sourceJVM.dir}"/>
+		</copy>
+		<copy todir="${targetCode.dir}">
+			<fileset dir="${sourceCode.dir}"/>
+		</copy>
+	</target>
+	
+	<target name="clean" description="deletes ${installData.dir}">
+		<delete dir="${installData.dir}"/>
+	</target>
+</project>
+	
+mkdir install/install_data
+mkdir install/install_data/lib
+cp -R lib/* install/install_data/lib
+mkdir install/install_data/jvm
+cp -R jvm/* install/install_data/jvm
+mkdir install/install_data/jvm/cbc
+cp -R ../cbc/CBCJVM/bin/* install/install_data/jvm/cbc
+cp -R ../cbc/CBCJVM/jni install/install_data/jvm/cbc
+cp -R cjm install/install_data/jvm
+mkdir install/install_data/code
+#cp -R HelloWorld install/install_data/code/HelloWorld/
+cp -Rf ../cbc/CBCJVM/cbc/bin/cbctests/* install/install_data/code
+echo "Done!"

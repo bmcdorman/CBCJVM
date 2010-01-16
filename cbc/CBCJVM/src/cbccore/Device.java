@@ -1,7 +1,29 @@
+/*
+ * This file is part of CBCJVM.
+ * CBCJVM is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * CBCJVM is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with CBCJVM.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package cbccore;
 
 import cbccore.low.*;
 import cbccore.low.CBCSimulator;
+
+/**
+ * 
+ * @author Braden McDorman / Benjamin Woodruff
+ *
+ */
 
 public class Device {
 	private static CBCSimulator simulator;
@@ -17,13 +39,8 @@ public class Device {
 	
 	static {
 		try {
-<<<<<<< HEAD:cbc/CBCJVM/src/cbccore/Device.java
-			System.load("/mnt/user/jvm/cbc/CBC.so");
 			if(System.getenv().get("ON_CBC") != null) {
-=======
-			if(System.getenv().get("ON_CBC").equals("1")) {
 				System.load("/mnt/user/jvm/cbc/CBC.so");
->>>>>>> 89441d8a02c77f8eea17b0d90ea37dc6fd9c1503:cbc/CBCJVM/src/cbccore/Device.java
 				lowSound = new Sound();
 				lowSensors = new Sensor();
 				lowDevice = new cbccore.low.Device();

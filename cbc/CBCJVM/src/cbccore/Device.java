@@ -18,7 +18,7 @@ public class Device {
 	static {
 		try {
 			System.load("/mnt/user/jvm/cbc/CBC.so");
-			if(System.getenv().get("ON_CBC").equals("1")) {
+			if(System.getenv().get("ON_CBC") != null) {
 				lowSound = new Sound();
 				lowSensors = new Sensor();
 				lowDevice = new cbccore.low.Device();
@@ -65,18 +65,23 @@ public class Device {
 	public static Servo getLowServoController() {
 		return lowServos;
 	}
+	
 	public static Camera getLowCameraController() {
 		return lowCamera;
 	}
+	
 	public static cbccore.low.Device getLowDeviceController() {
 		return lowDevice;
 	}
+	
 	public static Input getLowInputController() {
 		return lowInput;
 	}
+	
 	public static Sound getLowSoundController() {
 		return lowSound;
 	}
+	
 	public static Sensor getLowSensorController() {
 		return lowSensors;
 	}

@@ -1,33 +1,28 @@
-package cbccore.movement;
 /*
- *      MotorDriveTrain.java
- *      
- *      Version 0.9.1 r0002
- *      
- *      Copyright 2009 PiPeep
- *      Dr. Sakuya Ph. D
- *      Blinded.Light
- *      
- *      This program is free software; you can redistribute it and/or modify
- *      it under the terms of the GNU General Public License as published by
- *      the Free Software Foundation; either version 2 of the License, or
- *      (at your option) any later version.
- *      
- *      This program is distributed in the hope that it will be useful,
- *      but WITHOUT ANY WARRANTY; without even the implied warranty of
- *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *      GNU General Public License for more details.
- *      
- *      You should have received a copy of the GNU General Public License
- *      along with this program; if not, write to the Free Software
- *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
- *      MA 02110-1301, USA.
- */
+ * This file is part of CBCJVM.
+ * CBCJVM is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * CBCJVM is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with CBCJVM.  If not, see <http://www.gnu.org/licenses/>.
+*/
 
-//no references to cbccore.low in here please.
-//If you feel you must, it should be done in wheel
+package cbccore.movement;
 
 import cbccore.InvalidValueException;
+
+/**
+ * 
+ * @author Benjamin Woodruff
+ *
+ */
 
 public class MotorDriveTrain extends DriveTrain {
 	

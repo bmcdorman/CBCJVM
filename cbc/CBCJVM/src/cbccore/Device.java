@@ -4,44 +4,6 @@ import cbccore.low.*;
 import cbccore.low.CBCSimulator;
 
 public class Device {
-	
-	public static void init() {
-		
-		boolean simulated = false;
-		try {
-			System.load("/mnt/user/jvm/cbc/CBC.so");
-		}
-		catch(UnsatisfiedLinkError e) {
-			e.printStackTrace();
-			System.out.println("Unable to load CBC.so! Assuming simulator mode.");
-			simulated = true;
-		}
-		
-		if(simulated) {
-			simulator = new CBCSimulator();
-			lowSound = simulator.sound;
-			lowSensors = simulator.sensor;
-			lowDevice = simulator.device;
-			lowDisplay = simulator.display;
-			lowInput = simulator.input;
-			lowServos = simulator.servo;
-			lowMotors = simulator.motor;
-			lowCamera = simulator.camera;
-			lowCreate = simulator.create;
-		} else {
-			lowSound = new Sound();
-			lowSensors = new Sensor();
-			lowDevice = new cbccore.low.Device();
-			lowDisplay = new Display();
-			lowInput = new Input();
-			lowServos = new Servo();
-			lowMotors = new Motor();
-			lowCamera = new Camera();
-			lowCreate = new Create();
-			//System.out.println("Successfully initialized CBC");
-		}
-	}
-	
 	private static CBCSimulator simulator;
 	private static Motor lowMotors;
 	private static Display lowDisplay;
@@ -52,6 +14,37 @@ public class Device {
 	private static Input lowInput;
 	private static Sound lowSound;
 	private static Sensor lowSensors;
+	
+	static {
+		try {
+			System.load("/mnt/user/jvm/cbc/CBC.so");
+			if(System.getenv().get("ON_CBC").equals("1")) {
+				lowSound = new Sound();
+				lowSensors = new Sensor();
+				lowDevice = new cbccore.low.Device();
+				lowDisplay = new Display();
+				lowInput = new Input();
+				lowServos = new Servo();
+				lowMotors = new Motor();
+				lowCamera = new Camera();
+				lowCreate = new Create();
+			} else {
+				simulator = new CBCSimulator();
+				lowSound = simulator.sound;
+				lowSensors = simulator.sensor;
+				lowDevice = simulator.device;
+				lowDisplay = simulator.display;
+				lowInput = simulator.input;
+				lowServos = simulator.servo;
+				lowMotors = simulator.motor;
+				lowCamera = simulator.camera;
+				lowCreate = simulator.create;
+			}
+		}
+		catch(UnsatisfiedLinkError e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public static CBCSimulator getSimulatorController() {
 		return simulator;

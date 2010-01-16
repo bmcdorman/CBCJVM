@@ -17,8 +17,8 @@ public class Device {
 	
 	static {
 		try {
-			System.load("/mnt/user/jvm/cbc/CBC.so");
 			if(System.getenv().get("ON_CBC").equals("1")) {
+				System.load("/mnt/user/jvm/cbc/CBC.so");
 				lowSound = new Sound();
 				lowSensors = new Sensor();
 				lowDevice = new cbccore.low.Device();

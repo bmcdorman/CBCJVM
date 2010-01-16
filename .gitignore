@@ -1,6 +1,6 @@
 cbc/CBCJVM/bin
 runtime-*
-cbc/Button/bin
 eclipse/CBC/bin
 cbc/.metadata
 cbc/CBCJVM/dist
+installer/install/install_data

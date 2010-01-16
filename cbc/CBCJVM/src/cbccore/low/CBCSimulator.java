@@ -3,10 +3,12 @@ package cbccore.low;
 import cbccore.low.simulator.*;
 
 import javax.swing.JFrame;
-import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 
 import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.ComponentOrientation;
+import java.awt.FlowLayout;
 import java.io.PrintStream;
 
 public class CBCSimulator {
@@ -47,9 +49,25 @@ public class CBCSimulator {
 		
 		frame.getContentPane().add(new JScrollPane(display.getTextBox()), BorderLayout.CENTER);
 		
+		FlowLayout buttonLayout = new FlowLayout();
+		Container buttonContainer = new Container();
+		buttonContainer.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		//buttonContainer.add(input.ub, BorderLayout.SOUTH);
+		//buttonContainer.add(input.db, BorderLayout.SOUTH);
+		buttonContainer.setLayout(buttonLayout);
+		buttonContainer.add(input.ub);
+		buttonContainer.add(input.db);
+		buttonContainer.add(input.lb);
+		buttonContainer.add(input.rb);
+		buttonContainer.add(input.ab);
+		buttonContainer.add(input.bb);
+		buttonContainer.add(input.blb);
+		frame.getContentPane().add(buttonContainer, BorderLayout.SOUTH);
+		
 		System.setOut(display.getPrintStream());
 		
 		frame.setSize(320, 240);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 	}
 }

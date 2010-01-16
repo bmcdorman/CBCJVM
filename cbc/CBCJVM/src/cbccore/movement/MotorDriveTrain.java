@@ -27,7 +27,7 @@ package cbccore.movement;
 //no references to cbc.core in here please.
 //If you feel you must, it should be done in wheel
 
-import cbc.InvalidValueException;
+import cbccore.InvalidValueException;
 
 public class MotorDriveTrain extends DriveTrain {
 	

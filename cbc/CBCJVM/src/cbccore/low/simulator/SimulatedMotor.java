@@ -1,7 +1,7 @@
 package cbccore.low.simulator;
 
+import cbccore.low.CBCSimulator;
 import cbccore.low.Motor;
-import cbccore.CBCSimulator;
 import cbccore.NotImplemented;
 
 public class SimulatedMotor extends Motor {

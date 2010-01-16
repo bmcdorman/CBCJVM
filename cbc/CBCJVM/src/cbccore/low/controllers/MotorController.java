@@ -1,13 +1,20 @@
 package cbccore.low.controllers;
 
+import cbccore.Device;
+import cbccore.InvalidPercentageException;
+import cbccore.InvalidPortException;
+import cbccore.InvalidValueException;
+import cbccore.low.Motor;
+
 public class MotorController {
 	private int port;
+	private Motor motor = Device.getLowMotorController();
 	public MotorController(int port) throws InvalidPortException {
 		if(port < 0 || port > 4)
 		{
 			throw new InvalidPortException();
 		}
-		this.port = port;
+		this.port = port ;
 	}
 	public void moveAtPercent(int percent) throws InvalidPercentageException
 	{
@@ -15,7 +22,7 @@ public class MotorController {
 		{
 			throw new InvalidPercentageException();
 		}
-		CBC.motor.motor(this.port, percent);
+		motor.motor(this.port, percent);
 	}
 	public void moveToPosition(int speed, int goal)
 	{
@@ -30,7 +37,7 @@ public class MotorController {
 		{
 			throw new InvalidValueException();
 		}
-		CBC.motor.mav(this.port, velocity);
+		motor.mav(this.port, velocity);
 	}
 	public void moveRelativePosition(int speed, int delta) throws InvalidValueException
 	{
@@ -38,22 +45,22 @@ public class MotorController {
 		{
 			throw new InvalidValueException();
 		}
-		CBC.motor.mrp(this.port, speed, delta);
+		motor.mrp(this.port, speed, delta);
 	}
 	public void blockMotorDone()
 	{
-		CBC.motor.bmd(this.port);
+		motor.bmd(this.port);
 	}
 	public int getPositionCounter()
 	{
-		return CBC.motor.get_motor_position_counter(this.port);
+		return motor.get_motor_position_counter(this.port);
 	}
 	public void stop()
 	{
-		CBC.motor.off(this.port);
+		motor.off(this.port);
 	}
 	public void freeze()
 	{
-		CBC.motor.freeze(this.port);
+		motor.freeze(this.port);
 	}
 }

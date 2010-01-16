@@ -1,7 +1,7 @@
 package cbccore.low.simulator;
 
+import cbccore.low.CBCSimulator;
 import cbccore.low.Device;
-import cbccore.CBCSimulator;
 
 public class SimulatedDevice extends Device {
 	

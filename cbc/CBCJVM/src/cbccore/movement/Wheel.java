@@ -136,5 +136,6 @@ public class Wheel extends Motor {
 	
 	public int moveAtVelocity(int tps) {
 		moveAtTps(tps);
+		return 0;
 	}
 }

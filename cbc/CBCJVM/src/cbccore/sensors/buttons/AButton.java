@@ -1,9 +1,8 @@
 package cbccore.sensors.buttons;
 
 import cbccore.Device;
-import cbccore.sensors.IBooleanSensor;
 
-public class AButton implements IBooleanSensor {
+public class AButton extends AbstractButton {
 	private cbccore.low.Input lowInput = Device.getLowInputController();
 	@Override
 	public boolean getValue() {

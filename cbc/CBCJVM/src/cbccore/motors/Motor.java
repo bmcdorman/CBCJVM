@@ -3,7 +3,7 @@ package cbccore.motors;
 import cbccore.Device;
 import cbccore.InvalidPortException;
 
-public class Motor {
+public class Motor extends cbccore.low.Motor {
 	private int port = 0;
 	private cbccore.low.Motor lowMotor = Device.getLowMotorController();
 	

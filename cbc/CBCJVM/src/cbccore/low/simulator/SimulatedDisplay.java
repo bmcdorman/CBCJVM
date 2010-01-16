@@ -1,14 +1,13 @@
 package cbccore.low.simulator;
 
+import cbccore.low.CBCSimulator;
 import cbccore.low.Display;
-import cbccore.CBCSimulator;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
  
 import javax.swing.JTextArea;
-import javax.swing.text.JTextComponent;
 
 public class SimulatedDisplay extends Display {
 	

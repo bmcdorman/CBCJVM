@@ -1,7 +1,7 @@
 package cbccore.low.simulator;
 
+import cbccore.low.CBCSimulator;
 import cbccore.low.Input;
-import cbccore.CBCSimulator;
 
 import java.awt.Button;
 import java.awt.event.ActionListener;

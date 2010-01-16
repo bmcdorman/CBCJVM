@@ -1,7 +1,12 @@
 package cbccore.low.controllers;
 
-public class ServoController {
+import cbccore.Device;
+import cbccore.InvalidPortException;
+import cbccore.low.Servo;
+
+public class ServoController extends cbccore.low.Servo {
 	private int port;
+	private Servo servo = Device.getLowServoController();
 	public ServoController(int port) throws InvalidPortException {
 		if(port < 0 || port > 4)
 		{
@@ -11,18 +16,18 @@ public class ServoController {
 	}
 	public void setPosition(int pos)
 	{
-		CBC.servo.set_servo_position(this.port, pos);
+		servo.set_servo_position(this.port, pos);
 	}
 	public int getPosition()
 	{
-		return CBC.servo.get_servo_position(this.port);
+		return servo.get_servo_position(this.port);
 	}
 	public void enableServos()
 	{
-		CBC.servo.enable_servos();
+		servo.enable_servos();
 	}
 	public void disableServos()
 	{
-		CBC.servo.disable_servos();
+		servo.disable_servos();
 	}
 }

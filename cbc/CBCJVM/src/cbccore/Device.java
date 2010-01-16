@@ -1,6 +1,7 @@
 package cbccore;
 
 import cbccore.low.*;
+import cbccore.low.CBCSimulator;
 
 public class Device {
 	

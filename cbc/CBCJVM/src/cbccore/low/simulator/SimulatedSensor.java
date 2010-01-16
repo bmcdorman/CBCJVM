@@ -1,7 +1,7 @@
 package cbccore.low.simulator;
 
-import cbccore.CBCSimulator;
 import cbccore.NotImplemented;
+import cbccore.low.CBCSimulator;
 import cbccore.low.Sensor;
 
 public class SimulatedSensor extends Sensor {

@@ -24,10 +24,10 @@ package cbccore.movement;
  *      MA 02110-1301, USA.
  */
 
-//no references to cbc.core in here please.
+//no references to cbccore.low in here please.
 //If you feel you must, it should be done in wheel
 
-import cbc.InvalidValueException;
+import cbccore.InvalidValueException;
 
 public class MotorDriveTrain extends DriveTrain {
 	

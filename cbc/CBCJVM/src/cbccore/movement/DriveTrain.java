@@ -23,7 +23,7 @@ package cbccore.movement;
  *      MA 02110-1301, USA.
  */
 
-import cbc.InvalidValueException;
+import cbccore.InvalidValueException;
 
 public abstract class DriveTrain {
 	public abstract void moveAtCmps(double cmps) throws InvalidValueException;

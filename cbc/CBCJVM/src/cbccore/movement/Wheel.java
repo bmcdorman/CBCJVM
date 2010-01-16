@@ -23,9 +23,10 @@ package cbccore.movement;
  *      MA 02110-1301, USA.
  */
 
-import cbc.*; //TODO: move cbc to cbc.core, and these libraries to cbc
+import cbccore.motors.Motor;
+import cbccore.InvalidValueException;
 
-public class Wheel extends MotorController {
+public class Wheel extends Motor {
 	
 	protected double _efficiency;
 	private double _maxRps;
@@ -133,7 +134,7 @@ public class Wheel extends MotorController {
 		return getWheelRotationCounter()*circumference();
 	}
 	
-	public void moveAtVelocity(int tps) {
+	public int moveAtVelocity(int tps) {
 		moveAtTps(tps);
 	}
 }

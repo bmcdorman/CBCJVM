@@ -3,3 +3,4 @@ runtime-*
 cbc/Button/bin
 eclipse/CBC/bin
 cbc/.metadata
+cbc/CBCJVM/dist

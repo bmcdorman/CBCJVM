@@ -2,15 +2,15 @@
 COMPILER=./compiler
 LINKER=./linker
 
-CBC_DEVICE=./CBC_Device
-CBC_DISPLAY=./CBC_Display
-CBC_INPUT=./CBC_Input
-CBC_MOTOR=./CBC_Motor
-CBC_SENSOR=./CBC_Sensor
-CBC_SERVO=./CBC_Servo
-CBC_SOUND=./CBC_Sound
-CBC_CAMERA=./CBC_Camera
-CBC_CREATE=./CBC_Create
+CBC_DEVICE=./cbccore_low_Device
+CBC_DISPLAY=./cbccore_low_Display
+CBC_INPUT=./cbccore_low_Input
+CBC_MOTOR=./cbccore_low_Motor
+CBC_SENSOR=./cbccore_low_Sensor
+CBC_SERVO=./cbccore_low_Servo
+CBC_SOUND=./cbccore_low_Sound
+CBC_CAMERA=./cbccore_low_Camera
+CBC_CREATE=./cbccore_low_Create
 
 echo "Compiling CBC_Device..."
 $COMPILER ${CBC_DEVICE}.c
@@ -33,3 +33,4 @@ $COMPILER ${CBC_CREATE}.c
 echo "Linking wrapper..."
 $LINKER ${CBC_DEVICE}.o ${CBC_DISPLAY}.o ${CBC_INPUT}.o ${CBC_MOTOR}.o ${CBC_SENSOR}.o ${CBC_SERVO}.o ${CBC_SOUND}.o ${CBC_CAMERA}.o ${CBC_CREATE}.o
 echo "Generated CBC.so!"
+

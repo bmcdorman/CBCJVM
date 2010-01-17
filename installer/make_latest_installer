@@ -14,3 +14,4 @@ mkdir install/install_data/code
 #cp -R HelloWorld install/install_data/code/HelloWorld/
 cp -Rf ../cbc/CBCJVM/cbc/bin/cbctests/* install/install_data/code
 echo "Done!"
+

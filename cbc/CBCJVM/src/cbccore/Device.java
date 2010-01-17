@@ -38,8 +38,16 @@ public class Device {
 	private static Sensor lowSensors;
 	
 	static {
+		boolean onCBC = true;
 		try {
-			if(System.getenv().get("ON_CBC") != null) {
+			System.getProperty("CBC");
+		}
+		catch(IllegalArgumentException e) {
+			onCBC = false;
+		}
+		try {
+			if(onCBC) {
+				System.out.println("On CBC!");
 				System.load("/mnt/user/jvm/cbc/CBC.so");
 				lowSound = new Sound();
 				lowSensors = new Sensor();

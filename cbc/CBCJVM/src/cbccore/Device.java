@@ -38,13 +38,7 @@ public class Device {
 	private static Sensor lowSensors;
 	
 	static {
-		boolean onCBC = true;
-		try {
-			System.getProperty("CBC");
-		}
-		catch(IllegalArgumentException e) {
-			onCBC = false;
-		}
+		boolean onCBC = System.getProperty("CBC") != null;
 		try {
 			if(onCBC) {
 				System.out.println("On CBC!");

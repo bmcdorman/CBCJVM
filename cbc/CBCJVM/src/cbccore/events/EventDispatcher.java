@@ -4,12 +4,12 @@
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * CBCJVM is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with CBCJVM.  If not, see <http://www.gnu.org/licenses/>.
 */
@@ -21,34 +21,43 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 /**
- * 
- * @author Braden McDorman / Benjamin Woodruff
+ * An event system based roughly on ActionScript's (Adobe Flash) and awt's event
+ * dispatching system. (yes, you may now toss insults at us based on your hate
+ * of FlashPlayer. They will all be redirected to /dev/null). Anything that
+ * dispatches an event should subclass this. Generally maintains O(1) time
+ * thanks to HashMaps! Yay HashMaps!
  *
+ * @author Braden McDorman / Benjamin Woodruff
+ * @see    {@link http://www.adobe.com/livedocs/flash/9.0/ActionScriptLangRefV3/flash/events/EventDispatcher.html}
  */
 
 public class EventDispatcher {
 	private HashMap<EventEmitter, HashMap<Class<Event>, ArrayList<IEventListener>>> events = new HashMap<EventEmitter, HashMap<Class<Event>, ArrayList<IEventListener>>>();
 	private static EventDispatcher instance = null;
-
+	
 	public static EventDispatcher getInstance() {
 		if (instance == null)
 			instance = new EventDispatcher();
 		return instance;
 	}
-
+	
 	public void addEventListener(EventEmitter emitter, Event type,
 			IEventListener listener) {
 		HashMap<Class<Event>, ArrayList<IEventListener>> emit = getEmitter(emitter);
 		ArrayList<IEventListener> listeners = getListeners(emit, type);
-
+		
 		listeners.add(listener);
 	}
-
+	
+	
 	/**
-	 * Removes an event listener from all types in an emitter
+	 * Removes an event listener from all types in an emitter.
+	 *
+	 * @param emitter The type of emitter that IEventListener has been listening for.
 	 */
 	public void removeEventListener(EventEmitter emitter,
 			IEventListener listener) {
+		
 		HashMap<Class<Event>, ArrayList<IEventListener>> types = events
 				.get(emitter);
 		Iterator<ArrayList<IEventListener>> it = types.values().iterator();
@@ -62,7 +71,15 @@ public class EventDispatcher {
 			}
 		}
 	}
-
+	
+	
+	
+	/**
+	 * Dispatches the event to all listeners
+	 *
+	 * @param emitter Frankly, I'm not sure. I need to talk to catron about this.
+	 * @param type Same case.
+	 */
 	public void emit(EventEmitter emitter, Event type) {
 		HashMap<Class<Event>, ArrayList<IEventListener>> emit = getEmitter(emitter);
 		ArrayList<IEventListener> listeners = getListeners(emit, type);
@@ -70,7 +87,7 @@ public class EventDispatcher {
 			i.eventDispatched(emitter, type);
 		}
 	}
-
+	
 	private HashMap<Class<Event>, ArrayList<IEventListener>> getEmitter(
 			EventEmitter e) {
 		HashMap<Class<Event>, ArrayList<IEventListener>> emit = events.get(e);

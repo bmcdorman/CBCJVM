@@ -30,7 +30,7 @@
              windowtitle="CBCJVM API - JavaDoc">
       <doctitle><![CDATA[<h1>CBCJVM API</h1>]]></doctitle>
       <bottom><![CDATA[<i>Copyright &#169; 2010 Benjamin Woodruff, Braden Mcdorman, and anyone else who is cited at an author. GPLv3 Licensed.<p\>Fork us on <a href = "http://github.com/catron/CBCJVM">github</a>!</i>]]></bottom>
-      <tag name="todo" scope="all" description="To Do:"/>
+      <tag name=".todo" scope="all" description="To Do:"/>
     </javadoc>
   </target>
   

@@ -17,7 +17,7 @@
 package cbccore.sensors.buttons;
 
 import cbccore.events.Event;
-import cbccore.events.EventEmitter;
+import cbccore.events.EventManager;
 
 /**
  * 
@@ -25,48 +25,22 @@ import cbccore.events.EventEmitter;
  *         buttons with the event system
  * 
  */
-public class ButtonEmitter extends EventEmitter implements Runnable {
-	public static class AButtonPressed extends Event {
-	}
-
-	public static class BButtonPressed extends Event {
-	}
-
-	public static class BlackButtonPressed extends Event {
-	}
-
-	public static class DownButtonPressed extends Event {
-	}
-
-	public static class UpButtonPressed extends Event {
-	}
-
-	public static class LeftButtonPressed extends Event {
-	}
-
-	public static class RightButtonPressed extends Event {
-	}
-
-	public static class AButtonReleased extends Event {
-	}
-
-	public static class BButtonReleased extends Event {
-	}
-
-	public static class BlackButtonReleased extends Event {
-	}
-
-	public static class DownButtonReleased extends Event {
-	}
-
-	public static class UpButtonReleased extends Event {
-	}
-
-	public static class LeftButtonReleased extends Event {
-	}
-
-	public static class RightButtonReleased extends Event {
-	}
+public class ButtonEmitter implements Runnable {
+	public static Event AButtonPressed = EventManager.get().getUniqueEvent();
+	public static Event BButtonPressed = EventManager.get().getUniqueEvent();
+	public static Event BlackButtonPressed = EventManager.get().getUniqueEvent();
+	public static Event DownButtonPressed = EventManager.get().getUniqueEvent();
+	public static Event UpButtonPressed = EventManager.get().getUniqueEvent();
+	public static Event LeftButtonPressed = EventManager.get().getUniqueEvent();
+	public static Event RightButtonPressed = EventManager.get().getUniqueEvent();
+	
+	public static Event AButtonReleased = EventManager.get().getUniqueEvent();
+	public static Event BButtonReleased = EventManager.get().getUniqueEvent();
+	public static Event BlackButtonReleased = EventManager.get().getUniqueEvent();
+	public static Event DownButtonReleased = EventManager.get().getUniqueEvent();
+	public static Event UpButtonReleased = EventManager.get().getUniqueEvent();
+	public static Event LeftButtonReleased = EventManager.get().getUniqueEvent();
+	public static Event RightButtonReleased = EventManager.get().getUniqueEvent();
 
 	private AButton aButton = new AButton();
 	private BButton bButton = new BButton();
@@ -109,63 +83,63 @@ public class ButtonEmitter extends EventEmitter implements Runnable {
 			boolean newState = aButton.getValue();
 			if (newState != aButtonState) {
 				if (newState) {
-					emit(new AButtonPressed());
+					AButtonPressed.emit();
 				} else {
-					emit(new AButtonReleased());
+					AButtonReleased.emit();
 				}
 				aButtonState = newState;
 			}
 			newState = bButton.getValue();
 			if (newState != bButtonState) {
 				if (newState) {
-					emit(new BButtonPressed());
+					BButtonPressed.emit();
 				} else {
-					emit(new BButtonReleased());
+					BButtonReleased.emit();
 				}
 				bButtonState = newState;
 			}
 			newState = blackButton.getValue();
 			if (newState != blackButtonState) {
 				if (newState) {
-					emit(new BlackButtonPressed());
+					BlackButtonPressed.emit();
 				} else {
-					emit(new BlackButtonReleased());
+					BlackButtonReleased.emit();
 				}
 				blackButtonState = newState;
 			}
 			newState = downButton.getValue();
 			if (newState != downButtonState) {
 				if (newState) {
-					emit(new DownButtonPressed());
+					DownButtonPressed.emit();
 				} else {
-					emit(new DownButtonReleased());
+					DownButtonReleased.emit();
 				}
 				downButtonState = newState;
 			}
 			newState = upButton.getValue();
 			if (newState != upButtonState) {
 				if (newState) {
-					emit(new UpButtonPressed());
+					UpButtonPressed.emit();
 				} else {
-					emit(new UpButtonReleased());
+					UpButtonReleased.emit();
 				}
 				upButtonState = newState;
 			}
 			newState = leftButton.getValue();
 			if (newState != leftButtonState) {
 				if (newState) {
-					emit(new LeftButtonPressed());
+					LeftButtonPressed.emit();
 				} else {
-					emit(new LeftButtonReleased());
+					LeftButtonReleased.emit();
 				}
 				leftButtonState = newState;
 			}
 			newState = rightButton.getValue();
 			if (newState != rightButtonState) {
 				if (newState) {
-					emit(new RightButtonPressed());
+					RightButtonPressed.emit();
 				} else {
-					emit(new RightButtonReleased());
+					RightButtonReleased.emit();
 				}
 				rightButtonState = newState;
 			}

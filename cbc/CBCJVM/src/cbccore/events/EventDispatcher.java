@@ -25,10 +25,10 @@ import java.util.Iterator;
  * dispatching system. (yes, you may now toss insults at us based on your hate
  * of FlashPlayer. They will all be redirected to /dev/null). Anything that
  * dispatches an event should subclass this. Generally maintains O(1) time
- * thanks to HashMaps! Yay HashMaps!
+ * thanks to HashMaps! Yay HashMaps<p>
+ * <a href="http://www.adobe.com/livedocs/flash/9.0/ActionScriptLangRefV3/flash/events/EventDispatcher.html">http://www.adobe.com/livedocs/flash/9.0/ActionScriptLangRefV3/flash/events/EventDispatcher.html</a>
  *
  * @author Braden McDorman / Benjamin Woodruff
- * @see    {@link http://www.adobe.com/livedocs/flash/9.0/ActionScriptLangRefV3/flash/events/EventDispatcher.html}
  */
 
 public class EventDispatcher {

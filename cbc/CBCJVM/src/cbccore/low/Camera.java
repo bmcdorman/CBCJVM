@@ -17,7 +17,7 @@
 package cbccore.low;
 
 /**
- * Direct access to the CBC-C Camera Libraries
+ * Direct access to the CBC-C Camera Libraries<p>
  * Documentation stolen from the KISS-C documentation
  *
  * @author  Braden McDorman

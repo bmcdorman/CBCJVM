@@ -17,22 +17,139 @@
 package cbccore.low;
 
 /**
+ * Direct access to the CBC-C Create Libraries<p>
+ * Documentation stolen from the KISS-C documentation
  * 
- * @author Braden McDorman
- *
+ * @author  Braden McDorman
+ * @see     cbccore.movement.CreateDriveTrain
  */
 
 public class Create {
+	
+	/**
+	 * First step for connecting CBC to Create. This function puts the Create in the create_safe mode.
+	 * 
+	 * @return        0 if sucessful and a negative number if not
+	 * @see           #create_disconnect
+	 */
 	public native int create_connect();
-	public native void create_disconnect() ;
+	
+	
+	
+	/**
+	 * Returns Create to proper state. Call this at the end of your program.
+	 * 
+	 * @see    #create_connect
+	 */
+	public native void create_disconnect();
+	
+	
+	
+	/**
+	 * Puts Create into passive mode (no motors)
+	 * 
+	 * @see    #create_passive
+	 * @see    #create_safe
+	 * @see    #create_full
+	 * @see    #create_mode
+	 */
 	public native void create_start();
+	
+	
+	
+	/**
+	 * Puts Create into passive mode (no motors)
+	 * 
+	 * @see    #create_start
+	 * @see    #create_safe
+	 * @see    #create_full
+	 * @see    #create_mode
+	 */
 	public native void create_passive();
+	
+	
+	
+	/**
+	 * Puts Create into safe mode. Create will execute all commands, but will
+	 * disconnect and stop if drop or cliff sensors fire. This is recommended
+	 * for practice, but not at a tournament.
+	 * 
+	 * @see    #create_passive
+	 * @see    #create_full
+	 * @see    #create_mode
+	 */
 	public native void create_safe();
-	public native void create_full() ;
-	public native void create_spot() ;
+	
+	
+	
+	/**
+	 * Puts Create into full mode. Create will move however you tell it -- even
+	 * if that is a bad thing. In particular, the Create will not stop and
+	 * disconnect, even if it is picked up or the cliff sensors fire. This is
+	 * recommended for tournaments, but not for practice, due to its dangerous
+	 * nature.
+	 * 
+	 * @see    #create_passive
+	 * @see    #create_safe
+	 * @see    #create_mode
+	 */
+	public native void create_full();
+	
+	
+	
+	/**
+	 * Simulates a Roomba doing a spot clean
+	 * 
+	 * @see    #create_cover
+	 * @see    #create_demo
+	 * @see    #create_cover_dock
+	 */
+	public native void create_spot();
+	
+	
+	
+	/**
+	 * Simulates a Roomba covering a room
+	 * 
+	 * @see    #create_spot
+	 * @see    #create_demo
+	 * @see    #create_cover_dock
+	 */
 	public native void create_cover();
+	
+	
+	
+	/**
+	 * Runs built in demos (see Create IO documentation)
+	 * 
+	 * @param  d  See Create IO documentation. I would normally look this up, but it seems so pointless...
+	 * @see       #create_spot
+	 * @see       #create_cover
+	 * @see       #create_cover_dock
+	 */
 	public native void create_demo(int d) ;
+	
+	
+	
+	/**
+	 * Create roams around until it sees an IR dock and then attempts to dock
+	 * 
+	 * @see    #create_spot
+	 * @see    #create_cover
+	 * @see    #create_demo
+	 */
 	public native void create_cover_dock();
+	
+	
+	
+	/**
+	 * the Create's mode
+	 * 
+	 * @return   0 off; 1 passive; 2 safe; 3 full
+	 * @see      #create_passive
+	 * @see      #create_safe
+	 * @see      #create_full
+	 */
 	public native int create_mode();
 	public native int create_sensor_update();
 	public native int create_wall();

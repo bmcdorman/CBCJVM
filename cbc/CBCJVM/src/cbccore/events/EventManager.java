@@ -18,21 +18,25 @@ package cbccore.events;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 /**
  * An event system based roughly on ActionScript's (Adobe Flash) and awt's event
- * dispatching system. (yes, you may now toss insults at us based on your hate
+ * dispatching system. (yes, you may now toss insults at me based on your hate
  * of FlashPlayer. They will all be redirected to /dev/null). Anything that
  * dispatches an event should subclass this. Generally maintains O(1) time
  * thanks to HashMaps! Yay HashMaps<p>
  * <a href="http://www.adobe.com/livedocs/flash/9.0/ActionScriptLangRefV3/flash/events/EventDispatcher.html">http://www.adobe.com/livedocs/flash/9.0/ActionScriptLangRefV3/flash/events/EventDispatcher.html</a>
- *
- * @author Braden McDorman / Benjamin Woodruff
+ * <p>I'm hoping this class is thread safe, I syncronized a few things,
+ * but no guarentees. Shouldn't matter on the CBC, as there is only one
+ * core.
+ * @author Braden McDorman, Benjamin Woodruff
  */
 
 public class EventManager {
-	private HashMap<Integer, ArrayList<IEventListener>> events = new HashMap<Integer, ArrayList<IEventListener>>();
+	private HashMap<Integer, HashSet<IEventListener>> events = new HashMap<Integer, HashSet<IEventListener>>();
 	private static EventManager instance = null;
+	private ArrayList queue;
 	private int it = 0;
 	
 	public static EventManager get() {
@@ -41,51 +45,54 @@ public class EventManager {
 		return instance;
 	}
 	
-	public void connect(Event e, IEventListener l) {
-		ArrayList<IEventListener> listeners = getListeners(e.getHandle());
+	public synchronized void connect(int e, IEventListener l) {
+		HashSet<IEventListener> listeners = getListeners(new Integer(e));
 		listeners.add(l);
-		events.put(e.getHandle(), listeners);
+		events.put(e, listeners);
 	}
 	
 	/**
 	 * Removes an event listener from all types in an emitter.
 	 *
-	 * @param emitter The type of emitter that IEventListener has been listening for.
+	 * @param e The event type that IEventListener has been listening for.
+	 * @param listener The listening function/object
 	 */
-	public void removeListener(Event e, IEventListener listener) {
-		ArrayList<IEventListener> listeners = getListeners(e.getHandle());
-		for (IEventListener i : listeners) {
-			if(i.equals(listener)) listeners.remove(i);
-		}
-		events.put(e.getHandle(), listeners);
+	public synchronized void disconnect(int e, IEventListener listener) {
+		HashSet<IEventListener> listeners = getListeners(new Integer(e));
+		listeners.remove(listener);
+		//events.put(e, listeners);
 	}
 	
 	/**
 	 * Do not call this directly
 	 *
-	 * @param Event handle
+	 * @param e handle
 	 */
 	public void __emit(Event e) {
-		ArrayList<IEventListener> listeners = getListeners(e.getHandle());
+		HashSet<IEventListener> listeners = getListeners(e.getHandle());
 		for (IEventListener i : listeners) {
 			i.event(e);
 		}
 	}
 
-	private ArrayList<IEventListener> getListeners(int handle) {
-		ArrayList<IEventListener> listeners = events.get(handle);
+	private HashSet<IEventListener> getListeners(int handle) {
+		HashSet<IEventListener> listeners = events.get(new Integer(handle));
 		if (listeners == null) {
-			listeners = new ArrayList<IEventListener>();
+			listeners = new HashSet<IEventListener>();
 			events.put(handle, listeners);
 		}
 		return listeners;
 	}
 	
 	public Event getUniqueEvent() {
-		return new Event(it++);
+		return new Event(getUniqueEventType());
 	}
 	
-	public void __dispose(Event e) {
+	public int getUniqueEventType() {
+		return it++;
+	}
+	
+	public void __dispose(int e) {
 		events.remove(e);
 	}
 }

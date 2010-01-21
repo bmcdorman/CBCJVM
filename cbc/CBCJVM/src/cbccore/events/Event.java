@@ -17,9 +17,11 @@
 package cbccore.events;
 
 /**
+ * Every type of event should subclass this. Event types may be dynamic,
+ * and you can decide how to deal with this, or they can be static (most
+ * common).
  * 
  * @author Braden McDorman
- *
  */
 
 public class Event {
@@ -34,8 +36,10 @@ public class Event {
 	public void emit() {
 		EventManager.get().__emit(this);
 	}
-	public void dispose() {
+	//this function would mess up static event types, by removing all of a type
+	//suspending until we find a cleaner way of doing this
+	/*public void dispose() {
 		EventManager.get().__dispose(this);
 		handle = -1;
-	}
+	}*/
 }

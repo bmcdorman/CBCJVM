@@ -19,7 +19,6 @@ package cbccore.events;
 /**
  * 
  * @author Braden McDorman
- *
  */
 
 public abstract class EventListenerAdapter implements IEventListener {

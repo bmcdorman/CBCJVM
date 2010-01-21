@@ -292,8 +292,8 @@ public class Create {
 	/**
 	 * Specifies individual left and right speeds in mm/s
 	 * 
-	 * @param  rspeed  20-500mm/s. Speed of right wheel.
-	 * @param  lspeed  20-500mm/s. Speed of left wheel.
+	 * @param  r_speed  20-500mm/s. Speed of right wheel.
+	 * @param  l_speed  20-500mm/s. Speed of left wheel.
 	 * @see            #create_drive
 	 */
 	public native void create_drive_direct(int r_speed, int l_speed);
@@ -311,8 +311,8 @@ public class Create {
 	 *                   <b>CAUTION: requesting the robot to spin more than
 	 *                                about 3600 degrees may never terminate</b>
 	 * @return        -1 if error
-	 * @see           create_spin_CW
-	 * @see           create_spin_CCW
+	 * @see           #create_spin_CW
+	 * @see           #create_spin_CCW
 	 */
 	public native int create_spin_block(int speed, int angle);
 	

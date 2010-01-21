@@ -18,7 +18,8 @@ package cbccore.low;
 
 /**
  * Direct access to the CBC-C Create Libraries<p>
- * Documentation stolen from the KISS-C documentation
+ * Documentation stolen from the KISS-C documentation and 
+ * <a href="http://github.com/kipr/cbc/blob/master/userlib/libcbc/src/create.c"> the cbc source code </a>
  * 
  * @author  Braden McDorman
  * @see     cbccore.movement.CreateDriveTrain
@@ -151,35 +152,287 @@ public class Create {
 	 * @see      #create_full
 	 */
 	public native int create_mode();
+	
+	
+	
+	/**
+	 * Don't use. Updates an inaccessable variable.
+	 */
 	public native int create_sensor_update();
+	
+	
+	
+	/**
+	 * Don't use. Updates an inaccessable variable.
+	 */
 	public native int create_wall();
-	public native int create_buttons() ;
+	
+	
+	
+	/**
+	 * Don't use. Updates an inaccessable variable.
+	 */
+	public native int create_buttons();
+	
+	
+	
+	/**
+	 * Don't use. Updates an inaccessable variable.
+	 */
 	public native int create_bumpdrop();
-	public native int create_cliffs() ;
-	public native int create_angle() ;
+	
+	
+	
+	/**
+	 * Don't use. Updates an inaccessable variable.
+	 */
+	public native int create_cliffs();
+	
+	
+	
+	/**
+	 * Don't use. Updates an inaccessable variable.
+	 */
+	public native int create_angle();
+	
+	
+	
+	/**
+	 * Don't use. Updates an inaccessable variable.
+	 */
 	public native int create_distance();
+	
+	
+	
+	/**
+	 * Don't use. Updates an inaccessable variable.
+	 */
 	public native int create_velocity();
+	
+	
+	
+	/**
+	 * Don't use. Updates an inaccessable variable.
+	 */
 	public native int create_read_IR();
+	
+	
+	
+	/**
+	 * Don't use. Updates an inaccessable variable.
+	 */
 	public native int create_overcurrents();
+	
+	
+	
+	/**
+	 * Don't use. Updates an inaccessable variable.
+	 */
 	public native int create_battery_charge();
+	
+	
+	
+	/**
+	 * Don't use. Updates an inaccessable variable.
+	 */
 	public native int create_cargo_bay_inputs();
+	
+	
+	
+	/**
+	 * Stops the drive wheels
+	 */
 	public native void create_stop();
+	
+	
+	
+	/**
+	 * Drives in an arc.
+	 * 
+	 * @param  speed   range is 20-500mm/s
+	 * @param  radius  radius in mm/s.<p>A radius of 32767 will drive the robot straight.
+	 *                    <p>A radius of 1 will spin the robot CCW
+	 *                    <p>A radius of -1 will spin the robot CW
+	 *                    <p>Negative radii will be right turns, positive radii left turns
+	 * @see            #create_drive_straight
+	 */
 	public native void create_drive (int speed, int radius);
+	
+	
+	
+	/**
+	 * Drives straight at speed in mm/s
+	 * 
+	 * @param  speed  20-500mm/s
+	 */
 	public native void create_drive_straight (int speed);
+	
+	
+	
+	/**
+	 * Spins CW with edge speed of speed in mm/s
+	 * 
+	 * @param  speed  20-500mm/s. Speed of edge (wheels) of bot.
+	 * @see           #create_spin_CCW
+	 */
 	public native void create_spin_CW (int speed);
+	
+	
+	
+	/**
+	 * Spins CCW with edge speed of speed in mm/s
+	 * 
+	 * @param  speed  20-500mm/s. Speed of edge (wheels) of bot.
+	 * @see           #create_spin_CW
+	 */
 	public native void create_spin_CCW (int speed);
+	
+	
+	
+	/**
+	 * Specifies individual left and right speeds in mm/s
+	 * 
+	 * @param  rspeed  20-500mm/s. Speed of right wheel.
+	 * @param  lspeed  20-500mm/s. Speed of left wheel.
+	 * @see            #create_drive
+	 */
 	public native void create_drive_direct(int r_speed, int l_speed);
+	
+	
+	
+	/**
+	 * This function blocks and does a pretty accurate spin. Note that the
+	 * function will not return until the spin is complete
+	 * CAUTION: requesting the robot to spin more than about 3600 degrees may
+	 *                                                           never terminate
+	 * 
+	 * @param  speed  20-500mm/s. Speed of edge (wheels) of bot.
+	 * @param  angle  Angle in degrees to turn before returning. <p>
+	 *                   <b>CAUTION: requesting the robot to spin more than
+	 *                                about 3600 degrees may never terminate</b>
+	 * @return        -1 if error
+	 * @see           create_spin_CW
+	 * @see           create_spin_CCW
+	 */
 	public native int create_spin_block(int speed, int angle);
+	
+	
+	
 	// public native int _create_get_raw_encoders(long* lenc, long* renc);
-	public native void create_advance_led(int on) ;
-	public native void create_play_led(int on) ;
-	public native void create_power_led(int color, int brightness) ;
+	
+	
+	/**
+	 * Turn on/off the advance LED
+	 * 
+	 * @param  on   1 to turn on light and 0 to turn it off
+	 * @see         #create_play_led
+	 * @see         #create_power_led
+	 */
+	public native void create_advance_led(int on);
+	
+	
+	
+	/**
+	 * Turn on/off the play LED
+	 * 
+	 * @param  on   1 to turn on light and 0 to turn it off
+	 * @see         #create_advance_led
+	 * @see         #create_power_led
+	 */
+	public native void create_play_led(int on);
+	
+	
+	
+	/**
+	 * Control the color and the brightness of the power LED
+	 * 
+	 * @param  color       0 is red and 255 green
+	 * @param  brightness  0 is off and 255 is full brightness
+	 * @see                #create_advance_led
+	 * @see                #create_play_led
+	 */
+	public native void create_power_led(int color, int brightness);
+	
+	
+	
+	/**
+	 * This function sets the three digital out put pins 20,7,19 where 20 is the
+	 * high bit and 19 is the low. You probably don't care about this function.
+	 * 
+	 * @param  bits  Should have a value 0 to 7.
+	 */
 	public native void create_digital_output(int bits);
+	
+	
+	
+	/**
+	 * Sets the PWM signal for the three low side drivers (128 = 100%). You
+	 * probably don't care about this function.
+	 * 
+	 * @param  pwm0   pin 22
+	 * @param  pwm1   pin 23
+	 * @param  pwm2   pin 24
+	 */
 	public native void create_pwm_low_side_drivers(int pwm2, int pwm1, int pwm0);
+	
+	
+	
+	/**
+	 * Turns on and off the signal for the three low side drivers (128 = 100%).
+	 * A 0 or 1 should be given for each of the drivers to turn them off or on.
+	 * You probably don't care about this function.
+	 * 
+	 * @param  pwm0   pin 22
+	 * @param  pwm1   pin 23
+	 * @param  pwm2   pin 24
+	 */
 	public native void create_low_side_drivers(int pwm2, int pwm1, int pwm0);
+	
+	
+	
+	/**
+	 * This loads a song into the robot's memory. Song can be numbered 0 to 15.
+	 * The first element in each row of the array should be the number of notes
+	 * (1-16) the subsequent pairs of bytes should be tone and duration see the
+	 * roomba SCI manual for note codes. User's program should load the song
+	 * data into the array before calling this routine. Sets gc_song_array, an
+	 * inaccessable variable. <b>DO NOT USE THIS FUNCTION UNTIL THE ISSUE IS
+	 * RESOLVED</b>
+	 * 
+	 * @param  num   Song can be numbered 0 to 15
+	 * @see          #create_play_song
+	 */
 	public native void create_load_song(int num);
+	
+	
+	
+	
+	/**
+	 * See the roomba SCI manual for note codes. Uses gc_song_array, an
+	 * inaccessable variable. <b>DO NOT USE THIS FUNCTION UNTIL THE ISSUE IS
+	 * RESOLVED</b>
+	 * 
+	 * @param  num   Song can be numbered 0 to 15
+	 * @see          #create_load_song
+	 */
 	public native void create_play_song(int num);
+	
+	
+	
 	// public native int create_read_block(char* data, int count);
+	
+	
+	
+	/**
+	 * See Create IO Documentation. You probably don't care about this function.
+	 * 
+	 * @param  write_byte  the byte to write
+	 * @see                #create_clear_serial_buffer
+	 */
 	public native void create_write_byte(char write_byte);
+	
+	
+	
+	
 	public native void create_clear_serial_buffer();
 }

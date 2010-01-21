@@ -23,5 +23,19 @@ package cbccore.events;
  */
 
 public class Event {
-	public Event event = null;
+	private int handle = -1;
+	public Object data = null;
+	public Event(int handle) {
+		this.handle = handle;
+	}
+	public int getHandle() {
+		return handle;
+	}
+	public void emit() {
+		EventManager.get().__emit(this);
+	}
+	public void dispose() {
+		EventManager.get().__dispose(this);
+		handle = -1;
+	}
 }

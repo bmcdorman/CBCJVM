@@ -1,6 +1,5 @@
 import cbccore.events.Event;
-import cbccore.events.EventDispatcher;
-import cbccore.events.EventEmitter;
+import cbccore.events.EventManager;
 import cbccore.events.EventListenerAdapter;
 import cbccore.motors.listeners.StopMotors;
 import cbccore.sensors.buttons.ButtonEmitter;
@@ -8,20 +7,20 @@ import cbccore.sensors.buttons.ButtonEmitter;
 public class Main {
 	public void run() {
 		ButtonEmitter.getThread().run();
-		EventDispatcher dispatch = EventDispatcher.getInstance();
-		dispatch.addEventListener(ButtonEmitter.getInstance(), new ButtonEmitter.AButtonPressed(), new EventListenerAdapter() {
+		EventManager dispatch = EventManager.get();
+		dispatch.connect(ButtonEmitter.AButtonPressed, new EventListenerAdapter() {
 			@Override
-			public void eventDispatched(EventEmitter emitter, Event type) {
+			public void event(Event e) {
 				System.out.println("A Button Pressed!");
 			}
 		});
-		dispatch.addEventListener(ButtonEmitter.getInstance(), new ButtonEmitter.AButtonReleased(), new EventListenerAdapter() {
+		dispatch.connect(ButtonEmitter.AButtonReleased, new EventListenerAdapter() {
 			@Override
-			public void eventDispatched(EventEmitter emitter, Event type) {
+			public void event(Event e) {
 				System.out.println("A Button Released!");
 			}
 		});
-		dispatch.addEventListener(ButtonEmitter.getInstance(), new ButtonEmitter.BlackButtonPressed(), new StopMotors());
+		dispatch.connect(ButtonEmitter.BlackButtonPressed, new StopMotors());
 	}
 	public static void main(String[] args) {
 		new Main().run();

@@ -17,7 +17,6 @@
 package cbccore.motors.listeners;
 
 import cbccore.events.Event;
-import cbccore.events.EventEmitter;
 import cbccore.events.IEventListener;
 import cbccore.motors.NonBlockingDriver;
 
@@ -33,7 +32,7 @@ public class StopDriver implements IEventListener {
 		this.driver = driver;
 	}
 	@Override
-	public void eventDispatched(EventEmitter emitter, Event type) {
+	public void event(Event type) {
 		driver.halt();
 	}
 }

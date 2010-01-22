@@ -16,6 +16,8 @@
 
 package cbccore;
 
+import java.io.File;
+
 import cbccore.low.*;
 import cbccore.low.CBCSimulator;
 
@@ -47,17 +49,19 @@ public class Device {
 	private static Sensor lowSensors;
 
 	static {
-		boolean onCBC = true;
-		try {
-			System.getProperty("CBC");
-		}
-		catch(IllegalArgumentException e) {
-			onCBC = false;
+		boolean onCBC = new File("/mnt/user/jvm/cbc/CBC.so").exists();
+		if(onCBC) {
+    		try {
+    			System.getProperty("CBC");
+    			System.load("/mnt/user/jvm/cbc/CBC.so");
+    		}
+    		catch(Exception e) {
+    			onCBC = false;
+    		}
 		}
 		try {
 			if(onCBC) {
 				System.out.println("On CBC!");
-				System.load("/mnt/user/jvm/cbc/CBC.so");
 				lowSound = new Sound();
 				lowSensors = new Sensor();
 				lowDevice = new cbccore.low.Device();

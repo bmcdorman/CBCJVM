@@ -2,9 +2,9 @@
 echo "[COMPILER] ------------------"
 echo "[COMPILER] Building CBCWrapper"
 cd cbc
-./Build.sh
+sh Build.sh
 cd ..
 
 echo "[COMPILER] Building Installer"
 cd installer
-./make_latest_installer
+sh make_latest_installer

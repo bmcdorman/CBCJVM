@@ -12,25 +12,31 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with CBCJVM.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 package cbccore.events;
 
 /**
- * Every type of event should subclass this. Event types may be dynamic,
- * and you can decide how to deal with this, or they can be static (most
- * common).
+ * Every event should subclass this. Event types may be dynamic, and you can
+ * decide how to deal with this, or they can be static (most common). Look at
+ * the example code in the "tests" folder included in the CBCJVM distribution.
+ * This class also contains a public "data" variable of type "E" for easy ad-hoc
+ * expandablity.
  * 
- * @author Braden McDorman
+ * @author Braden McDorman, Benjamin Woodruff
+ * @see    EventManager
+ * @see    EventType
  */
 
-public class Event {
-	private int handle = -1;
-	public Object data = null;
-	public Event(int handle) {
+public class Event<E> {
+	private EventType handle;
+	public E data;
+	private EventManager manager;
+	
+	public Event(EventType handle) {
 		this.handle = handle;
 	}
-	public int getHandle() {
+	public EventType getType() {
 		return handle;
 	}
 	public void emit() {

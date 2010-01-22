@@ -12,7 +12,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with CBCJVM.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ */
 
 package cbccore.events;
 
@@ -34,7 +34,7 @@ import java.util.HashSet;
  */
 
 public class EventManager {
-	private HashMap<Integer, HashSet<IEventListener>> events = new HashMap<Integer, HashSet<IEventListener>>();
+	private HashMap<EventType, HashSet<IEventListener>> events = new HashMap<EventType, HashSet<IEventListener>>();
 	private static EventManager instance = null;
 	private ArrayList queue;
 	private int it = 0;
@@ -45,41 +45,39 @@ public class EventManager {
 		return instance;
 	}
 	
-	public synchronized void connect(int e, IEventListener l) {
-		HashSet<IEventListener> listeners = getListeners(new Integer(e));
+	public synchronized void connect(EventType type, IEventListener l) {
+		HashSet<IEventListener> listeners = getListeners(type);
 		listeners.add(l);
-		events.put(e, listeners);
+		events.put(type, listeners);
 	}
 	
 	/**
 	 * Removes an event listener from all types in an emitter.
 	 *
-	 * @param e The event type that IEventListener has been listening for.
+	 * @param type The event type that IEventListener has been listening for.
 	 * @param listener The listening function/object
 	 */
-	public synchronized void disconnect(int e, IEventListener listener) {
-		HashSet<IEventListener> listeners = getListeners(new Integer(e));
+	public synchronized void disconnect(EventType type, IEventListener listener) {
+		HashSet<IEventListener> listeners = getListeners(type);
 		listeners.remove(listener);
 		//events.put(e, listeners);
 	}
 	
 	/**
 	 * Do not call this directly
-	 *
-	 * @param e handle
 	 */
 	public void __emit(Event e) {
-		HashSet<IEventListener> listeners = getListeners(e.getHandle());
+		HashSet<IEventListener> listeners = getListeners(e.getType());
 		for (IEventListener i : listeners) {
 			i.event(e);
 		}
 	}
-
-	private HashSet<IEventListener> getListeners(int handle) {
-		HashSet<IEventListener> listeners = events.get(new Integer(handle));
+    
+	private HashSet<IEventListener> getListeners(EventType type) {
+		HashSet<IEventListener> listeners = events.get(type);
 		if (listeners == null) {
 			listeners = new HashSet<IEventListener>();
-			events.put(handle, listeners);
+			events.put(type, listeners);
 		}
 		return listeners;
 	}
@@ -88,11 +86,18 @@ public class EventManager {
 		return new Event(getUniqueEventType());
 	}
 	
-	public int getUniqueEventType() {
-		return it++;
+	public EventType getUniqueEventType() {
+		return new EventType(this);
 	}
 	
-	public void __dispose(int e) {
+	public int __getUniqueHandle() {
+	    return it++;
+	}
+	
+	/**
+	 * Do not call this directly
+	 */
+	public void __dispose(EventType e) {
 		events.remove(e);
 	}
 }

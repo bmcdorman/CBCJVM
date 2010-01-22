@@ -106,7 +106,7 @@ public class MotorDriveTrain extends DriveTrain {
 		long sleepOverhead = 0l;
 		while(System.currentTimeMillis() < (destTime-sleepOverhead)) {
 			//Thread.yield();
-			long sleepTime = (destTime - System.currentTimeMillis() - sleepOverhead)/2;
+			long sleepTime = (destTime - System.currentTimeMillis() - sleepOverhead)>>1;
 			long sleepStart = System.currentTimeMillis();
 			try {
 				Thread.sleep(sleepTime);

@@ -31,10 +31,12 @@ public class Analog implements IAnalogSensor {
 	public Analog(int port) {
 		this.port = port;
 	}
+	
 	@Override
 	public int getValue() {
 		return lowSensor.analog(port);
 	}
+	
 	@Override
 	public int getValueHigh() {
 		return lowSensor.analog10(port);

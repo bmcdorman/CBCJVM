@@ -16,7 +16,9 @@
 
   <target name="compile" depends="init"
         description="compile the source " >
-    <javac srcdir="${src}" destdir="${build}"/>
+    <javac srcdir="${src}" destdir="${build}">
+        <compilerarg value="-Xlint:unchecked"/>
+    </javac>
   </target>
   
   <target name="document">

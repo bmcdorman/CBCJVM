@@ -14,11 +14,30 @@
  * along with CBCJVM.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+/*
+ * Current development status:
+ *      Preparing to manage EventListeners that are added during the processing
+ *        of events to a separate queue. This queue will be managed after the
+ *        current list of listeners by copying it to a local variable, and
+ *        clearing the queue. This is done in a loop until nothing is added to
+ *        the queue. Before we can do this though, we must ensure the class is
+ *        fully thread-safe for this type of operations. Each thread will have
+ *        its own queue via java.lang.ThreadLocal . This may seem complicated,
+ *        but it is a neccicary step. In the meantime, we must attempt to keep
+ *        from breaking builds, as the Event system is a central part of our
+ *        libraries
+ */
+
 package cbccore.events;
 
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.ArrayList;
+//import java.util.WeakHashMap
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Set;
+import java.util.Collections;
+//ThreadLocal could be useful too.
 
 /**
  * An event system based roughly on ActionScript's (Adobe Flash) and awt's event
@@ -34,9 +53,10 @@ import java.util.HashSet;
  */
 
 public class EventManager {
-	private HashMap<EventType, HashSet<IEventListener>> events = new HashMap<EventType, HashSet<IEventListener>>();
+	private HashMap<EventType, Set<IEventListener>> events = new HashMap<EventType, Set<IEventListener>>();
 	private static EventManager instance = null;
-	private ArrayList queue;
+	private ThreadLocal currentEventType;
+	private ConcurrentHashMap<EventType, Set<IEventListener>> queue;
 	private int it = 0;
 	
 	public static EventManager get() {
@@ -46,7 +66,7 @@ public class EventManager {
 	}
 	
 	public synchronized void connect(EventType type, IEventListener l) {
-		HashSet<IEventListener> listeners = getListeners(type);
+		Set<IEventListener> listeners = getListeners(type);
 		listeners.add(l);
 		events.put(type, listeners);
 	}
@@ -58,7 +78,7 @@ public class EventManager {
 	 * @param listener The listening function/object
 	 */
 	public synchronized void disconnect(EventType type, IEventListener listener) {
-		HashSet<IEventListener> listeners = getListeners(type);
+		Set<IEventListener> listeners = getListeners(type);
 		listeners.remove(listener);
 		//events.put(e, listeners);
 	}
@@ -67,16 +87,23 @@ public class EventManager {
 	 * Do not call this directly
 	 */
 	public void __emit(Event e) {
-		HashSet<IEventListener> listeners = getListeners(e.getType());
+		Set<IEventListener> listeners = getListeners(e.getType());
 		for (IEventListener i : listeners) {
 			i.event(e);
 		}
 	}
-    
-	private HashSet<IEventListener> getListeners(EventType type) {
-		HashSet<IEventListener> listeners = events.get(type);
+	
+	/**
+	 * Gets all the listeners for a specific event type
+	 * 
+	 * @param   type  The type of event to get the listeners for
+	 * @return		returnval
+	 * @see		   seealso
+	 */
+	private Set<IEventListener> getListeners(EventType type) {
+		Set<IEventListener> listeners = events.get(type);
 		if (listeners == null) {
-			listeners = new HashSet<IEventListener>();
+			listeners = Collections.synchronizedSet(new HashSet<IEventListener>());
 			events.put(type, listeners);
 		}
 		return listeners;
@@ -91,7 +118,7 @@ public class EventManager {
 	}
 	
 	public int __getUniqueHandle() {
-	    return it++;
+		return it++;
 	}
 	
 	/**

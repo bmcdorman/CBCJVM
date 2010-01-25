@@ -23,7 +23,19 @@ package cbccore.low;
  */
 
 public class Motor {
-	public native void motor (int motor, int percent);/* motor (0 to 3) at percent % of full (-100 to 100)*/
+	
+	
+	/**
+	 * Set motor speed. It's recommended you use a Back-EMF based function instead.
+	 * 
+	 * @param  motor    Motor number to change percent of (0-3)
+	 * @param  percent  percent % of full (-100 to 100)
+	 * 
+	 * @see #fd
+	 * @see #bk
+	 * @see #mav
+	 */
+	public native void motor (int motor, int percent);
 	public native int clear_motor_position_counter(int motor); /* sets motor (0 to 3) counter to 0 */
 	public native int move_at_velocity(int motor, int velocity); /* PID control of motor (0 to 3) at velocity tick per second */
 	public native int mav(int motor, int velocity); /* PID control of motor (0 to 3) at velocity tick per second */

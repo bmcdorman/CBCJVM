@@ -17,11 +17,16 @@
 package cbccore.low;
 
 /**
+ * System related items, such as accelerometer or power
  * 
  * @author Braden McDorman
- *
  */
 
+/**
+ * Gets the current power level in volts.
+ * 
+ * @return The current power level in volts
+ */
 public class Device {
 	public native float power_level(); /* returns a float battery voltage */
 }

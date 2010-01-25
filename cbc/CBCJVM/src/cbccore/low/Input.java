@@ -23,11 +23,64 @@ package cbccore.low;
  */
 
 public class Input {
+	
+	/**
+	 * Is the up button pressed?
+	 * 
+	 * @return  1 for yes, 0 for no
+	 */
 	public native int up_button();
+	
+	
+	/**
+	 * Is the down button pressed?
+	 * 
+	 * @return  1 for yes, 0 for no
+	 */
 	public native int down_button();
+	
+	
+	
+	/**
+	 * Is the left button pressed?
+	 * 
+	 * @return  1 for yes, 0 for no
+	 */
 	public native int left_button();
+	
+	
+	
+	/**
+	 * Is the right button pressed?
+	 * 
+	 * @return  1 for yes, 0 for no
+	 */
 	public native int right_button();
+	
+	
+	
+	/**
+	 * Is the a button pressed?
+	 * 
+	 * @return  1 for yes, 0 for no
+	 */
 	public native int a_button();
+	
+	
+	
+	/**
+	 * Is the b button pressed?
+	 * 
+	 * @return  1 for yes, 0 for no
+	 */
 	public native int b_button();
-	public native int black_button();/* returns value of hardware button on CBC */
+	
+	
+	
+	/**
+	 * Is the black hardware button pressed? (simulator "bl")
+	 * 
+	 * @return  1 for yes, 0 for no
+	 */
+	public native int black_button();
 }

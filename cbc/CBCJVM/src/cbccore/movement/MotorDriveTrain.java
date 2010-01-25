@@ -61,81 +61,13 @@ public class MotorDriveTrain extends DriveTrain {
 		_rightWheel.moveAtCmps(cmps);
 	}
 	
-	//Clockwise
-	public void rotateDegrees(double degrees, double degreesPerSecond) {
-		rotateRadians(Math.toRadians(degrees), Math.toRadians(degreesPerSecond));
+	protected void moveLeftCmps(double cmps) {
+		_leftWheel.moveAtCmps(cmps);
 	}
 	
-	//Clockwise
-	public void rotateRadians(double radians, double radiansPerSecond) {
-		double dist = (_trainWidth*Math.PI)*(radians/(2*Math.PI));//, simplified
-		double speed = radiansPerSecond/radians*dist;//, simplified
-		moveWheelCm(dist, -dist, speed, -speed);
+	protected void moveRightCmps(double cmps) {
+		_rightWheel.moveAtCmps(cmps);
 	}
-	
-	//TODO: we need a function to move in a curve (w00t!)
-	
-	public void moveCurveRadians(double radians, double radius, double cmps) {
-		double leftCm = radians/(2*Math.PI) * radius*Math.PI + _trainWidth*2*radians/(2*Math.PI);
-		double rightCm = radians/(2*Math.PI) * radius*Math.PI - _trainWidth*2*radians/(2*Math.PI);
-		double leftCmps = cmps + radians/(2*Math.PI) * _trainWidth*2.;
-		double rightCmps = cmps - radians/(2*Math.PI) * _trainWidth*2.;
-		moveWheelCm(leftCm, rightCm, leftCmps, rightCmps);
-	}
-	
-	//remember, interruption is non-instantanious
-	public void moveCm(double cm, double cmps) throws InvalidValueException {
-		moveWheelCm(cm, cm, cmps, cmps);
-	}
-	
-	//leftCm/leftCmps must be equal to rightCm/rightCmps
-	private void moveWheelCm(double leftCm, double rightCm, double leftCmps, double rightCmps) {
-		System.out.println("moving left: "+ leftCm + " and right " + rightCm + " for " + leftCm/leftCmps + "seconds");
-		
-		leftCmps = leftCm<0?-Math.abs(leftCmps):Math.abs(leftCmps);
-		rightCmps = rightCm<0?-Math.abs(rightCmps):Math.abs(rightCmps);
-		
-		//we have an overhead, so in a case like this, it is better not to move at all
-		if(Math.abs(leftCm) < .5) leftCm = 0.;
-		if(Math.abs(rightCm) < .5) { if(leftCm == 0) { return; } rightCm = 0.; }
-		
-		//double destCmCounter = 0.;
-		_leftWheel.moveAtCmps(leftCmps);
-		_rightWheel.moveAtCmps(rightCmps);
-		long destTime = System.currentTimeMillis()+((long)((leftCm/leftCmps)*1000.));
-		long sleepOverhead = 0l;
-		while(System.currentTimeMillis() < (destTime-sleepOverhead)) {
-			//Thread.yield();
-			long sleepTime = (destTime - System.currentTimeMillis() - sleepOverhead)>>1;
-			long sleepStart = System.currentTimeMillis();
-			try {
-				Thread.sleep(sleepTime);
-			} catch(InterruptedException e) {
-				moveAtTps(0);
-				return;
-			}
-			sleepOverhead = System.currentTimeMillis() - sleepStart - sleepTime;
-		}
-		while(System.currentTimeMillis() < destTime) {} //This code is questionable, may cause adverse multithreading effects
-		
-		kill();
-	}
-	
-	/*//Helper thread
-		private class MoveCmHelperThread implements Runnable {
-			private double _cm, _cmps;
-			private boolean _fineTune;
-			private Wheel _wheel;
-			
-			public MoveCmHelperThread(double cm, double cmps, boolean fineTune, Wheel wheel) {
-				_cm = cm; _cmps = cmps; _fineTune = fineTune; _wheel = wheel;
-			}
-			
-			public void run() {
-				_wheel.moveCm(_cm, _cmps, _fineTune);
-			}
-		}
-	//End Helper thread*/
 	
 	public void stop() {
 		freeze();

@@ -17,12 +17,23 @@
 package cbccore.low;
 
 /**
+ * Stuff like clearing the screen. Last I checked this stuff is broken, so just use something like
+ * System.out.print("\n\n\n\n\n\n\n\n\n");
  * 
  * @author Braden McDorman
- *
  */
 
 public class Display {
-	public native void display_clear(); /* Clears display and pust cursor in upper left*/
+	
+	/**
+	 * Clears display and pust cursor in upper left
+	 */
+	public native void display_clear();
+	
+	
+	
+	/**
+	 * Clear the CBC display
+	 */
 	public native void cbc_display_clear(); /*Clears console display on CBC*/
 }

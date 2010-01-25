@@ -30,6 +30,8 @@ public class CreateDriveTrain extends DriveTrain {
 	private static final double width = 27.0;
 	private static final double wheelCircumference = 10.;
 	private double efficiency;
+	private double leftCmps = 0.;
+	private double rightCmps = 0.;
 	private cbccore.low.Create create  = Device.getLowCreateController();
 	
 	public CreateDriveTrain(double efficiency, boolean fullMode) {
@@ -51,23 +53,18 @@ public class CreateDriveTrain extends DriveTrain {
 		create.create_drive_straight((int)(cmps*10./efficiency));
 	}
 	
-	public void rotateDegrees(double degrees, double degreesPerSecond) {
-		rotateRadians(Math.toRadians(degrees), Math.toRadians(degreesPerSecond));
+	private void moveLeftCmps(double cmps) {
+		leftCmps = cmps;
+		updateMotorSpeed();
 	}
 	
-	public void rotateRadians(double radians, double radiansPerSecond) {
-		//time
-		//System.out.println((radiansPerSecond/(2*Math.PI))*(_width*Math.PI)*10.);
-		//System.out.println((int)((radiansPerSecond/(2*Math.PI))*(_width*Math.PI)*10.+.5));
-		//System.out.println((int)(radians/radiansPerSecond*1000.));
-		create.create_spin_CW((int)((radiansPerSecond/(2*Math.PI))*(width*Math.PI)*10./efficiency+.5));
-		try { Thread.sleep((int)(radians/radiansPerSecond*1000.)); } catch (Exception e) {}
-		kill();
+	private void moveRightCmps(double cmps) {
+		rightCmps = cmps;
+		updateMotorSpeed();
 	}
 	
-	public void moveCm(double cm, double cmps) throws InvalidValueException {
-		moveAtCmps(cmps);
-		try { Thread.sleep((int)(cm/cmps*1000.)); } catch (Exception e) {}
+	private void updateMotorSpeed() {
+		create.create_drive_direct(rightCmps, leftCmps);
 	}
 	
 	public void stop() {

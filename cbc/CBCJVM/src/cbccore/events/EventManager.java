@@ -55,8 +55,10 @@ import java.util.Collections;
 public class EventManager {
 	private HashMap<EventType, Set<IEventListener>> events = new HashMap<EventType, Set<IEventListener>>();
 	private static EventManager instance = null;
-	private ThreadLocal currentEventType;
-	private ConcurrentHashMap<EventType, Set<IEventListener>> queue;
+	private ThreadLocal<EventType> currentEventType;
+	private ConcurrentHashMap<EventType, Set<IEventListener>> queue; //can't be thread local- some threads may be using the same type
+	private ConcurrentHashMap<EventType, Integer> refcount; //keep references of num of objects
+	private ConcurrentHashMap<EventType, Integer> mergecount; //must wait for reaching 0 before continueing
 	private int it = 0;
 	
 	public static EventManager get() {

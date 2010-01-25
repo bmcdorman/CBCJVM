@@ -28,12 +28,17 @@ package cbccore.events;
  * @see    EventType
  */
 
-public class Event<E> {
+public class Event<E> extends java.util.EventObject {
 	private EventType handle;
 	public E data;
 	private EventManager manager;
 	
 	public Event(EventType handle) {
+	    this(handle, null);
+	}
+	
+	public Event(EventType handle, Object source) {
+	    super(source);
 		this.handle = handle;
 	}
 	public EventType getType() {

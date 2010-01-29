@@ -67,7 +67,7 @@ public class Camera {
 	/**
 	 * Use to return the number of blobs available for the channel ch, which is a color channel numbered 0 through 3.
 	 * 
-	 * @param  ch  from channel (range 0-2)
+	 * @param  ch  from channel (range 0-3)
 	 * @see        #track_init
 	 * @see        #track_update
 	 */
@@ -78,7 +78,7 @@ public class Camera {
 	/**
 	 * Gets the number of pixels in the blob.
 	 * 
-	 * @param  ch  from channel (range 0-2)
+	 * @param  ch  from channel (range 0-3)
 	 * @param  i   index (range 0 to track_count(ch)-1)
 	 * @return     the number of pixels in the blob
 	 * @see        #track_init
@@ -94,7 +94,7 @@ public class Camera {
 	 * Gets the pixel x coordinate of the centroid of the blob<p>
 	 * (note: 0,0 is the upper left; 159x119 is the lower right)
 	 * 
-	 * @param  ch  from channel (range 0-2)
+	 * @param  ch  from channel (range 0-3)
 	 * @param  i   index (range 0 to track_count(ch)-1)
 	 * @return     he pixel x coordinate of the centroid of the blob
 	 * @see        #track_init
@@ -110,7 +110,7 @@ public class Camera {
 	 * Gets the pixel y coordinate of the centroid of the blob<p>
 	 * (note: 0,0 is the upper left; 159x119 is the lower right)
 	 * 
-	 * @param  ch  from channel (range 0-2)
+	 * @param  ch  from channel (range 0-3)
 	 * @param  i   index (range 0 to track_count(ch)-1)
 	 * @return     the number of pixels in the blob.
 	 * @see        #track_init
@@ -124,7 +124,7 @@ public class Camera {
 	/**
 	 * Gets the confidence for seeing the blob as a percentage of the blob pixel area/bounding box area
 	 * 
-	 * @param  ch  from channel (range 0-2)
+	 * @param  ch  from channel (range 0-3)
 	 * @param  i   index (range 0 to track_count(ch)-1)
 	 * @return     The confidence for seeing the blob as a percentage of the blob pixel area/bounding box area (range 0-100, low numbers bad, high numbers good)
 	 * @see        #track_init
@@ -137,7 +137,7 @@ public class Camera {
 	/**
 	 * Gets the pixel x coordinate of the leftmost pixel in the blob
 	 * 
-	 * @param  ch  from channel (range 0-2)
+	 * @param  ch  from channel (range 0-3)
 	 * @param  i   index (range 0 to track_count(ch)-1)
 	 * @return     The pixel x coordinate of the leftmost pixel in the blob.
 	 * @see        #track_init
@@ -150,7 +150,7 @@ public class Camera {
 	/**
 	 * Gets the pixel x coordinate of the rightmost pixel in the blob
 	 * 
-	 * @param  ch  from channel (range 0-2)
+	 * @param  ch  from channel (range 0-3)
 	 * @param  i   index (range 0 to track_count(ch)-1)
 	 * @return     The pixel x coordinate of the rightmost pixel in the blob.
 	 * @see        #track_init
@@ -163,7 +163,7 @@ public class Camera {
 	/**
 	 * Gets the pixel y coordinate of the topmost pixel in the blob
 	 * 
-	 * @param  ch  from channel (range 0-2)
+	 * @param  ch  from channel (range 0-3)
 	 * @param  i   index (range 0 to track_count(ch)-1)
 	 * @return     The pixel y coordinate of the topmost pixel in the blob
 	 * @see        #track_init
@@ -176,7 +176,7 @@ public class Camera {
 	/**
 	 * Gets the pixel y coordinate of the bottommost pixel in the blob
 	 * 
-	 * @param  ch  from channel (range 0-2)
+	 * @param  ch  from channel (range 0-3)
 	 * @param  i   index (range 0 to track_count(ch)-1)
 	 * @return     The pixel y coordinate of the bottommost pixel in the blob
 	 * @see        #track_init
@@ -189,7 +189,7 @@ public class Camera {
 	/**
 	 * Gets the pixel x width of the bounding box of the blob. This is equivalent to track_bbox_right - track_bbox_left + 1
 	 * 
-	 * @param  ch  from channel (range 0-2)
+	 * @param  ch  from channel (range 0-3)
 	 * @param  i   index (range 0 to track_count(ch)-1)
 	 * @return     The pixel x width of the bounding box of the blob. This is equivalent to track_bbox_right - track_bbox_left + 1
 	 * @see        #track_init
@@ -202,7 +202,7 @@ public class Camera {
 	/**
 	 * Gets the pixel y height of the bounding box of the blob. This is equivalent to track_bbox_bottom - track_bbox_top + 1
 	 * 
-	 * @param  ch  from channel (range 0-2)
+	 * @param  ch  from channel (range 0-3)
 	 * @param  i   index (range 0 to track_count(ch)-1)
 	 * @return     The pixel y height of the bounding box of the blob.
 	 * @see        #track_init
@@ -219,7 +219,7 @@ public class Camera {
 	 * If you don't know about eclipses you might start <a href="http://mathworld.wolfram.com/Ellipse.html">here</a>
 	 * or ask your local math teacher about major and minor axes.
 	 * 
-	 * @param  ch  from channel (range 0-2)
+	 * @param  ch  from channel (range 0-3)
 	 * @param  i   index (range 0 to track_count(ch)-1)
 	 * @return     The angle in radians of the major axis of the blob
 	 * @see        #track_init
@@ -234,7 +234,7 @@ public class Camera {
 	 * If you don't know about eclipses you might start <a href="http://mathworld.wolfram.com/Ellipse.html">here</a>
 	 * or ask your local math teacher about major and minor axes.
 	 * 
-	 * @param  ch  from channel (range 0-2)
+	 * @param  ch  from channel (range 0-3)
 	 * @param  i   index (range 0 to track_count(ch)-1)
 	 * @return     The length in pixels of the major and minor axes of the bounding ellipse
 	 * @see        #track_init
@@ -249,7 +249,7 @@ public class Camera {
 	 * If you don't know about eclipses you might start <a href="http://mathworld.wolfram.com/Ellipse.html">here</a>
 	 * or ask your local math teacher about major and minor axes.
 	 * 
-	 * @param  ch  from channel (range 0-2)
+	 * @param  ch  from channel (range 0-3)
 	 * @param  i   index (range 0 to track_count(ch)-1)
 	 * @return     The length in pixels of the major and minor axes of the bounding ellipse
 	 * @see        #track_init

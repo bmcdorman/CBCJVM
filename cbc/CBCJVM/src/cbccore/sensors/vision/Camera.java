@@ -14,7 +14,7 @@
  * along with CBCJVM.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package cbccore.vision;
+package cbccore.sensors.vision;
 
 import cbccore.Device;
 
@@ -36,6 +36,7 @@ public class Camera {
 			initialized = true;
 			init();
 		}
+		update();
 	}
 	
 	/**
@@ -135,7 +136,7 @@ public class Camera {
 	/**
 	 * Use to return the number of blobs available for the channel ch, which is a color channel numbered 0 through 3.
 	 * 
-	 * @param  ch  from channel (range 0-2)
+	 * @param  ch  from channel (range 0-3)
 	 * @see        #init
 	 * @see        #update
 	 */

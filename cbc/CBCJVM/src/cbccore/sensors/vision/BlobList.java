@@ -14,9 +14,12 @@
  * along with CBCJVM.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package cbccore.vision;
+package cbccore.sensors.vision;
 
+import cbccore.sensors.vision.Blob;
 import java.util.AbstractList;
+import java.util.ListIterator;
+import java.util.Iterator;
 
 /**
  * Todo: Document this.
@@ -25,7 +28,7 @@ import java.util.AbstractList;
  * @see     Camera
  */
 
-public class BlobList<Blob> extends AbstractList {
+public class BlobList extends AbstractList<cbccore.sensors.vision.Blob> {
 	private Camera camera;
 	private int channel;
 	
@@ -35,11 +38,27 @@ public class BlobList<Blob> extends AbstractList {
 		this.channel = channel;
 	}
 	
-	public cbccore.vision.Blob get(int index) {
+	public cbccore.sensors.vision.Blob get(int index) {
 		return camera.getBlob(channel, index);
 	}
 	
 	public int size() {
 		return camera.getAvailableBlobLength(channel);
 	}
+	
+	/*
+	@SuppressWarnings("unchecked")
+	public Iterator<Blob> iterator() {
+		return (Iterator<Blob>)super.iterator();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public ListIterator<Blob> listIterator() {
+		return (ListIterator<Blob>)super.listIterator();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public ListIterator<Blob> listIterator(int index) {
+		return (ListIterator<Blob>)super.listIterator(index);
+	}*/
 }

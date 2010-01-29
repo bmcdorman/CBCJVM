@@ -94,4 +94,8 @@ public class MotorDriveTrain extends DriveTrain {
 	public double maxCmps() {
 		return _maxCmps;
 	}
+	
+	public double getTrainWidth() {
+		return _trainWidth;
+	}
 }

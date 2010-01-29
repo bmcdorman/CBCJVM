@@ -27,7 +27,7 @@ import cbccore.InvalidValueException;
 
 public class CreateDriveTrain extends DriveTrain {
 	
-	private static final double width = 27.0;
+	private static final double trainWidth = 27.0;
 	private static final double wheelCircumference = 10.;
 	private double efficiency;
 	private double leftCmps = 0.;
@@ -53,18 +53,18 @@ public class CreateDriveTrain extends DriveTrain {
 		create.create_drive_straight((int)(cmps*10./efficiency));
 	}
 	
-	private void moveLeftCmps(double cmps) {
+	protected void moveLeftCmps(double cmps) {
 		leftCmps = cmps;
 		updateMotorSpeed();
 	}
 	
-	private void moveRightCmps(double cmps) {
+	protected void moveRightCmps(double cmps) {
 		rightCmps = cmps;
 		updateMotorSpeed();
 	}
 	
 	private void updateMotorSpeed() {
-		create.create_drive_direct(rightCmps, leftCmps);
+		create.create_drive_direct((int)(rightCmps*10.), (int)(leftCmps*10.));
 	}
 	
 	public void stop() {
@@ -85,5 +85,9 @@ public class CreateDriveTrain extends DriveTrain {
 	
 	public double maxRps() {
 		return maxCmps() / wheelCircumference;
+	}
+	
+	public double getTrainWidth() {
+		return trainWidth;
 	}
 }

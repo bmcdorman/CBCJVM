@@ -25,7 +25,10 @@ import cbccore.InvalidValueException;
  */
 
 public abstract class DriveTrain {
+	
 	public abstract void moveAtCmps(double cmps) throws InvalidValueException;
+	
+	public abstract double getTrainWidth();
 	
 	protected double moveParser(double cm, double cmps) { //returns new cmps
 		//cmps is made to match cm's sign
@@ -39,7 +42,7 @@ public abstract class DriveTrain {
 	
 	//Clockwise
 	public void rotateRadians(double radians, double radiansPerSecond) {
-		double dist = (_trainWidth*Math.PI)*(radians/(2*Math.PI));//, simplified
+		double dist = (getTrainWidth()*Math.PI)*(radians/(2*Math.PI));//, simplified
 		double speed = radiansPerSecond/radians*dist;//, simplified
 		moveWheelCm(dist, -dist, speed, -speed);
 	}
@@ -47,10 +50,10 @@ public abstract class DriveTrain {
 	//TODO: we need a function to move in a curve (w00t!)
 	
 	public void moveCurveRadians(double radians, double radius, double cmps) {
-		double leftCm = radians/(2*Math.PI) * radius*Math.PI + _trainWidth*2*radians/(2*Math.PI);
-		double rightCm = radians/(2*Math.PI) * radius*Math.PI - _trainWidth*2*radians/(2*Math.PI);
-		double leftCmps = cmps + radians/(2*Math.PI) * _trainWidth*2.;
-		double rightCmps = cmps - radians/(2*Math.PI) * _trainWidth*2.;
+		double leftCm = radians/(2*Math.PI) * radius*Math.PI + getTrainWidth()*2*radians/(2*Math.PI);
+		double rightCm = radians/(2*Math.PI) * radius*Math.PI - getTrainWidth()*2*radians/(2*Math.PI);
+		double leftCmps = cmps + radians/(2*Math.PI) * getTrainWidth()*2.;
+		double rightCmps = cmps - radians/(2*Math.PI) * getTrainWidth()*2.;
 		moveWheelCm(leftCm, rightCm, leftCmps, rightCmps);
 	}
 	
@@ -61,7 +64,7 @@ public abstract class DriveTrain {
 	
 	//leftCm/leftCmps must be equal to rightCm/rightCmps
 	protected void moveWheelCm(double leftCm, double rightCm, double leftCmps, double rightCmps) {
-		System.out.println("moving left: "+ leftCm + " and right " + rightCm + " for " + leftCm/leftCmps + "seconds");
+		//System.out.println("moving left: "+ leftCm + " and right " + rightCm + " for " + leftCm/leftCmps + "seconds");
 		
 		leftCmps = leftCm<0?-Math.abs(leftCmps):Math.abs(leftCmps);
 		rightCmps = rightCm<0?-Math.abs(rightCmps):Math.abs(rightCmps);
@@ -92,6 +95,8 @@ public abstract class DriveTrain {
 		stop();
 	}
 	
+	protected abstract void moveLeftCmps(double cmps);
+	protected abstract void moveRightCmps(double cmps);
 	public abstract void stop();
 	public abstract void freeze();
 	public abstract void kill();

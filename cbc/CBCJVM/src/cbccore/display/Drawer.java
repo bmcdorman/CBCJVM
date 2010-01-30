@@ -59,18 +59,24 @@ public class Drawer extends Autobuffer {
 		//ported from example code at: http://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
 		int deltax = x1 - x0;
 		int deltay = y1 - y0;
-		double error = 0;
-		double deltaerr = deltay / deltax;    // Assume deltax != 0 (line is not vertical),
+		int error = 0;
+		//avoiding floating points
+		int deltaerr = deltay << 5 / deltax << 5;    // Assume deltax != 0 (line is not vertical),
 		// note that this division needs to be done in a way that preserves the fractional part
 		int y = y0;
-		int x = Math.min(x0, x1);
-		int endx = Math.max(x0, x1);
+		if(x1 > x0) {
+			int x = x0;
+			int endx = x1;
+		} else {
+			int x = x1;
+			int endx = x0;
+		}
 		for(; x < endx; ++x) {
 			setPixel(y*getWidth()+x, p);
 			error += deltaerr;
-			if(Math.abs(error) > .5) {
+			if(Math.abs(error) > (1<<4)) {
 				y += 1;
-				error -= 1.;
+				error -= 1<<5;
 			}
 		}
 		// There you go, Mr. Braindead

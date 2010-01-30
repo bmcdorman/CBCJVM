@@ -47,15 +47,32 @@ public class Drawer extends Autobuffer {
 		}
 	}
 	
-	public void drawLine(int x, int y, int x1, int y1, Pixel p) {
-		if(y == y1) {
-			drawHLine(x, x1, y, p);
+	public void drawLine(int x0, int y0, int x1, int y1, Pixel p) {
+		if(y0 == y1) {
+			drawHLine(x0, x1, y0, p);
 			return;
 		}
-		if(x == x1) {
-			drawVLine(y, y1, x, p);
+		if(x0 == x1) {
+			drawVLine(y0, y1, x0, p);
 			return;
 		}
-		// TODO: Uhh... Braindead
+		//ported from example code at: http://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
+		int deltax = x1 - x0;
+		int deltay = y1 - y0;
+		double error = 0;
+		double deltaerr = deltay / deltax;    // Assume deltax != 0 (line is not vertical),
+		// note that this division needs to be done in a way that preserves the fractional part
+		int y = y0;
+		int x = Math.min(x0, x1);
+		int endx = Math.max(x0, x1);
+		for(; x < endx; ++x) {
+			setPixel(y*getWidth()+x, p);
+			error += deltaerr;
+			if(Math.abs(error) > .5) {
+				y += 1;
+				error -= 1.;
+			}
+		}
+		// There you go, Mr. Braindead
 	}
 }

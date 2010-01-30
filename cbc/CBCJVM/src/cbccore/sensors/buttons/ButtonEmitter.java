@@ -17,31 +17,52 @@
 package cbccore.sensors.buttons;
 
 import cbccore.events.Event;
+import cbccore.events.EventType;
 import cbccore.events.EventManager;
 
 /**
+ * An unintuitive but necessary class to interface buttons with the event system
  * 
- * @author Braden McDorman An unintuitive but necessary class to interface
- *         buttons with the event system
- * 
+ * @author Braden McDorman, Benjamin Woodruff
  */
 public class ButtonEmitter implements Runnable {
-	public static Event AButtonPressed = EventManager.get().getUniqueEvent();
-	public static Event BButtonPressed = EventManager.get().getUniqueEvent();
-	public static Event BlackButtonPressed = EventManager.get().getUniqueEvent();
-	public static Event DownButtonPressed = EventManager.get().getUniqueEvent();
-	public static Event UpButtonPressed = EventManager.get().getUniqueEvent();
-	public static Event LeftButtonPressed = EventManager.get().getUniqueEvent();
-	public static Event RightButtonPressed = EventManager.get().getUniqueEvent();
 	
-	public static Event AButtonReleased = EventManager.get().getUniqueEvent();
-	public static Event BButtonReleased = EventManager.get().getUniqueEvent();
-	public static Event BlackButtonReleased = EventManager.get().getUniqueEvent();
-	public static Event DownButtonReleased = EventManager.get().getUniqueEvent();
-	public static Event UpButtonReleased = EventManager.get().getUniqueEvent();
-	public static Event LeftButtonReleased = EventManager.get().getUniqueEvent();
-	public static Event RightButtonReleased = EventManager.get().getUniqueEvent();
-
+	
+	public static EventType AButtonPressed = EventManager.get().getUniqueEventType();
+	public static EventType BButtonPressed = EventManager.get().getUniqueEventType();
+	public static EventType BlackButtonPressed = EventManager.get().getUniqueEventType();
+	public static EventType DownButtonPressed = EventManager.get().getUniqueEventType();
+	public static EventType UpButtonPressed = EventManager.get().getUniqueEventType();
+	public static EventType LeftButtonPressed = EventManager.get().getUniqueEventType();
+	public static EventType RightButtonPressed = EventManager.get().getUniqueEventType();
+	
+	public static EventType AButtonReleased = EventManager.get().getUniqueEventType();
+	public static EventType BButtonReleased = EventManager.get().getUniqueEventType();
+	public static EventType BlackButtonReleased = EventManager.get().getUniqueEventType();
+	public static EventType DownButtonReleased = EventManager.get().getUniqueEventType();
+	public static EventType UpButtonReleased = EventManager.get().getUniqueEventType();
+	public static EventType LeftButtonReleased = EventManager.get().getUniqueEventType();
+	public static EventType RightButtonReleased = EventManager.get().getUniqueEventType();
+	
+	
+	
+	private static Event AButtonPressedEvent = new Event(AButtonPressed, get());
+	private static Event BButtonPressedEvent = new Event(BButtonPressed, get());
+	private static Event BlackButtonPressedEvent = new Event(BlackButtonPressed, get());
+	private static Event DownButtonPressedEvent = new Event(DownButtonPressed, get());
+	private static Event UpButtonPressedEvent = new Event(UpButtonPressed, get());
+	private static Event LeftButtonPressedEvent = new Event(LeftButtonPressed, get());
+	private static Event RightButtonPressedEvent = new Event(RightButtonPressed, get());
+	
+	private static Event AButtonReleasedEvent = new Event(AButtonReleased, get());
+	private static Event BButtonReleasedEvent = new Event(BButtonReleased, get());
+	private static Event BlackButtonReleasedEvent = new Event(BlackButtonReleased, get());
+	private static Event DownButtonReleasedEvent = new Event(DownButtonReleased, get());
+	private static Event UpButtonReleasedEvent = new Event(UpButtonReleased, get());
+	private static Event LeftButtonReleasedEvent = new Event(LeftButtonReleased, get());
+	private static Event RightButtonReleasedEvent = new Event(RightButtonReleased, get());
+	
+	
 	private AButton aButton = new AButton();
 	private BButton bButton = new BButton();
 	private BlackButton blackButton = new BlackButton();
@@ -49,7 +70,7 @@ public class ButtonEmitter implements Runnable {
 	private UpButton upButton = new UpButton();
 	private LeftButton leftButton = new LeftButton();
 	private RightButton rightButton = new RightButton();
-
+	
 	private boolean aButtonState = false;
 	private boolean bButtonState = false;
 	private boolean blackButtonState = false;
@@ -61,13 +82,13 @@ public class ButtonEmitter implements Runnable {
 	private boolean exit = false;
 
 	private static ButtonEmitter instance = null;
-	private static Thread thread = new Thread(getInstance());
+	private static Thread thread = new Thread(get());
 
 	private ButtonEmitter() {
 
 	}
 
-	public static ButtonEmitter getInstance() {
+	public static ButtonEmitter get() {
 		if (instance == null)
 			instance = new ButtonEmitter();
 		return instance;
@@ -83,67 +104,68 @@ public class ButtonEmitter implements Runnable {
 			boolean newState = aButton.getValue();
 			if (newState != aButtonState) {
 				if (newState) {
-					AButtonPressed.emit();
+					AButtonPressedEvent.emit();
 				} else {
-					AButtonReleased.emit();
+					AButtonReleasedEvent.emit();
 				}
 				aButtonState = newState;
 			}
 			newState = bButton.getValue();
 			if (newState != bButtonState) {
 				if (newState) {
-					BButtonPressed.emit();
+					BButtonPressedEvent.emit();
 				} else {
-					BButtonReleased.emit();
+					BButtonReleasedEvent.emit();
 				}
 				bButtonState = newState;
 			}
 			newState = blackButton.getValue();
 			if (newState != blackButtonState) {
 				if (newState) {
-					BlackButtonPressed.emit();
+					BlackButtonPressedEvent.emit();
 				} else {
-					BlackButtonReleased.emit();
+					BlackButtonReleasedEvent.emit();
 				}
 				blackButtonState = newState;
 			}
 			newState = downButton.getValue();
 			if (newState != downButtonState) {
 				if (newState) {
-					DownButtonPressed.emit();
+					DownButtonPressedEvent.emit();
 				} else {
-					DownButtonReleased.emit();
+					DownButtonReleasedEvent.emit();
 				}
 				downButtonState = newState;
 			}
 			newState = upButton.getValue();
 			if (newState != upButtonState) {
 				if (newState) {
-					UpButtonPressed.emit();
+					UpButtonPressedEvent.emit();
 				} else {
-					UpButtonReleased.emit();
+					UpButtonReleasedEvent.emit();
 				}
 				upButtonState = newState;
 			}
 			newState = leftButton.getValue();
 			if (newState != leftButtonState) {
 				if (newState) {
-					LeftButtonPressed.emit();
+					LeftButtonPressedEvent.emit();
 				} else {
-					LeftButtonReleased.emit();
+					LeftButtonReleasedEvent.emit();
 				}
 				leftButtonState = newState;
 			}
 			newState = rightButton.getValue();
 			if (newState != rightButtonState) {
 				if (newState) {
-					RightButtonPressed.emit();
+					RightButtonPressedEvent.emit();
 				} else {
-					RightButtonReleased.emit();
+					RightButtonReleasedEvent.emit();
 				}
 				rightButtonState = newState;
 			}
 			Thread.yield();
+			try { Thread.sleep(0l, 1); } catch (Exception e) {}
 		}
 		exit = false;
 	}

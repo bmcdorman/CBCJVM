@@ -61,6 +61,15 @@ public class EventManager {
 	private ConcurrentHashMap<EventType, Integer> mergecount; //must wait for reaching 0 before continueing
 	private int it = 0;
 	
+	
+	/**
+	 * Gets the main instance of EventManager. You can have more than one, but
+	 * it is suggested that you just use this one with a call to
+	 * <code>getUniqueEventType()</code>
+	 * 
+	 * @return        The singleton style instance variable of EventManager
+	 * @see           #getUniqueEventType
+	 */
 	public static EventManager get() {
 		if (instance == null)
 			instance = new EventManager();

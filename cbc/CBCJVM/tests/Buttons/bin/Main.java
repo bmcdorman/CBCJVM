@@ -2,32 +2,45 @@
 
 import cbccore.Device;
 import cbccore.events.Event;
-import cbccore.events.EventDispatcher;
-import cbccore.events.EventEmitter;
+import cbccore.events.EventManager;
 import cbccore.events.EventListenerAdapter;
-import cbccore.motors.listeners.StopMotors;
+//import cbccore.motors.listeners.StopMotors;
 import cbccore.sensors.buttons.ButtonEmitter;
 
 public class Main {
+	
+	
+	
 	public void run() {
-		ButtonEmitter.getThread().run();
-		EventDispatcher dispatch = EventDispatcher.getInstance();
-		dispatch.addEventListener(ButtonEmitter.getInstance(), new ButtonEmitter.AButtonPressed(), new EventListenerAdapter() {
+		EventManager manager = EventManager.get();
+		ButtonEmitter.getThread().start();
+		
+		
+		
+		
+		EventListenerAdapter AButtonPressedHandler = new EventListenerAdapter() {
 			@Override
-			public void eventDispatched(EventEmitter emitter, Event type) {
-				System.out.println("A Button Pressed!");
+			public void event(Event type) {
+				System.out.println("The A Button Was Pressed!");
 			}
-		});
-		dispatch.addEventListener(ButtonEmitter.getInstance(), new ButtonEmitter.AButtonReleased(), new EventListenerAdapter() {
+		};
+		
+		EventListenerAdapter AButtonReleasedHandler = new EventListenerAdapter() {
 			@Override
-			public void eventDispatched(EventEmitter emitter, Event type) {
-				System.out.println("A Button Released!");
+			public void event(Event type) {
+				System.out.println("The A Button Was Released!");
 			}
-		});
-		dispatch.addEventListener(ButtonEmitter.getInstance(), new ButtonEmitter.BlackButtonPressed(), new StopMotors());
+		};
+		
+		manager.connect(ButtonEmitter.AButtonPressed, AButtonPressedHandler);
+		manager.connect(ButtonEmitter.AButtonReleased, AButtonReleasedHandler);
 	}
+	
+	
+	
+	
 	public static void main(String[] args) {
-		Device.init();
+		//Device.init();
 		new Main().run();
 	}
 }

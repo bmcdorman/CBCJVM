@@ -22,10 +22,14 @@ import cbccore.events.EventManager;
 
 /**
  * An unintuitive but necessary class to interface buttons with the event system
+ * Call ButtonEmitter.get().start(); to begin listening for button events.
+ * ButtonEmitter.get().exit(); will stop listening for button events. Connect
+ * Listeners that you make to the EventTypes available in this class, and when
+ * a button is pressed/released, the handler will be called.
  * 
  * @author Braden McDorman, Benjamin Woodruff
  */
-public class ButtonEmitter implements Runnable {
+public class ButtonEmitter extends Thread {
 	
 	
 	public static EventType AButtonPressed = EventManager.get().getUniqueEventType();
@@ -80,12 +84,11 @@ public class ButtonEmitter implements Runnable {
 	private boolean rightButtonState = false;
 	
 	private boolean exit = false;
-
+	
 	private static ButtonEmitter instance = null;
-	private static Thread thread = new Thread(get());
 
 	private ButtonEmitter() {
-
+		setDaemon(true);
 	}
 
 	public static ButtonEmitter get() {
@@ -93,11 +96,10 @@ public class ButtonEmitter implements Runnable {
 			instance = new ButtonEmitter();
 		return instance;
 	}
-
-	public static Thread getThread() {
-		return thread;
-	}
-
+	
+	/**
+	 * Don't call this function. Call start() instead.
+	 */
 	@Override
 	public void run() {
 		while (!exit) {
@@ -169,6 +171,8 @@ public class ButtonEmitter implements Runnable {
 		}
 		exit = false;
 	}
+	
+	//dangerous
 	public void exit() {
 		exit = true;
 	}

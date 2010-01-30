@@ -4,10 +4,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 
-public class Framebuffer extends Pixmap {
-	private OutputStream out = null;
+public class Framebuffer extends Autobuffer {
+	private FileOutputStream out = null;
 	private File pipe = null;
 	
 	public Framebuffer(File pipe) {
@@ -22,9 +21,8 @@ public class Framebuffer extends Pixmap {
 	}
 	
 	public void sync() throws IOException {
-		out.write((byte[])getBytes());
+		out.write(getBytes());
 		out.close();
-		// Why is this necessary??! Seems uber slow
 		out = new FileOutputStream(pipe);
 	}
 }

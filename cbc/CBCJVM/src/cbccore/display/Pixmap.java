@@ -22,18 +22,46 @@ public class Pixmap {
 		fill(fill);
 	}
 	
-	public void setPixel(int i, Pixel p) {
-		byte[] pixel = p.getRGB565();
-		
-		bytes[i * 2] = pixel[0];
-		bytes[i * 2 + 1] = pixel[1];
+	private void __setPixel(int i, Pixel p) {
+		__setBytes(i, p);
 		buffer[i] = p;
 	}
 	
+	private void __setBytes(int i, Pixel p) {
+		byte[] pixel = p.getRGB565();
+		bytes[i * 2] = pixel[0];
+		bytes[i * 2 + 1] = pixel[1];
+	}
+	
+	public void setPixel(int i, Pixel p) {
+		__setPixel(i, p);
+	}
+	
+	public void fill(Pixel p) {
+		fillBlock(0, getBufferSize() * 2, p);
+	}
+	
 	public void fillBlock(int i1, int i2, Pixel p) {
-		for(int i = i1; i < i2; ++i) {
-			setPixel(i, p);
+		Arrays.fill(buffer, p);
+		byte[] pixel = p.getRGB565();
+		for(int i = i1; i < i2; i += 2) {
+			bytes[i] = pixel[0];
+			bytes[i + 1] = pixel[1];
 		}
+	}
+	
+	public void fastFill(Pixel p) {
+		fastFillBlock(0, getBufferSize() * 2, p);
+	}
+	
+	public void fastFillBlock(int i1, int i2, Pixel p) {
+		for(int i = i1; i < i2; i += 2) {
+			__setBytes(i, p);
+		}
+	}
+	
+	public void fastCopy(byte[] bytes, int foff, int offset, int length) {
+		System.arraycopy(bytes, foff * 2, this.bytes, offset * 2, length * 2);
 	}
 	
 	/**
@@ -47,7 +75,7 @@ public class Pixmap {
 	public void fillRectangle(int x, int y, int x1, int y1, Pixel p) {
 		for(int iy = y; iy < y1; ++iy) {
 			for(int ix = x; ix < x1; ++ix) {
-				setPixel(width * iy + ix, p);
+				__setPixel(width * iy + ix, p);
 			}
 		}
 	}
@@ -58,14 +86,13 @@ public class Pixmap {
 			for(int ix = 0; ix < p.getWidth(); ++ix) {
 				if(iy + y >= height) break;
 				if(ix + x >= width) break;
-
-				setPixel((width * (iy + y)) + (ix + x), pp[p.getWidth() * iy + ix]);
+				__setPixel((width * (iy + y)) + (ix + x), pp[p.getWidth() * iy + ix]);
 			}
 		}
 	}
 	
 	/**
-	 * Not fully working. Needed for image blitting.
+	 * Does not update pixel array, only byte array.
 	 * @param x
 	 * @param y
 	 * @param p
@@ -73,42 +100,47 @@ public class Pixmap {
 	public void fastBlit(int x, int y, Pixmap p) {
 		byte[] pp = p.getBytes();
 		for(int iy = 0; iy < p.getHeight(); ++iy) {
-			for(int ix = 0; ix < p.getWidth(); ++ix) {
-				if(iy + y >= height) break;
-				if(ix + x >= width) break;
-				int oi = ((width * (iy + y)) + (ix + x)) * 2;
-				int ti = (p.getWidth() * iy + ix) * 2;
-				bytes[oi] = pp[ti];
-				bytes[oi + 1] = pp[ti + 1];
-			}
+				//if(iy + y >= height) break;
+				fastCopy(pp, iy * p.getWidth(), width * (y + iy) + x, p.getWidth());
 		}
 	}
 	
-	public void fill(Pixel p) {
-		Arrays.fill(buffer, p);
-		byte[] pixel = p.getRGB565();
-		for(int i = 0; i < bytes.length; i += 2) {
-			bytes[i] = pixel[0];
-			bytes[i + 1] = pixel[1];
-		}
-	}
-	
+	/**
+	 * Get pixmap height
+	 * @return height
+	 */
 	public int getHeight() {
 		return height;
 	}
 	
+	/**
+	 * Get pixmap width
+	 * @return width
+	 */
 	public int getWidth() {
 		return width;
 	}
 	
+	/**
+	 * Returns the size of the pixel buffer
+	 * @return buffer size
+	 */
 	public int getBufferSize() {
 		return width * height;
 	}
 	
+	/**
+	 * Get the byte buffer associated with this pixmap
+	 * @return Byte Array that is getBufferSize() * 2
+	 */
 	public byte[] getBytes() {
 		return bytes;
 	}
 	
+	/**
+	 * Get the pixel buffer associated with this pixmap
+	 * @return Pixel Array that is getBufferSize()
+	 */
 	public Pixel[] getPixels() {
 		return buffer;
 	}

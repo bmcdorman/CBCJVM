@@ -31,6 +31,7 @@ import cbccore.events.EventManager;
  */
 public class ButtonEmitter extends Thread {
 	
+	private EventManager manager;
 	
 	public static EventType AButtonPressed = EventManager.get().getUniqueEventType();
 	public static EventType BButtonPressed = EventManager.get().getUniqueEventType();
@@ -87,13 +88,14 @@ public class ButtonEmitter extends Thread {
 	
 	private static ButtonEmitter instance = null;
 
-	private ButtonEmitter() {
+	public ButtonEmitter(EventManager manager) {
 		setDaemon(true);
+		this.manager = manager;
 	}
 
 	public static ButtonEmitter get() {
 		if (instance == null)
-			instance = new ButtonEmitter();
+			instance = new ButtonEmitter(EventManager.get());
 		return instance;
 	}
 	

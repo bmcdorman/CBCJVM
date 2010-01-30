@@ -26,10 +26,10 @@ import cbccore.sensors.IBooleanSensor;
  *
  */
 
-public class Touch implements IBooleanSensor {
+public class BreakBeam implements IBooleanSensor {
 	private cbccore.low.Sensor lowSensor = Device.getLowSensorController();
 	private int port = 0;
-	public Touch(int port) throws InvalidPortException {
+	public BreakBeam(int port) throws InvalidPortException {
 		if(port < 0 || port > 7) { throw new InvalidPortException(); }
 		this.port = port;
 	}

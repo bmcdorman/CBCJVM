@@ -98,9 +98,17 @@ public class Pixmap {
 	 * @param p
 	 */
 	public void fastBlit(int x, int y, Pixmap p) {
+		int iy = 0;
+		if(y < 0) {
+			iy = -y;
+			y = 0;
+		}
+		if(x < 0) {
+			x = 0;
+		}
 		byte[] pp = p.getBytes();
-		for(int iy = 0; iy < p.getHeight(); ++iy) {
-				//if(iy + y >= height) break;
+		for(; iy < p.getHeight(); ++iy) {
+				if(iy + y >= height) break;
 				fastCopy(pp, iy * p.getWidth(), width * (y + iy) + x, p.getWidth());
 		}
 	}

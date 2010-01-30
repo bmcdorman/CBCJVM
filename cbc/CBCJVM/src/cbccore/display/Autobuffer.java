@@ -8,6 +8,11 @@ public class Autobuffer extends Pixmap {
 		cleanBytes = new byte[getBufferSize() * 2];
 	}
 	
+	public Autobuffer(int width, int height, Pixel p) {
+		super(width, height, p);
+		cleanBytes = new byte[getBufferSize() * 2];
+	}
+	
 	public void setClean() {
 		System.arraycopy(bytes, 0, cleanBytes, 0, getBufferSize() * 2);
 	}

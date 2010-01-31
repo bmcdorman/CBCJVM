@@ -26,10 +26,13 @@ public class Pixmap {
 	
 	private void __setPixel(int i, Pixel p) {
 		
-		//Pixel n = new Pixel(p.getRed(), p.getGreen(), p.getBlue());
-		//n.setRed();
-		__setBytes(i, p);
-		buffer[i] = p;
+		Pixel n = new Pixel(p.getRed(), p.getGreen(), p.getBlue());
+		n.setRed((int) (((float)n.getRed() / 255) * p.getAlpha()));
+		n.setGreen((int) (((float)n.getGreen() / 255) * p.getAlpha()));
+		n.setBlue((int) (((float)n.getBlue() / 255) * p.getAlpha()));
+
+		__setBytes(i, n);
+		buffer[i] = n;
 	}
 	
 	private void __setBytes(int i, Pixel p) {
@@ -116,7 +119,9 @@ public class Pixmap {
 		byte[] pp = p.getBytes();
 		for(; iy < p.getHeight(); ++iy) {
 				if(iy + y >= height) break;
-				fastCopy(pp, iy * p.getWidth(), width * (y + iy) + x, p.getWidth());
+				int len = p.getWidth();
+				if(len > width) len = width;
+				fastCopy(pp, iy * p.getWidth(), width * (y + iy) + x, len);
 		}
 	}
 	

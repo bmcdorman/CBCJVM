@@ -16,6 +16,7 @@
 
 package cbccore.low;
 
+import cbccore.display.SimulatedFramebuffer;
 import cbccore.low.simulator.*;
 
 import javax.swing.JFrame;
@@ -26,6 +27,7 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.ComponentOrientation;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.io.PrintStream;
 
 /**
@@ -50,6 +52,10 @@ public class CBCSimulator {
 	
 	public static PrintStream stdOut;
 	
+	private JFrame frame = new JFrame("CBCSimulator");
+	
+	private boolean framebuffersAdded = false;
+	
 	public CBCSimulator() {
 		try {
 		      UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -73,7 +79,7 @@ public class CBCSimulator {
 		
 		if(stdOut == null) { stdOut = System.out; }
 		System.out.println("Welcome to CBCJava");
-		JFrame frame = new JFrame("CBCSimulator");
+		
 		
 		frame.getContentPane().add(new JScrollPane(display.getTextBox()), BorderLayout.CENTER);
 		
@@ -97,5 +103,17 @@ public class CBCSimulator {
 		frame.setSize(320, 240);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
+		frame.setSize(1024, 768);
+	}
+	
+	public void addFramebuffers() {
+		if(framebuffersAdded) return;
+		framebuffersAdded = true;
+		Container framebuffers = new Container();
+		GridLayout framebufferLayout = new GridLayout(1, 1);
+		framebuffers.setLayout(framebufferLayout);
+		framebuffers.add(((SimulatedFramebuffer)cbccore.display.Display.getFramebuffer()).getPanel());
+		frame.getContentPane().add(framebuffers, BorderLayout.EAST);
+		
 	}
 }

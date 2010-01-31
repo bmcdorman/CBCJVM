@@ -8,6 +8,7 @@ public class Pixel {
 	private int r = 0;
 	private int g = 0;
 	private int b = 0;
+	private int a = 255;
 	private byte[] bytes = new byte[2];
 	private boolean dirty = false;
 	private static int[] lookup5 = { 0, 8, 16, 25, 33, 41, 49,  58, 66, 74, 82, 90, 99, 107, 115, 123, 132, 140, 148, 156, 165, 173, 181, 189,  197, 206, 214, 222, 230, 239, 247, 255};
@@ -45,6 +46,10 @@ public class Pixel {
 		this.b = b;
 		dirty = true;
 	}
+	
+	public void setAlpha(int a) {
+		this.a = a;
+	}
 
 	public int getRed() {
 		return r;
@@ -57,13 +62,21 @@ public class Pixel {
 	public int getBlue() {
 		return b;
 	}
+	
+	public int getAlpha() {
+		return a;
+	}
+	
+	public byte getAlphaByte() {
+		return fromUnsigned(a);
+	}
 
-	// I have spent over 3 hours writing this method.
-	// Damn you java gods, can haz unsigned?
 	public void updateRGB565() {
 		bytes = rgb8ToRgb565(r, g, b);
 	}
-
+	
+	// I have spent over 3 hours writing this method.
+	// Damn you java gods, can haz unsigned?
 	public static byte[] rgb8ToRgb565(int r, int g, int b) {
 
 		byte[] concatbytes = new byte[2];
@@ -84,6 +97,10 @@ public class Pixel {
 		return concatbytes;
 	}
 
+	/**
+	 * Must check alpha condition, otherwise undefined behavior.
+	 * @return
+	 */
 	public byte[] getRGB565() {
 		if (dirty)
 			updateRGB565();

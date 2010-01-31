@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class Pixmap {
 	private Pixel[] buffer = null;
 	protected byte[] bytes = null;
+	protected byte[] alpha = null;
 	private int width = 0;
 	private int height = 0;
 	private static Pixel blank = new Pixel(0, 0, 0);
@@ -18,11 +19,15 @@ public class Pixmap {
 		this.height = height;
 		buffer = new Pixel[width * height];
 		bytes = new byte[width * height * 2];
+		alpha = new byte[width * height];
 		// Create initial buffer s
 		fill(fill);
 	}
 	
 	private void __setPixel(int i, Pixel p) {
+		
+		//Pixel n = new Pixel(p.getRed(), p.getGreen(), p.getBlue());
+		//n.setRed();
 		__setBytes(i, p);
 		buffer[i] = p;
 	}
@@ -31,6 +36,8 @@ public class Pixmap {
 		byte[] pixel = p.getRGB565();
 		bytes[i * 2] = pixel[0];
 		bytes[i * 2 + 1] = pixel[1];
+		
+		alpha[i] = p.getAlphaByte();
 	}
 	
 	public void setPixel(int i, Pixel p) {

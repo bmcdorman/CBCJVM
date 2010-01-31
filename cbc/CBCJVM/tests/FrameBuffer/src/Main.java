@@ -20,6 +20,7 @@ public class Main {
 		ImagePixmap cbc = new ImagePixmap(image);
 		Drawer drawer = new Drawer(fb0);
 		int rotatingLineSize = 240;
+		Pixmap rotatingLineFiller = new Pixmap(rotatingLineSize, rotatingLineSize, new Pixel(0, 0, 0));
 		float angle = 0.f;
 		
 		while(button.isNotPushed()) {
@@ -36,10 +37,13 @@ public class Main {
 			}
 			
 			fb0.fastBlit(dir == 0 ? x - 2 : x + 5, 0, filler);
-			drawer.drawLine((int)(-Math.cos(angle)*(rotatingLineSize>>1)+(320>>1)),
-				(int)(-Math.sin(angle)*(rotatingLineSize>>1)+(240>>1)),
-				(int)(Math.cos(angle)*(rotatingLineSize>>1)+(320>>1)),
-				(int)(Math.sin(angle)*(rotatingLineSize>>1)+(240>>1)),
+			fb0.fastBlit((320>>1)-(rotatingLineSize>>1), (240>>1)-(rotatingLineSize>>1),rotatingLineFiller);
+			float sinOfAngle = (float)Math.sin(angle);
+			float cosOfAngle = (float)Math.cos(angle);
+			drawer.drawLine((int)(-cosOfAngle*(rotatingLineSize>>1)+(320>>1)),
+				(int)(-sinOfAngle*(rotatingLineSize>>1)+(240>>1)),
+				(int)(cosOfAngle*(rotatingLineSize>>1)+(320>>1)),
+				(int)(sinOfAngle*(rotatingLineSize>>1)+(240>>1)),
 				Pixel.whitePixel
 			);
 			angle += .1f;

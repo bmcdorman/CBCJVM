@@ -47,18 +47,16 @@ public class Device {
 	private static Input lowInput;
 	private static Sound lowSound;
 	private static Sensor lowSensors;
+	private static boolean onCBC = true;
 
 	static {
-		boolean onCBC = new File("/mnt/user/jvm/cbc/CBC.so").exists();
-		if(onCBC) {
-    		try {
-    			System.getProperty("CBC");
-    			System.load("/mnt/user/jvm/cbc/CBC.so");
-    		}
-    		catch(Exception e) {
-    			onCBC = false;
-    		}
-		}
+    	try {
+    		if(System.getProperty("CBC") == null) throw new Exception();
+    		System.load("/mnt/user/jvm/cbc/CBC.so");
+    	}
+    	catch(Exception e) {
+    		onCBC = false;
+    	}
 		try {
 			if(onCBC) {
 				System.out.println("On CBC!");
@@ -198,5 +196,9 @@ public class Device {
 	 */
 	public static Sensor getLowSensorController() {
 		return lowSensors;
+	}
+	
+	public static boolean isOnCBC() {
+		return onCBC;
 	}
 }

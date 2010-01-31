@@ -20,6 +20,7 @@ import cbccore.low.simulator.*;
 
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
+import javax.swing.UIManager;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -50,6 +51,11 @@ public class CBCSimulator {
 	public static PrintStream stdOut;
 	
 	public CBCSimulator() {
+		try {
+		      UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		    } catch(Exception e) {
+		      System.out.println("Error setting native LAF: " + e);
+		    }
 		sound = new SimulatedSound(this);
 		sensor = new SimulatedSensor(this);
 		device = new SimulatedDevice(this);

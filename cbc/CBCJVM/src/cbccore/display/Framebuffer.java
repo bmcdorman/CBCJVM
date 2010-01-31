@@ -1,28 +1,29 @@
 package cbccore.display;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-
+import java.io.RandomAccessFile;
 public class Framebuffer extends Autobuffer {
-	private FileOutputStream out = null;
+	private RandomAccessFile out = null;
+	
 	private File pipe = null;
+	
+	public Framebuffer() {
+		super(320, 240);
+	}
 	
 	public Framebuffer(File pipe) {
 		super(320, 240);
 		try {
-			out = new FileOutputStream(pipe);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			out = new RandomAccessFile(pipe, "rw");
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		this.pipe = pipe;
 	}
 	
 	public void sync() throws IOException {
+		out.seek(0);
 		out.write(getBytes());
-		out.close();
-		out = new FileOutputStream(pipe);
 	}
 }

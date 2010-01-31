@@ -29,10 +29,13 @@ import cbccore.events.EventManager;
  * 
  * @author Braden McDorman, Benjamin Woodruff
  */
+
+@SuppressWarnings("unchecked")
 public class ButtonEmitter extends Thread {
 	
 	private EventManager manager;
 	
+	// Pressed EventTypes
 	public static EventType AButtonPressed = EventManager.get().getUniqueEventType();
 	public static EventType BButtonPressed = EventManager.get().getUniqueEventType();
 	public static EventType BlackButtonPressed = EventManager.get().getUniqueEventType();
@@ -41,6 +44,7 @@ public class ButtonEmitter extends Thread {
 	public static EventType LeftButtonPressed = EventManager.get().getUniqueEventType();
 	public static EventType RightButtonPressed = EventManager.get().getUniqueEventType();
 	
+	// Released EventTypes
 	public static EventType AButtonReleased = EventManager.get().getUniqueEventType();
 	public static EventType BButtonReleased = EventManager.get().getUniqueEventType();
 	public static EventType BlackButtonReleased = EventManager.get().getUniqueEventType();
@@ -49,8 +53,7 @@ public class ButtonEmitter extends Thread {
 	public static EventType LeftButtonReleased = EventManager.get().getUniqueEventType();
 	public static EventType RightButtonReleased = EventManager.get().getUniqueEventType();
 	
-	
-	
+	// Pressed Events
 	private static Event AButtonPressedEvent = new Event(AButtonPressed, get());
 	private static Event BButtonPressedEvent = new Event(BButtonPressed, get());
 	private static Event BlackButtonPressedEvent = new Event(BlackButtonPressed, get());
@@ -59,6 +62,7 @@ public class ButtonEmitter extends Thread {
 	private static Event LeftButtonPressedEvent = new Event(LeftButtonPressed, get());
 	private static Event RightButtonPressedEvent = new Event(RightButtonPressed, get());
 	
+	// Released Events
 	private static Event AButtonReleasedEvent = new Event(AButtonReleased, get());
 	private static Event BButtonReleasedEvent = new Event(BButtonReleased, get());
 	private static Event BlackButtonReleasedEvent = new Event(BlackButtonReleased, get());

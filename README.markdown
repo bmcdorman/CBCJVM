@@ -1,11 +1,29 @@
-Still under HEAVY development.
+Current Stable Release: 10.2; Current Development Version: 10.3
 -----------
-I would recommend you use http://cbcjava.googlecode.com/issues/attachment?aid=-4010490748107432490&name=CBCJavaInstaller.tar.gz for now
-At this point, much of the stuff in this repo is untested, and subject to lots of changes
 
-Stick around though, we should have a stable version soon!
+First off, remember that by following these instructions you may brick your CBC and void your warranty.  You have been warned.
+CBCv2 ONLY
 
+Ubuntu Guide (should be similar for other *nix operating systems):
 
+To build (assuming you already have a JDK installed and Apache-Ant):
+        sudo apt-get install git-core
+        git clone git://github.com/catron/CBCJVM.git
+        cd CBCJVM
+        sh BuildEverything.sh
+
+Congrats! You should now have everything you need in `CBCJVM/installer/install`!!1!
+See corresponding Readme.txt file.
+
+To update, just run:
+        cd CBCJVM
+        git pull
+        sh BuildEverything.sh
+        ... and reinstall on cbc
+
+Documentation (generated upon build) is located at `CBCJVM/cbc/CBCJVM/docs/api` see the [wiki](http://wiki.github.com/catron/CBCJVM/) for more information
+
+When compiling or running custom code, be sure to set `CBCJVM/cbc/CBCJVM/bin` as your classpath!
 
 ### This file is part of CBCJVM. ###
 CBCJVM is free software: you can redistribute it and/or modify

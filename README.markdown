@@ -12,7 +12,7 @@ To build (assuming you already have a JDK installed and Apache-Ant):
         cd CBCJVM
         sh BuildEverything.sh
 
-Congrats! You should now have everything you need in CBCJVM/installer/install !!1!
+Congrats! You should now have everything you need in `CBCJVM/installer/install`!!1!
 See corresponding Readme.txt file.
 
 To update, just run:
@@ -21,9 +21,9 @@ To update, just run:
         sh BuildEverything.sh
         ... and reinstall on cbc
 
-Documentation (generated upon build) is located at CBCJVM/cbc/CBCJVM/docs/api
+Documentation (generated upon build) is located at `CBCJVM/cbc/CBCJVM/docs/api` see the [wiki](http://wiki.github.com/catron/CBCJVM/) for more information
 
-When compiling or running custom code, be sure to set CBCJVM/cbc/CBCJVM/bin as your classpath!
+When compiling or running custom code, be sure to set `CBCJVM/cbc/CBCJVM/bin` as your classpath!
 
 ### This file is part of CBCJVM. ###
 CBCJVM is free software: you can redistribute it and/or modify

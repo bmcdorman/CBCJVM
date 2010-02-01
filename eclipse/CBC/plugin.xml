@@ -18,15 +18,6 @@
             </separator>
          </menu>
          <action
-               class="cbc.actions.CBCUPAction"
-               icon="icons/arrow.png"
-               id="cbc.actions.CBCUPAction"
-               label="&amp;Recover"
-               menubarPath="cbcMenu/cbcGroup"
-               toolbarPath="cbcGroup"
-               tooltip="Recovers a project from a CBC">
-         </action>
-         <action
                class="cbc.actions.CBCFDAction"
                icon="icons/fd16.png"
                id="cbc.actions.CBCFDAction"
@@ -34,15 +25,6 @@
                menubarPath="cbcMenu/cbcGroup"
                toolbarPath="cbcGroup"
                tooltip="Saves current project to filesystem">
-         </action>
-         <action
-               class="cbc.actions.CBCUSBAction"
-               icon="icons/usb16.png"
-               id="cbc.actions.CBCUSBAction"
-               label="Download via &amp;USB"
-               menubarPath="cbcMenu/cbcGroup"
-               toolbarPath="cbcGroup"
-               tooltip="Downloads current project to the CBC via USB">
          </action>
          <action
                label="&amp;Download via LAN"
@@ -61,13 +43,6 @@
             id="CBC"
             name="CBCJava">
       </category>
-      <view
-            category="CBC"
-            class="cbc.views.CBCView"
-            icon="icons/sample.gif"
-            id="cbc.views.CBCView"
-            name="CBC View">
-      </view>
    </extension>
    <extension
          point="org.eclipse.ui.perspectiveExtensions">

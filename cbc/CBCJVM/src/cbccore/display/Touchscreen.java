@@ -8,6 +8,7 @@ import java.io.InputStream;
 
 public class Touchscreen {
 	private InputStream out = null;
+	@SuppressWarnings("unused")
 	private File pipe = null;
 	
 	public Touchscreen(File pipe) {

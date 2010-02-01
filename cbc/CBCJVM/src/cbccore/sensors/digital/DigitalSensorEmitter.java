@@ -30,6 +30,7 @@ import cbccore.events.EventManager;
  * 
  * @author Braden McDorman, Benjamin Woodruff
  */
+@SuppressWarnings("unchecked")
 public class DigitalSensorEmitter extends Thread {
 	
 	private EventManager manager;

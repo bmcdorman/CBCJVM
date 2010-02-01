@@ -23,5 +23,6 @@ package cbccore.events;
  */
 
 public interface IEventListener {
+	@SuppressWarnings("unchecked")
 	public void event(Event e);
 }

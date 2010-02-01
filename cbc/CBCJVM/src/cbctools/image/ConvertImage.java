@@ -6,12 +6,14 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.net.URL;
 
 import javax.imageio.*;
 
-import cbccore.display.Pixel;
-
+/**
+ * 
+ * @author Braden McDorman
+ *
+ */
 public class ConvertImage {
 	public static void main(String[] args) throws IOException {
 		System.out.println("CBCJVM Image Converter Tool - Version 0.0.1");

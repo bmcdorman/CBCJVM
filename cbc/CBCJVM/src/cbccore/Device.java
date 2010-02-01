@@ -16,8 +16,6 @@
 
 package cbccore;
 
-import java.io.File;
-
 import cbccore.low.*;
 import cbccore.low.CBCSimulator;
 

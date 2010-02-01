@@ -31,8 +31,9 @@ public class StopDriver implements IEventListener {
 	public StopDriver(NonBlockingDriver driver) {
 		this.driver = driver;
 	}
+	@SuppressWarnings("unchecked")
 	@Override
 	public void event(Event type) {
 		driver.halt();
 	}
-}
+} 

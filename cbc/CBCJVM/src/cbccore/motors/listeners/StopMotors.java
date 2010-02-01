@@ -27,6 +27,7 @@ import cbccore.events.IEventListener;
 
 public class StopMotors implements IEventListener {
 	@Override
+	@SuppressWarnings("unchecked")
 	public void event(Event type) {
 		System.out.println("Stopping motors...");
 		// Device.getLowMotorController().ao();

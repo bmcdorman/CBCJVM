@@ -25,6 +25,7 @@ package cbccore.events;
  */
 
 public class EventType {
+	@SuppressWarnings("unused")
 	private EventManager manager;
 	private int handle;
 	

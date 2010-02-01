@@ -6,6 +6,7 @@ import java.io.RandomAccessFile;
 public class Framebuffer extends Autobuffer {
 	private RandomAccessFile out = null;
 	
+	@SuppressWarnings("unused")
 	private File pipe = null;
 	
 	public Framebuffer() {
@@ -19,7 +20,7 @@ public class Framebuffer extends Autobuffer {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		this.pipe = pipe;
+		this.pipe = pipe; 
 	}
 	
 	public void sync() throws IOException {

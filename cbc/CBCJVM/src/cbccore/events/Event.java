@@ -29,8 +29,10 @@ package cbccore.events;
  */
 
 public class Event<E> extends java.util.EventObject {
+	private static final long serialVersionUID = 146392288658724975L;
 	private EventType handle;
 	public E data;
+	@SuppressWarnings("unused")
 	private EventManager manager;
 	
 	public Event(EventType handle) {

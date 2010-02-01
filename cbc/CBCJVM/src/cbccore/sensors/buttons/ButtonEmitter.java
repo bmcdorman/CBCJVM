@@ -33,6 +33,7 @@ import cbccore.events.EventManager;
 @SuppressWarnings("unchecked")
 public class ButtonEmitter extends Thread {
 	
+	@SuppressWarnings("unused")
 	private EventManager manager;
 	
 	// Pressed EventTypes

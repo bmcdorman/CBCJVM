@@ -21,13 +21,13 @@ import cbccore.InvalidPortException;
 
 /**
  * 
- * @author Benjamin Woodruff, based on code By Braden McDorman
+ * @author Benjamin Woodruff, Braden McDorman
  *
  */
 
-public class Servo extends cbccore.low.Servo {
+public class Servo {
 	private int port = 0;
-	private cbccore.low.Motor lowMotor = Device.getLowMotorController();
+	private cbccore.low.Servo lowServo = Device.getLowServoController();
 	
 	public Servo(int port) throws InvalidPortException {
 		if(port < 0 || port > 4) throw new InvalidPortException();
@@ -35,18 +35,18 @@ public class Servo extends cbccore.low.Servo {
 	}
 
 	public void disable() {
-		disable_servos();
+		lowServo.disable_servos();
 	}
 	
 	public void enable() {
-		enable_servos();
+		lowServo.enable_servos();
 	}
 	
 	int getPosition() {
-		return get_servo_position(port);
+		return lowServo.get_servo_position(port);
 	}
 	
 	int setPosition(int pos) {
-		return set_servo_position(port, pos);
+		return lowServo.set_servo_position(port, pos);
 	}
 }

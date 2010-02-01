@@ -52,6 +52,7 @@ import java.util.Collections;
  * @author Braden McDorman, Benjamin Woodruff
  */
 
+@SuppressWarnings("unused")
 public class EventManager {
 	private HashMap<EventType, Set<IEventListener>> events = new HashMap<EventType, Set<IEventListener>>();
 	private static EventManager instance = null;
@@ -97,6 +98,7 @@ public class EventManager {
 	/**
 	 * Do not call this directly
 	 */
+	@SuppressWarnings("unchecked")
 	public void __emit(Event e) {
 		Set<IEventListener> listeners = getListeners(e.getType());
 		for (IEventListener i : listeners) {
@@ -120,6 +122,7 @@ public class EventManager {
 		return listeners;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public Event getUniqueEvent() {
 		return new Event(getUniqueEventType());
 	}

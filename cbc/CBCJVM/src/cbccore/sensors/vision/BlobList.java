@@ -16,10 +16,7 @@
 
 package cbccore.sensors.vision;
 
-import cbccore.sensors.vision.Blob;
 import java.util.AbstractList;
-import java.util.ListIterator;
-import java.util.Iterator;
 
 /**
  * Todo: Document this.

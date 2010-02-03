@@ -19,9 +19,9 @@ package cbccore.movement;
 import cbccore.InvalidValueException;
 
 /**
+ * A basic DriveTrain with support for a dual-wheel-based motor system
  * 
  * @author Benjamin Woodruff
- *
  */
 
 public class MotorDriveTrain extends DriveTrain {
@@ -56,11 +56,13 @@ public class MotorDriveTrain extends DriveTrain {
 		rightWheel.moveAtRps(rps);
 	}
 	
+	/** {@inheritDoc} */
 	public void moveAtCmps(double cmps) throws InvalidValueException {
 		leftWheel.moveAtCmps(cmps);
 		rightWheel.moveAtCmps(cmps);
 	}
 	
+	/** {@inheritDoc} */
 	protected void directDrive(double leftCmps, double rightCmps) {
 		//an old trick I learned a long time ago from the old botball forums
 		//should keep wheels near perfectly straight
@@ -69,6 +71,7 @@ public class MotorDriveTrain extends DriveTrain {
 		leftWheel.moveAtCmps(leftCmps);
 	}
 	
+	/** {@inheritDoc} */
 	public void freeze() {
 		leftWheel.freeze();
 		rightWheel.freeze();
@@ -82,14 +85,17 @@ public class MotorDriveTrain extends DriveTrain {
 		return getMaxCmps() * getTrainWidth() /2./Math.PI;
 	}
 	
+	/** {@inheritDoc} */
 	public double getLeftMaxCmps() {
 		return leftWheel.maxCmps();
 	}
 	
+	/** {@inheritDoc} */
 	public double getRightMaxCmps() {
 		return leftWheel.maxCmps();
 	}
 	
+	/** {@inheritDoc} */
 	public double getTrainWidth() {
 		return trainWidth;
 	}

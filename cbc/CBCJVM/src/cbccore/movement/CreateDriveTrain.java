@@ -20,6 +20,7 @@ import cbccore.Device;
 import cbccore.InvalidValueException;
 
 /**
+ * A DriveTrain class for the iRobot Create
  * 
  * @author Benjamin Woodruff
  */
@@ -33,10 +34,10 @@ public class CreateDriveTrain extends DriveTrain {
 	//private double rightCmps = 0.;
 	private cbccore.low.Create create = Device.getLowCreateController();
 	
-	public void moveAtCmps(double cmps) {
-		directDrive(cmps, cmps);
-	}
 	
+	/**
+	 * Basic constructor
+	 */
 	public CreateDriveTrain(double efficiency, boolean fullMode) {
 		Device.getLowCreateController().create_connect();
 		this.efficiency = efficiency;
@@ -48,6 +49,12 @@ public class CreateDriveTrain extends DriveTrain {
 		}
 	}
 	
+	/** {@inheritDoc} */
+	public void moveAtCmps(double cmps) {
+		directDrive(cmps, cmps);
+	}
+	
+	/** {@inheritDoc} */
 	protected void directDrive(double leftCmps, double rightCmps) {
 		create.create_drive_direct((int)(rightCmps*10.), (int)(leftCmps*10.));
 	}
@@ -61,14 +68,17 @@ public class CreateDriveTrain extends DriveTrain {
 		kill(); //no such api
 	}
 	
+	/** {@inheritDoc} */
 	protected double getLeftMaxCmps() {
 		return 50.*efficiency;
 	}
 	
+	/** {@inheritDoc} */
 	protected double getRightMaxCmps() {
 		return 50.*efficiency;
 	}
 	
+	/** {@inheritDoc} */
 	public double getTrainWidth() {
 		return trainWidth;
 	}

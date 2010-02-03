@@ -20,59 +20,59 @@ import cbccore.motors.Motor;
 import cbccore.InvalidValueException;
 
 /**
+ * A wheel class used by MotorDriveTrain
  * 
  * @author PiPeep
- *
  */
 
 public class Wheel extends Motor {
 	
-	protected double _efficiency;
-	private double _maxRps;
-	private double _maxCmps;
-	protected double _circumference;
-	private int _currentTps;
+	protected double efficiency;
+	private double maxRps;
+	private double maxCmps;
+	protected double circumference;
+	private int currentTps;
 	
 	public Wheel(int port, double circumference, double efficiency) {
 		super(port);
-		_circumference = circumference;
-		_efficiency = efficiency;
-		_maxRps = 1000./MotorDriveTrain.ticksPerRotation*_efficiency;
-		_maxCmps = _maxRps*circumference();
+		this.circumference = circumference;
+		this.efficiency = efficiency;
+		this.maxRps = 1000./MotorDriveTrain.ticksPerRotation*efficiency;
+		this.maxCmps = maxRps*circumference();
 	}
 	
 	public double maxRps() {
-		return _maxRps;
+		return maxRps;
 	}
 	
 	public double maxCmps() {
-		return _maxCmps;
+		return maxCmps;
 	}
 	
 	public int currentTps() {
-	    return _currentTps;
+	    return currentTps;
 	}
 	
 	public double currentRps() {
-		return _currentTps/MotorDriveTrain.ticksPerRotation;
+		return currentTps/MotorDriveTrain.ticksPerRotation;
 	}
 	
 	public double circumference() {
-		return _circumference;
+		return circumference;
 	}
 	
 	protected void checkTpsRange(int tps) throws InvalidValueException {
 		System.out.println(""+tps);
-		if(Math.abs(tps) > (_maxRps*MotorDriveTrain.ticksPerRotation)) {
-			System.out.println("" + tps + ", " + _maxRps*MotorDriveTrain.ticksPerRotation);
+		if(Math.abs(tps) > (maxRps*MotorDriveTrain.ticksPerRotation)) {
+			System.out.println("" + tps + ", " + maxRps*MotorDriveTrain.ticksPerRotation);
 			throw new InvalidValueException();
 		}
 	}
 	
 	public void moveAtTps(int tps) throws InvalidValueException {
 		checkTpsRange(tps);
-		_currentTps = tps;
-		super.moveAtVelocity((int)(tps/_efficiency));
+		currentTps = tps;
+		super.moveAtVelocity((int)(tps/efficiency));
 	}
 	
 	public void moveAtRps(double rps) throws InvalidValueException {

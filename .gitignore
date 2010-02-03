@@ -3,4 +3,5 @@ runtime-*
 eclipse/CBC/bin
 cbc/.metadata
 cbc/CBCJVM/dist
+cbc/CBCJVM/docs
 installer/install/install_data

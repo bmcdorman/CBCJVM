@@ -22,17 +22,20 @@ import cbccore.InvalidValueException;
 /**
  * 
  * @author Benjamin Woodruff
- *
  */
 
 public class CreateDriveTrain extends DriveTrain {
 	
 	private static final double trainWidth = 27.0;
-	private static final double wheelCircumference = 10.;
+	//private static final double wheelCircumference = 10.;
 	private double efficiency;
-	private double leftCmps = 0.;
-	private double rightCmps = 0.;
-	private cbccore.low.Create create  = Device.getLowCreateController();
+	//private double leftCmps = 0.;
+	//private double rightCmps = 0.;
+	private cbccore.low.Create create = Device.getLowCreateController();
+	
+	public void moveAtCmps(double cmps) {
+		directDrive(cmps, cmps);
+	}
 	
 	public CreateDriveTrain(double efficiency, boolean fullMode) {
 		Device.getLowCreateController().create_connect();
@@ -45,46 +48,25 @@ public class CreateDriveTrain extends DriveTrain {
 		}
 	}
 	
-	public void moveAtRps(double rps) throws InvalidValueException {
-		moveAtCmps(rps/wheelCircumference);
-	}
-	
-	public void moveAtCmps(double cmps) throws InvalidValueException {
-		create.create_drive_straight((int)(cmps*10./efficiency));
-	}
-	
-	protected void moveLeftCmps(double cmps) {
-		leftCmps = cmps;
-		updateMotorSpeed();
-	}
-	
-	protected void moveRightCmps(double cmps) {
-		rightCmps = cmps;
-		updateMotorSpeed();
-	}
-	
-	private void updateMotorSpeed() {
+	protected void directDrive(double leftCmps, double rightCmps) {
 		create.create_drive_direct((int)(rightCmps*10.), (int)(leftCmps*10.));
 	}
 	
-	public void stop() {
-		kill();
-	}
-	
+	/**
+	 * The create has no freeze api. So this essentially calls <code>kill()</code>
+	 * 
+	 * @see      #kill
+	 */
 	public void freeze() {
 		kill(); //no such api
 	}
 	
-	public void kill() {
-		create.create_stop();
+	protected double getLeftMaxCmps() {
+		return 50.*efficiency;
 	}
 	
-	public double maxCmps() { //min is 0.2, but the api design...
-		return 50.0 * efficiency;
-	}
-	
-	public double maxRps() {
-		return maxCmps() / wheelCircumference;
+	protected double getRightMaxCmps() {
+		return 50.*efficiency;
 	}
 	
 	public double getTrainWidth() {

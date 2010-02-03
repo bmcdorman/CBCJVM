@@ -98,7 +98,7 @@ public abstract class DriveTrain {
 	 */
 	public void moveCurveRadians(double radians, double radius, double cmps) {
 		double halfOffset = getTrainWidth()*radians*.5;
-		double cm = radians*getTrainWidth();
+		double cm = radians*radius;
 		double leftCm = cm - halfOffset;
 		double rightCm = cm + halfOffset;
 		double halfCmpsOffset = halfOffset/cmps;

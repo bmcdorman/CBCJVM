@@ -23,16 +23,17 @@ import cbccore.InvalidValueException;
  * A wheel class used by MotorDriveTrain
  * 
  * @author PiPeep
+ * @author Jonathan
  */
 
 public class Wheel extends Motor {
 	
 	public final double WHEEL = 0;
 	
-	protected double efficiency;
+	protected double efficiency = halfEfficiency;
+	protected double circumference = circumDefault;
 	private double maxRps;
 	private double maxCmps;
-	protected double circumference;
 	private int currentTps;
 	
 	public Wheel(int port){

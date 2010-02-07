@@ -28,10 +28,10 @@ import cbccore.InvalidValueException;
 
 public class Wheel extends Motor {
 	
-	public final double WHEEL = 0;
+	//public final double WHEEL = 0; must find the actual circumferences
 	
-	protected double efficiency = halfEfficiency;
-	protected double circumference = circumDefault;
+	protected double efficiency;
+	protected double circumference;
 	private double maxRps;
 	private double maxCmps;
 	private int currentTps;

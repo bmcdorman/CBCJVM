@@ -27,11 +27,26 @@ import cbccore.InvalidValueException;
 
 public class Wheel extends Motor {
 	
+	public final double WHEEL = 0;
+	
 	protected double efficiency;
 	private double maxRps;
 	private double maxCmps;
 	protected double circumference;
 	private int currentTps;
+	
+	public Wheel(int port){
+		super(port);
+		this.maxRps = 1000./MotorDriveTrain.ticksPerRotation*efficiency;
+		this.maxCmps = maxRps*circumference();
+	}
+	
+	public Wheel(int port, double circumference){
+		super(port);
+		this.circumference = circumference;
+		this.maxRps = 1000./MotorDriveTrain.ticksPerRotation*efficiency;
+		this.maxCmps = maxRps*circumference();
+	}
 	
 	public Wheel(int port, double circumference, double efficiency) {
 		super(port);

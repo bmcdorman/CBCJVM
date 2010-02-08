@@ -50,7 +50,7 @@ public class DigitalSensorEmitter extends Thread {
 	private static DigitalSensorEmitter instance = null;
 
 	public DigitalSensorEmitter(EventManager manager) {
-		setDaemon(true);
+		setDaemon(false);
 		this.manager = manager;
 	}
 

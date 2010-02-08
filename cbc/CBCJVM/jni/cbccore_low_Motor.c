@@ -192,7 +192,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Motor_get_1motor_1done(JNIEnv* env, jobj
  * Method:    get_motor_position_counter
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_cbc_Servo_get_1motor_1position_1counter(JNIEnv* env, jobject obj, jint port)
+JNIEXPORT jint JNICALL Java_cbccore_low_Motor_get_1motor_1position_1counter(JNIEnv* env, jobject obj, jint port)
 {
 #ifdef CBC
 	get_motor_position_counter(port);

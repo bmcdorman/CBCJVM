@@ -9,7 +9,5 @@ import cbccore.movement.Wheel;
 public class Main {
 	public static void main(String[] args) {
 		System.out.println("Welcome to CBCJava");
-		//Device.init();
-		Wheel wheel = new wheel(3);
 	}
 }

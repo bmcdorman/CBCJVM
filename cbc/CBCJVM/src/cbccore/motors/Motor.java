@@ -21,11 +21,11 @@ import cbccore.InvalidPortException;
 
 /**
  * 
- * @author Braden McDorman
+ * @author Braden McDorman, minor bugfixes by Benjamin Woodruff
  *
  */
 
-public class Motor extends cbccore.low.Motor {
+public class Motor {
 	private int port = 0;
 	private cbccore.low.Motor lowMotor = Device.getLowMotorController();
 	
@@ -54,6 +54,7 @@ public class Motor extends cbccore.low.Motor {
 	}
 
 	public void setPidGains(int p, int i, int d, int pd, int id, int dd) {
+		lowMotor.set_pid_gains(port, p, i, d, pd, id, dd);
 	}
 
 	public int freeze() {

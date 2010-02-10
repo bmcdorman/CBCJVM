@@ -42,11 +42,11 @@ public class Servo {
 		lowServo.enable_servos();
 	}
 	
-	int getPosition() {
+	public int getPosition() {
 		return lowServo.get_servo_position(port);
 	}
 	
-	int setPosition(int pos) {
+	public int setPosition(int pos) {
 		return lowServo.set_servo_position(port, pos);
 	}
 }

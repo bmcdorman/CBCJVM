@@ -84,7 +84,9 @@ public class Device {
 			e.printStackTrace();
 		}
 	}
-
+	
+	
+	
 	/**
 	 * Getter for the CBCSimulator object, you probably don't want this. It
 	 * should, in theory remain invisible. Checking this for null could be handy

@@ -31,29 +31,46 @@ public class RestorePointMotor extends ArrayList<Integer> {
 	
 	protected Motor controlMotor;
 	
+	
 	public RestorePointMotor(int port) {
 		this(new Motor(port));
 	}
 	
-	public RestorePointMotor(int port, int[] positions) {
+	
+	
+	public RestorePointMotor(int port, int ... positions) {
 		this(new Motor(port), positions);
 	}
+	
+	
+	
+	public RestorePointMotor(int port, List<Integer> positions) {
+		this(new Motor(port), positions);
+	}
+	
+	
 	
 	public RestorePointMotor(Motor controlMotor) {
 		super();
 		this.controlMotor = controlMotor;
 	}
 	
-	public RestorePointMotor(Motor controlMotor, int[] positions) {
+	
+	
+	public RestorePointMotor(Motor controlMotor, int ... positions) {
 		super(positions.length);
-		addPositions(positions);
 		this.controlMotor = controlMotor;
+		addPositions(positions);
 	}
+	
+	
 	
 	public RestorePointMotor(Motor controlMotor, List<Integer> positions) {
 		super(positions);
 		this.controlMotor = controlMotor;
 	}
+	
+	
 	
 	//contructor helper method, Arrays.asList would not work here because we need the wrapper class
 	private void addPositions(int[] a) {
@@ -63,9 +80,29 @@ public class RestorePointMotor extends ArrayList<Integer> {
 	}
 	
 	
+	
+	/**
+	 * Gets the stored motor position at a specific location, and move to it,
+	 * "restores" the motor position to that archived point.
+	 * 
+	 * @see           #get
+	 */
 	public void setToPositionIndex(int speed, int posIndex) {
 		controlMotor.moveToPosition(speed, get(posIndex).intValue());
 	}
+	
+	
+	
+	/**
+	 * Stops the motor regardless of position, a convenience method
+	 * 
+	 * @see           Motor#off
+	 * @see           #getMotor
+	 */
+	public void cancel() {
+		controlMotor.off();
+	}
+	
 	
 	
 	/**
@@ -79,6 +116,7 @@ public class RestorePointMotor extends ArrayList<Integer> {
 	}
 	
 	
+	
 	/**
 	 * A convenience method
 	 * 
@@ -89,6 +127,14 @@ public class RestorePointMotor extends ArrayList<Integer> {
 		controlMotor.blockMotorDone();
 	}
 	
+	
+	
+	/**
+	 * Gets the controller motor, passed into the constructor
+	 * 
+	 * @see           #waitForDone
+	 * @see           #getMotor
+	 */
 	public Motor getMotor() {
 		return controlMotor;
 	}

@@ -29,7 +29,7 @@ import cbccore.InvalidPortException;
 
 public class Motor {
 	private int port = 0;
-	private cbccore.low.Motor lowMotor = Device.getLowMotorController();
+	private static cbccore.low.Motor lowMotor = Device.getLowMotorController(); //could be static?
 	private long destTime = -1;
 	
 	public Motor(int port) throws InvalidPortException {
@@ -74,7 +74,7 @@ public class Motor {
 	 * @see     #blockMotorDone
 	 * @see     #moveToPosition
 	 * @see     #moveRelativePosition
-	 * @see     #stop
+	 * @see     #off
 	 * @see     #freeze
 	 */
 	public void waitForDone() {
@@ -124,5 +124,15 @@ public class Motor {
 
 	public void off() {
 		lowMotor.off(port);
+	}
+	
+	public static void allOff() {
+		lowMotor.ao();
+	}
+	
+	public static void allFreeze() {
+		for(int i = 0; i < 4; ++i) {
+			lowMotor.freeze(i);
+		}
 	}
 }

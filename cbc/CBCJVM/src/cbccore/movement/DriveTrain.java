@@ -99,9 +99,9 @@ public abstract class DriveTrain {
 		double cm = radians*radius;
 		double leftCm = cm - halfOffset;
 		double rightCm = cm + halfOffset;
-		double halfCmpsOffset = halfOffset/cmps;
-		double leftCmps = cmps - halfCmpsOffset;
-		double rightCmps = cmps + halfCmpsOffset;
+		double timeOfTrip = cm/cmps;
+		double leftCmps = leftCm/timeOfTrip;
+		double rightCmps = rightCm/timeOfTrip;
 		moveWheelCm(leftCm, rightCm, leftCmps, rightCmps);
 	}
 	
@@ -283,8 +283,8 @@ public abstract class DriveTrain {
 	 * @see            moveCurveDegrees
 	 */
 	public double getMaxCmps(double radius) {
-		double outerMaxSpeed = (radius>0 ? getRightMaxCmps() : getLeftMaxCmps()) + (radius+getTrainWidth()*.5)/radius;
-		double innerMaxSpeed = (radius>0 ? getLeftMaxCmps() : getRightMaxCmps()) - (radius+getTrainWidth()*.5)/radius;
+		double outerMaxSpeed = (radius>0 ? getRightMaxCmps() : getLeftMaxCmps()) - (radius+getTrainWidth()*.5)/radius;
+		double innerMaxSpeed = (radius>0 ? getLeftMaxCmps() : getRightMaxCmps()) + (radius+getTrainWidth()*.5)/radius;
 		return Math.min(outerMaxSpeed, innerMaxSpeed);
 	}
 }

@@ -28,8 +28,20 @@ public class MotorSpeed {
 	public int speed;
 	public boolean bemf;
 	
-	public MotorSpeed(int a_speed, boolean a_bemf) {
-		speed = a_speed;
-		bemf = a_bemf;
+	public MotorSpeed(int speed, boolean bemf) {
+		reconstruct(speed, bemf);
+	}
+	
+	/**
+	 * Faster than constructing a new, modifies this current instance as if
+	 * constructing new.
+	 */
+	public void reconstruct(int speed, boolean bemf) {
+		this.speed = speed;
+		this.bemf = bemf;
+	} //breaks current SimulatedCBOB Api
+	
+	public int getTpsSpeed() {
+		return bemf?speed:speed*10;
 	}
 }

@@ -48,6 +48,7 @@ public class Device {
 	private static boolean onCBC = true;
 
 	static {
+		//we could probably shorten this, some duplication
     	try {
     		if(System.getProperty("CBC") == null) throw new Exception();
     		System.load("/mnt/user/jvm/cbc/CBC.so");

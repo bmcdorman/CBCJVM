@@ -22,34 +22,35 @@ import cbccore.NotImplemented;
 
 /**
  * 
- * @author Braden McDorman / Benjamin Woodruff
+ * @author Braden McDorman, Benjamin Woodruff
  *
  */
 
 public class SimulatedMotor extends Motor {
 	
 	protected CBCSimulator cbc;
+	protected SimulatedCBOB cbob;
 	
 	public SimulatedMotor(CBCSimulator c) {
 		cbc = c;
+		cbob = c.cbob;
 	}
 	
-	@NotImplemented public void motor (int motor, int percent) {/* motor (0 to 3) at percent % of full (-100 to 100)*/
-		cbc.m[motor] = new MotorSpeed(percent, false);
+	public void motor (int motor, int percent) {/* motor (0 to 3) at percent % of full (-100 to 100)*/
+		cbob.setMotorSpeed(motor, new MotorSpeed(percent, false));
 	}
 	
 	@NotImplemented public int clear_motor_position_counter(int motor) { /* sets motor (0 to 3) counter to 0 */
 		return 0; //stub
 	}
 	
-	@NotImplemented public int move_at_velocity(int motor, int velocity) { /* PID control of motor (0 to 3) at velocity tick per second */
-		cbc.m[motor] = new MotorSpeed(velocity, true);
+	public int move_at_velocity(int motor, int velocity) { /* PID control of motor (0 to 3) at velocity tick per second */
+		cbob.setMotorSpeed(motor, new MotorSpeed(velocity, true));
 		return 0;
 	}
 	
-	@NotImplemented public int mav(int motor, int velocity) { /* PID control of motor (0 to 3) at velocity tick per second */
-		move_at_velocity(motor, velocity);
-		return 0;
+	public int mav(int motor, int velocity) { /* PID control of motor (0 to 3) at velocity tick per second */
+		return move_at_velocity(motor, velocity);
 	}
 	
 	@NotImplemented public int move_to_position(int motor, int speed, int goal_pos) {/* move motor (0 to 3) at speed to goal_pos */
@@ -72,8 +73,8 @@ public class SimulatedMotor extends Motor {
 		//stub
 	}
 	
-	@NotImplemented public int freeze(int motor) {/* keep motor (0 to 3) at current position */
-		cbc.m[motor] = new MotorSpeed(0, true);
+	public int freeze(int motor) {/* keep motor (0 to 3) at current position */
+		cbob.setMotorSpeed(motor, new MotorSpeed(0, true));
 		return 0;
 	}
 	
@@ -94,24 +95,24 @@ public class SimulatedMotor extends Motor {
 	}
 	
 	public int setpwm(int motor, int pwm) { /* turns on motor (0 to 3) at pwm (-255 to 255)*/
-		cbc.m[motor] = new MotorSpeed(pwm*100/255, false); //it appears as if the manual and this info above don't match, just guessing what it does
+		cbob.setMotorSpeed(motor, new MotorSpeed(pwm*100/255, false)); //it appears as if the manual and this info above don't match, just guessing what it does
 		return 0;
 	}
 	
 	public int getpwm(int motor) {/* returns the current pwm setting for that motor (-255 to 255)*/
-		return cbc.m[motor].bemf ? cbc.m[motor].speed*255/1000 : cbc.m[motor].speed*255/100; //not even documented, just guessing at what it does
+		return cbob.getMotorSpeed(motor).bemf ? cbob.getMotorSpeed(motor).speed*255/1000 : cbob.getMotorSpeed(motor).speed*255/100; //not even documented, just guessing at what it does
 	}
 	
 	public void fd(int motor) { /* motor (0 to 3) at full forward */
-		cbc.m[motor] = new MotorSpeed(100, false);
+		cbob.setMotorSpeed(motor, new MotorSpeed(100, false));
 	}
 	
 	public void bk(int motor) { /* motor (0 to 3) at full reverse */
-		cbc.m[motor] = new MotorSpeed(-100, false);
+		cbob.setMotorSpeed(motor, new MotorSpeed(-100, false));
 	}
 	
 	public void off(int motor) { /* turns motor (0 to 3) off */
-		cbc.m[motor] = new MotorSpeed(0, false);
+		cbob.setMotorSpeed(motor, new MotorSpeed(0, false));
 	}
 	
 	@NotImplemented public void ao() { /* turns all motors off */

@@ -39,7 +39,7 @@ public class SimulatedDisplay extends Display {
 	
 	public SimulatedDisplay(CBCSimulator c) {
 		cbc = c;
-		textBox = new JTextArea("in ./cbc: file exsists\n");
+		textBox = new JTextArea("On Simulator!\n");
 		textBox.setLineWrap(true);
 		out = new PrintStream(new TextAreaOutputStream(textBox, TextAreaOutputStream.DEFAULT_BUFFER_SIZE));
 	}

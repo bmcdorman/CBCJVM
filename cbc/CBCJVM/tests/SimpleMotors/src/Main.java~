@@ -1,0 +1,8 @@
+import cbccore.motors.Motor;
+
+public class Main {
+	public static void main(String [] args) {
+		Motor m = new Motor(0);
+		m.
+	}
+}

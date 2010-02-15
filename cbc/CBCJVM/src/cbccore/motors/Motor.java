@@ -36,6 +36,7 @@ public class Motor {
 		if(port < 0 || port > 4) throw new InvalidPortException();
 		this.port = port;
 	}
+	
 	public void motor(int percent) {
 		lowMotor.motor(port, percent);
 	}

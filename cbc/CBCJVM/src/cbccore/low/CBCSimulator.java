@@ -21,6 +21,7 @@ import cbccore.low.simulator.*;
 
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
+import javax.swing.JLabel;
 import javax.swing.UIManager;
 
 import java.awt.BorderLayout;
@@ -52,17 +53,19 @@ public class CBCSimulator {
 	public SimulatedMotor motor;
 	public SimulatedCamera camera;
 	public SimulatedCreate create;
-	
+	public SimulatedCBOB cbob;
 	
 	//sidebar things
-	public MotorSpeed[] m;
 	Container sidebar = new Container();
+	Container sidebarMotors = new Container();
+	JLabel[] motorSpeedLabels = new JLabel[8];
+	private boolean framebuffersAdded = false;
 	
+	//Main text area stuff
 	public static PrintStream stdOut;
 	
-	private JFrame frame = new JFrame("CBCSimulator");
-	
-	private boolean framebuffersAdded = false;
+	//Root frame
+	private JFrame frame = new JFrame("CBCJVM-Simulator-10.3-devel");
 	
 	public CBCSimulator() {
 		
@@ -74,6 +77,7 @@ public class CBCSimulator {
 		}
 		
 		//create simulated devices, to replace CBC methods
+		cbob = new SimulatedCBOB(this);
 		sound = new SimulatedSound(this);
 		sensor = new SimulatedSensor(this);
 		device = new SimulatedDevice(this);
@@ -83,9 +87,8 @@ public class CBCSimulator {
 		motor = new SimulatedMotor(this);
 		camera = new SimulatedCamera(this);
 		create = new SimulatedCreate(this);
-		m = new MotorSpeed[4];
-		for(int i = 0; i < m.length; ++i) {
-			m[i] = new MotorSpeed(0, false);
+		for(int i = 0; i < motorSpeedLabels.length; ++i) {
+			motorSpeedLabels[i] = new JLabel();
 		}
 		
 		//stdOut: redirect System.out.println to the builtin console
@@ -96,6 +99,7 @@ public class CBCSimulator {
 		
 		//Create sidebar
 		addSidebar();
+		addMotorLabels();
 		
 		//buttons
 		addButtons();
@@ -106,12 +110,24 @@ public class CBCSimulator {
 		//Make sure the window isn't too big for the person's screen
 		frame.setSize(Math.min(1024, (int)(screenSize.width*.7)), Math.min(768, (int)(screenSize.height*.7)));
 		frame.setVisible(true);
+		
+		new MotorSpeedUpdater(this, 100).start();
 	}
 	
 	private void addSidebar() {
-		GridLayout sidebarLayout = new GridLayout(2, 1, 0, 5);
+		GridLayout sidebarLayout = new GridLayout(2, 1);
 		sidebar.setLayout(sidebarLayout);
 		frame.getContentPane().add(sidebar, BorderLayout.EAST);
+		sidebar.add(new Container()); sidebar.add(new Container());
+	}
+	
+	private void addMotorLabels() {
+		GridLayout motorInfoLayout = new GridLayout(motorSpeedLabels.length, 1);
+		sidebarMotors.setLayout(motorInfoLayout);
+		for(JLabel label : motorSpeedLabels) {
+			sidebarMotors.add(label);
+		}
+		sidebar.add(sidebarMotors, 1);
 	}
 	
 	private void addButtons() {
@@ -137,5 +153,35 @@ public class CBCSimulator {
 		if(framebuffersAdded) return;
 		framebuffersAdded = true;
 		sidebar.add(((SimulatedFramebuffer)cbccore.display.Display.getFramebuffer()).getPanel(), 0);
+	}
+	
+	private class MotorSpeedUpdater extends Thread {
+		protected CBCSimulator root;
+		protected SimulatedCBOB cbob;
+		protected int refreshRate;
+		
+		public MotorSpeedUpdater(CBCSimulator root, int refreshRate) {
+			super();
+			this.root = root;
+			this.cbob = root.cbob;
+			this.refreshRate = refreshRate;
+			setDaemon(true);
+		}
+		
+		public void run() {
+			while(true) {
+				try {
+					Thread.yield();
+					for(int i = 0; i < (root.motorSpeedLabels.length>>1); i++) {
+						//System.out.println(i);
+						root.motorSpeedLabels[i<<1].setText("Motor #"+(i)+": " + Integer.toString(cbob.getMotorSpeed(i).speed) + (cbob.getMotorSpeed(i).bemf?" tps":" %"));
+						root.motorSpeedLabels[(i<<1)+1].setText("Pos: " + Integer.toString(cbob.getMotorPosition(i)));
+					}
+					Thread.sleep(refreshRate);
+				} catch(InterruptedException ex) {
+					return;
+				}
+			}
+		}
 	}
 }

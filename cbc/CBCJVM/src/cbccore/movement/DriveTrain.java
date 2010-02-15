@@ -66,7 +66,7 @@ public abstract class DriveTrain {
 	 */
 	public void rotateRadians(double radians, double radiansPerSecond) {
 		double dist = getTrainWidth()*radians*.5;
-		double speed = radiansPerSecond/radians*dist;
+		double speed = radiansPerSecond*getTrainWidth();
 		moveWheelCm(-dist, dist, -speed, speed);
 	}
 	

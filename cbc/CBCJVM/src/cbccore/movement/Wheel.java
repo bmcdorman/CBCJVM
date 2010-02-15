@@ -22,8 +22,8 @@ import cbccore.InvalidValueException;
 /**
  * A wheel class used by MotorDriveTrain
  * 
- * @author PiPeep
- * @author Jonathan
+ * @author Benjamin Woodruff
+ * @author Jonathan Frias
  */
 
 public class Wheel extends Motor {
@@ -39,14 +39,14 @@ public class Wheel extends Motor {
 	public Wheel(int port){
 		super(port);
 		this.maxRps = 1000./MotorDriveTrain.ticksPerRotation*efficiency;
-		this.maxCmps = maxRps*circumference();
+		this.maxCmps = maxRps*getCircumference();
 	}
 	
 	public Wheel(int port, double circumference){
 		super(port);
 		this.circumference = circumference;
 		this.maxRps = 1000./MotorDriveTrain.ticksPerRotation*efficiency;
-		this.maxCmps = maxRps*circumference();
+		this.maxCmps = maxRps*getCircumference();
 	}
 	
 	public Wheel(int port, double circumference, double efficiency) {
@@ -54,14 +54,14 @@ public class Wheel extends Motor {
 		this.circumference = circumference;
 		this.efficiency = efficiency;
 		this.maxRps = 1000./MotorDriveTrain.ticksPerRotation*efficiency;
-		this.maxCmps = maxRps*circumference();
+		this.maxCmps = maxRps*getCircumference();
 	}
 	
-	public double maxRps() {
+	public double getMaxRps() {
 		return maxRps;
 	}
 	
-	public double maxCmps() {
+	public double getMaxCmps() {
 		return maxCmps;
 	}
 	
@@ -73,12 +73,11 @@ public class Wheel extends Motor {
 		return currentTps/MotorDriveTrain.ticksPerRotation;
 	}
 	
-	public double circumference() {
+	public double getCircumference() {
 		return circumference;
 	}
 	
 	protected void checkTpsRange(int tps) throws InvalidValueException {
-		System.out.println(""+tps);
 		if(Math.abs(tps) > (maxRps*MotorDriveTrain.ticksPerRotation)) {
 			System.out.println("" + tps + ", " + maxRps*MotorDriveTrain.ticksPerRotation);
 			throw new InvalidValueException();
@@ -96,7 +95,7 @@ public class Wheel extends Motor {
 	}
 	
 	public void moveAtCmps(double cmps) throws InvalidValueException {
-		moveAtRps(cmps/circumference());
+		moveAtRps(cmps/getCircumference());
 	}
 	
 	//calling this does not guarentee anything, but will attempt to move within a certain accuracy
@@ -144,9 +143,12 @@ public class Wheel extends Motor {
 	}
 	
 	public double getCmCounter() {
-		return getWheelRotationCounter()*circumference();
+		return getWheelRotationCounter()*getCircumference();
 	}
 	
+	/**
+	 * Depreciated
+	 */
 	public int moveAtVelocity(int tps) {
 		moveAtTps(tps);
 		return 0;

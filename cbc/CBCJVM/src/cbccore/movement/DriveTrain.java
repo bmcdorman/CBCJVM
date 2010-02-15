@@ -34,8 +34,6 @@ import cbccore.InvalidValueException;
 
 public abstract class DriveTrain {
 	
-	public abstract void moveAtCmps(double cmps);
-	
 	public abstract double getTrainWidth();
 	
 	/**
@@ -43,7 +41,7 @@ public abstract class DriveTrain {
 	 */
 	protected static double moveParser(double cm, double cmps) { //returns new cmps
 		//cmps is made to match cm's sign
-		return cm<0?-Math.abs(cmps):Math.abs(cmps);
+		return cm<0?0.-Math.abs(cmps):Math.abs(cmps);
 	}
 	
 	/**
@@ -108,6 +106,7 @@ public abstract class DriveTrain {
 	}
 	
 	
+	
 	/**
 	 * Moves robot forward a certain number of centimeters at a set speed. If
 	 * you specify a negitive number for cm, the robot will move backwards that
@@ -121,12 +120,13 @@ public abstract class DriveTrain {
 	}
 	
 	
+	
 	//leftCm/leftCmps must be equal to rightCm/rightCmps
 	private void moveWheelCm(double leftCm, double rightCm, double leftCmps, double rightCmps) {
 		//System.out.println("moving left: "+ leftCm + " and right " + rightCm + " for " + leftCm/leftCmps + "seconds");
 		
-		leftCmps = leftCm<0?-Math.abs(leftCmps):Math.abs(leftCmps);
-		rightCmps = rightCm<0?-Math.abs(rightCmps):Math.abs(rightCmps);
+		leftCmps = moveParser(leftCm, leftCmps);
+		rightCmps = moveParser(rightCm, rightCmps);
 		
 		//we have an overhead, so in a case like this, it is better not to move at all
 		if(Math.abs(leftCm) < .5) leftCm = 0.;
@@ -153,7 +153,31 @@ public abstract class DriveTrain {
 		stop();
 	}
 	
+	
+	
+	/**
+	 * It's always handy to have a method like this. Just moves the robot at a
+	 * set speed, so say you wanted to back into some PVC to line yourself up,
+	 * this could help.
+	 * 
+	 * @param  cmps	  The speed for the robot to move in centimeters-per-second
+	 * @see           #directDrive
+	 */
+	public void moveAtCmps(double cmps) {
+		directDrive(cmps, cmps);
+	}
+	
+	
+	
+	/**
+	 * Directly move the robot at said speed, called by DriveTrain. You _must_
+	 * fill this in. Otherwise the robot will not be able to move.
+	 * 
+	 * @param  leftCmps  The desired speed of the left wheel in
+	 *                       centimeters-per-second
+	 */
 	protected abstract void directDrive(double leftCmps, double rightCmps);
+	
 	
 	
 	/**
@@ -206,14 +230,43 @@ public abstract class DriveTrain {
 	 */
 	protected abstract double getRightMaxCmps();
 	
+	
 	/**
 	 * Gets the maximum speed in centimeters-per-second for the robot.
 	 * 
 	 * @return        The maximum speed in centimeters-per-second for the robot.
+	 * @see           #getMaxRadiansPerSec
 	 * @see           #getLeftMaxCmps
 	 * @see           #getRightMaxCmps
 	 */
 	public double getMaxCmps() {
 		return Math.min(getLeftMaxCmps(), getRightMaxCmps());
+	}
+	
+	
+	/**
+	 * Gets the maximum speed that the robot could turn in place
+	 * 
+	 * @return        The maximum speed in radians-per-second
+	 * @see           #getMaxDegreesPerSec
+	 * @see           #getMaxCmps
+	 * @see           #getLeftMaxCmps
+	 * @see           #getRightMaxCmps
+	 */
+	public double getMaxRadiansPerSec() {
+		return Math.min(getLeftMaxCmps(), getRightMaxCmps())/getTrainWidth();
+	}
+	
+	/**
+	 * Gets the maximum speed that the robot could turn in place
+	 * 
+	 * @return        The maximum speed in degrees-per-second
+	 * @see           #getMaxRadiansPerSec
+	 * @see           #getMaxCmps
+	 * @see           #getLeftMaxCmps
+	 * @see           #getRightMaxCmps
+	 */
+	public double getMaxDegreesPerSec() {
+		return Math.toDegrees(getMaxRadiansPerSec());
 	}
 }

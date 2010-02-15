@@ -50,11 +50,6 @@ public class CreateDriveTrain extends DriveTrain {
 	}
 	
 	/** {@inheritDoc} */
-	public void moveAtCmps(double cmps) {
-		directDrive(cmps, cmps);
-	}
-	
-	/** {@inheritDoc} */
 	protected void directDrive(double leftCmps, double rightCmps) {
 		create.create_drive_direct((int)(rightCmps*10.), (int)(leftCmps*10.));
 	}

@@ -257,6 +257,7 @@ public abstract class DriveTrain {
 		return Math.min(getLeftMaxCmps(), getRightMaxCmps())/getTrainWidth();
 	}
 	
+	
 	/**
 	 * Gets the maximum speed that the robot could turn in place
 	 * 
@@ -268,5 +269,22 @@ public abstract class DriveTrain {
 	 */
 	public double getMaxDegreesPerSec() {
 		return Math.toDegrees(getMaxRadiansPerSec());
+	}
+	
+	
+	/**
+	 * Gets the maximum speed when moving in a curve
+	 * DOES NOT YET WORK
+	 * 
+	 * @param  radius  paraminfo
+	 * @return         The maximum speed of the center of the robot in
+	 *                     centimeters-per-second
+	 * @see            moveCurveRadians
+	 * @see            moveCurveDegrees
+	 */
+	public double getMaxCmps(double radius) {
+		double outerMaxSpeed = (radius>0 ? getRightMaxCmps() : getLeftMaxCmps()) + (radius+getTrainWidth()*.5)/radius;
+		double innerMaxSpeed = (radius>0 ? getLeftMaxCmps() : getRightMaxCmps()) - (radius+getTrainWidth()*.5)/radius;
+		return Math.min(outerMaxSpeed, innerMaxSpeed);
 	}
 }

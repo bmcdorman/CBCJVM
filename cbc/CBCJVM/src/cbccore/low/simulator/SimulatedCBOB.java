@@ -65,6 +65,15 @@ public class SimulatedCBOB {
 		return hasTarget[port]?((motorSpeeds[port].speed>0)?Math.min(standardPosition, motorTargets[port]):Math.max(standardPosition, motorTargets[port])):standardPosition;
 	}
 	
+	public void setMotorPosition(int port, int pos) {
+		motorPositions[port] = pos;
+		startTimes[port] = System.currentTimeMillis();
+	}
+	
+	public boolean isDone(int port) {
+		return hasTarget[port] && getMotorPosition(port) == motorTargets[port];
+	}
+	
 	public boolean inMotion() {
 		for(MotorSpeed ms : motorSpeeds) {
 			if(ms.speed != 0) {

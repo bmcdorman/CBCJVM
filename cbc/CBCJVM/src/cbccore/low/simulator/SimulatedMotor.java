@@ -40,8 +40,9 @@ public class SimulatedMotor extends Motor {
 		cbob.setMotorSpeed(motor, new MotorSpeed(percent, false));
 	}
 	
-	@NotImplemented public int clear_motor_position_counter(int motor) { /* sets motor (0 to 3) counter to 0 */
-		return 0; //stub
+	public int clear_motor_position_counter(int motor) { /* sets motor (0 to 3) counter to 0 */
+		cbob.setMotorPosition(motor, 0);
+		return 0;
 	}
 	
 	public int move_at_velocity(int motor, int velocity) { /* PID control of motor (0 to 3) at velocity tick per second */
@@ -80,16 +81,22 @@ public class SimulatedMotor extends Motor {
 		return 0;
 	}
 	
-	@NotImplemented public int get_motor_done(int motor) { /* returns 1 if motor (0 to 3) is moving to a goal and 0 otherwise */
-		return 0;
+	public int get_motor_done(int motor) { /* returns 1 if motor (0 to 3) is moving to a goal and 0 otherwise */
+		return cbob.isDone(motor)?1:0;
 	}
 	
 	public int get_motor_position_counter(int motor) { /* returns int of motor (0 to 3) position +/-2147483647 */
 		return cbob.getMotorPosition(motor);
 	}
 	
-	@NotImplemented public void block_motor_done(int motor) { /* returns when motor (0 to 3) has reached goal */
-		//stub- need mav first
+	//this is a poor implementation, but you shouldn't be using it anyways.
+	public void block_motor_done(int motor) { /* returns when motor (0 to 3) has reached goal */
+		while(!cbob.isDone(motor)) {
+			try {
+				Thread.yield();
+				Thread.sleep(0);
+			} catch(Exception e) {}
+		}
 	}
 	
 	public void bmd(int motor) { /* returns when motor (0 to 3) has reached goal */

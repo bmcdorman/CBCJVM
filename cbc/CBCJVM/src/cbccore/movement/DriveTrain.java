@@ -279,8 +279,8 @@ public abstract class DriveTrain {
 	 * @param  radius  paraminfo
 	 * @return         The maximum speed of the center of the robot in
 	 *                     centimeters-per-second
-	 * @see            moveCurveRadians
-	 * @see            moveCurveDegrees
+	 * @see            #moveCurveRadians
+	 * @see            #moveCurveDegrees
 	 */
 	public double getMaxCmps(double radius) {
 		double outerMaxSpeed = (radius>0 ? getRightMaxCmps() : getLeftMaxCmps()) - (radius+getTrainWidth()*.5)/radius;

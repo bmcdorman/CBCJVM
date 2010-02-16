@@ -53,19 +53,21 @@ public class SimulatedMotor extends Motor {
 		return move_at_velocity(motor, velocity);
 	}
 	
-	@NotImplemented public int move_to_position(int motor, int speed, int goal_pos) {/* move motor (0 to 3) at speed to goal_pos */
-		return 0; //stub - Threading?
+	public int move_to_position(int motor, int speed, int goal_pos) {/* move motor (0 to 3) at speed to goal_pos */
+		cbob.setMotorSpeed(motor, new MotorSpeed(speed, true));
+		cbob.setMotorTarget(motor, goal_pos);
+		return 0; //stub
 	}
 	
-	@NotImplemented public int mtp(int motor, int speed, int goal_pos) {/* move motor (0 to 3) at speed to goal_pos */
+	public int mtp(int motor, int speed, int goal_pos) {/* move motor (0 to 3) at speed to goal_pos */
 		return move_to_position(motor, speed, goal_pos);
 	}
 	
-	@NotImplemented public int move_relative_position(int motor, int speed, int delta_pos) {/* move motor (0 to 3) at speed by delta_pos */
+	public int move_relative_position(int motor, int speed, int delta_pos) {/* move motor (0 to 3) at speed by delta_pos */
 		return move_to_position(motor, speed, delta_pos+get_motor_position_counter(motor));
 	}
 	
-	@NotImplemented public int mrp(int motor, int speed, int delta_pos) {/* move motor (0 to 3) at speed by delta_pos */
+	public int mrp(int motor, int speed, int delta_pos) {/* move motor (0 to 3) at speed by delta_pos */
 		return move_relative_position(motor, speed, delta_pos);
 	}
 	
@@ -82,8 +84,8 @@ public class SimulatedMotor extends Motor {
 		return 0;
 	}
 	
-	@NotImplemented public int get_motor_position_counter(int motor) { /* returns int of motor (0 to 3) position +/-2147483647 */
-		return 0;
+	public int get_motor_position_counter(int motor) { /* returns int of motor (0 to 3) position +/-2147483647 */
+		return cbob.getMotorPosition(motor);
 	}
 	
 	@NotImplemented public void block_motor_done(int motor) { /* returns when motor (0 to 3) has reached goal */
@@ -115,7 +117,9 @@ public class SimulatedMotor extends Motor {
 		cbob.setMotorSpeed(motor, new MotorSpeed(0, false));
 	}
 	
-	@NotImplemented public void ao() { /* turns all motors off */
-		
+	public void ao() { /* turns all motors off */
+		for(int i = 0; i < 4; ++i) {
+			cbob.setMotorSpeed(i, new MotorSpeed(0, false));
+		}
 	}
 }

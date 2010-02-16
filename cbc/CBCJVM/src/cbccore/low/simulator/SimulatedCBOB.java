@@ -31,6 +31,8 @@ public class SimulatedCBOB {
 	private MotorSpeed[] motorSpeeds = new MotorSpeed[4];
 	private int[] motorPositions = new int[4]; //straight zeros are fine
 	private long[] startTimes = new long[4]; //straight zeros are fine
+	private boolean[] hasTarget = new boolean[4];
+	private int[] motorTargets = new int[4];
 	
 	public SimulatedCBOB(CBCSimulator parent) {
 		for(int i = 0; i < motorSpeeds.length; ++i) {
@@ -49,12 +51,18 @@ public class SimulatedCBOB {
 		motorPositions[port] = getMotorPosition(port);
 		startTimes[port] = System.currentTimeMillis();
 		motorSpeeds[port] = speed;
-		//System.out.println("setMotorSpeed");
+		hasTarget[port] = false;
+	}
+	
+	public void setMotorTarget(int port, int target) {
+		hasTarget[port] = true;
+		motorTargets[port] = target;
+		motorSpeeds[port].speed = (target-motorPositions[port]>0)?Math.abs(motorSpeeds[port].speed):0-Math.abs(motorSpeeds[port].speed);
 	}
 	
 	public int getMotorPosition(int port) {
-		//System.out.println("getMotorPosition");
-		return motorPositions[port] + motorSpeeds[port].getTpsSpeed()*((int)(System.currentTimeMillis()-startTimes[port]))/1000;
+		int standardPosition = motorPositions[port] + motorSpeeds[port].getTpsSpeed()*((int)(System.currentTimeMillis()-startTimes[port]))/1000;
+		return hasTarget[port]?((motorSpeeds[port].speed>0)?Math.min(standardPosition, motorTargets[port]):Math.max(standardPosition, motorTargets[port])):standardPosition;
 	}
 	
 	public boolean inMotion() {

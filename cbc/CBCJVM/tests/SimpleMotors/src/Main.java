@@ -11,5 +11,8 @@ public class Main {
 		m = new Motor(3);
 		m.moveAtVelocity(400);
 		try { Thread.sleep(2000l); } catch (Exception e) {}
+		Motor.allOff();
+		m.moveRelativePosition(500, 5000);
+		m.waitForDone();
 	}
 }

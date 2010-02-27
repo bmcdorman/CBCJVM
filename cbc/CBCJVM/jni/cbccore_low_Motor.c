@@ -238,7 +238,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Motor_bmd(JNIEnv* env, jobject obj, jint
 JNIEXPORT jint JNICALL Java_cbccore_low_Motor_setpwm(JNIEnv* env, jobject obj, jint motor, jint pwm)
 {
 #ifdef CBC
-    return setpwn(motor, pwm);
+    return setpwm(motor, pwm);
 #else
     printf("Java_cbccore_low_Motor_setpwm stub\n");
     return -1;
@@ -253,7 +253,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Motor_setpwm(JNIEnv* env, jobject obj, j
 JNIEXPORT jint JNICALL Java_cbccore_low_Motor_getpwm(JNIEnv* env, jobject obj, jint motor)
 {
 #ifdef CBC
-    return getpwn(motor);
+    return getpwm(motor);
 #else
     printf("Java_cbccore_low_Motor_getpwm stub\n");
     return -1;

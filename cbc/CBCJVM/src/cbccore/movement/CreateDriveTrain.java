@@ -27,7 +27,7 @@ import cbccore.InvalidValueException;
 
 public class CreateDriveTrain extends DriveTrain {
 	
-	private static final double trainWidth = 27.0;
+	private static final double trainWidth = 25.5;
 	//private static final double wheelCircumference = 10.;
 	private double efficiency;
 	//private double leftCmps = 0.;
@@ -51,7 +51,7 @@ public class CreateDriveTrain extends DriveTrain {
 	
 	/** {@inheritDoc} */
 	protected void directDrive(double leftCmps, double rightCmps) {
-		create.create_drive_direct((int)(rightCmps*10.), (int)(leftCmps*10.));
+		create.create_drive_direct((int)(rightCmps*10./efficiency), (int)(leftCmps*10./efficiency));
 	}
 	
 	/**

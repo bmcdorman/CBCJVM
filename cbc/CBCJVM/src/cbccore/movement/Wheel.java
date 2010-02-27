@@ -36,19 +36,6 @@ public class Wheel extends Motor {
 	private double maxCmps;
 	private int currentTps;
 	
-	public Wheel(int port){
-		super(port);
-		this.maxRps = 1000./MotorDriveTrain.ticksPerRotation*efficiency;
-		this.maxCmps = maxRps*getCircumference();
-	}
-	
-	public Wheel(int port, double circumference){
-		super(port);
-		this.circumference = circumference;
-		this.maxRps = 1000./MotorDriveTrain.ticksPerRotation*efficiency;
-		this.maxCmps = maxRps*getCircumference();
-	}
-	
 	public Wheel(int port, double circumference, double efficiency) {
 		super(port);
 		this.circumference = circumference;
@@ -87,6 +74,7 @@ public class Wheel extends Motor {
 	public void moveAtTps(int tps) throws InvalidValueException {
 		checkTpsRange(tps);
 		currentTps = tps;
+		clearPositionCounter(); //work-around for CBOBv2 motor bug
 		super.moveAtVelocity((int)(tps/efficiency));
 	}
 	
@@ -97,42 +85,6 @@ public class Wheel extends Motor {
 	public void moveAtCmps(double cmps) throws InvalidValueException {
 		moveAtRps(cmps/getCircumference());
 	}
-	
-	//calling this does not guarentee anything, but will attempt to move within a certain accuracy
-	//uses recursive algorithm for fine tuning
-	/*public void moveCm(double cm, double cmps, boolean fineTune) throws InvalidValueException {
-		System.out.println("moveCm has been called - port #"+_port);
-		//cmps is made to match cm's sign
-		cmps = cm<0?-Math.abs(cmps):Math.abs(cmps);
-		
-		//we have an overhead, so in a case like this, it is better not to move at all
-		if(Math.abs(cm) < .5) return;
-		
-		double destCmCounter = 0.;
-		if(fineTune) {
-			destCmCounter = getCmCounter()+cm;
-		}
-		moveAtCmps(cmps);
-		long destTime = System.currentTimeMillis()+((long)((cm/cmps)*1000.));
-		long sleepOverhead = 0;
-		while(System.currentTimeMillis() < (destTime-sleepOverhead)) {
-			//Thread.yield();
-			long sleepTime = (destTime - System.currentTimeMillis() - sleepOverhead)/2;
-			long sleepStart = System.currentTimeMillis();
-			try {
-				Thread.sleep(sleepTime);
-			} catch(InterruptedException e) {
-				moveAtTps(0);
-				return;
-			}
-			sleepOverhead = System.currentTimeMillis() - sleepStart - sleepTime;
-		}
-		//while(System.currentTimeMillis() < destTime) {} //This code is questionable, may cause adverse multithreading effects
-		
-		//refine, and fineTune if necicary. Fine tuning moves slower.
-		if(fineTune) { moveCm(destCmCounter-getCmCounter(), (Math.abs(cmps)/2)<1.5?1.5:(cmps/2) , fineTune); }
-		moveAtTps(0);
-	}*/
 	
 	public int getTickCounter() {
 		return getPositionCounter();

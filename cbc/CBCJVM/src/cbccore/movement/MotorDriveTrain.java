@@ -37,36 +37,14 @@ public class MotorDriveTrain extends DriveTrain {
 	public MotorDriveTrain(Wheel leftWheel, Wheel rightWheel, double trainWidth) {
 		this.leftWheel = leftWheel;
 		this.rightWheel = rightWheel;
-		maxRps = Math.min(leftWheel.maxRps(), rightWheel.maxRps());
-		//maxCmps = Math.min(leftWheel.maxCmps(), rightWheel.maxCmps());
 		this.trainWidth = trainWidth;
-	}
-	
-	public void moveAtVelocity(int tps) throws InvalidValueException {
-		moveAtTps(tps);
-	}
-	
-	public void moveAtTps(int tps) throws InvalidValueException {
-		leftWheel.moveAtTps(tps);
-		rightWheel.moveAtTps(tps);
-	}
-	
-	public void moveAtRps(double rps) throws InvalidValueException {
-		leftWheel.moveAtRps(rps);
-		rightWheel.moveAtRps(rps);
-	}
-	
-	/** {@inheritDoc} */
-	public void moveAtCmps(double cmps) throws InvalidValueException {
-		leftWheel.moveAtCmps(cmps);
-		rightWheel.moveAtCmps(cmps);
 	}
 	
 	/** {@inheritDoc} */
 	protected void directDrive(double leftCmps, double rightCmps) {
 		//an old trick I learned a long time ago from the old botball forums
 		//should keep wheels near perfectly straight
-		leftWheel.moveAtCmps(leftCmps*.5);
+		//leftWheel.moveAtCmps(leftCmps*.5);
 		rightWheel.moveAtCmps(rightCmps);
 		leftWheel.moveAtCmps(leftCmps);
 	}
@@ -77,22 +55,14 @@ public class MotorDriveTrain extends DriveTrain {
 		rightWheel.freeze();
 	}
 	
-	public double maxRps() {
-		return maxRps;
-	}
-	
-	public double maxRadiansPS() {
-		return getMaxCmps() * getTrainWidth() /2./Math.PI;
-	}
-	
 	/** {@inheritDoc} */
 	public double getLeftMaxCmps() {
-		return leftWheel.maxCmps();
+		return leftWheel.getMaxCmps();
 	}
 	
 	/** {@inheritDoc} */
 	public double getRightMaxCmps() {
-		return leftWheel.maxCmps();
+		return leftWheel.getMaxCmps();
 	}
 	
 	/** {@inheritDoc} */

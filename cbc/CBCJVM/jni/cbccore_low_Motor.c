@@ -192,7 +192,7 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Motor_get_1motor_1done(JNIEnv* env, jobj
  * Method:    get_motor_position_counter
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_cbc_Servo_get_1motor_1position_1counter(JNIEnv* env, jobject obj, jint port)
+JNIEXPORT jint JNICALL Java_cbccore_low_Motor_get_1motor_1position_1counter(JNIEnv* env, jobject obj, jint port)
 {
 #ifdef CBC
 	get_motor_position_counter(port);
@@ -238,7 +238,7 @@ JNIEXPORT void JNICALL Java_cbccore_low_Motor_bmd(JNIEnv* env, jobject obj, jint
 JNIEXPORT jint JNICALL Java_cbccore_low_Motor_setpwm(JNIEnv* env, jobject obj, jint motor, jint pwm)
 {
 #ifdef CBC
-    return setpwn(motor, pwm);
+    return setpwm(motor, pwm);
 #else
     printf("Java_cbccore_low_Motor_setpwm stub\n");
     return -1;

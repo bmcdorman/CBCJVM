@@ -94,7 +94,7 @@ public class ButtonEmitter extends Thread {
 	private static ButtonEmitter instance = null;
 
 	public ButtonEmitter(EventManager manager) {
-		setDaemon(true);
+		setDaemon(false);
 		this.manager = manager;
 	}
 

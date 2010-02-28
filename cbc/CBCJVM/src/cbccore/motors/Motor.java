@@ -20,19 +20,23 @@ import cbccore.Device;
 import cbccore.InvalidPortException;
 
 /**
+ * Adds a clean API to replace cbccore.low.Camera, and even adds a few minor
+ * features & workarounds for known motor controlling issues.
  * 
- * @author Braden McDorman
- *
+ * @author Braden McDorman, Benjamin Woodruff
+ * 
  */
 
-public class Motor extends cbccore.low.Motor {
+public class Motor {
 	private int port = 0;
-	private cbccore.low.Motor lowMotor = Device.getLowMotorController();
+	private static cbccore.low.Motor lowMotor = Device.getLowMotorController(); //could be static?
+	private long destTime = -1;
 	
 	public Motor(int port) throws InvalidPortException {
 		if(port < 0 || port > 4) throw new InvalidPortException();
 		this.port = port;
 	}
+	
 	public void motor(int percent) {
 		lowMotor.motor(port, percent);
 	}
@@ -45,15 +49,46 @@ public class Motor extends cbccore.low.Motor {
 		return lowMotor.mav(port, velocity);
 	}
 
-	public int moveToPosition(int speed, int goal_pos) {
-		return lowMotor.mtp(port, speed, goal_pos);
+	public int moveToPosition(int speed, int goalPos) {
+		setDestTime(speed, goalPos-getPositionCounter());
+		return lowMotor.mtp(port, speed, goalPos);
 	}
 
-	public int moveRelativePosition(int speed, int delta_pos) {
-		return lowMotor.mrp(port, speed, delta_pos);
+	public int moveRelativePosition(int speed, int deltaPos) {
+		setDestTime(speed, deltaPos);
+		return lowMotor.mrp(port, speed, deltaPos);
 	}
-
+	
+	//a helper method
+	private void setDestTime(int speed, int deltaPos) {
+		destTime = System.currentTimeMillis() + Math.abs(deltaPos*1000/speed);
+	}
+	
+	/**
+	 * A safer "blockMotorDone()", does not present the possiblity of a program
+	 * locking up because a motor might get stuck. The only downside is that a
+	 * motor might not have finished it's movements by the time the function has
+	 * returned. Might return before the motor has actually stopped moving. If
+	 * you want to ensure if has stopped, you can call <code>off()</code> or
+	 * <code>freeze()</code>.
+	 * 
+	 * @see     #blockMotorDone
+	 * @see     #moveToPosition
+	 * @see     #moveRelativePosition
+	 * @see     #off
+	 * @see     #freeze
+	 */
+	public void waitForDone() {
+		long time = destTime-System.currentTimeMillis();
+		if(time > 0l) {
+			try {
+				Thread.sleep(time);
+			} catch (Exception e) { return; }
+		}
+	}
+	
 	public void setPidGains(int p, int i, int d, int pd, int id, int dd) {
+		lowMotor.set_pid_gains(port, p, i, d, pd, id, dd);
 	}
 
 	public int freeze() {
@@ -90,5 +125,15 @@ public class Motor extends cbccore.low.Motor {
 
 	public void off() {
 		lowMotor.off(port);
+	}
+	
+	public static void allOff() {
+		lowMotor.ao();
+	}
+	
+	public static void allFreeze() {
+		for(int i = 0; i < 4; ++i) {
+			lowMotor.freeze(i);
+		}
 	}
 }

@@ -20,8 +20,8 @@ import cbccore.low.CBCSimulator;
 import cbccore.low.Input;
 
 import java.awt.Button;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
 
 /**
  * 
@@ -53,19 +53,19 @@ public class SimulatedInput extends Input {
 		cbc = c;
 		SimulatedInputButtonListener sibl = new SimulatedInputButtonListener(this);
 		ub = new Button("u");
-		ub.addActionListener(sibl);
+		ub.addMouseListener(sibl);
 		db = new Button("d");
-		db.addActionListener(sibl);
+		db.addMouseListener(sibl);
 		lb = new Button("l");
-		lb.addActionListener(sibl);
+		lb.addMouseListener(sibl);
 		rb = new Button("r");
-		rb.addActionListener(sibl);
+		rb.addMouseListener(sibl);
 		ab = new Button("a");
-		ab.addActionListener(sibl);
+		ab.addMouseListener(sibl);
 		bb = new Button("b");
-		bb.addActionListener(sibl);
+		bb.addMouseListener(sibl);
 		blb = new Button("bl");
-		blb.addActionListener(sibl);
+		blb.addMouseListener(sibl);
 	}
 	
 	public int up_button() { return u ? 1 : 0; }
@@ -77,7 +77,11 @@ public class SimulatedInput extends Input {
 	public int black_button() { return bl ? 1 : 0; } /* returns value of hardware button on CBC */
 }
 
-class SimulatedInputButtonListener implements ActionListener {
+
+/**
+ * A helper-class used by SimulatedInput that handles the mouse presses
+ */
+class SimulatedInputButtonListener implements MouseListener {
 	
 	private SimulatedInput _inputHandler;
 	
@@ -85,29 +89,48 @@ class SimulatedInputButtonListener implements ActionListener {
 		_inputHandler = a_inputHandler;
 	}
 	
-	public void actionPerformed(ActionEvent ae) {
+	
+	//this system is not very robust, but does it really matter?
+	public void mousePressed(MouseEvent e) {
+		mouseEventHandler(e, true);
+	}
+	
+	public void mouseReleased(MouseEvent e) {
+		mouseEventHandler(e, false);
+	}
+	
+	public void mouseClicked(MouseEvent e) {}
+	public void mouseEntered(MouseEvent e) {}
+	public void mouseExited(MouseEvent e) {}
+	
+	
+	//<random>
+	//    someExteamlyLongFunctionName(SomeExtreamlyLongClassName someExtreamlyLongVariableName, SomeOtherEvenLongerExtreamlyLongClassName someOtherEvenLongerExtreamlyLongVariableName)
+	//</random>
+	private void mouseEventHandler(MouseEvent e, boolean setTo) {
 		//This is very dirty code. :-( But reflection is really slow, so...
-		if(ae.getActionCommand().equals("u")) {
-			_inputHandler.u = !_inputHandler.u;
+		String et = ((Button)e.getSource()).getLabel();
+		//System.out.println(et);
+		if(et.equals("u")) {
+			_inputHandler.u = setTo;
 			return;
-		} if(ae.getActionCommand().equals("d")) {
-			_inputHandler.d = !_inputHandler.d;
+		} if(et.equals("d")) {
+			_inputHandler.d = setTo;
 			return;
-		} if(ae.getActionCommand().equals("l")) {
-			_inputHandler.l = !_inputHandler.l;
+		} if(et.equals("l")) {
+			_inputHandler.l = setTo;
 			return;
-		} if(ae.getActionCommand().equals("r")) {
-			_inputHandler.r = !_inputHandler.r;
+		} if(et.equals("r")) {
+			_inputHandler.r = setTo;
 			return;
-		} if(ae.getActionCommand().equals("a")) {
-			_inputHandler.a = !_inputHandler.a;
-			//System.out.println(_inputHandler.a);
+		} if(et.equals("a")) {
+			_inputHandler.a = setTo;
 			return;
-		} if(ae.getActionCommand().equals("b")) {
-			_inputHandler.b = !_inputHandler.b;
+		} if(et.equals("b")) {
+			_inputHandler.b = setTo;
 			return;
-		} if(ae.getActionCommand().equals("bl")) {
-			_inputHandler.bl = !_inputHandler.bl;
+		} if(et.equals("bl")) {
+			_inputHandler.bl = setTo;
 			return;
 		}
 	}

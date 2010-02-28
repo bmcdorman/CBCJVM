@@ -22,15 +22,18 @@ import cbccore.InvalidValueException;
 /**
  * A wheel class used by MotorDriveTrain
  * 
- * @author PiPeep
+ * @author Benjamin Woodruff
+ * @author Jonathan Frias
  */
 
 public class Wheel extends Motor {
 	
+	//public final double WHEEL = 0; must find the actual circumferences
+	
 	protected double efficiency;
+	protected double circumference;
 	private double maxRps;
 	private double maxCmps;
-	protected double circumference;
 	private int currentTps;
 	
 	public Wheel(int port, double circumference, double efficiency) {
@@ -38,14 +41,14 @@ public class Wheel extends Motor {
 		this.circumference = circumference;
 		this.efficiency = efficiency;
 		this.maxRps = 1000./MotorDriveTrain.ticksPerRotation*efficiency;
-		this.maxCmps = maxRps*circumference();
+		this.maxCmps = maxRps*getCircumference();
 	}
 	
-	public double maxRps() {
+	public double getMaxRps() {
 		return maxRps;
 	}
 	
-	public double maxCmps() {
+	public double getMaxCmps() {
 		return maxCmps;
 	}
 	
@@ -57,12 +60,11 @@ public class Wheel extends Motor {
 		return currentTps/MotorDriveTrain.ticksPerRotation;
 	}
 	
-	public double circumference() {
+	public double getCircumference() {
 		return circumference;
 	}
 	
 	protected void checkTpsRange(int tps) throws InvalidValueException {
-		System.out.println(""+tps);
 		if(Math.abs(tps) > (maxRps*MotorDriveTrain.ticksPerRotation)) {
 			System.out.println("" + tps + ", " + maxRps*MotorDriveTrain.ticksPerRotation);
 			throw new InvalidValueException();
@@ -72,6 +74,7 @@ public class Wheel extends Motor {
 	public void moveAtTps(int tps) throws InvalidValueException {
 		checkTpsRange(tps);
 		currentTps = tps;
+		clearPositionCounter(); //work-around for CBOBv2 motor bug
 		super.moveAtVelocity((int)(tps/efficiency));
 	}
 	
@@ -80,44 +83,8 @@ public class Wheel extends Motor {
 	}
 	
 	public void moveAtCmps(double cmps) throws InvalidValueException {
-		moveAtRps(cmps/circumference());
+		moveAtRps(cmps/getCircumference());
 	}
-	
-	//calling this does not guarentee anything, but will attempt to move within a certain accuracy
-	//uses recursive algorithm for fine tuning
-	/*public void moveCm(double cm, double cmps, boolean fineTune) throws InvalidValueException {
-		System.out.println("moveCm has been called - port #"+_port);
-		//cmps is made to match cm's sign
-		cmps = cm<0?-Math.abs(cmps):Math.abs(cmps);
-		
-		//we have an overhead, so in a case like this, it is better not to move at all
-		if(Math.abs(cm) < .5) return;
-		
-		double destCmCounter = 0.;
-		if(fineTune) {
-			destCmCounter = getCmCounter()+cm;
-		}
-		moveAtCmps(cmps);
-		long destTime = System.currentTimeMillis()+((long)((cm/cmps)*1000.));
-		long sleepOverhead = 0;
-		while(System.currentTimeMillis() < (destTime-sleepOverhead)) {
-			//Thread.yield();
-			long sleepTime = (destTime - System.currentTimeMillis() - sleepOverhead)/2;
-			long sleepStart = System.currentTimeMillis();
-			try {
-				Thread.sleep(sleepTime);
-			} catch(InterruptedException e) {
-				moveAtTps(0);
-				return;
-			}
-			sleepOverhead = System.currentTimeMillis() - sleepStart - sleepTime;
-		}
-		//while(System.currentTimeMillis() < destTime) {} //This code is questionable, may cause adverse multithreading effects
-		
-		//refine, and fineTune if necicary. Fine tuning moves slower.
-		if(fineTune) { moveCm(destCmCounter-getCmCounter(), (Math.abs(cmps)/2)<1.5?1.5:(cmps/2) , fineTune); }
-		moveAtTps(0);
-	}*/
 	
 	public int getTickCounter() {
 		return getPositionCounter();
@@ -128,9 +95,12 @@ public class Wheel extends Motor {
 	}
 	
 	public double getCmCounter() {
-		return getWheelRotationCounter()*circumference();
+		return getWheelRotationCounter()*getCircumference();
 	}
 	
+	/**
+	 * Depreciated
+	 */
 	public int moveAtVelocity(int tps) {
 		moveAtTps(tps);
 		return 0;

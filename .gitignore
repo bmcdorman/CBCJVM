@@ -5,3 +5,5 @@ cbc/.metadata
 cbc/CBCJVM/dist
 cbc/CBCJVM/docs
 installer/install/install_data
+cbc/CBCJVM/target
+

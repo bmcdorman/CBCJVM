@@ -99,7 +99,7 @@ public class Pixel {
 
 	/**
 	 * Must check alpha condition, otherwise undefined behavior.
-	 * @return
+	 * @return the RGB565 value
 	 */
 	public byte[] getRGB565() {
 		if (dirty)

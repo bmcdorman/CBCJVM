@@ -36,4 +36,8 @@ public class Touch implements IBooleanSensor {
 	public boolean getValue() {
 		return lowSensor.digital(port) != 0;
 	}
+	@Override
+	public String toString() {
+		return "Touch Sensor " + port;
+	}
 }

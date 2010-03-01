@@ -221,7 +221,7 @@ public class SimulatedCreate extends Create {
 	// public int create_read_block(char* data, int count) {
 	@NotImplemented
 	public void create_write_byte(char write_byte) {
-		System.out.println(getBits(write_byte));
+		System.out.println((int)write_byte);
 	}
 
 	@NotImplemented

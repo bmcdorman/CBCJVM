@@ -27,18 +27,18 @@ import cbccore.InvalidPortException;
 
 public class Servo {
 	private int port = 0;
-	private cbccore.low.Servo lowServo = Device.getLowServoController();
+	private static cbccore.low.Servo lowServo = Device.getLowServoController();
 	
 	public Servo(int port) throws InvalidPortException {
 		if(port < 0 || port > 4) throw new InvalidPortException();
 		this.port = port;
 	}
 
-	public void disable() {
+	public static void disable() {
 		lowServo.disable_servos();
 	}
 	
-	public void enable() {
+	public static void enable() {
 		lowServo.enable_servos();
 	}
 	

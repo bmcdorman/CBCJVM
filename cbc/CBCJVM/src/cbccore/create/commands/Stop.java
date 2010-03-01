@@ -2,11 +2,8 @@ package cbccore.create.commands;
 
 import cbccore.create.Create;
 
-public class Reboot implements Command {
-
-	@Override
+public class Stop implements Command {
 	public void add(Create create) {
-		create.writeByte(7);
+		create.stop();
 	}
-
 }

@@ -31,8 +31,7 @@ public class Create {
 	
 	public void sendScript(Script script) {
 		Script s = (Script) script.clone();
-		while(!s.isEmpty()) {
-			Command c = s.pop();
+		for(Command c : s) {
 			c.add(this);
 		}
 	}
@@ -332,6 +331,10 @@ public class Create {
 
 	// public int read_block(char* data, int count);
 
+	public int getDistance() {
+		return lowCreate.create_distance();
+	}
+	
 	/**
 	 * See Create IO Documentation. You probably don't care about this function.
 	 * 
@@ -350,5 +353,27 @@ public class Create {
 	
 	public static byte fromUnsigned(int c) {
 		return (byte) ((c > 127) ? c - 256 : c);
+	}
+	
+	public void moveMm(int speed, int mm) {
+		driveStraight(speed);
+		double mmps = (double)mm / Math.abs(speed);
+		try {
+			Thread.sleep(130);
+			Thread.sleep((int)(mmps * 1000));
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		stop();
+	}
+	
+	public void turnDeg(int speed, int deg) {
+		//deg = (int) ((double)deg * .85);
+		if(deg < 0) {
+			lowCreate.create_spin_CW(speed);
+		} else {
+			lowCreate.create_spin_CCW(speed);
+		}
+		lowCreate.create_spin_block(speed, deg);
 	}
 }

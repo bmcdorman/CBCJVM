@@ -35,8 +35,8 @@ public class DigitalSensorEmitter extends Thread {
 	
 	private EventManager manager;
 	
-	private static final int minPort = 0;
-	private static final int maxPort = 7;
+	private static final int minPort = 8;
+	private static final int maxPort = 15;
 	
 	private IBooleanSensor[] sensors = new IBooleanSensor[maxPort-minPort];
 	private Event[] sensorOnEvents = new Event[maxPort-minPort];

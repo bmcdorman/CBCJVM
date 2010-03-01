@@ -30,7 +30,7 @@ public class Touch implements IBooleanSensor {
 	private cbccore.low.Sensor lowSensor = Device.getLowSensorController();
 	private int port = 0;
 	public Touch(int port) throws InvalidPortException {
-		if(port < 0 || port > 7) { throw new InvalidPortException(); }
+		if(port < 8 || port > 15) { throw new InvalidPortException(); }
 		this.port = port;
 	}
 	public boolean getValue() {

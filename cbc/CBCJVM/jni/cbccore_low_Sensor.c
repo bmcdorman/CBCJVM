@@ -56,6 +56,36 @@ JNIEXPORT jint Java_cbccore_low_Sensor_set_1digital_1output_1value(JNIEnv* env, 
 
 /*
  * Class:     cbccore_low_Sensor
+ * Method:    set_analog_floats
+ * Signature: (I)I
+ */
+JNIEXPORT void Java_cbccore_low_Sensor_set_1analog_1floats(JNIEnv* env, jobject obj, jint mask)
+{
+#ifdef CBC
+	set_analog_floats(mask);
+#else
+	printf("Java_cbccore_low_Sensor_set_1analog_1floats stub\n");
+	return 0;
+#endif
+}
+
+/*
+ * Class:     cbccore_low_Sensor
+ * Method:    set_each_analog_state
+ * Signature: (I)I
+ */
+JNIEXPORT void Java_cbccore_low_Sensor_set_1each_1analog_1state(JNIEnv* env, jobject obj, jint a0, jint a1, jint a2, jint a3, jint a4, jint a5, jint a6, jint a7)
+{
+#ifdef CBC
+	set_each_analog_state(a0, a1, a2, a3, a4, a5, a6, a7);
+#else
+	printf("Java_cbccore_low_Sensor_set_1each_1analog_1state stub\n");
+	return 0;
+#endif
+}
+
+/*
+ * Class:     cbccore_low_Sensor
  * Method:    analog10
  * Signature: (I)I
  */
@@ -70,7 +100,7 @@ JNIEXPORT jint Java_cbccore_low_Sensor_analog10(JNIEnv* env, jobject obj, jint p
 }
 
 /*
- * Class:     cbccore_low_Sensorport
+ * Class:     cbccore_low_Sensor
  * Method:    analog
  * Signature: (I)I
  */

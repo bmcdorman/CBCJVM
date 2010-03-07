@@ -227,4 +227,53 @@ public abstract class EasingEquation {
 		if (percent < 0.5) return .5*easeInArea(percent*2.);
 		return .5*easeInArea(1.)+.5*easeOutArea((percent-.5)*2.);
 	}
+	
+	
+	
+	
+	
+	//when time is 1 second, easeInArea will return the average velocity (d = t*avgVel)
+	public double easeInAverage(double b, double c) {
+		return easeInAverage(c)+b;
+	}
+	
+	public double easeOutAverage(double b, double c) {
+		return easeOutAverage(c)+b;
+	}
+	
+	public double easeInOutAverage(double b, double c) {
+		return easeInOutAverage(c)+b;
+	}
+	
+	
+	
+	
+	
+	
+	public double easeInAverage(double c) {
+		return easeInAverage()*c;
+	}
+	
+	public double easeOutAverage(double c) {
+		return easeOutAverage()*c;
+	}
+	
+	public double easeInOutAverage(double c) {
+		return easeInOutAverage()*c;
+	}
+	
+	
+	
+	
+	public double easeInAverage() {
+		return easeInArea(1.);
+	}
+	
+	public double easeOutAverage() {
+		return easeOutArea(1.);
+	}
+	
+	public double easeInOutAverage() {
+		return easeInOutArea(1.);
+	}
 }

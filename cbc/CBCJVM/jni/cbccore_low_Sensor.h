@@ -12,6 +12,8 @@ extern "C"
 
 JNIEXPORT jint JNICALL Java_cbccore_low_Sensor_digital (JNIEnv *env, jobject, jint);
 JNIEXPORT jint JNICALL Java_cbccore_low_Sensor_set_1digital_1output_1value (JNIEnv *env, jobject, jint, jint);
+JNIEXPORT void JNICALL Java_cbccore_low_Sensor_set_1analog_1floats(JNIEnv* env, jobject obj, jint mask);
+JNIEXPORT void JNICALL Java_cbccore_low_Sensor_set_1each_1analog_1state(JNIEnv* env, jobject obj, jint a0, jint a1, jint a2, jint a3, jint a4, jint a5, jint a6, jint a7);
 JNIEXPORT jint JNICALL Java_cbccore_low_Sensor_analog10 (JNIEnv *env, jobject, jint);
 JNIEXPORT jint JNICALL Java_cbccore_low_Sensor_analog (JNIEnv *env, jobject, jint);
 JNIEXPORT jint JNICALL Java_cbccore_low_Sensor_accel_1x (JNIEnv *env, jobject);

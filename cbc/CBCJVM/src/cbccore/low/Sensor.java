@@ -25,6 +25,8 @@ package cbccore.low;
 public class Sensor {
 	public native int digital(int port); /* returns a 1 or 0 reflecting the state of port (0 to 7) */     
 	public native int set_digital_output_value(int port, int value); /*sets port (0 to 7)to value (0 or 1) */
+	public native void set_analog_floats(int mask);
+	public native void set_each_analog_state(int a0, int a1, int a2, int a3, int a4, int a5, int a6, int a7);
 	public native int analog10(int port); /* returns 10-bit value from analog port (ports 8 to 15) */        
 	public native int analog(int port); /* returns 8-bit value from analog port (ports 8 to 15) */           
 	public native int accel_x(); /* returns x acceleration (-2047 to 2047, +/- 1.5 gee) */                  

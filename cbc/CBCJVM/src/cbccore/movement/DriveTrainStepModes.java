@@ -14,31 +14,12 @@
  * along with CBCJVM.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-package cbccore.sensors.analog;
+package cbccore.movement;
 
-import cbccore.Device;
-import cbccore.sensors.IAnalogSensor;
-
-/**
- * 
- * 
- * @author Braden McDorman
- *
- */
-
-public class Sonar implements IAnalogSensor {
-	private int port = 0;
-	private cbccore.low.Sensor lowSensor = Device.getLowSensorController();
-	public Sonar(int port) {
-		this.port = port;
-	}
-	@Override
-	public int getValue() {
-		return lowSensor.analog(port);
-	}
-	@Override
-	public int getValueHigh() {
-		return lowSensor.analog10(port);
-	}
-	
+public class DriveTrainStepModes {
+	public static final int DISABLED = 0;
+	public static final int HIGH_PRECISION = -1;
+	public static final int YIELD = -2;
+	public static final int MIN_SLEEP = -3;
+	public static final int MIN_SLEEP_AND_YIELD = -4;
 }

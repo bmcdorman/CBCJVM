@@ -37,10 +37,6 @@ import cbccore.easing.EasingEquation;
 public abstract class DriveTrain {
 	
 	public static final int DISABLED = 0;
-	public static final int HIGH_PRECISION = -1;
-	public static final int YIELD = -2;
-	public static final int MIN_SLEEP = -3;
-	public static final int MIN_SLEEP_AND_YIELD = -4;
 	public static final int PERCENT_DISTANCE = 1;
 	public static final int PERCENT_TIME = 2;
 	public static final int CONSTANT_DISTANCE = 3;
@@ -245,14 +241,14 @@ public abstract class DriveTrain {
 			
 			switch(stepMode) {
 				case DISABLED:
-				case HIGH_PRECISION:
+				case DriveTrainStepModes.HIGH_PRECISION:
 					break;
-				case MIN_SLEEP_AND_YIELD:
+				case DriveTrainStepModes.MIN_SLEEP_AND_YIELD:
 					Thread.yield();
-				case MIN_SLEEP:
+				case DriveTrainStepModes.MIN_SLEEP:
 					Thread.sleep(0l, 1);
 					break;
-				case YIELD:
+				case DriveTrainStepModes.YIELD:
 					Thread.yield();
 					break;
 				default:
@@ -290,13 +286,16 @@ public abstract class DriveTrain {
 		leftCmps = moveParser(leftCm, leftCmps);
 		rightCmps = moveParser(rightCm, rightCmps);
 		
+		//if I were to re-write this again, I would use part?Cm instead of times
 		long part1Time = 0; long part2Time = (long)(leftCm*1.0e9/leftCmps); long part3Time = 0;
+		//   easein              const speed                                     ease out
 		
-		int steps;
+		int steps; //must be defined up here otherwise java freaks that it has
+			//been defined twice, even though that would be impossible
+		
 		if(inEaseMode != DISABLED || outEaseMode != DISABLED) {
 			switch(easeTimeMode) {
 				case PERCENT_DISTANCE:
-					//when time is 1 second, easeInArea will return the average velocity (d = t*avgVel)
 					steps = 0;
 					if(inEaseMode != DISABLED) {
 						part1Time = (long)(leftCm*easeTimeParam/ease.easeArea(inEaseMode, 1., 0., leftCmps, 1.)*1.0e9);
@@ -354,6 +353,8 @@ public abstract class DriveTrain {
 					
 			}
 		}
+		
+		//this seems kinda verbose, could be shortened
 		
 		if(inEaseMode != DISABLED) {
 			double partLeftCm = ease.easeArea(inEaseMode, part1Time*1.0e-9, 0., leftCmps, part1Time*1.0e-9);

@@ -59,15 +59,23 @@ public class Create {
 	/**
 	 * Puts Create into passive mode (no motors)
 	 * 
-	 * @see #passive
-	 * @see #safe
-	 * @see #full
-	 * @see #mode
+	 * @see Create.Mode
+	 * @see #setMode
+	 * @see #getMode
 	 */
 	public void start() {
 		lowCreate.create_start();
 	}
-
+	
+	/**
+	 * Change the Create's mode. Safe stops if it senses the drop sensor, Full
+	 * will do everything ignoring safety triggers, even if it means destroying
+	 * itself. o_O
+	 * 
+	 * @param  m  Mode.Off, Mode.Passive, Mode.Safe, or Mode.Full
+	 * @see       Create.Mode
+	 * @see       #setMode
+	 */
 	public void setMode(Mode m) {
 		if(m == Mode.Safe) lowCreate.create_safe();
 		else if(m == Mode.Passive) lowCreate.create_passive();
@@ -80,7 +88,7 @@ public class Create {
 	 * 
 	 * @see #cover
 	 * @see #demo
-	 * @see #cover_dock
+	 * @see #coverDock
 	 */
 	public void spot() {
 		lowCreate.create_spot();
@@ -91,7 +99,7 @@ public class Create {
 	 * 
 	 * @see #spot
 	 * @see #demo
-	 * @see #cover_dock
+	 * @see #coverDock
 	 */
 	public void cover() {
 		lowCreate.create_cover();
@@ -105,7 +113,7 @@ public class Create {
 	 *            but it seems so pointless...
 	 * @see #spot
 	 * @see #cover
-	 * @see #cover_dock
+	 * @see #coverDock
 	 */
 	public void demo(int d) {
 		lowCreate.create_demo(d);
@@ -123,12 +131,11 @@ public class Create {
 	}
 
 	/**
-	 * the Create's mode
+	 * The Create's mode
 	 * 
-	 * @return 0 off; 1 passive; 2 safe; 3 full
-	 * @see #passive
-	 * @see #safe
-	 * @see #full
+	 * @return Mode.Off, Mode.Passive, Mode.Safe, or Mode.Full
+	 * @see Create.Mode
+	 * @see #setMode
 	 */
 	public Mode getMode() {
 		int m = lowCreate.create_mode();
@@ -161,7 +168,7 @@ public class Create {
 	 *            A radius of -1 will spin the robot CW
 	 *            <p>
 	 *            Negative radii will be right turns, positive radii left turns
-	 * @see #drive_straight
+	 * @see #driveStraight
 	 */
 	public void drive(int speed, int radius) {
 		lowCreate.create_drive(speed, radius);
@@ -182,7 +189,8 @@ public class Create {
 	 * 
 	 * @param speed
 	 *            20-500mm/s. Speed of edge (wheels) of bot.
-	 * @see #spin_CCW
+	 * @see #spinCCW
+	 * @see #spinBlock
 	 */
 	public void spinCW(int speed) {
 		lowCreate.create_spin_CW(speed);
@@ -193,7 +201,8 @@ public class Create {
 	 * 
 	 * @param speed
 	 *            20-500mm/s. Speed of edge (wheels) of bot.
-	 * @see #spin_CW
+	 * @see #spinCW
+	 * @see #spinBlock
 	 */
 	public void spinCCW(int speed) {
 		lowCreate.create_spin_CCW(speed);
@@ -225,8 +234,8 @@ public class Create {
 	 *            <b>CAUTION: requesting the robot to spin more than about 3600
 	 *            degrees may never terminate</b>
 	 * @return -1 if error
-	 * @see #spin_CW
-	 * @see #spin_CCW
+	 * @see #spinCW
+	 * @see #spinCCW
 	 */
 	public int spinBlock(int speed, int angle) {
 		return lowCreate.create_spin_block(speed, angle);
@@ -239,11 +248,11 @@ public class Create {
 	 * 
 	 * @param on
 	 *            1 to turn on light and 0 to turn it off
-	 * @see #play_led
-	 * @see #power_led
+	 * @see #playLed
+	 * @see #powerLed
 	 */
-	public void advanceLed(int on) {
-		lowCreate.create_advance_led(on);
+	public void advanceLed(boolean on) {
+		lowCreate.create_advance_led(on?1:0);
 	}
 
 	/**
@@ -251,11 +260,11 @@ public class Create {
 	 * 
 	 * @param on
 	 *            1 to turn on light and 0 to turn it off
-	 * @see #advance_led
-	 * @see #power_led
+	 * @see #advanceLed
+	 * @see #powerLed
 	 */
-	public void playLed(int on) {
-		lowCreate.create_play_led(on);
+	public void playLed(boolean on) {
+		lowCreate.create_play_led(on?1:0);
 	}
 
 	/**
@@ -265,8 +274,8 @@ public class Create {
 	 *            0 is red and 255 green
 	 * @param brightness
 	 *            0 is off and 255 is full brightness
-	 * @see #advance_led
-	 * @see #play_led
+	 * @see #advanceLed
+	 * @see #playLed
 	 */
 	public void powerLed(int color, int brightness) {
 		lowCreate.create_power_led(color, brightness);
@@ -288,12 +297,7 @@ public class Create {
 	 * A 0 or 1 should be given for each of the drivers to turn them off or on.
 	 * You probably don't care about this function.
 	 * 
-	 * @param pwm0
-	 *            pin 22
-	 * @param pwm1
-	 *            pin 23
-	 * @param pwm2
-	 *            pin 24
+	 * @return   An instance of LowSideDrivers
 	 */
 	public LowSideDrivers getLowSideDrivers() {
 		return lowSideDrivers;
@@ -310,7 +314,7 @@ public class Create {
 	 * 
 	 * @param num
 	 *            Song can be numbered 0 to 15
-	 * @see #play_song
+	 * @see #playSong
 	 */
 	public void loadSong(int num) {
 		lowCreate.create_load_song(num);
@@ -323,7 +327,7 @@ public class Create {
 	 * 
 	 * @param num
 	 *            Song can be numbered 0 to 15
-	 * @see #load_song
+	 * @see #loadSong
 	 */
 	public void playSong(int num) {
 		lowCreate.create_play_song(num);
@@ -340,7 +344,7 @@ public class Create {
 	 * 
 	 * @param write_byte
 	 *            the byte to write
-	 * @see #clear_serial_buffer
+	 * @see #clearSerialBuffer
 	 */
 	public void writeByte(int write_byte) {
 		char c = (char)write_byte;
@@ -355,11 +359,25 @@ public class Create {
 		return (byte) ((c > 127) ? c - 256 : c);
 	}
 	
+	
+	/**
+	 * Moves the create a set number of mm at a set speed. You should probably
+	 * be using the movement library.
+	 * 
+	 * @param  speed  The number of seconds to travel for. (shouldn't this be
+	 *                    changed to mmps to make range checking easier on the
+	 *                    user?)
+	 * @param  mm     The number of mm for the create to move.
+	 * @see           #turnDeg
+	 * @see           cbccore.movement.DriveTrain
+	 * @see           cbccore.movement.CreateDriveTrain
+	 * @see           cbccore.movement.DriveTrain#moveCm
+	 */
 	public void moveMm(int speed, int mm) {
 		driveStraight(speed);
 		double mmps = (double)mm / Math.abs(speed);
 		try {
-			Thread.sleep(130);
+			Thread.sleep(130); //what is this?
 			Thread.sleep((int)(mmps * 1000));
 		} catch (InterruptedException e) {
 			e.printStackTrace();
@@ -367,6 +385,20 @@ public class Create {
 		stop();
 	}
 	
+	
+	/**
+	 * Moves the create a set number of degrees at a set speed. You should
+	 * probably be using the movement library.
+	 * 
+	 * @param  speed  The number of seconds to travel for. (shouldn't this be
+	 *                    changed to degrees-per-sec to make range checking
+	 *                    easier on the user?)
+	 * @param  deg    The number of degrees for the create to turn.
+	 * @see           #turnDeg
+	 * @see           cbccore.movement.DriveTrain
+	 * @see           cbccore.movement.CreateDriveTrain
+	 * @see           cbccore.movement.DriveTrain#rotateDegrees
+	 */
 	public void turnDeg(int speed, int deg) {
 		//deg = (int) ((double)deg * .85);
 		if(deg < 0) {
@@ -375,5 +407,6 @@ public class Create {
 			lowCreate.create_spin_CCW(speed);
 		}
 		lowCreate.create_spin_block(speed, deg);
+		//shouldn't you stop it here? or does the create handle that for you?
 	}
 }

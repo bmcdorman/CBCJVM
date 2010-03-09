@@ -284,7 +284,7 @@ public class DriveTrain {
 	}
 	
 	//leftCm/leftCmps must be equal to rightCm/rightCmps
-	private void moveWheelCm(double leftCm, double rightCm, //positions
+	protected void moveWheelCm(double leftCm, double rightCm, //positions
 	                         double leftCmps, double rightCmps, //speed
 	                         //finetuning, answer 0 and false for all if you don't
 	                         int stepMode, int inEaseMode, int outEaseMode,

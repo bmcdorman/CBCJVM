@@ -5,12 +5,20 @@ import java.io.IOException;
 import cbccore.Device;
 import cbccore.create.commands.*;
 
+
+/**
+ * Allows high-level access the the create (vs cbccore.low.Create)
+ * 
+ * @see           cbccore.low.Create
+ * @see           cbccore.movement.plugins.create.CreateMovementPlugin
+ * @see           cbccore.movement.DriveTrain
+ */
 public class Create {
 	public class ConnectionException extends IOException {
 		private static final long serialVersionUID = -7364867572058696574L;
 	}
 	
-	enum Mode {
+	public enum Mode {
 		Safe,
 		Passive,
 		Full,
@@ -370,7 +378,7 @@ public class Create {
 	 * @param  mm     The number of mm for the create to move.
 	 * @see           #turnDeg
 	 * @see           cbccore.movement.DriveTrain
-	 * @see           cbccore.movement.CreateDriveTrain
+	 * @see           cbccore.movement.plugins.create.CreateMovementPlugin
 	 * @see           cbccore.movement.DriveTrain#moveCm
 	 */
 	public void moveMm(int speed, int mm) {
@@ -396,7 +404,7 @@ public class Create {
 	 * @param  deg    The number of degrees for the create to turn.
 	 * @see           #turnDeg
 	 * @see           cbccore.movement.DriveTrain
-	 * @see           cbccore.movement.CreateDriveTrain
+	 * @see           cbccore.movement.plugins.create.CreateMovementPlugin
 	 * @see           cbccore.movement.DriveTrain#rotateDegrees
 	 */
 	public void turnDeg(int speed, int deg) {

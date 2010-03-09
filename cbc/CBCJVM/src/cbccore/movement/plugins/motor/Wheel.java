@@ -14,7 +14,7 @@
  * along with CBCJVM.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-package cbccore.movement;
+package cbccore.movement.plugins.motor;
 
 import cbccore.motors.Motor;
 import cbccore.InvalidValueException;
@@ -40,7 +40,7 @@ public class Wheel extends Motor {
 		super(port);
 		this.circumference = circumference;
 		this.efficiency = efficiency;
-		this.maxRps = 1000./MotorDriveTrain.ticksPerRotation*efficiency;
+		this.maxRps = 1000./MotorMovementPlugin.ticksPerRotation*efficiency;
 		this.maxCmps = maxRps*getCircumference();
 	}
 	
@@ -57,7 +57,7 @@ public class Wheel extends Motor {
 	}
 	
 	public double currentRps() {
-		return currentTps/MotorDriveTrain.ticksPerRotation;
+		return currentTps/MotorMovementPlugin.ticksPerRotation;
 	}
 	
 	public double getCircumference() {
@@ -65,8 +65,8 @@ public class Wheel extends Motor {
 	}
 	
 	protected void checkTpsRange(int tps) throws InvalidValueException {
-		if(Math.abs(tps) > (maxRps*MotorDriveTrain.ticksPerRotation)) {
-			System.out.println("" + tps + ", " + maxRps*MotorDriveTrain.ticksPerRotation);
+		if(Math.abs(tps) > (maxRps*MotorMovementPlugin.ticksPerRotation)) {
+			System.out.println("" + tps + ", " + maxRps*MotorMovementPlugin.ticksPerRotation);
 			throw new InvalidValueException();
 		}
 	}
@@ -79,7 +79,7 @@ public class Wheel extends Motor {
 	}
 	
 	public void moveAtRps(double rps) throws InvalidValueException {
-		moveAtTps((int)(rps*MotorDriveTrain.ticksPerRotation));
+		moveAtTps((int)(rps*MotorMovementPlugin.ticksPerRotation));
 	}
 	
 	public void moveAtCmps(double cmps) throws InvalidValueException {
@@ -91,7 +91,7 @@ public class Wheel extends Motor {
 	}
 	
 	public double getWheelRotationCounter() {
-		return ((double)getTickCounter())/MotorDriveTrain.ticksPerRotation;
+		return ((double)getTickCounter())/MotorMovementPlugin.ticksPerRotation;
 	}
 	
 	public double getCmCounter() {

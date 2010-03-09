@@ -14,10 +14,12 @@
  * along with CBCJVM.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-package cbccore.movement;
+package cbccore.movement.plugins.create;
 
-import cbccore.Device;
+import cbccore.create.Create;
+import cbccore.movement.plugins.MovementPlugin;
 import cbccore.InvalidValueException;
+import java.io.IOException;
 
 /**
  * A DriveTrain class for the iRobot Create
@@ -25,33 +27,34 @@ import cbccore.InvalidValueException;
  * @author Benjamin Woodruff
  */
 
-public class CreateDriveTrain extends DriveTrain {
+public class CreateMovementPlugin extends MovementPlugin {
 	
-	private static final double trainWidth = 25.5;
+	private static final double DEFAULT_TRAIN_WIDTH = 25.5;
 	//private static final double wheelCircumference = 10.;
 	private double efficiency;
 	//private double leftCmps = 0.;
 	//private double rightCmps = 0.;
-	private cbccore.low.Create create = Device.getLowCreateController();
+	private Create create = new Create();
 	
 	
 	/**
 	 * Basic constructor
 	 */
-	public CreateDriveTrain(double efficiency, boolean fullMode) {
-		Device.getLowCreateController().create_connect();
+	public CreateMovementPlugin(double efficiency, boolean fullMode) throws IOException {
+		super(DEFAULT_TRAIN_WIDTH);
+		create.connect();
 		this.efficiency = efficiency;
 		// FIXME: This should be moved to it's own method
 		if(fullMode) {
-			create.create_full(); 
+			create.setMode(Create.Mode.Full); 
 		} else {
-			create.create_safe(); 
+			create.setMode(Create.Mode.Safe); 
 		}
 	}
 	
 	/** {@inheritDoc} */
-	protected void directDrive(double leftCmps, double rightCmps) {
-		create.create_drive_direct((int)(rightCmps*10./efficiency), (int)(leftCmps*10./efficiency));
+	public void directDrive(double leftCmps, double rightCmps) {
+		create.driveDirect((int)(rightCmps*10./efficiency), (int)(leftCmps*10./efficiency));
 	}
 	
 	/**
@@ -64,17 +67,12 @@ public class CreateDriveTrain extends DriveTrain {
 	}
 	
 	/** {@inheritDoc} */
-	protected double getLeftMaxCmps() {
+	public double getLeftMaxCmps() {
 		return 50.*efficiency;
 	}
 	
 	/** {@inheritDoc} */
-	protected double getRightMaxCmps() {
+	public double getRightMaxCmps() {
 		return 50.*efficiency;
-	}
-	
-	/** {@inheritDoc} */
-	public double getTrainWidth() {
-		return trainWidth;
 	}
 }

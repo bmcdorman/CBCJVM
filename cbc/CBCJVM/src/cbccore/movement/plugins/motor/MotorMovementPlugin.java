@@ -14,17 +14,18 @@
  * along with CBCJVM.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-package cbccore.movement;
+package cbccore.movement.plugins.motor;
 
+import cbccore.movement.plugins.MovementPlugin;
 import cbccore.InvalidValueException;
 
 /**
- * A basic DriveTrain with support for a dual-wheel-based motor system
+ * A basic DriveTrain plugin with support for a dual-wheel-based motor system
  * 
  * @author Benjamin Woodruff
  */
 
-public class MotorDriveTrain extends DriveTrain {
+public class MotorMovementPlugin extends MovementPlugin {
 	
 	public static final int ticksPerRotation = 1100;
 	
@@ -32,16 +33,15 @@ public class MotorDriveTrain extends DriveTrain {
 	protected Wheel rightWheel;
 	private double maxRps;
 	private double maxCmps;
-	private double trainWidth;
 	
-	public MotorDriveTrain(Wheel leftWheel, Wheel rightWheel, double trainWidth) {
+	public MotorMovementPlugin(Wheel leftWheel, Wheel rightWheel, double trainWidth) {
+		super(trainWidth);
 		this.leftWheel = leftWheel;
 		this.rightWheel = rightWheel;
-		this.trainWidth = trainWidth;
 	}
 	
 	/** {@inheritDoc} */
-	protected void directDrive(double leftCmps, double rightCmps) {
+	public void directDrive(double leftCmps, double rightCmps) {
 		//an old trick I learned a long time ago from the old botball forums
 		//should keep wheels near perfectly straight
 		//leftWheel.moveAtCmps(leftCmps*.5);
@@ -63,10 +63,5 @@ public class MotorDriveTrain extends DriveTrain {
 	/** {@inheritDoc} */
 	public double getRightMaxCmps() {
 		return leftWheel.getMaxCmps();
-	}
-	
-	/** {@inheritDoc} */
-	public double getTrainWidth() {
-		return trainWidth;
 	}
 }

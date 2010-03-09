@@ -23,7 +23,7 @@ public class Botball {
 			}	
 			Motor.allOff();
 			Servo.disable();
-			System.exit(0);	
+			System.exit();	
 		}
 	}
 	public static void waitForLight(Analog light) {

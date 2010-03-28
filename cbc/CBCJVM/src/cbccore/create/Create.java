@@ -7,7 +7,7 @@ import cbccore.create.commands.*;
 
 
 /**
- * Allows high-level access the the create (vs cbccore.low.Create)
+ * Allows high-level access the the create (vs. cbccore.low.Create)
  * 
  * @see           cbccore.low.Create
  * @see           cbccore.movement.plugins.create.CreateMovementPlugin
@@ -56,7 +56,7 @@ public class Create {
 	}
 
 	/**
-	 * Returns Create to proper state. Call this at the end of your program.
+	 * Returns the Create to proper state. Call this at the end of your program.
 	 * 
 	 * @see #connect
 	 */
@@ -65,7 +65,7 @@ public class Create {
 	}
 
 	/**
-	 * Puts Create into passive mode (no motors)
+	 * Puts the Create into passive mode (no motors).
 	 * 
 	 * @see Create.Mode
 	 * @see #setMode
@@ -76,7 +76,7 @@ public class Create {
 	}
 	
 	/**
-	 * Change the Create's mode. Safe stops if it senses the drop sensor, Full
+	 * Changes the Create's mode. Safe stops if it senses the drop sensor, Full
 	 * will do everything ignoring safety triggers, even if it means destroying
 	 * itself. o_O
 	 * 
@@ -92,7 +92,7 @@ public class Create {
 	}
 
 	/**
-	 * Simulates a Roomba doing a spot clean
+	 * Simulates a Roomba doing a spot clean.
 	 * 
 	 * @see #cover
 	 * @see #demo
@@ -103,7 +103,7 @@ public class Create {
 	}
 
 	/**
-	 * Simulates a Roomba covering a room
+	 * Simulates a Roomba covering a room.
 	 * 
 	 * @see #spot
 	 * @see #demo
@@ -114,7 +114,7 @@ public class Create {
 	}
 
 	/**
-	 * Runs built in demos (see Create IO documentation)
+	 * Runs a specified built-in demo (see Create IO documentation).
 	 * 
 	 * @param d
 	 *            See Create IO documentation. I would normally look this up,
@@ -128,7 +128,7 @@ public class Create {
 	}
 
 	/**
-	 * Create roams around until it sees an IR dock and then attempts to dock
+	 * The Create roams around until it sees an IR dock and then attempts to dock.
 	 * 
 	 * @see #spot
 	 * @see #cover
@@ -139,7 +139,7 @@ public class Create {
 	}
 
 	/**
-	 * The Create's mode
+	 * Returns the Create's mode.
 	 * 
 	 * @return Mode.Off, Mode.Passive, Mode.Safe, or Mode.Full
 	 * @see Create.Mode

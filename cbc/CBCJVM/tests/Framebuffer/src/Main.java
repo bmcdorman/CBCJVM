@@ -7,29 +7,52 @@ import cbccore.sensors.buttons.BlackButton;
 
 public class Main {
 	public static void main(String[] args) throws InterruptedException, IOException {
-		AbstractButton button = new BlackButton();
 		Framebuffer fb0 = Display.getFramebuffer();
-		System.out.println("Running!");
+		Pixmap g = new Pixmap(5, 80, Pixel.greenPixel);
+		Pixmap r = new Pixmap(5, 80, Pixel.redPixel);
+		Pixmap b = new Pixmap(5, 80, Pixel.bluePixel);
+		Pixmap filler = new Pixmap(2, 240, new Pixel(0, 0, 0));
+		AbstractButton button = new BlackButton();
+		int x = 160 - r.getWidth() / 2;
+		int y = 120 - r.getHeight() / 2;
 		int dir = 0;
-		Image image1 = new Image(new File("skull1.bin"));
-		ImagePixmap skull1 = new ImagePixmap(image1);
+		Image image = new Image(new File("cbcdl.bin"));
+		ImagePixmap cbc = new ImagePixmap(image);
+		Drawer drawer = new Drawer(fb0);
+		int rotatingLineSize = 240;
+		Pixmap rotatingLineFiller = new Pixmap(rotatingLineSize, rotatingLineSize, new Pixel(0, 0, 0));
+		float angle = 0.f;
 		
-		Image image2 = new Image(new File("skull2.bin"));
-		ImagePixmap skull2 = new ImagePixmap(image2);
-		
-		fb0.setClean();
 		while(button.isNotPushed()) {
-			fb0.clean();
-			//System.out.println(skull1.getWidth());
 			if(dir == 0) {
-				fb0.fastBlit(160 - skull1.getWidth() / 2, 120 - skull1.getHeight() / 2, skull1);
-				dir = 1;
+				x+=2;
+				if(x + 5 >= 315) {
+					dir = 1;
+				}
 			} else {
-				fb0.fastBlit(160 - skull2.getWidth() / 2, 120 - skull2.getHeight() / 2, skull2);
-				dir = 0;
+				x-=2;
+				if(x <= 2) {
+					dir = 0;
+				}
 			}
+			
+			fb0.fastBlit(dir == 0 ? x - 2 : x + 5, 0, filler);
+			fb0.fastBlit((320>>1)-(rotatingLineSize>>1), (240>>1)-(rotatingLineSize>>1),rotatingLineFiller);
+			float sinOfAngle = (float)Math.sin(angle);
+			float cosOfAngle = (float)Math.cos(angle);
+			drawer.drawLine((int)(-cosOfAngle*(rotatingLineSize>>1)+(320>>1)),
+				(int)(-sinOfAngle*(rotatingLineSize>>1)+(240>>1)),
+				(int)(cosOfAngle*(rotatingLineSize>>1)+(320>>1)),
+				(int)(sinOfAngle*(rotatingLineSize>>1)+(240>>1)),
+				Pixel.whitePixel
+			);
+			angle += .1f;
+			fb0.fastBlit(0, 0, cbc);
+			fb0.fastBlit(x, 0, r);
+			fb0.fastBlit(x, 80, g);
+			fb0.fastBlit(x, 160, b);
+			
 			fb0.sync();
-			//Thread.sleep(750);
 		}
 	}
 }

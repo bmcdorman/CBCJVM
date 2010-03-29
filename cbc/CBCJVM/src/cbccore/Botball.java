@@ -5,7 +5,8 @@ import cbccore.sensors.analog.Analog;
 import cbccore.sensors.buttons.AButton;
 import cbccore.sensors.buttons.BButton;
 import cbccore.sensors.buttons.LeftButton;
-
+import cbccore.motors.Servo;
+import cbccore.motors.Motor;
 
 public class Botball {
 	Thread shutDownThread = null;

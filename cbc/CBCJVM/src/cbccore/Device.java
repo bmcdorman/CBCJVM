@@ -25,10 +25,10 @@ import cbccore.low.CBCSimulator;
  * It is recommended that you use the higher level libraries in
  * cbccore.movement, cbccore.motors, and cbccore.sensors
  * <p>
- * The cbccore.low classes provide a link between the cbc apis and java. They
- * are native and contain no java implementation (except the simulator). They
- * can be useful for quick porting of c code, although, it is highly encouraged
- * to do a clean port atop the CBCJVM api.
+ * The cbccore.low classes provide a link between the CBC APIs and Java. They
+ * are native and contain no Java implementation (except the simulator). They
+ * can be useful for quick porting of C code, although, it is highly encouraged
+ * to do a clean port atop the CBCJVM API.
  *
  * @author Braden McDorman / Benjamin Woodruff
  *

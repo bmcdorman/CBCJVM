@@ -30,4 +30,8 @@ public class BlackButton extends AbstractButton {
 	public boolean getValue() {
 		return lowInput.black_button() == 1;
 	}
+	@Override
+	public String toString() {
+		return "Black Button";
+	}
 }

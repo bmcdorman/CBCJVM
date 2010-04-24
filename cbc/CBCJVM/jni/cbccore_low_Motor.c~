@@ -192,7 +192,11 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Motor_get_1motor_1done(JNIEnv* env, jobj
  * Method:    get_motor_position_counter
  * Signature: (I)I
  */
+<<<<<<< HEAD:cbc/CBCJVM/jni/cbccore_low_Motor.c~
 JNIEXPORT jint JNICALL Java_cbccore_low_Motor_get_1motor_1position_1counter(JNIEnv* env, jobject obj, jint port)
+=======
+JNIEXPORT jint JNICALL Java_cbc_Servo_get_1motor_1position_1counter(JNIEnv* env, jobject obj, jint port)
+>>>>>>> 494eeceba482f184cded96df7dc9fec8953de824:cbc/CBCJVM/jni/cbccore_low_Motor.c~
 {
 #ifdef CBC
 	get_motor_position_counter(port);
@@ -253,7 +257,11 @@ JNIEXPORT jint JNICALL Java_cbccore_low_Motor_setpwm(JNIEnv* env, jobject obj, j
 JNIEXPORT jint JNICALL Java_cbccore_low_Motor_getpwm(JNIEnv* env, jobject obj, jint motor)
 {
 #ifdef CBC
+<<<<<<< HEAD:cbc/CBCJVM/jni/cbccore_low_Motor.c~
     return getpwm(motor);
+=======
+    return getpwn(motor);
+>>>>>>> 494eeceba482f184cded96df7dc9fec8953de824:cbc/CBCJVM/jni/cbccore_low_Motor.c~
 #else
     printf("Java_cbccore_low_Motor_getpwm stub\n");
     return -1;

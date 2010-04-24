@@ -30,4 +30,8 @@ public class BButton extends AbstractButton {
 	public boolean getValue() {
 		return lowInput.b_button() == 1;
 	}
+	@Override
+	public String toString() {
+		return "B Button";
+	}
 }

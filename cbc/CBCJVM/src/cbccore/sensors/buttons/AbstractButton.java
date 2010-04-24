@@ -31,4 +31,8 @@ public abstract class AbstractButton implements IBooleanSensor {
 	public boolean isNotPushed() {
 		return !getValue();
 	}
+	@Override
+	public String toString() {
+		return "Button";
+	}
 }

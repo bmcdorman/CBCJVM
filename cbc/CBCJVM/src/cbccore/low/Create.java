@@ -22,7 +22,9 @@ package cbccore.low;
  * <a href="http://github.com/kipr/cbc/blob/master/userlib/libcbc/src/create.c"> the cbc source code </a>
  * 
  * @author  Braden McDorman
- * @see     cbccore.movement.CreateDriveTrain
+ * @see     cbccore.create.Create
+ * @see     cbccore.movement.DriveTrain
+ * @see     cbccore.movement.plugins.create.CreateMovementPlugin
  */
 
 public class Create {

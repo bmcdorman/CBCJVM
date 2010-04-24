@@ -30,4 +30,8 @@ public class LeftButton extends AbstractButton {
 	public boolean getValue() {
 		return lowInput.left_button() == 1;
 	}
+	@Override
+	public String toString() {
+		return "Left Button";
+	}
 }

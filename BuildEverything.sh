@@ -2,6 +2,7 @@
 echo "[COMPILER] ------------------"
 echo "[COMPILER] Building CBCWrapper"
 cd cbc
+mvn clean install
 sh Build.sh
 cd ..
 

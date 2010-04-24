@@ -30,4 +30,8 @@ public class DownButton extends AbstractButton {
 	public boolean getValue() {
 		return lowInput.down_button() == 1;
 	}
+	@Override
+	public String toString() {
+		return "Down Button";
+	}
 }

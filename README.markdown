@@ -1,4 +1,4 @@
-Current Stable Release: 10.2; Current Development Version: 10.3
+Current Stable Release: 10.3; Current Development Version: 10.4
 -----------
 
 First off, remember that by following these instructions you may brick your CBC and void your warranty.  You have been warned.
@@ -6,8 +6,8 @@ CBCv2 ONLY
 
 Ubuntu Guide (should be similar for other *nix operating systems):
 
-To build (assuming you already have a JDK installed and Apache-Ant):
-        sudo apt-get install git-core
+To build (assuming you already have a JDK installed):
+        sudo apt-get install git-core ant maven2
         git clone git://github.com/catron/CBCJVM.git
         cd CBCJVM
         sh BuildEverything.sh
@@ -24,6 +24,9 @@ To update, just run:
 Documentation (generated upon build) is located at `CBCJVM/cbc/CBCJVM/docs/api` see the [wiki](http://wiki.github.com/catron/CBCJVM/) for more information
 
 When compiling or running custom code, be sure to set `CBCJVM/cbc/CBCJVM/bin` as your classpath!
+
+You can use maven to build the tests and to build your own programs!
+Just CD into the test directory, and provided it has a good pom.xml file (still cleaning them up and adding them to old tests) and run `mvn clean install`
 
 ### This file is part of CBCJVM. ###
 CBCJVM is free software: you can redistribute it and/or modify

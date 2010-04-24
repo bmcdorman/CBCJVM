@@ -184,4 +184,8 @@ public class CBCSimulator {
 			}
 		}
 	}
+
+	public static void NYI(String string) {
+		System.out.println("Not Yet Implemented: " + string);
+	}
 }

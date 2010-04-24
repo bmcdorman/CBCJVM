@@ -1,3 +1,21 @@
+/*
+ * This file is part of CBCJVM.
+ * CBCJVM is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * CBCJVM is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with CBCJVM.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+package cbccore.motors;
+
 import java.util.ArrayList;
 
 public class ServoMotorThread extends Thread {
@@ -8,7 +26,7 @@ public class ServoMotorThread extends Thread {
 		}
 		return instance;
 	}
-	private ArrayList<NewServoMotor> servoMotors = new ArrayList<NewServoMotor>();
+	private ArrayList<ServoMotor> servoMotors = new ArrayList<ServoMotor>();
 
 	private boolean exit = false;
 
@@ -18,7 +36,7 @@ public class ServoMotorThread extends Thread {
 		setDaemon(true);
 	}
 
-	public void addServoMotor(NewServoMotor servoMotor) {
+	public void addServoMotor(ServoMotor servoMotor) {
 		synchronized (servoMotors) {
 			servoMotors.add(servoMotor);
 		}
@@ -30,11 +48,11 @@ public class ServoMotorThread extends Thread {
 
 	@Override
 	public void run() {
-		ArrayList<NewServoMotor> removes = new ArrayList<NewServoMotor>();
+		ArrayList<ServoMotor> removes = new ArrayList<ServoMotor>();
 		while (!exit) {
 			removes.clear();
 			synchronized (servoMotors) {
-				for (NewServoMotor servoMotor : servoMotors) {
+				for (ServoMotor servoMotor : servoMotors) {
 					servoMotor.update();
 					if (!servoMotor.isMoving()) {
 						removes.add(servoMotor);

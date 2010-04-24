@@ -1,3 +1,5 @@
+package cbccore;
+
 import cbccore.config.ChoiceConfigurator;
 import cbccore.config.Choices;
 import cbccore.sensors.IBooleanSensor;

@@ -36,11 +36,11 @@ public class Event<E> extends java.util.EventObject {
 	private EventManager manager;
 	
 	public Event(EventType handle) {
-	    this(handle, null);
+		this(handle, null);
 	}
 	
 	public Event(EventType handle, Object source) {
-	    super(source);
+		super(source);
 		this.handle = handle;
 	}
 	public EventType getType() {

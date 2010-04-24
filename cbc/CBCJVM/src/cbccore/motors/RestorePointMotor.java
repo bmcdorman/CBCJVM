@@ -28,6 +28,7 @@ import java.util.List;
  */
 
 public class RestorePointMotor extends ArrayList<Integer> {
+	private static final long serialVersionUID = 8569618068678782909L;
 	
 	protected Motor controlMotor;
 	

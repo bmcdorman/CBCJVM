@@ -1,3 +1,5 @@
+package cbccore.motors;
+
 import cbccore.motors.Servo;
 import cbccore.motors.ServoMotor;
 

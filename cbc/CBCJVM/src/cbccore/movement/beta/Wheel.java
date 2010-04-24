@@ -1,3 +1,5 @@
+package cbccore.movement.beta;
+
 import cbccore.InvalidPortException;
 import cbccore.motors.Motor;
 

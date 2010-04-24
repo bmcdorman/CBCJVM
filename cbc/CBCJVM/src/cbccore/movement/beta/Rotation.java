@@ -1,3 +1,5 @@
+package cbccore.movement.beta;
+
 public class Rotation {
 	private int ticks = 0;
 

@@ -11,7 +11,7 @@
             visible="true"
             id="CBC.actionSet">
          <menu
-               label="CBC&amp;Java"
+               label="CBC&amp;JVM"
                id="cbcMenu">
             <separator
                   name="sampleGroup">
@@ -41,7 +41,7 @@
          point="org.eclipse.ui.views">
       <category
             id="CBC"
-            name="CBCJava">
+            name="CBCJVM">
       </category>
    </extension>
    <extension

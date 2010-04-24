@@ -1,3 +1,5 @@
+package cbccore.movement.beta;
+
 public class RotatingCylinder {
 	private Rotation ticks;
 	private double circumference;

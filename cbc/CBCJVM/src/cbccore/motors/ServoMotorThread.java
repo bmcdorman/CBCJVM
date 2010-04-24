@@ -1,3 +1,5 @@
+package cbccore.motors;
+
 import java.util.ArrayList;
 
 public class ServoMotorThread extends Thread {

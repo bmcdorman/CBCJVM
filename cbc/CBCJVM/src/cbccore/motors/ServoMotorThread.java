@@ -10,7 +10,7 @@ public class ServoMotorThread extends Thread {
 		}
 		return instance;
 	}
-	private ArrayList<NewServoMotor> servoMotors = new ArrayList<NewServoMotor>();
+	private ArrayList<ServoMotor> servoMotors = new ArrayList<ServoMotor>();
 
 	private boolean exit = false;
 
@@ -20,7 +20,7 @@ public class ServoMotorThread extends Thread {
 		setDaemon(true);
 	}
 
-	public void addServoMotor(NewServoMotor servoMotor) {
+	public void addServoMotor(ServoMotor servoMotor) {
 		synchronized (servoMotors) {
 			servoMotors.add(servoMotor);
 		}
@@ -32,11 +32,11 @@ public class ServoMotorThread extends Thread {
 
 	@Override
 	public void run() {
-		ArrayList<NewServoMotor> removes = new ArrayList<NewServoMotor>();
+		ArrayList<ServoMotor> removes = new ArrayList<ServoMotor>();
 		while (!exit) {
 			removes.clear();
 			synchronized (servoMotors) {
-				for (NewServoMotor servoMotor : servoMotors) {
+				for (ServoMotor servoMotor : servoMotors) {
 					servoMotor.update();
 					if (!servoMotor.isMoving()) {
 						removes.add(servoMotor);

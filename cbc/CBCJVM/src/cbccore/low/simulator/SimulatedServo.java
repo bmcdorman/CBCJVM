@@ -30,23 +30,31 @@ public class SimulatedServo extends Servo {
 	
 	protected CBCSimulator cbc;
 	
+	private int[] pos = {0, 0, 0, 0};
+	
 	public SimulatedServo(CBCSimulator c) {
 		cbc = c;
 	}
 	
 	@NotImplemented public void enable_servos() { /* powers up the servos */
-		
+		CBCSimulator.NYI("enable_servos");
 	}
 	
 	@NotImplemented public void disable_servos() { /* powers down the servos */
-		
+		CBCSimulator.NYI("disable_servos");
 	}
 	
-	@NotImplemented public int set_servo_position(int servo, int pos) { /* sets servo (1 to 4) to pos (0 to 2047) */
+	public int set_servo_position(int servo, int pos) { /* sets servo (1 to 4) to pos (0 to 2047) */
+		this.pos[servo] = pos;
+		if(pos < 0 || pos > 2048) {
+			System.out.println("Servo(" + servo + ") attempted to move to " + pos + ". Bounds: 0 - 2048");
+			pos = pos < 0 ? 0 : pos;
+			pos = pos > 2048 ? 2048 : pos;
+		}
 		return 0;
 	}
 	
-	@NotImplemented public int get_servo_position(int servo) { /* returns int of last setting for servo (1 to 4) */
-		return 0; //stub
+	public int get_servo_position(int servo) { /* returns int of last setting for servo (1 to 4) */
+		return this.pos[servo]; //stub
 	}
 }

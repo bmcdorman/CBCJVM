@@ -6,4 +6,5 @@ cbc/CBCJVM/dist
 cbc/CBCJVM/docs/api
 installer/install/install_data
 cbc/CBCJVM/target
+consoleDownload/bin
 .settings

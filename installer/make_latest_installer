@@ -1,6 +1,6 @@
 #!/bin/sh
 echo "Working..."
-rm -R install/install_data # I don't think this should follow symbolic links, dangerous
+rm -Rf install/install_data # I don't think this should follow symbolic links, dangerous
 mkdir install/install_data
 mkdir install/install_data/lib
 cp -R lib/* install/install_data/lib
@@ -9,7 +9,6 @@ cp -R jvm/* install/install_data/jvm
 mkdir install/install_data/jvm/cbc
 cp -R ../cbc/CBCJVM/bin/* install/install_data/jvm/cbc
 cp -R ../cbc/CBCJVM/jni install/install_data/jvm/cbc
-cp -R cjm install/install_data/jvm
 mkdir install/install_data/code
 mkdir install/install_data/compile
 cp -R compile/* install/install_data/compile/

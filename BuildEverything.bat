@@ -9,3 +9,7 @@ cd ..
 echo "[COMPILER] Building Installer"
 cd installer
 make_latest_installer.bat
+
+echo "[COMPILER] Building Download Tool"
+cd consoleDownload
+ant

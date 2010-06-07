@@ -10,7 +10,7 @@
 	<property name="sourceLibraries" location="lib"/>
 	<property name="targetJVM" location="${installData.dir}/jvm"/>
 	<property name="sourceJVM" location="jvm"/>
-	<property name="sourceCBCLibraries" location="">
+	<property name="sourceCBCLibraries" location=""/>
 	<property name="targetCode" location="${installData.dir}/code"/>
 	<property name="sourceCode" location="../cbc/CBCJVM/bin/cbctools"/>
 	
@@ -37,7 +37,8 @@
 		<delete dir="${installData.dir}"/>
 	</target>
 </project>
-	
+
+<!--
 mkdir install/install_data
 mkdir install/install_data/lib
 cp -R lib/* install/install_data/lib
@@ -51,3 +52,4 @@ mkdir install/install_data/code
 #cp -R HelloWorld install/install_data/code/HelloWorld/
 cp -Rf ../cbc/CBCJVM/cbc/bin/cbctests/* install/install_data/code
 echo "Done!"
+-->

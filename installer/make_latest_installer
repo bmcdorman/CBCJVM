@@ -11,6 +11,8 @@ cp -R ../cbc/CBCJVM/bin/* install/install_data/jvm/cbc
 cp -R ../cbc/CBCJVM/jni install/install_data/jvm/cbc
 cp -R cjm install/install_data/jvm
 mkdir install/install_data/code
+mkdir install/install_data/compile
+cp -R compile/* install/install_data/compile/
 #cp -R HelloWorld install/install_data/code/HelloWorld/
 cp -Rf ../cbc/CBCJVM/tests/* install/install_data/code
 echo "Done!"

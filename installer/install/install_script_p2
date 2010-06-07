@@ -26,5 +26,11 @@ cd /mnt/user/jvm/cjm
 sh ./compile
 echo "[INSTALL] Removing JNI source..."
 rm -Rf /mnt/user/jvm/cbc/jni
-echo "[INSTALL] Java Installed!"
+echo "[INSTALL] Remounting and copying compile script."
+cd /mnt/user/compile
+mount -o remount,rw /dev/sda2
+cp compile /mnt/kiss/usercode/
+cd /mnt/user
+rm -Rf compile
+echo "[INSTALL] CBCJVM Installed!"
 echo "Please run the HelloWorld Program to verify."

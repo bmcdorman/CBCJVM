@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="cbcBuilder"
+         name="CBC Project Builder"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            hasNature="true">
+         <run
+               class="cbclipse.builder.CBCBuilder">
+         </run>
+      </builder>
+   </extension>
+   <extension
+         id="cbclipse.builder.cbcNature"
+         name="CBC Project Nature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="cbclipse.builder.CBCNature">
+         </run>
+      </runtime>
+      <builder
+            id="CBClipse.cbcBuilder">
+      </builder>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            id="CBClipse.contribution1"
+            nameFilter="*"
+            objectClass="org.eclipse.core.resources.IProject">
+         <action
+               class="cbclipse.builder.ToggleNatureAction"
+               enablesFor="+"
+               id="CBClipse.addRemoveNatureAction"
+               label="Add/Remove CBC Nature"
+               menubarPath="additions">
+         </action>
+      </objectContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="cbclipse.preferences.CBCPreferencePage"
+            id="cbclipse.preferences.CBCPreferencePage"
+            name="CBC/CBCJVM">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="cbclipse.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="CBClipse"
+            name="CBClipse">
+      </category>
+      <view
+            category="CBClipse"
+            class="cbclipse.views.CBCView"
+            icon="icons/sample.gif"
+            id="cbclipse.views.CBCView"
+            name="CBC View">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               id="cbclipse.views.CBCView"
+               ratio="0.5"
+               relationship="right"
+               relative="org.eclipse.ui.views.TaskList">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+   <extension id="cbclipse.markers.IPMarker" point="org.eclipse.core.resources.markers" name="IP Marker"> 
+      <persistent value="true"/> 
+      <super type="org.eclipse.core.resources.problemmarker"/> 
+      <attribute name="owner"/> 
+   </extension>
+   <extension
+         point="org.eclipse.ui.propertyPages">
+      <page
+            class="cbclipse.properties.CBCPropertyPage"
+            id="cbclipse.properties.cbcPropertyPage"
+            name="CBC Connection"
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IProject">
+         	<filter name="nature"
+					value="cbclipse.builder.cbcNature"/>
+			</page>
+   </extension>
+
+</plugin>

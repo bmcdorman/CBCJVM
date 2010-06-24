@@ -310,7 +310,7 @@ public class Create {
 	 * 
 	 * @param  speed  20-500mm/s. Speed of edge (wheels) of bot.
 	 * @param  angle  Angle in degrees to turn before returning. <p>
-	 *                   <b>CAUTION: requesting the robot to spin more than
+	 *                   <b>CAUTION: requesting thce robot to spin more than
 	 *                                about 3600 degrees may never terminate</b>
 	 * @return        -1 if error
 	 * @see           #create_spin_CW
@@ -421,7 +421,7 @@ public class Create {
 	
 	
 	
-	// public native int create_read_block(char* data, int count);
+	public native int create_read_block(byte[] buffer, int count);
 	
 	
 	

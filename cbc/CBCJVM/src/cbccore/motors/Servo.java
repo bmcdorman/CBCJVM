@@ -49,4 +49,8 @@ public class Servo {
 	public int setPosition(int pos) {
 		return lowServo.set_servo_position(port, pos);
 	}
+	
+	public int getPort() {
+		return port;
+	}
 }

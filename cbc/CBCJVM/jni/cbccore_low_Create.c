@@ -572,6 +572,24 @@ JNIEXPORT void JNICALL Java_cbccore_low_Create_create_1play_1song(JNIEnv *env, j
 
 /*
  * Class:     cbccore_low_Create
+ * Method:    create_read_block
+ * Signature: ([CI)I
+ */
+JNIEXPORT jint JNICALL Java_cbccore_low_Create_create_1read_1block(JNIEnv *env, jobject obj, jbyteArray data, jint count)
+{
+#ifdef CBC
+	char cdata[count];
+    jint ret = create_read_block(cdata, count);
+	(*env)->SetByteArrayRegion(env, data, 0, count, (jbyte*)cdata);
+	return ret;
+#else
+    printf("Java_cbccore_low_Create_create_1read_1block stub\n");
+	return -1;
+#endif
+}
+
+/*
+ * Class:     cbccore_low_Create
  * Method:    create_write_byte
  * Signature: (C)V
  */

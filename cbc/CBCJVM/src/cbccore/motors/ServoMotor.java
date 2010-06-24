@@ -37,6 +37,7 @@ public class ServoMotor {
 	public void moveTo(int ms, int newPos) {
 		curPos = servo.getPosition();
 		delta = newPos - curPos;
+		if(delta == 0) return;
 		begin = System.currentTimeMillis();
 		moving = true;
 		this.ms = ms;
@@ -54,7 +55,8 @@ public class ServoMotor {
 
 		double frac = ((double) delta / (double) ms);
 		int y = (int) (frac * (System.currentTimeMillis() - begin) + curPos);
-		if (y > curPos + delta) {
+		
+		if ((delta > 0 && y > curPos + delta) || (delta < 0 && y < curPos + delta)) {
 			y = curPos + delta;
 			moving = false;
 		}

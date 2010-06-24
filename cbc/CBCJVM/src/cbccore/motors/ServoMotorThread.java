@@ -38,6 +38,7 @@ public class ServoMotorThread extends Thread {
 
 	public void addServoMotor(ServoMotor servoMotor) {
 		synchronized (servoMotors) {
+			System.out.println("Added servo motor.");
 			servoMotors.add(servoMotor);
 		}
 	}

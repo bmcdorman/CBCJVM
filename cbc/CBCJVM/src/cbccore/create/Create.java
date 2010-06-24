@@ -5,45 +5,42 @@ import java.io.IOException;
 import cbccore.Device;
 import cbccore.create.commands.*;
 
-
 /**
  * Allows high-level access the the create (vs. cbccore.low.Create)
  * 
- * @see           cbccore.low.Create
- * @see           cbccore.movement.plugins.create.CreateMovementPlugin
- * @see           cbccore.movement.DriveTrain
+ * @see cbccore.low.Create
+ * @see cbccore.movement.plugins.create.CreateMovementPlugin
+ * @see cbccore.movement.DriveTrain
  */
 public class Create {
 	public class ConnectionException extends IOException {
 		private static final long serialVersionUID = -7364867572058696574L;
 	}
-	
+
 	public enum Mode {
-		Safe,
-		Passive,
-		Full,
-		Off
+		Safe, Passive, Full, Off
 	}
-	
-	private static cbccore.low.Create lowCreate = Device.getLowCreateController();
+
+	private static cbccore.low.Create lowCreate = Device
+			.getLowCreateController();
 	private static LowSideDrivers lowSideDrivers = new LowSideDrivers(lowCreate);
 
 	public Create() throws ConnectionException {
 		connect();
 	}
-	
+
 	@Override
 	public void finalize() {
 		disconnect();
 	}
-	
+
 	public void sendScript(Script script) {
 		Script s = (Script) script.clone();
-		for(Command c : s) {
+		for (Command c : s) {
 			c.add(this);
 		}
 	}
-	
+
 	/**
 	 * First step for connecting CBC to Create. This function puts the Create in
 	 * the safe mode.
@@ -52,7 +49,8 @@ public class Create {
 	 */
 	public void connect() throws ConnectionException {
 		int ret = lowCreate.create_connect();
-		if(ret < 0) throw new ConnectionException();
+		if (ret < 0)
+			throw new ConnectionException();
 	}
 
 	/**
@@ -74,21 +72,26 @@ public class Create {
 	public void start() {
 		lowCreate.create_start();
 	}
-	
+
 	/**
 	 * Changes the Create's mode. Safe stops if it senses the drop sensor, Full
 	 * will do everything ignoring safety triggers, even if it means destroying
 	 * itself. o_O
 	 * 
-	 * @param  m  Mode.Off, Mode.Passive, Mode.Safe, or Mode.Full
-	 * @see       Create.Mode
-	 * @see       #setMode
+	 * @param m
+	 *            Mode.Off, Mode.Passive, Mode.Safe, or Mode.Full
+	 * @see Create.Mode
+	 * @see #setMode
 	 */
 	public void setMode(Mode m) {
-		if(m == Mode.Safe) lowCreate.create_safe();
-		else if(m == Mode.Passive) lowCreate.create_passive();
-		else if(m == Mode.Full) lowCreate.create_full();
-		else lowCreate.create_safe();
+		if (m == Mode.Safe)
+			lowCreate.create_safe();
+		else if (m == Mode.Passive)
+			lowCreate.create_passive();
+		else if (m == Mode.Full)
+			lowCreate.create_full();
+		else
+			lowCreate.create_safe();
 	}
 
 	/**
@@ -128,7 +131,8 @@ public class Create {
 	}
 
 	/**
-	 * The Create roams around until it sees an IR dock and then attempts to dock.
+	 * The Create roams around until it sees an IR dock and then attempts to
+	 * dock.
 	 * 
 	 * @see #spot
 	 * @see #cover
@@ -147,10 +151,14 @@ public class Create {
 	 */
 	public Mode getMode() {
 		int m = lowCreate.create_mode();
-		if(m == 0) return Mode.Off;
-		if(m == 1) return Mode.Passive;
-		if(m == 2) return Mode.Safe;
-		if(m == 3) return Mode.Full;
+		if (m == 0)
+			return Mode.Off;
+		if (m == 1)
+			return Mode.Passive;
+		if (m == 2)
+			return Mode.Safe;
+		if (m == 3)
+			return Mode.Full;
 		return Mode.Off;
 	}
 
@@ -248,7 +256,7 @@ public class Create {
 	public int spinBlock(int speed, int angle) {
 		return lowCreate.create_spin_block(speed, angle);
 	}
-	
+
 	// public int _get_raw_encoders(long* lenc, long* renc);
 
 	/**
@@ -260,7 +268,7 @@ public class Create {
 	 * @see #powerLed
 	 */
 	public void advanceLed(boolean on) {
-		lowCreate.create_advance_led(on?1:0);
+		lowCreate.create_advance_led(on ? 1 : 0);
 	}
 
 	/**
@@ -272,7 +280,7 @@ public class Create {
 	 * @see #powerLed
 	 */
 	public void playLed(boolean on) {
-		lowCreate.create_play_led(on?1:0);
+		lowCreate.create_play_led(on ? 1 : 0);
 	}
 
 	/**
@@ -305,7 +313,7 @@ public class Create {
 	 * A 0 or 1 should be given for each of the drivers to turn them off or on.
 	 * You probably don't care about this function.
 	 * 
-	 * @return   An instance of LowSideDrivers
+	 * @return An instance of LowSideDrivers
 	 */
 	public LowSideDrivers getLowSideDrivers() {
 		return lowSideDrivers;
@@ -346,7 +354,7 @@ public class Create {
 	public int getDistance() {
 		return lowCreate.create_distance();
 	}
-	
+
 	/**
 	 * See Create IO Documentation. You probably don't care about this function.
 	 * 
@@ -355,66 +363,119 @@ public class Create {
 	 * @see #clearSerialBuffer
 	 */
 	public void writeByte(int write_byte) {
-		char c = (char)write_byte;
+		char c = (char) write_byte;
 		lowCreate.create_write_byte(c);
 	}
 
 	public void clearSerialBuffer() {
 		lowCreate.create_clear_serial_buffer();
 	}
-	
+
 	public static byte fromUnsigned(int c) {
 		return (byte) ((c > 127) ? c - 256 : c);
 	}
-	
-	
+
+	public static int fromSigned(byte c) {
+		return c & 0xFF;
+	}
+
 	/**
 	 * Moves the create a set number of mm at a set speed. You should probably
 	 * be using the movement library.
 	 * 
-	 * @param  speed  The number of seconds to travel for. (shouldn't this be
-	 *                    changed to mmps to make range checking easier on the
-	 *                    user?)
-	 * @param  mm     The number of mm for the create to move.
-	 * @see           #turnDeg
-	 * @see           cbccore.movement.DriveTrain
-	 * @see           cbccore.movement.plugins.create.CreateMovementPlugin
-	 * @see           cbccore.movement.DriveTrain#moveCm
+	 * @param speed
+	 *            The number of seconds to travel for. (shouldn't this be
+	 *            changed to mmps to make range checking easier on the user?)
+	 * @param mm
+	 *            The number of mm for the create to move.
+	 * @see #turnDeg
+	 * @see cbccore.movement.DriveTrain
+	 * @see cbccore.movement.plugins.create.CreateMovementPlugin
+	 * @see cbccore.movement.DriveTrain#moveCm
 	 */
 	public void moveMm(int speed, int mm) {
 		driveStraight(speed);
-		double mmps = (double)mm / Math.abs(speed);
+		double mmps = (double) mm / Math.abs(speed);
 		try {
-			Thread.sleep(130); //what is this?
-			Thread.sleep((int)(mmps * 1000));
+			Thread.sleep(130); // what is this?
+			Thread.sleep((int) (mmps * 1000));
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 		stop();
 	}
-	
-	
+
 	/**
 	 * Moves the create a set number of degrees at a set speed. You should
 	 * probably be using the movement library.
 	 * 
-	 * @param  speed  The number of seconds to travel for. (shouldn't this be
-	 *                    changed to degrees-per-sec to make range checking
-	 *                    easier on the user?)
-	 * @param  deg    The number of degrees for the create to turn.
-	 * @see           #turnDeg
-	 * @see           cbccore.movement.DriveTrain
-	 * @see           cbccore.movement.plugins.create.CreateMovementPlugin
-	 * @see           cbccore.movement.DriveTrain#rotateDegrees
+	 * @param speed
+	 *            The number of seconds to travel for. (shouldn't this be
+	 *            changed to degrees-per-sec to make range checking easier on
+	 *            the user?)
+	 * @param deg
+	 *            The number of degrees for the create to turn.
+	 * @see #turnDeg
+	 * @see cbccore.movement.DriveTrain
+	 * @see cbccore.movement.plugins.create.CreateMovementPlugin
+	 * @see cbccore.movement.DriveTrain#rotateDegrees
 	 */
 	public void turnDeg(int speed, int deg) {
-		//deg = (int) ((double)deg * .85);
-		if(deg < 0) {
+		// deg = (int) ((double)deg * .85);
+		if (deg < 0) {
 			lowCreate.create_spin_CW(speed);
 		} else {
 			lowCreate.create_spin_CCW(speed);
 		}
 		lowCreate.create_spin_block(speed, deg);
-		//shouldn't you stop it here? or does the create handle that for you?
+		// shouldn't you stop it here? or does the create handle that for you?
+	}
+
+	public CliffState getCliffs() {
+		byte buffer[] = new byte[12];
+		writeByte(149);
+		writeByte(8);
+		writeByte(9);
+		writeByte(10);
+		writeByte(11);
+		writeByte(12);
+		writeByte(28);
+		writeByte(29);
+		writeByte(30);
+		writeByte(31);
+		lowCreate.create_read_block(buffer, buffer.length);
+		int leftCliff = buffer[0];
+		int leftFrontCliff = buffer[1];
+		int rightFrontCliff = buffer[2];
+		int rightCliff = buffer[3];
+		int leftCliffAmount = fromSigned(buffer[4]) << 8;
+		leftCliffAmount |= fromSigned(buffer[5]) << 0;
+		int leftFrontCliffAmount = fromSigned(buffer[6]) << 8;
+		leftFrontCliffAmount |= fromSigned(buffer[7]);
+		int rightFrontCliffAmount = fromSigned(buffer[8]) << 8;
+		rightFrontCliffAmount |= fromSigned(buffer[9]);
+		int rightCliffAmount = fromSigned(buffer[10]) << 8;
+		rightCliffAmount |= fromSigned(buffer[11]);
+		
+		return new CliffState(rightCliff, rightFrontCliff, leftCliff, leftFrontCliff, 
+				rightCliffAmount, rightFrontCliffAmount, 
+				leftCliffAmount, leftFrontCliffAmount);
+	}
+	
+	private int gc_angle = 0;
+	
+	public int getAngle() {
+		byte buffer[] = new byte[2];
+			writeByte(142);
+			writeByte(20);
+			lowCreate.create_read_block(buffer, buffer.length);
+			int newangle = fromSigned(buffer[0]) << 8;
+			newangle |= fromSigned(buffer[1]);
+			if(newangle > 32767){ //if this was meant to be a negative 16 bit int
+				newangle=newangle - 65536;//convert from 16 bit 2's complement to 32bit int
+			}
+			gc_angle = (gc_angle + newangle) % 360;
+			if(gc_angle < 0) gc_angle = gc_angle + 360;
+			return gc_angle;
 	}
 }

@@ -16,6 +16,11 @@
 
 package cbccore.low.simulator;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
+import javax.swing.JFrame;
+
 import cbccore.low.CBCSimulator;
 import cbccore.low.Create;
 import cbccore.NotImplemented;
@@ -35,12 +40,20 @@ public class SimulatedCreate extends Create {
 	public double radiansPerSecond;
 	public double forwardSpeed;
 	public double width;
+	
+	private JFrame simFrame = new JFrame("Create World");
+
+	private int x = 0;
+	private int y = 0;
+	
+	private Queue<Integer> buffer = new LinkedList<Integer>();
 
 	public SimulatedCreate(CBCSimulator c) {
 		cbc = c;
 	}
 
 	public int create_connect() {
+		simFrame.setVisible(true);
 		return 0;
 	}
 
@@ -157,14 +170,28 @@ public class SimulatedCreate extends Create {
 		forwardSpeed = speed / 10.;
 	}
 
-	@NotImplemented
+	public char HIGH_BYTE(int b) {
+		return (char) ((b & 0x0000FF00) >> 8);
+	}
+	
+	public char LOW_BYTE(int b) {
+		return (char) ((b & 0x000000FF) >> 0);
+	}
+	
 	public void create_spin_CW(int speed) {
-		// stub
+		create_write_byte(137);
+		create_write_byte(HIGH_BYTE(speed));
+		create_write_byte(LOW_BYTE(speed));
+		create_write_byte(HIGH_BYTE(-1));
+		create_write_byte(LOW_BYTE(-1));
 	}
 
-	@NotImplemented
 	public void create_spin_CCW(int speed) {
-		// stub
+		create_write_byte(137);
+		create_write_byte(HIGH_BYTE(speed));
+		create_write_byte(LOW_BYTE(speed));
+		create_write_byte(HIGH_BYTE(1));
+		create_write_byte(LOW_BYTE(1));
 	}
 
 	@NotImplemented
@@ -219,7 +246,12 @@ public class SimulatedCreate extends Create {
 	}
 
 	// public int create_read_block(char* data, int count) {
-	@NotImplemented
+
+	public void create_write_byte(int write_byte) {
+		create_write_byte((char)write_byte);
+	}
+
+	
 	public void create_write_byte(char write_byte) {
 		System.out.println((int)write_byte);
 	}
@@ -227,6 +259,14 @@ public class SimulatedCreate extends Create {
 	@NotImplemented
 	public void create_clear_serial_buffer() {
 		// stub
+	}
+	
+	public int getX() {
+		return x;
+	}
+	
+	public int getY() {
+		return y;
 	}
 
 	private String getBits(char value) {

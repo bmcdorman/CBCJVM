@@ -34,14 +34,15 @@ public class CreateMovementPlugin extends MovementPlugin {
 	private double efficiency;
 	//private double leftCmps = 0.;
 	//private double rightCmps = 0.;
-	private Create create = new Create();
+	private Create create = null;
 	
 	
 	/**
 	 * Basic constructor
 	 */
-	public CreateMovementPlugin(double efficiency, boolean fullMode) throws IOException {
+	public CreateMovementPlugin(Create create, double efficiency, boolean fullMode) throws IOException {
 		super(DEFAULT_TRAIN_WIDTH);
+		this.create = create;
 		create.connect();
 		this.efficiency = efficiency;
 		// FIXME: This should be moved to it's own method

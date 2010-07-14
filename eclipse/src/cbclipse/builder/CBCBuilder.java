@@ -11,11 +11,15 @@ import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import cbcdownloader.CommunicationException;
+import cbclipse.Connection;
 import cbclipse.ConnectionManager;
 import cbclipse.properties.CBCPropertyPage;
+import cbclipse.properties.ConnectionInfo;
 
 public class CBCBuilder extends IncrementalProjectBuilder {
 	
@@ -42,7 +46,7 @@ public class CBCBuilder extends IncrementalProjectBuilder {
 					break;
 				}
 			} catch (CommunicationException e) {
-				System.err.println(e.getMessage());
+				throw new CoreException(new Status(IStatus.ERROR, BUILDER_ID, "Communication with CBC failed, not downloaded", new RuntimeException()));
 			}
 			return true;
 		}
@@ -81,16 +85,18 @@ public class CBCBuilder extends IncrementalProjectBuilder {
 				incrementalBuild(delta, monitor);
 			}
 		}
-		ConnectionManager.disconnect();
+		if(ConnectionManager.getConnection(getProject()) != null)
+		ConnectionManager.getConnection(getProject()).disconnect();
 		return null;
 	}
 
 	protected void fullBuild(final IProgressMonitor monitor)
 			throws CoreException {
 		IJavaProject jP = JavaCore.create(getProject());
-		if(!ConnectionManager.isDownloaderSet()) {
+		Connection c = ConnectionInfo.getConnection(getProject());
+		if(c == null || !c.isDownloaderSet()) {
 			System.out.println("Downloader not set, skipping CBC Builder..");
-			return;
+			throw new CoreException(new Status(IStatus.WARNING, BUILDER_ID, "Downloader not set in project properties.", new RuntimeException()));
 		}
 		
 		try {
@@ -105,9 +111,10 @@ public class CBCBuilder extends IncrementalProjectBuilder {
 	protected void incrementalBuild(IResourceDelta delta,
 			IProgressMonitor monitor) throws CoreException {
 		IJavaProject jP = JavaCore.create(getProject());
-		if(!ConnectionManager.isDownloaderSet()) {
+		Connection c = ConnectionInfo.getConnection(getProject());
+		if(c == null || !c.isDownloaderSet()) {
 			System.out.println("Downloader not set, skipping CBC Builder..");
-			return;
+			throw new CoreException(new Status(IStatus.WARNING, BUILDER_ID, "Downloader not set in project properties.", new RuntimeException()));
 		}
 		
 		monitor.beginTask("Sending to CBC", 3);

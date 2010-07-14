@@ -22,6 +22,7 @@ import cbcdownloader.Downloader;
 import cbcdownloader.DummyDownloader;
 import cbcdownloader.NetworkDownloader;
 import cbcdownloader.USBDownloader;
+import cbclipse.Connection;
 import cbclipse.ConnectionManager;
 
 public class CBCPropertyPage extends PropertyPage {
@@ -31,16 +32,9 @@ public class CBCPropertyPage extends PropertyPage {
 	private Text textField = null;
 	private Label property = null;
 	private Combo downloader = null;
-	private Downloader[] downloaders = new Downloader[] {
-			new NetworkDownloader(), new USBDownloader(), new DummyDownloader() };
-	private Downloader current = null;
+	private Connection current = null;
 
-	public static QualifiedName qualifiedDownloadName = new QualifiedName("",
-			"DOWNLOADER");
-	public static QualifiedName qualifiedPropertyName = new QualifiedName("",
-			"PROPERTY");
-	public static QualifiedName qualifiedPropertyValue = new QualifiedName("",
-			"PROPERTY_VALUE");
+	
 
 	/**
 	 * Constructor for SamplePropertyPage.
@@ -58,24 +52,54 @@ public class CBCPropertyPage extends PropertyPage {
 
 		downloader = new Combo(composite, SWT.READ_ONLY);
 
-		downloader.setItems(new String[] { downloaders[0].toString(),
-				downloaders[1].toString(), downloaders[2].toString() });
-		downloader.select(0);
+		downloader.setItems(new String[] { 
+				ConnectionInfo.downloaders[0].toString(),
+				ConnectionInfo.downloaders[1].toString(), 
+				ConnectionInfo.downloaders[2].toString() 
+				});
+		
+		try {
+			current = ConnectionInfo.getConnection((IResource)getElement());
+		} catch (CoreException e2) {
+			e2.printStackTrace();
+		}
+		
+		int i = 0;
+		for(String item : downloader.getItems()) {
+			if(item.equals(current.getDownloader().toString())) {
+				downloader.select(i);
+			}
+			++i;
+		}
+		
 		downloader.setSize(300, 50);
 
 		downloader.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				System.out.println("Select called");
-				if (property == null)
-					return;
-				for (Downloader d : downloaders) {
+				if (current == null) {
+					try {
+						current = ConnectionInfo.getConnection((IResource)getElement());
+					} catch (CoreException e1) {
+						e1.printStackTrace();
+					}
+				}
+				Downloader down = null;
+				for (Downloader d : ConnectionInfo.downloaders) {
 					if (downloader.getText().equals(d.toString())) {
-						current = d;
+						down = d;
 						break;
 					}
 				}
-				property.setText(current.getConfigurationObject()
-						.getRequirements().toArray()[0].toString());
+				if(down == null) return;
+				current.setDownloader(down, down.getConfigurationObject());
+				try {
+					ConnectionInfo.save((IResource)getElement(), current);
+				} catch (CoreException e1) {
+					e1.printStackTrace();
+				}
+				
+				property.setText(current.getConfig().getRequirements().toArray()[0].toString());
 				property.update();
 				property.redraw();
 			}
@@ -97,31 +121,16 @@ public class CBCPropertyPage extends PropertyPage {
 		property.setText("");
 
 		try {
-			String selection = ((IResource) getElement())
-					.getPersistentProperty(qualifiedDownloadName);
-			int i = 0;
+			current = ConnectionInfo.getConnection((IResource)getElement());
 
-			if (selection == null)
-				selection = downloaders[2].toString();
-			for (Downloader d : downloaders) {
-				if (selection.equals(d.toString())) {
-					current = d;
-					downloader.select(i);
-					break;
-				}
-				++i;
-			}
-
-			String text = new ArrayList<String>(current
-					.getConfigurationObject().getRequirements()).get(0);
-			for (i = text.length(); i < 10; ++i) {
+			String text = current.getConfig().getRequirements().toArray()[0].toString();
+			for (int i = text.length(); i < 10; ++i) {
 				text += " ";
 			}
 			property.setText(text);
 
 			textField = new Text(composite, SWT.SINGLE | SWT.BORDER);
-			String value = ((IResource) getElement())
-					.getPersistentProperty(qualifiedPropertyValue);
+			String value = current.getConfig().getValueFor(text.trim());
 			if (value == null)
 				value = "";
 			textField.setText(value);
@@ -134,13 +143,7 @@ public class CBCPropertyPage extends PropertyPage {
 		textField.setLayoutData(gd);
 	}
 
-	private DownloadConfiguration getConfig() {
-		if (current == null)
-			return null;
-		DownloadConfiguration config = current.getConfigurationObject();
-		config.setValueFor(property.getText().trim(), textField.getText());
-		return config;
-	}
+	
 
 	/**
 	 * @see PreferencePage#createContents(Composite)
@@ -178,17 +181,11 @@ public class CBCPropertyPage extends PropertyPage {
 	}
 
 	public boolean performOk() {
-		// store the value in the owner text field
 		if (current == null)
 			return false;
 		try {
-			((IResource) getElement()).setPersistentProperty(
-					qualifiedDownloadName, current.toString());
-			((IResource) getElement()).setPersistentProperty(
-					qualifiedPropertyName, property.getText());
-			((IResource) getElement()).setPersistentProperty(
-					qualifiedPropertyValue, textField.getText());
-			ConnectionManager.setDownloader(current, getConfig());
+			current.getConfig().setValueFor(property.getText().trim(), textField.getText().trim());
+			ConnectionInfo.save((IResource)getElement(), current);
 		} catch (CoreException e) {
 			return false;
 		}

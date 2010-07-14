@@ -13,6 +13,9 @@ public class CreateFirmware extends Thread {
 	private double vel = 0.0;
 	private double distance = 0.0;
 	private double angle = 0.0;
+	private double dpa = 0.0;
+	private double x = 0.0;
+	private double y = 0.0;
 	private long lastUpdate = 0;
 
 	public static CreateFirmware get() {
@@ -65,29 +68,30 @@ public class CreateFirmware extends Thread {
 		}
 			
 		long delta = System.currentTimeMillis() - lastUpdate;
+		double oldDistance = distance;
 		distance += vel * ((double)delta / 1000.0);
 		lastUpdate = System.currentTimeMillis();
+		angle += dpa * (distance - oldDistance);
 	}
 	
 	@Override
 	public void run() {
 		while (!exit) {
 			update();
-			int op = poll(); 
+			int op = poll();
 			switch(op) {
 			case 137: // Drive
 				eat8();
 				int v = eat16();
 				int r = eat16();
 				double half = (WHEEL_DIAMETER / 2);
-				double cl = (r - half) * 2 * Math.PI; 
-				double cr = (r + half) * 2 * Math.PI; 
-				leftVel = cl / v;
-				rightVel = cr / v;
+				leftVel = ((r - half) * v) / r;
+				rightVel = ((r + half) * v) / r;
 				vel = v;
+				dpa = (Math.PI * r * 2) / 360; 
 				break;
 			case 157:
-				
+				dpa = 0.0;
 				break;
 			
 			}

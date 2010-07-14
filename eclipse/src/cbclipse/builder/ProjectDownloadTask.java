@@ -8,18 +8,16 @@ import cbcdownloader.Downloader;
 import cbclipse.ConnectionManager;
 
 public class ProjectDownloadTask extends DownloadTask {
-
-	IJavaProject project = null;
 	
 	public ProjectDownloadTask(IJavaProject project) {
-		this.project = project;
+		super(project);
 	}
 	
 	@Override
 	public void executeFirst() throws CommunicationException {
 		try {
-			System.out.println("mkdir -p \"" + Downloader.PROJECT_DIRECTORY + project.getOutputLocation().toPortableString() + "\"");
-			ConnectionManager.getDownloader().execute("mkdir -p \"" + Downloader.PROJECT_DIRECTORY + project.getOutputLocation().toPortableString() + "\"");
+			System.out.println("mkdir -p \"" + Downloader.PROJECT_DIRECTORY + resource.getOutputLocation().toPortableString() + "\"");
+			ConnectionManager.getConnection(resource.getProject()).getDownloader().execute("mkdir -p \"" + Downloader.PROJECT_DIRECTORY + resource.getOutputLocation().toPortableString() + "\"");
 		} catch (CommunicationException e) {
 			e.printStackTrace();
 		} catch (JavaModelException e) {
@@ -33,7 +31,7 @@ public class ProjectDownloadTask extends DownloadTask {
 	}
 
 	public IJavaProject getProject() {
-		return project;
+		return resource;
 	}
 
 }

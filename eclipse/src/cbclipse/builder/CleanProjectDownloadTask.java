@@ -13,7 +13,7 @@ public class CleanProjectDownloadTask extends ProjectDownloadTask {
 	}
 	
 	public void executeFirst() throws CommunicationException {
-		ConnectionManager.getDownloader().execute("rm -Rf \"" + Downloader.PROJECT_DIRECTORY + "/" + project.getProject().getName() + "\"");
+		ConnectionManager.getConnection(resource.getProject()).getDownloader().execute("rm -Rf \"" + Downloader.PROJECT_DIRECTORY + "/" + resource.getProject().getName() + "\"");
 		super.executeFirst();
 	}
 

@@ -8,3 +8,4 @@ installer/install/install_data
 cbc/CBCJVM/target
 consoleDownload/bin
 .settings
+.DS_Store

@@ -26,8 +26,24 @@ import cbccore.sensors.buttons.LeftButton;
 import cbccore.motors.Servo;
 import cbccore.motors.Motor;
 
+/**
+ * A class that is primarily used in the Botball tournament. It provides
+ * several useful functions specific for that tournament.
+ */
+
 public class Botball {
 	Thread shutDownThread = null;
+
+	/**
+	 * Creates a new thread and terminates all movement of the robot after
+	 * the time limit (set in the constructor) has been reached.
+	 */
+
+	public void shutDownIn(double secs) {
+		shutDownThread = new Thread(new ShutDownIn(secs));
+		shutDownThread.start();
+	}
+
 	private class ShutDownIn implements Runnable {
 		double secs = 0.0;
 		public ShutDownIn(double secs) {
@@ -45,6 +61,15 @@ public class Botball {
 			System.exit(0);	
 		}
 	}
+
+	/**
+	 * This function calibrates and then waits for the difference to be
+	 * greater than an average of the two calibration readings (the
+	 * threshold between lights on and lights off). It does this by looping
+	 * infinitely and updating the sensor reading, then comparing it to the
+	 * threshold value.
+	 */
+
 	public static void waitForLight(Analog light) {
 		Choices choices = new Choices();
 		choices.put(0, "Calibrate Light ON");
@@ -72,9 +97,5 @@ public class Botball {
 			System.exit(1);
 		}
 		while(light.getValueHigh() > lightOn + (delta / 2));
-	}
-	public void shutDownIn(double secs) {
-		shutDownThread = new Thread(new ShutDownIn(secs));
-		shutDownThread.start();
 	}
 }

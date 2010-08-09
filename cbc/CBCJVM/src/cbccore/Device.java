@@ -49,13 +49,13 @@ public class Device {
 
 	static {
 		//we could probably shorten this, some duplication
-    	try {
-    		if(System.getProperty("CBC") == null) throw new Exception();
-    		System.load("/mnt/user/jvm/cbc/CBC.so");
-    	}
-    	catch(Exception e) {
-    		onCBC = false;
-    	}
+		try {
+			if(System.getProperty("CBC") == null) throw new Exception();
+			System.load("/mnt/user/jvm/cbc/CBC.so");
+		}
+		catch(Exception e) {
+			onCBC = false;
+		}
 		try {
 			if(onCBC) {
 				System.out.println("On CBC!");
@@ -85,13 +85,11 @@ public class Device {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
+
 	/**
-	 * Getter for the CBCSimulator object, you probably don't want this. It
-	 * should, in theory remain invisible. Checking this for null could be handy
-	 * to see if you should activate a simulator work-around.
+	 * Getter for the CBCSimulator object. You probably don't want this. It
+	 * should, in theory, remain invisible. Checking this for null could be
+	 * handy to see if you should activate a simulator work-around.
 	 *
 	 * @return  returns null if not in simulator mode, otherwise the simulator controller
 	 * @see     cbccore.low.CBCSimulator
@@ -155,7 +153,7 @@ public class Device {
 		return lowCamera;
 	}
 
-    /**
+	/**
 	 * Getter for the low level Device object. It is recommended you use a
 	 * higher level library. (Not to be confused with this "Device" class)
 	 *
@@ -199,6 +197,11 @@ public class Device {
 		return lowSensors;
 	}
 	
+	/**
+	 * Getter for the onCBC variable.
+	 *
+	 * @return  an boolean: true if the current device is the CBC, else false.
+	 */
 	public static boolean isOnCBC() {
 		return onCBC;
 	}

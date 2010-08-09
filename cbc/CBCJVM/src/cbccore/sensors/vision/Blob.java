@@ -17,7 +17,10 @@
 package cbccore.sensors.vision;
 
 /**
- * Todo: Document this.
+ * This is the higher level Blob object that refers to each individual blob on
+ * the Camera object's currently processed frame. Use this in unison wih
+ * BlobList instead of the low-level API. This class adds several features to
+ * the low-level API such as finding the most logical continuation of a blob.
  *
  * @author  Benjamin Woodruff
  * @see     Camera
@@ -50,9 +53,9 @@ public class Blob {
 	}
 	
 	/**
-	 * Finds the most probable continuation of the blob
+	 * Finds the most probable continuation of the blob.
 	 * 
-	 * @return   true if successful, false if not
+	 * @return   A boolean: true if successful, false if not.
 	 */
 	public boolean update() {
 		if(camera.getFrameNumber() == frame) { return false; }
@@ -83,10 +86,7 @@ public class Blob {
 		camera.removeUpdateLock();
 		return true;
 	}
-	
-	
-	
-	
+
 	/**
 	 * A helper method for updating or changing a blob's data to a new index
 	 * 
@@ -109,97 +109,64 @@ public class Blob {
 		bboxHeight = camera.__getBlobHeight(channel, index);
 		confidence = camera.__getBlobConfidence(channel, index);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+
 	//***********************
 	//****  Accessors  ******
 	//***********************
-	
-	
-	
+
+	// TODO: Fix documentation (possibly copy it from KISS' current docs?).
+
 	public int getX() {
 		return x;
 	}
-	
-	
-	
+
 	public int getY() {
 		return y;
 	}
-	
-	
-	
+
 	public float getAngle() {
 		return angle;
 	}
-	
-	
 	
 	public int getMajorAxis() {
 		return majorAxis;
 	}
 	
-	
-	
 	public int getMinorAxis() {
 		return minorAxis;
 	}
-	
-	
 	
 	public int getSize() {
 		return size;
 	}
 	
-	
-	
 	public int getBboxBottom() {
 		return bboxBottom;
 	}
-	
-	
 	
 	public int getBboxTop() {
 		return bboxTop;
 	}
 	
-	
-	
 	public int getBboxLeft() {
 		return bboxLeft;
 	}
-	
-	
 	
 	public int getBboxRight() {
 		return bboxRight;
 	}
 	
-	
-	
 	public int getWidth() {
 		return bboxWidth;
 	}
-	
-	
 	
 	public int getHeight() {
 		return bboxHeight;
 	}
 	
-	
-	
 	public int getConfindence() {
 		return confidence;
 	}
-	
-	
 	
 	public int getChannel() {
 		return channel;

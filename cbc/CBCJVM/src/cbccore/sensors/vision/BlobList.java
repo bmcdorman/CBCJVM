@@ -19,7 +19,7 @@ package cbccore.sensors.vision;
 import java.util.AbstractList;
 
 /**
- * Todo: Document this.
+ * Returns an AbstractList of Blobs in the current frame of the Camera object.
  *
  * @author  Benjamin Woodruff
  * @see     Camera

@@ -17,8 +17,8 @@
 package cbccore;
 
 /**
- * Ports for motors are 0-3, digital is 0-7, analog is 8-14. (or something like
- * that) Check your ports!
+ * Ports for motors are 0-3. Digital outputs are 0-7, while analog outputs are
+ * 8-15. Check your ports!
  *
  * @author Braden McDorman
  */

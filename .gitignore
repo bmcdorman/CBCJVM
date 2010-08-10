@@ -8,4 +8,11 @@ installer/install/install_data
 cbc/CBCJVM/target
 consoleDownload/bin
 .settings
-.DS_Store
+.DS_Store?
+*.log
+*.out
+*.sql
+*.sqlite
+ehthumbs.db
+Icon?
+Thumbs.db

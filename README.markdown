@@ -1,3 +1,5 @@
+This fork of CBCJVM is no longer being maintained. Please go here: https://github.com/CBCJVM/CBCJVM/ instead.
+
 Current Stable Release: 10.3; Current Development Version: 10.4
 -----------
 
